@@ -101,6 +101,17 @@
         "auth.knownPremiumDenyOffline": true,
         "auth.allowOfflineForUnknownOnly": true
       }
+    },
+    {
+      "format": "properties",
+      "path": "config/economy-storage.properties",
+      "targets": [
+        "client",
+        "server"
+      ],
+      "values": {
+        "tankCapacity": 512000
+      }
     }
   ]
 }

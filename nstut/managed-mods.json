@@ -11,11 +11,11 @@
     {
       "id": "economy",
       "name": "Economy",
-      "version": "0.0.14",
+      "version": "0.0.15",
       "repository": "UpperMoon0/Economy",
-      "fileName": "economy-forge-1.20.1-0.0.14.jar",
-      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.14/economy-forge-1.20.1-0.0.14.jar",
-      "sha256": "5d50c0fa5a937c20742ba239091c376b6302e84d16b262443bffa947fc3d66c6",
+      "fileName": "economy-forge-1.20.1-0.0.15.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.15/economy-forge-1.20.1-0.0.15.jar",
+      "sha256": "de544a0fa53fc65561dc3c417bd2fedc0bd96c488e234b85ba1eb58b170d1565",
       "installTargets": [
         "client",
         "server"
@@ -194,11 +194,11 @@
     {
       "id": "celestial-nail",
       "name": "Celestial Nail",
-      "version": "0.1.3",
+      "version": "0.1.5",
       "repository": "UpperMoon0/Celestial-Nail",
-      "fileName": "celestial-nail-forge-1.20.1-0.1.3.jar",
-      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.3/celestial-nail-forge-1.20.1-0.1.3.jar",
-      "sha256": "e95252ae5624638621504f8d5a25e6bb39aae1b768cef351c6934ca9a347a7a2",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.5.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.5/celestial-nail-forge-1.20.1-0.1.5.jar",
+      "sha256": "cdeb869fdac8cbb6dc032e4627613425f5d035d5b82ea4135c9b031d278d49f4",
       "installTargets": [
         "client",
         "server"

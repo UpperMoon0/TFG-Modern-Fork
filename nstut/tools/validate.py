@@ -520,6 +520,25 @@ def main() -> int:
                 fail(f"{rel} does not enforce {key}=1000000")
 
     generated = load(NSTUT / "modpack-manager.patch.json")
+    economy_path = "config/economy-storage.properties"
+    if (ROOT / economy_path).read_text().splitlines()[-1] != "tankCapacity=512000":
+        fail("native Economy config must set 512 buckets (512000 mB)")
+    economy_ops = [x for x in generated["operations"] if x.get("destination") == economy_path]
+    if len(economy_ops) != 1 or economy_ops[0].get("type") != "patchProperties" or economy_ops[0].get("values") != {"tankCapacity": 512000} or economy_ops[0].get("targets") != ["client", "server"] or economy_ops[0].get("skipIfMissing") is not False:
+        fail("Economy storage must use one semantic capacity patch on clients and servers")
+    with tempfile.TemporaryDirectory() as directory:
+        storage = Path(directory) / "config/economy-storage.properties"
+        storage.parent.mkdir()
+        original = b"# custom storage\r\ntankCapacity=128000\r\nallowExternalAutomation=true\r\ncustomSetting=keep\r\n"
+        storage.write_bytes(original)
+        patcher_module.replace_properties_values(storage, {"tankCapacity": 512000}, True)
+        if storage.read_bytes() != original:
+            fail("Economy dry-run changed the config")
+        patcher_module.replace_properties_values(storage, {"tankCapacity": 512000}, False)
+        if storage.read_bytes() != original.replace(b"128000", b"512000"):
+            fail("Economy patch changed unrelated storage settings")
+        if patcher_module.replace_properties_values(storage, {"tankCapacity": 512000}, False):
+            fail("Economy capacity patch is not idempotent")
     speaker_ops = [
         operation for operation in generated["operations"]
         if operation.get("type") == "patchToml"
