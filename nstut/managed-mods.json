@@ -11,11 +11,11 @@
     {
       "id": "economy",
       "name": "Economy",
-      "version": "0.0.15",
+      "version": "0.0.16",
       "repository": "UpperMoon0/Economy",
-      "fileName": "economy-forge-1.20.1-0.0.15.jar",
-      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.15/economy-forge-1.20.1-0.0.15.jar",
-      "sha256": "de544a0fa53fc65561dc3c417bd2fedc0bd96c488e234b85ba1eb58b170d1565",
+      "fileName": "economy-forge-1.20.1-0.0.16.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.16/economy-forge-1.20.1-0.0.16.jar",
+      "sha256": "d2073f9e2dc113b2a96ed19df7f3f49595baaa93d6ba361f0cbace188824df08",
       "installTargets": [
         "client",
         "server"

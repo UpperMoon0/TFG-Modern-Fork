@@ -5880,16 +5880,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "economy-forge-1.20.1-0.0.15.jar",
+                    "file_name": "economy-forge-1.20.1-0.0.16.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.15/economy-forge-1.20.1-0.0.15.jar",
-                    "id": "607881545",
+                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.16/economy-forge-1.20.1-0.0.16.jar",
+                    "id": "609436394",
                     "parent_id": "1169139940",
                     "hashes": {
-                        "sha256": "de544a0fa53fc65561dc3c417bd2fedc0bd96c488e234b85ba1eb58b170d1565"
+                        "sha256": "d2073f9e2dc113b2a96ed19df7f3f49595baaa93d6ba361f0cbace188824df08"
                     },
-                    "size": 725622,
-                    "date_published": "2026-10-03T13:45:18Z"
+                    "size": 725717,
+                    "date_published": "2026-10-04T08:22:16Z"
                 }
             ]
         },
@@ -9122,8 +9122,8 @@
                 "modrinth": "ihearttfc"
             },
             "name": {
-                "curseforge": "I Γ¥ñ TFC (I Heart TFC)",
-                "modrinth": "I Γ¥ñ TFC (I Heart TFC)"
+                "curseforge": "I Î“Â¥Ã± TFC (I Heart TFC)",
+                "modrinth": "I Î“Â¥Ã± TFC (I Heart TFC)"
             },
             "id": {
                 "curseforge": "1118578",
@@ -10059,8 +10059,8 @@
                 "modrinth": "jade"
             },
             "name": {
-                "curseforge": "Jade ≡ƒöì",
-                "modrinth": "Jade ≡ƒöì"
+                "curseforge": "Jade â‰¡Æ’Ã¶Ã¬",
+                "modrinth": "Jade â‰¡Æ’Ã¶Ã¬"
             },
             "id": {
                 "curseforge": "324717",
@@ -12626,8 +12626,8 @@
                 "modrinth": "particular-reforged"
             },
             "name": {
-                "curseforge": "Particular Γ£¿ Reforged",
-                "modrinth": "Particular Γ£¿ Reforged"
+                "curseforge": "Particular Î“Â£Â¿ Reforged",
+                "modrinth": "Particular Î“Â£Â¿ Reforged"
             },
             "id": {
                 "curseforge": "1219053",
