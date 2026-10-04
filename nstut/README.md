@@ -52,11 +52,11 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Overlay 0.13.10-nstut.28
+## Overlay 0.13.10-nstut.29
 
-All 11 managed mods were checked against compatible stable Forge 1.20.1 releases on 2026-10-04. Economy is updated to 0.0.15 and Celestial Nail to 0.1.5; the other nine managed mods are current. The two updated JARs were downloaded and their SHA-256 hashes verified against GitHub release asset digests. Celestial Nail 0.1.5 requires Perfomant Boom 1.1.3 or newer within 1.x, satisfied by the current pin.
+All 11 managed mods were checked against compatible stable Forge 1.20.1 releases on 2026-10-04. Economy is updated to 0.0.16 and Celestial Nail to 0.1.5; the other nine managed mods are current. The two updated JARs were downloaded and their SHA-256 hashes verified against GitHub release asset digests. Celestial Nail 0.1.5 requires Perfomant Boom 1.1.3 or newer within 1.x, satisfied by the current pin.
 
-Economy Tank capacity is 512 buckets (`tankCapacity=512000`, in mB) in `config/economy-storage.properties`. Fresh client/server exports include this config. Modpack Manager and the existing-server fallback patch only this key, preserving other storage settings such as `allowExternalAutomation`. Restart the game or server after applying the update. Modpack Manager 1.0.6 already supports the generated property patch; no app rebuild is required.
+Economy Tank capacity is 512 buckets (`tankCapacity=512000`, in mB) in `config/economy-storage.properties`. Fresh client/server exports include this config. Modpack Manager and the existing-server fallback patch only this key, preserving other storage settings such as `allowExternalAutomation`. Economy 0.0.16 upgrades already-placed tanks when they load on the server; stored fluid and larger saved capacities are preserved. Restart the game or server after applying the update. Modpack Manager 1.0.6 already supports the generated property patch; no app rebuild is required.
 
 Server exports and existing-server overlays set `online-mode=false`. Only that property is managed; existing world names, ports, MOTDs, and other properties remain intact. Simply Speakers uploads are limited to 100 MiB (`maxUploadSize=104857600`) on clients, singleplayer, and servers. The server keeps its existing 512-block speaker range.
 
@@ -68,4 +68,4 @@ Upstream installation and authentication details: https://github.com/YuWan-030/T
 
 With the server and wake service stopped, preview `python3 nstut/tools/prepare-premium-identities.py <server-root>`, then repeat with `--apply` to reserve cached premium names that have existing v4 UUID saves. The tool reads Java world-name syntax, preserves existing bindings, refuses conflicting UUIDs or malformed registries, ignores offline IDs and cache entries without saves, and changes only the server-private TrueUUID registry. It refuses to proceed if any saved premium UUID has no reserved name; restore its username cache or confirm and bind that identity first. Back up the world and identity files before changing login policy. A real premium-client join is still required to verify the complete login and gameplay path.
 
-Merge the pack changes through the release-construction branch, tag its final reviewed commit as `nstut-0.13.10.28`, and promote it through the existing stable gate.
+Merge the pack changes through the release-construction branch, tag its final reviewed commit as `nstut-0.13.10.29`, and promote it through the existing stable gate.
