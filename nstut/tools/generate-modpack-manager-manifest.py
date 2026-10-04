@@ -15,6 +15,7 @@ NSTUT = ROOT / "nstut"
 GENERATED = NSTUT / "modpack-manager.patch.json"
 
 SEMANTIC_PATHS = {
+    "config/economy-storage.properties",
     ".pakku/server-overrides/config/trueuuid-common.toml",
     ".pakku/server-overrides/server.properties",
     "config/simplyspeakers-common.toml",
