@@ -330,6 +330,12 @@
         },
         "YuWan-030/TrueUUID": {
             "update_strategy": "NONE"
+        },
+        "littletiles": {
+            "update_strategy": "NONE"
+        },
+        "foodvariations": {
+            "update_strategy": "NONE"
         }
     },
     "export_server_side_projects_to_client": true

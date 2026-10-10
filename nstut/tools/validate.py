@@ -171,6 +171,25 @@ def main() -> int:
         if not isinstance(cleanup_patterns, list) or not cleanup_patterns:
             fail(f"{cfg_key} must declare at least one cleanup pattern")
 
+    # These gameplay additions must remain present in BOTH Pakku and the managed patch.
+    # Their transitive requirements already exist in the base pack.
+    for mod_id, repo_key, dependency_slug in (
+        ("littletiles", "modrinth:littletiles", "creativecore"),
+        ("spice-of-life-classic", "modrinth:foodvariations", "architectury-api"),
+    ):
+        selected = [item for item in managed["mods"] if item["id"] == mod_id]
+        if len(selected) != 1 or selected[0]["repository"] != repo_key:
+            fail(f"{mod_id} must be pinned in managed-mods.json")
+        dependency = next(
+            (item for item in lock["projects"]
+             if (item.get("slug") or {}).get("modrinth") == dependency_slug), None
+        )
+        if not dependency or not any(
+            "1.20.1" in f.get("mc_versions", []) and "forge" in f.get("loaders", [])
+            for f in dependency.get("files", [])
+        ):
+            fail(f"{mod_id} requires a compatible Forge 1.20.1 {dependency_slug} dependency")
+
     for client_key in ("UpperMoon0/OpenUI-MC", "UpperMoon0/Create-Precise-Controls"):
         if (config_projects.get(client_key) or {}).get("side") != "CLIENT":
             fail(f"{client_key} must remain client-only")
