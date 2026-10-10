@@ -5880,16 +5880,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "economy-forge-1.20.1-0.0.16.jar",
+                    "file_name": "economy-forge-1.20.1-0.0.17.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.16/economy-forge-1.20.1-0.0.16.jar",
-                    "id": "609436394",
+                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.17/economy-forge-1.20.1-0.0.17.jar",
+                    "id": "626106088",
                     "parent_id": "1169139940",
                     "hashes": {
-                        "sha256": "d2073f9e2dc113b2a96ed19df7f3f49595baaa93d6ba361f0cbace188824df08"
+                        "sha256": "dc5c5b353d2af80db2513d22983bdd60ff90a6abc50437afaa09b2551c9d0447"
                     },
-                    "size": 725717,
-                    "date_published": "2026-10-04T08:22:16Z"
+                    "size": 726886,
+                    "date_published": "2026-10-09T20:33:55Z"
                 }
             ]
         },
@@ -14236,16 +14236,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simplyspeakers-forge-1.20.1-0.8.3.jar",
+                    "file_name": "simplyspeakers-forge-1.20.1-0.8.4.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.3/simplyspeakers-forge-1.20.1-0.8.3.jar",
-                    "id": "533653688",
+                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.4/simplyspeakers-forge-1.20.1-0.8.4.jar",
+                    "id": "619532336",
                     "parent_id": "936467663",
                     "hashes": {
-                        "sha256": "12496acc396a28d19aade3229a7bb37f155fc35981fbf80c0de2b074a3cfda5e"
+                        "sha256": "399424ff060237d935c7ce2fd4630d730986661267ce118eadebeb454bad29d7"
                     },
-                    "size": 404866,
-                    "date_published": "2026-08-28T10:44:04Z"
+                    "size": 736844,
+                    "date_published": "2026-10-07T18:59:37Z"
                 }
             ]
         },
@@ -17776,6 +17776,87 @@
                     },
                     "size": 296603,
                     "date_published": "2026-09-13T23:43:19Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "NsTLittleTiles01",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "littletiles"
+            },
+            "name": {
+                "modrinth": "LittleTiles"
+            },
+            "id": {
+                "modrinth": "RCRxC1tD"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge",
+                        "neoforge"
+                    ],
+                    "release_type": "beta",
+                    "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+                    "id": "sBbUjEhq",
+                    "parent_id": "RCRxC1tD",
+                    "hashes": {
+                        "sha512": "e9bf001062959a729165c12a6858a6be8349c503840e06240a065dbabaf0d005ce9275589dc2c8cbe44474be0a2f94353f44cc67376ae00d79284aa4ff8e991f",
+                        "sha1": "858d2de167f660c491632ed9727292b418ca804a",
+                        "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4"
+                    },
+                    "required_dependencies": [
+                        "OsZiaDHq"
+                    ],
+                    "size": 2623590,
+                    "date_published": "2025-06-03T09:47:08.827551Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "NsTSoLClassic001",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "foodvariations"
+            },
+            "name": {
+                "modrinth": "Spice of Life: Classic Edition"
+            },
+            "id": {
+                "modrinth": "Utos7Mlk"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "spiceoflife_classic-forge-2.13.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
+                    "id": "b3ujNB9U",
+                    "parent_id": "Utos7Mlk",
+                    "hashes": {
+                        "sha512": "caff0ea2649b28a3d72dae22c1ecdf756178e3d04c2756c2bac5d567889f94872443f4a67d4d844da6aebc0ff42af1a765e82b01c38ec16429a00dd735e57d5a",
+                        "sha1": "d0ed921636aba3c8a235e14187747dce8300f88c",
+                        "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336"
+                    },
+                    "required_dependencies": [
+                        "lhGA9TYQ"
+                    ],
+                    "size": 122039,
+                    "date_published": "2026-09-07T18:33:00.653713Z"
                 }
             ]
         }
