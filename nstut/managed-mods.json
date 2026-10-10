@@ -11,11 +11,11 @@
     {
       "id": "economy",
       "name": "Economy",
-      "version": "0.0.16",
+      "version": "0.0.17",
       "repository": "UpperMoon0/Economy",
-      "fileName": "economy-forge-1.20.1-0.0.16.jar",
-      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.16/economy-forge-1.20.1-0.0.16.jar",
-      "sha256": "d2073f9e2dc113b2a96ed19df7f3f49595baaa93d6ba361f0cbace188824df08",
+      "fileName": "economy-forge-1.20.1-0.0.17.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.17/economy-forge-1.20.1-0.0.17.jar",
+      "sha256": "dc5c5b353d2af80db2513d22983bdd60ff90a6abc50437afaa09b2551c9d0447",
       "installTargets": [
         "client",
         "server"
@@ -90,11 +90,11 @@
     {
       "id": "simply-speakers",
       "name": "Simply Speakers",
-      "version": "0.8.3",
+      "version": "0.8.4",
       "repository": "UpperMoon0/Simply-Speakers",
-      "fileName": "simplyspeakers-forge-1.20.1-0.8.3.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.3/simplyspeakers-forge-1.20.1-0.8.3.jar",
-      "sha256": "12496acc396a28d19aade3229a7bb37f155fc35981fbf80c0de2b074a3cfda5e",
+      "fileName": "simplyspeakers-forge-1.20.1-0.8.4.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.4/simplyspeakers-forge-1.20.1-0.8.4.jar",
+      "sha256": "399424ff060237d935c7ce2fd4630d730986661267ce118eadebeb454bad29d7",
       "installTargets": [
         "client",
         "server"
@@ -230,6 +230,48 @@
       ],
       "cleanupPatterns": [
         "mods/trueuuid-*.jar"
+      ]
+    },
+    {
+      "id": "littletiles",
+      "name": "LittleTiles",
+      "version": "1.6.0-pre161",
+      "repository": "modrinth:littletiles",
+      "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/LittleTiles_*.jar",
+        "mods/littletiles-*.jar"
+      ]
+    },
+    {
+      "id": "spice-of-life-classic",
+      "name": "Spice of Life: Classic Edition",
+      "version": "2.13",
+      "repository": "modrinth:foodvariations",
+      "fileName": "spiceoflife_classic-forge-2.13.jar",
+      "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
+      "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/spiceoflife_classic-*.jar",
+        "mods/spiceoflife-classic-*.jar"
       ]
     }
   ]
