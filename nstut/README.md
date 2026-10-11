@@ -52,13 +52,13 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Prepared overlay 0.13.10-nstut.32 (blocked draft)
+## Prepared overlay 0.13.10-nstut.32 (staging required)
 
 Repository preparation only. No deployment tag, release, stable promotion, or live patch is included. See [the preparation and migration checklist](PATCH-0.13.10.32.md) and [the complete custom-mod audit](custom-mod-audit-0.13.10.32.json).
 
-Simply Speakers is updated to 0.9.0 and Celestial Nail to 0.1.6. The other seven pack-installed custom mods already match their latest published releases. Third-party pins and runtime configuration remain unchanged.
+Economy is updated to 0.0.18, Simply Speakers to 0.9.0 and Celestial Nail to 0.1.6. The other six previously installed custom mods already match their latest published releases. Third-party pins and runtime configuration remain unchanged.
 
-SpiceOfLife-Integrations is tracked in [pending-integrations.json](pending-integrations.json), but is not an installable pack entry yet: its reviewed draft has no published artifact. Do not promote this preparation until that prerequisite and the documented packaged/full-pack staging checks are complete. Never combine the standalone addon with the emergency binary-patched Classic jar.
+SpiceOfLife-Integrations 0.1.0 is now pinned from its published GitHub release on both clients and servers. The release uses the exact reviewed addon tree and CI artifact hash. [pending-integrations.json](pending-integrations.json) retains the remaining packaged/full-pack staging requirement; do not promote this preparation before that evidence is reviewed. Never combine the standalone addon with the emergency binary-patched Classic jar.
 
 ## Previous overlay 0.13.10-nstut.31
 

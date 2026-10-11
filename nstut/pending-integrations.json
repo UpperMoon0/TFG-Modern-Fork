@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "overlayVersion": "0.13.10-nstut.32",
-  "status": "blocked-do-not-promote",
+  "status": "artifact-pinned-staging-required",
   "integrations": [
     {
       "id": "spice-of-life-integrations",
@@ -22,15 +22,19 @@
       "cleanupPatterns": [
         "mods/solintegrations-*.jar"
       ],
-      "artifactStatus": "No published release exists; not enabled in Pakku or deployment manifest.",
+      "artifactStatus": "Published v0.1.0 pinned in Pakku and both-side managed deployment manifest.",
       "ciArtifactSha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
       "requiredClassicVersion": "2.13",
       "requiredOriginalClassicSha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
       "blockers": [
-        "Publish an approved immutable release after addon review; this pack-preparation request does not authorize merging or releasing the addon.",
-        "Verify the exact released reobfuscated jar in isolated packaged-server/client and full TFG staging.",
-        "Replace this pending record with synchronized Pakku and managed artifact pins only after the release URL, asset ID, bytes, dependencies and digest are verified."
-      ]
+        "Verify the exact released reobfuscated jar in isolated packaged-server/client and full TFG staging before promotion."
+      ],
+      "releaseUrl": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/tag/v0.1.0",
+      "releaseCommit": "a5ff8595eedc69dac065a280f71af47146a6e92d",
+      "assetId": 630015843,
+      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
+      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "downloadedJarVerified": true
     }
   ]
 }

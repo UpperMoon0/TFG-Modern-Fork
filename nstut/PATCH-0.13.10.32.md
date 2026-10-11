@@ -1,6 +1,6 @@
 # Overlay 0.13.10-nstut.32: repository preparation
 
-Status: **BLOCKED DRAFT. Do not tag, promote or deploy.** This preparation changes repository files only; it does not install mods, restart a server, or mutate a game world.
+Status: **REPOSITORY PREPARATION COMPLETE; STAGING REQUIRED. Do not tag, promote or deploy.** This preparation changes repository files only; it does not install mods, restart a server, or mutate a game world.
 
 ## Custom-mod audit
 
@@ -8,7 +8,7 @@ On 2026-10-11, all nine UpperMoon0-owned projects in the Pakku lock and managed 
 
 | Custom mod | Previous | Prepared |
 | --- | --- | --- |
-| Economy | 0.0.17 | unchanged |
+| Economy | 0.0.17 | 0.0.18 |
 | OpenUI MC | 0.0.12 | unchanged, client only |
 | Create: Precise Controls | 0.1.1 | unchanged, client only |
 | Simply Screens | 0.8.9 | unchanged |
@@ -17,23 +17,25 @@ On 2026-10-11, all nine UpperMoon0-owned projects in the Pakku lock and managed 
 | Building Gadgets Extra | 0.0.4 | unchanged |
 | Perfomant Boom | 1.1.3 | unchanged |
 | Celestial Nail | 0.1.5 | 0.1.6 |
+| Spice of Life Integrations | absent | 0.1.0 |
 
-The two new Forge 1.20.1 jars were downloaded and independently hashed; both match their GitHub release digests. Their packaged `META-INF/mods.toml` declarations were inspected. Speakers requires Architectury >=9.2.14, OpenUI >=0.0.12 on the client, and Patchouli; the pack already has Architectury 9.2.14, OpenUI 0.0.12 and Patchouli 1.20.1-85-FORGE. Nail requires Architectury >=9.2.14 and Boom >=1.1.3,<2.0.0; both are satisfied. Forge 47.4.13 and Minecraft 1.20.1 remain unchanged. Neither update adds a new dependency or changes installation sides.
+The new Speakers and Nail Forge 1.20.1 jars were downloaded and independently hashed; both match their GitHub release digests. Their packaged `META-INF/mods.toml` declarations were inspected. Speakers requires Architectury >=9.2.14, OpenUI >=0.0.12 on the client, and Patchouli; the pack already has Architectury 9.2.14, OpenUI 0.0.12 and Patchouli 1.20.1-85-FORGE. Nail requires Architectury >=9.2.14 and Boom >=1.1.3,<2.0.0; both are satisfied. Forge 47.4.13 and Minecraft 1.20.1 remain unchanged. Neither update adds a new dependency or changes installation sides.
+
+Economy 0.0.18 was published after the approved PR #37 merge at `f0cb1a5589b8ef9fdf099cb266e986e39a0b448e`. The exact Forge asset is pinned with SHA-256 `0c3f7a183b22ab4cf644482bbf5bb7e6ac7421a9bb91312ab4102d4c4c6aacff`. Downloaded Economy bytes match that digest and size 727633. Packaged metadata requires Forge [47,48), Minecraft [1.20.1,1.21) and client OpenUI >=0.0.12, satisfied by the pack. It includes the reopened-market crash fix; repository preparation leaves existing storage and UI settings unchanged.
 
 Extra Gauges, TrueUUID, LittleTiles and original Spice of Life Classic remain pinned exactly as before. No unrelated third-party update was requested or performed. The audit does not imply newer unpublished custom-mod source has been released.
 
-## Spice of Life integration prerequisite
+## Spice of Life integration release and staging
 
-The requested standalone addon is staged as a **pending integration**, not a fake downloadable artifact. As checked on 2026-10-11, [addon PR #1](https://github.com/UpperMoon0/SpiceOfLife-Integrations/pull/1) remains draft at `38df6144d34b8ad81db26f928513f6c3bf43ab5a`, and the repository has no published GitHub release. `pending-integrations.json` records its intended identity, both-side installation and cleanup rules, reviewed source and CI artifact hash. It is deliberately outside the active Pakku and deployment manifests.
+The approved addon PR was merged at `a5ff8595eedc69dac065a280f71af47146a6e92d`, preserving the exact reviewed tree from `38df6144d34b8ad81db26f928513f6c3bf43ab5a`. [Release v0.1.0](https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/tag/v0.1.0) was published on 2026-10-11 after [all release CI gates passed](https://github.com/UpperMoon0/SpiceOfLife-Integrations/actions/runs/38118693429). GitHub asset 630015843 is `solintegrations-0.1.0.jar`, 674610 bytes, SHA-256 `ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d`, matching the earlier tested CI artifact.
 
-The addon PR records passing 46 JUnit tests, 81 Python checks and five development GameTest profiles on that exact head. The combined development profile uses a documented test-only bootstrap. These checks do **not** establish normal packaged dedicated-server/client startup, full TFG Core 0.9.23 behavior or production readiness.
+The published JAR was independently downloaded and hashed: exact SHA-256 and size match the GitHub digest, release provenance/checksum receipts and previously tested CI artifact. Packaged metadata requires original Classic [2.13], Forge [47.4.13,48) and Minecraft [1.20.1], all satisfied. Jar-in-Jar metadata is present and no GameTest fixtures or TFC/Sophisticated implementation classes are bundled.
 
-Before completing this patch:
+The addon is now an active, version-pinned entry in Pakku and the managed client/server manifest. Old `solintegrations-*.jar` copies are cleaned on both sides. No expiring Actions URL or guessed release URL is used. `pending-integrations.json` retains release provenance and the remaining staging blocker; artifact availability is no longer a blocker.
 
-1. Obtain explicit approval for any addon merge/release, complete its review and publish the approved immutable release. This pack-preparation request does not authorize that separate publication.
-2. Download the release's reobfuscated `solintegrations` jar; verify exact bytes, release asset ID, provenance, SHA-256, Minecraft/Forge and dependency metadata. Do not substitute an expiring Actions URL, unreviewed source build or guessed release URL.
-3. Add synchronized entries to `pakku.json`, `pakku-lock.json` and `nstut/managed-mods.json`, pin `update_strategy: NONE`, install on client and server and clean old addon versions on both sides. Regenerate the deployment manifest. Remove the pending blocker only when these steps and staging are evidenced.
-4. Run the addon's [packaged and full-pack validation matrix](https://github.com/UpperMoon0/SpiceOfLife-Integrations/blob/38df6144d34b8ad81db26f928513f6c3bf43ab5a/docs/VALIDATION.md) in isolated instances. Current pack versions match the reviewed targets: Classic 2.13, TFC 3.2.25, Sophisticated Core 1.3.84.2308 and Backpacks 3.24.67.2109.
+The exact addon tree has passing 46 JUnit tests, 81 Python checks and five development GameTest profiles. The combined development profile uses a documented test-only bootstrap. These checks do **not** establish normal packaged dedicated-server/client startup, full TFG Core 0.9.23 behavior or production readiness.
+
+Before promotion, run the addon's [packaged and full-pack validation matrix](https://github.com/UpperMoon0/SpiceOfLife-Integrations/blob/a5ff8595eedc69dac065a280f71af47146a6e92d/docs/VALIDATION.md) in isolated instances. Current pack versions match the reviewed targets: Classic 2.13, TFC 3.2.25, Sophisticated Core 1.3.84.2308 and Backpacks 3.24.67.2109. No new integration configuration is imposed; packaged metadata and source inspection are separate from gameplay validation.
 
 ## Future migration warning
 
@@ -49,4 +51,4 @@ Rollback requires restoring the matching previous mod/config set and the verifie
 
 Run `python nstut/tools/generate-modpack-manager-manifest.py`, then `python nstut/tools/validate.py` and `git diff --check`. The existing validator includes client/server boundary and generated-manifest checks plus isolated temporary-directory dry-run, semantic-config preservation and idempotence fixtures. It does not test Minecraft gameplay.
 
-The preparation branch is based on current stable `2a257a58e0e9ef38d8cac5103be2f4178efeed65`; the current `nstut/0.13.10` construction head has the identical tree. Submit a draft PR into the construction branch, not the production pointer. `nstut-0.13.10.32` is only a reserved future source reference and is deliberately not created here. Raw file URLs referencing it cannot be downloaded until an authorized final tag is published. Keep existing promotion checks intact; resolve the pending addon and staging blockers before requesting promotion.
+The preparation branch is based on current stable `2a257a58e0e9ef38d8cac5103be2f4178efeed65`; the current `nstut/0.13.10` construction head has the identical tree. Submit a draft PR into the construction branch, not the production pointer. `nstut-0.13.10.32` is only a reserved future source reference and is deliberately not created here. Raw file URLs referencing it cannot be downloaded until an authorized final tag is published. Keep existing promotion checks intact; resolve the remaining staging blocker before requesting promotion.

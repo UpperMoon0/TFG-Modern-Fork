@@ -13,9 +13,9 @@
   "artifacts": [
     {
       "id": "economy",
-      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.17/economy-forge-1.20.1-0.0.17.jar",
-      "sha256": "dc5c5b353d2af80db2513d22983bdd60ff90a6abc50437afaa09b2551c9d0447",
-      "fileName": "economy-forge-1.20.1-0.0.17.jar"
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.18/economy-forge-1.20.1-0.0.18.jar",
+      "sha256": "0c3f7a183b22ab4cf644482bbf5bb7e6ac7421a9bb91312ab4102d4c4c6aacff",
+      "fileName": "economy-forge-1.20.1-0.0.18.jar"
     },
     {
       "id": "openui",
@@ -88,6 +88,12 @@
       "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
       "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
       "fileName": "spiceoflife_classic-forge-2.13.jar"
+    },
+    {
+      "id": "spice-of-life-integrations",
+      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
+      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "fileName": "solintegrations-0.1.0.jar"
     },
     {
       "id": "fork-b33be5cbe1b980b9",
@@ -186,7 +192,7 @@
     {
       "type": "installFile",
       "artifact": "economy",
-      "destination": "mods/economy-forge-1.20.1-0.0.17.jar",
+      "destination": "mods/economy-forge-1.20.1-0.0.18.jar",
       "targets": [
         "client",
         "server"
@@ -453,6 +459,23 @@
       "type": "installFile",
       "artifact": "spice-of-life-classic",
       "destination": "mods/spiceoflife_classic-forge-2.13.jar",
+      "targets": [
+        "client",
+        "server"
+      ]
+    },
+    {
+      "type": "removeMatching",
+      "pattern": "mods/solintegrations-*.jar",
+      "targets": [
+        "client",
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "spice-of-life-integrations",
+      "destination": "mods/solintegrations-0.1.0.jar",
       "targets": [
         "client",
         "server"
