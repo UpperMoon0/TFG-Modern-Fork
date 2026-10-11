@@ -336,6 +336,10 @@
         },
         "foodvariations": {
             "update_strategy": "NONE"
+        },
+        "UpperMoon0/SpiceOfLife-Integrations": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
         }
     },
     "export_server_side_projects_to_client": true
