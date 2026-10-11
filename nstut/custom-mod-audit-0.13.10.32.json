@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-11T06:00:00Z",
+  "baseCommit": "2a257a58e0e9ef38d8cac5103be2f4178efeed65",
+  "scope": "All nine UpperMoon0-owned projects in the pack manifests; unrelated third-party pins unchanged.",
+  "mods": [
+    {
+      "repository": "UpperMoon0/Economy",
+      "beforeVersion": "0.0.17",
+      "afterVersion": "0.0.17",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/Economy/releases/tag/v0.0.17",
+      "fileName": "economy-forge-1.20.1-0.0.17.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.17/economy-forge-1.20.1-0.0.17.jar",
+      "sha256": "dc5c5b353d2af80db2513d22983bdd60ff90a6abc50437afaa09b2551c9d0447",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/OpenUI-MC",
+      "beforeVersion": "0.0.12",
+      "afterVersion": "0.0.12",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/OpenUI-MC/releases/tag/v0.0.12",
+      "fileName": "openui-mc-forge-1.20.1-0.0.12.jar",
+      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.12/openui-mc-forge-1.20.1-0.0.12.jar",
+      "sha256": "9a58b71322d96b044c32db758ad2594c73c54d75e8a16ad1218b5aa28c58d3d9",
+      "installTargets": [
+        "client"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Create-Precise-Controls",
+      "beforeVersion": "0.1.1",
+      "afterVersion": "0.1.1",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/tag/v0.1.1",
+      "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.1.1/create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "installTargets": [
+        "client"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Simply-Screens",
+      "beforeVersion": "0.8.9",
+      "afterVersion": "0.8.9",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/Simply-Screens/releases/tag/v0.8.9",
+      "fileName": "simply_screens-forge-1.20.1-0.8.9.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.9/simply_screens-forge-1.20.1-0.8.9.jar",
+      "sha256": "d37e7ba7c78a51a0d086dfc21fee326de1bc5f66103a50da065aa3fbee97b662",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Simply-Speakers",
+      "beforeVersion": "0.8.4",
+      "afterVersion": "0.9.0",
+      "status": "updated",
+      "releaseUrl": "https://github.com/UpperMoon0/Simply-Speakers/releases/tag/v0.9.0",
+      "fileName": "simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "downloaded-bytes-and-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/CreateHorsePower-CE",
+      "beforeVersion": "1.2.7",
+      "afterVersion": "1.2.7",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/tag/v1.2.7",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.7.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
+      "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Building-Gadgets-Extra",
+      "beforeVersion": "0.0.4",
+      "afterVersion": "0.0.4",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/tag/v0.0.4",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.4.jar",
+      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.4/building-gadgets-extra-forge-1.20.1-0.0.4.jar",
+      "sha256": "deaba4d6c488a1f66dd07d325b91983bdb44c70a60250b921754a88652b6b355",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Perfomant-Boom",
+      "beforeVersion": "1.1.3",
+      "afterVersion": "1.1.3",
+      "status": "already-current",
+      "releaseUrl": "https://github.com/UpperMoon0/Perfomant-Boom/releases/tag/v1.1.3",
+      "fileName": "perfomant_boom-forge-1.1.3.jar",
+      "url": "https://github.com/UpperMoon0/Perfomant-Boom/releases/download/v1.1.3/perfomant_boom-forge-1.1.3.jar",
+      "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "existing-pin-matches-publisher-digest"
+    },
+    {
+      "repository": "UpperMoon0/Celestial-Nail",
+      "beforeVersion": "0.1.5",
+      "afterVersion": "0.1.6",
+      "status": "updated",
+      "releaseUrl": "https://github.com/UpperMoon0/Celestial-Nail/releases/tag/v0.1.6",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
+      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "verification": "downloaded-bytes-and-publisher-digest"
+    }
+  ],
+  "unchangedThirdPartyManagedMods": [
+    "extra-gauges",
+    "trueuuid",
+    "littletiles",
+    "spice-of-life-classic"
+  ]
+}

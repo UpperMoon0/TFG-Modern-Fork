@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "overlayVersion": "0.13.10-nstut.32",
+  "status": "blocked-do-not-promote",
+  "integrations": [
+    {
+      "id": "spice-of-life-integrations",
+      "modId": "solintegrations",
+      "repository": "UpperMoon0/SpiceOfLife-Integrations",
+      "pullRequest": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/pull/1",
+      "reviewedCommit": "38df6144d34b8ad81db26f928513f6c3bf43ab5a",
+      "plannedVersion": "0.1.0",
+      "plannedFileName": "solintegrations-0.1.0.jar",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/solintegrations-*.jar"
+      ],
+      "artifactStatus": "No published release exists; not enabled in Pakku or deployment manifest.",
+      "ciArtifactSha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "requiredClassicVersion": "2.13",
+      "requiredOriginalClassicSha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
+      "blockers": [
+        "Publish an approved immutable release after addon review; this pack-preparation request does not authorize merging or releasing the addon.",
+        "Verify the exact released reobfuscated jar in isolated packaged-server/client and full TFG staging.",
+        "Replace this pending record with synchronized Pakku and managed artifact pins only after the release URL, asset ID, bytes, dependencies and digest are verified."
+      ]
+    }
+  ]
+}

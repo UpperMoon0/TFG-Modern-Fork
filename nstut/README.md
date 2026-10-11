@@ -52,7 +52,15 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Overlay 0.13.10-nstut.31
+## Prepared overlay 0.13.10-nstut.32 (blocked draft)
+
+Repository preparation only. No deployment tag, release, stable promotion, or live patch is included. See [the preparation and migration checklist](PATCH-0.13.10.32.md) and [the complete custom-mod audit](custom-mod-audit-0.13.10.32.json).
+
+Simply Speakers is updated to 0.9.0 and Celestial Nail to 0.1.6. The other seven pack-installed custom mods already match their latest published releases. Third-party pins and runtime configuration remain unchanged.
+
+SpiceOfLife-Integrations is tracked in [pending-integrations.json](pending-integrations.json), but is not an installable pack entry yet: its reviewed draft has no published artifact. Do not promote this preparation until that prerequisite and the documented packaged/full-pack staging checks are complete. Never combine the standalone addon with the emergency binary-patched Classic jar.
+
+## Previous overlay 0.13.10-nstut.31
 
 All 13 managed mods were reviewed for Forge 1.20.1 compatibility on 2026-10-10. Economy is updated to 0.0.17 and Simply Speakers to 0.8.4, using exact GitHub release asset SHA-256 digests; the other previously managed versions remain pinned. Celestial Nail 0.1.5 requires Perfomant Boom 1.1.3 or newer within 1.x, satisfied by the current pin.
 

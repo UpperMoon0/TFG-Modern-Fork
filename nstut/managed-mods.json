@@ -90,11 +90,11 @@
     {
       "id": "simply-speakers",
       "name": "Simply Speakers",
-      "version": "0.8.4",
+      "version": "0.9.0",
       "repository": "UpperMoon0/Simply-Speakers",
-      "fileName": "simplyspeakers-forge-1.20.1-0.8.4.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.4/simplyspeakers-forge-1.20.1-0.8.4.jar",
-      "sha256": "399424ff060237d935c7ce2fd4630d730986661267ce118eadebeb454bad29d7",
+      "fileName": "simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9",
       "installTargets": [
         "client",
         "server"
@@ -194,11 +194,11 @@
     {
       "id": "celestial-nail",
       "name": "Celestial Nail",
-      "version": "0.1.5",
+      "version": "0.1.6",
       "repository": "UpperMoon0/Celestial-Nail",
-      "fileName": "celestial-nail-forge-1.20.1-0.1.5.jar",
-      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.5/celestial-nail-forge-1.20.1-0.1.5.jar",
-      "sha256": "cdeb869fdac8cbb6dc032e4627613425f5d035d5b82ea4135c9b031d278d49f4",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
+      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
       "installTargets": [
         "client",
         "server"

@@ -1349,16 +1349,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "celestial-nail-forge-1.20.1-0.1.5.jar",
+                    "file_name": "celestial-nail-forge-1.20.1-0.1.6.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.5/celestial-nail-forge-1.20.1-0.1.5.jar",
-                    "id": "607743974",
+                    "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
+                    "id": "627376018",
                     "parent_id": "1393137032",
                     "hashes": {
-                        "sha256": "cdeb869fdac8cbb6dc032e4627613425f5d035d5b82ea4135c9b031d278d49f4"
+                        "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3"
                     },
-                    "size": 403748,
-                    "date_published": "2026-10-03T12:02:40Z"
+                    "size": 403796,
+                    "date_published": "2026-10-10T08:01:23Z"
                 }
             ]
         },
@@ -14236,16 +14236,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simplyspeakers-forge-1.20.1-0.8.4.jar",
+                    "file_name": "simplyspeakers-forge-1.20.1-0.9.0.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.8.4/simplyspeakers-forge-1.20.1-0.8.4.jar",
-                    "id": "619532336",
+                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
+                    "id": "628061590",
                     "parent_id": "936467663",
                     "hashes": {
-                        "sha256": "399424ff060237d935c7ce2fd4630d730986661267ce118eadebeb454bad29d7"
+                        "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9"
                     },
-                    "size": 736844,
-                    "date_published": "2026-10-07T18:59:37Z"
+                    "size": 791836,
+                    "date_published": "2026-10-10T13:36:15Z"
                 }
             ]
         },
