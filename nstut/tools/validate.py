@@ -190,6 +190,21 @@ def main() -> int:
         ):
             fail(f"{mod_id} requires a compatible Forge 1.20.1 {dependency_slug} dependency")
 
+    # The standalone integration must never be paired with an emergency-patched
+    # Classic binary. Keep the reviewed dependency and both-side boundary explicit.
+    integrations = [mod for mod in managed["mods"] if mod["id"] == "spice-of-life-integrations"]
+    if len(integrations) != 1 or integrations[0]["repository"] != "UpperMoon0/SpiceOfLife-Integrations":
+        fail("Spice of Life Integrations must be pinned in the managed manifest")
+    if integrations[0]["installTargets"] != ["client", "server"]:
+        fail("Spice of Life Integrations must be installed on both clients and servers")
+    classic = next(mod for mod in managed["mods"] if mod["id"] == "spice-of-life-classic")
+    original_classic_hash = "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336"
+    classic_files = by_slug["modrinth:foodvariations"]["files"]
+    if classic["version"] != "2.13" or classic["sha256"] != original_classic_hash:
+        fail("standalone integration requires original unmodified Classic 2.13")
+    if classic_files[0].get("hashes", {}).get("sha256") != original_classic_hash:
+        fail("Pakku must pin the original Classic 2.13 SHA-256")
+
     for client_key in ("UpperMoon0/OpenUI-MC", "UpperMoon0/Create-Precise-Controls"):
         if (config_projects.get(client_key) or {}).get("side") != "CLIENT":
             fail(f"{client_key} must remain client-only")
