@@ -1,6 +1,6 @@
 # Overlay 0.13.10-nstut.32: repository preparation
 
-Status: **REPOSITORY PREPARATION COMPLETE; STAGING REQUIRED. Do not tag, promote or deploy.** This preparation changes repository files only; it does not install mods, restart a server, or mutate a game world.
+Status: **REVIEWED RELEASE; SERVER ROLLOUT AUTHORIZED, CLIENT CHECK DEFERRED TO USER.** On 2026-10-11 the user authorized server patching and stable updater publication, explicitly choosing to test the updated client afterward rather than load on-prem-1. Packaged-client join and interactive food-route checks remain unperformed; they are not release-pass claims. Normal packaged full-TFG server startup, verified backup and rollback, and original Classic replacement remain server rollout gates.
 
 ## Custom-mod audit
 
@@ -35,7 +35,7 @@ The addon is now an active, version-pinned entry in Pakku and the managed client
 
 The exact addon tree has passing 46 JUnit tests, 81 Python checks and five development GameTest profiles. The combined development profile uses a documented test-only bootstrap. These checks do **not** establish normal packaged dedicated-server/client startup, full TFG Core 0.9.23 behavior or production readiness.
 
-Before promotion, run the addon's [packaged and full-pack validation matrix](https://github.com/UpperMoon0/SpiceOfLife-Integrations/blob/a5ff8595eedc69dac065a280f71af47146a6e92d/docs/VALIDATION.md) in isolated instances. Current pack versions match the reviewed targets: Classic 2.13, TFC 3.2.25, Sophisticated Core 1.3.84.2308 and Backpacks 3.24.67.2109. No new integration configuration is imposed; packaged metadata and source inspection are separate from gameplay validation.
+For the remaining user-owned compatibility checks, use the addon's [packaged and full-pack validation matrix](https://github.com/UpperMoon0/SpiceOfLife-Integrations/blob/a5ff8595eedc69dac065a280f71af47146a6e92d/docs/VALIDATION.md) in isolated instances. The user has explicitly deferred the client and interactive checks until after receiving the update. Current pack versions match the reviewed targets: Classic 2.13, TFC 3.2.25, Sophisticated Core 1.3.84.2308 and Backpacks 3.24.67.2109. No new integration configuration is imposed; packaged metadata and source inspection are separate from gameplay validation.
 
 ## Future migration warning
 
@@ -43,7 +43,7 @@ The live server may contain the emergency binary-patched Classic 2.13. **Do not 
 
 The new integration must be paired with the **original unmodified Classic 2.13** already pinned by this repository: SHA-256 `c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336`. Replace the emergency jar rather than retaining another copy under a different filename. Ensure exactly one Classic and one approved addon are present on each required side. Existing cleanup globs cover only their documented names; inventory all actual filenames before migration.
 
-Preserve existing depletion settings, food-history/world data and user configuration. This preparation changes no runtime overlay or config, does not reset food history and does not enable a new minimum-hunger/floor option. Exercise hand, basket and backpack feeding; positive/fractional/zero depletion; native hydration/nutrients; repeated-food cycling; inventory costs; reconnect and restart in copied staging worlds before promotion.
+Preserve existing depletion settings, food-history/world data and user configuration. This preparation changes no runtime overlay or config, does not reset food history and does not enable a new minimum-hunger/floor option. Exercise hand, basket and backpack feeding; positive/fractional/zero depletion; native hydration/nutrients; repeated-food cycling; inventory costs; reconnect and restart in copied staging worlds when performing the deferred client verification.
 
 Rollback requires restoring the matching previous mod/config set and the verified pre-migration world/player backup as one coherent state. Remove the standalone addon before restoring an emergency-patched Classic jar. Do not blindly downgrade jars over a world that has already been saved by the new stack.
 
@@ -51,4 +51,8 @@ Rollback requires restoring the matching previous mod/config set and the verifie
 
 Run `python nstut/tools/generate-modpack-manager-manifest.py`, then `python nstut/tools/validate.py` and `git diff --check`. The existing validator includes client/server boundary and generated-manifest checks plus isolated temporary-directory dry-run, semantic-config preservation and idempotence fixtures. It does not test Minecraft gameplay.
 
-The preparation branch is based on current stable `2a257a58e0e9ef38d8cac5103be2f4178efeed65`; the current `nstut/0.13.10` construction head has the identical tree. Submit a draft PR into the construction branch, not the production pointer. `nstut-0.13.10.32` is only a reserved future source reference and is deliberately not created here. Raw file URLs referencing it cannot be downloaded until an authorized final tag is published. Keep existing promotion checks intact; resolve the remaining staging blocker before requesting promotion.
+The preparation branch is based on current stable `2a257a58e0e9ef38d8cac5103be2f4178efeed65`; the current `nstut/0.13.10` construction head has the identical tree. Submit a draft PR into the construction branch, not the production pointer. The authorized immutable release tag is `nstut-0.13.10.32`; tag the final reviewed construction head and retain the existing stable promotion checks. The server candidate uses the same artifact hashes and operations with immutable commit URLs until that tag is published. Client validation is explicitly deferred, not reported as passing.
+
+## Server preflight receipt
+
+Read-only server preflight passed on 2026-10-11. Live and isolated plans agree on exactly eight mod-file operations; all 28 artifacts match pinned hashes. Configuration/authentication changes are no-ops, and `server.properties` identity/content remained unchanged. The stale 0.13.9 label is the actual MOTD text, to be corrected separately during the approved maintenance. This receipt does not establish installation or runtime success.
