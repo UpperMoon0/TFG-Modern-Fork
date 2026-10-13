@@ -52,6 +52,12 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Overlay 0.13.10-nstut.33 (repository preparation)
+
+All ten installed custom mods were checked against official stable releases on 2026-10-13. Simply Screens is updated to 0.8.11, Simply Speakers to 0.9.1, and standalone PacketWeave 0.1.2 is added to both clients and servers. The other eight installed custom mods and all third-party pins are unchanged. See [the complete audit](custom-mod-audit-0.13.10.33.json) and [compatibility and validation notes](PATCH-0.13.10.33.md).
+
+Speakers changes its transfer protocol: update clients and server together before reconnecting. This candidate is not promoted or deployed; the `.33` immutable tag must be created on the reviewed final release commit before normal stable promotion. Earlier `.32` rollout authorization and deferred checks are historical and do not authorize a `.33` rollout.
+
 ## Overlay 0.13.10-nstut.32 (authorized rollout)
 
 Server patching and stable updater publication are authorized. The user explicitly deferred packaged-client and interactive checks until after updating; those checks have not passed. See [the preparation and migration checklist](PATCH-0.13.10.32.md) and [the complete custom-mod audit](custom-mod-audit-0.13.10.32.json).
