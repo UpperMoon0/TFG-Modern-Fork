@@ -46,6 +46,37 @@ disposable staging only; never retag or publish an unreviewed candidate to run t
 
 ## Required release gates
 
+Completed preparation evidence is recorded in [validation-0.13.12.1.json](validation-0.13.12.1.json).
+All 291 downloaded projects match provider artifact hashes. Full policy checks,
+89 renewable recipes, upstream pin checks and 12 regression cases pass.
+CurseForge, Modrinth and server archives pass CRC checks; all 12,371 client
+asset files are preserved after simplifying the recursive export selector.
+Packaged base markers are present on both sides. Manager 1.0.6 rejects an old-base
+fixture, applies the complete server overlay and produces an empty subsequent plan.
+
+A disposable copy of the stopped .33 world reached authenticated readiness under
+Java 17 in a private network with a 4-GiB heap, 6-GiB memory cap and one CPU of
+quota. All 130 startup and 346 server scripts loaded with zero script errors or
+warnings. Game ticks advanced, the idle server reported 20 TPS, and it saved all
+dimensions and exited cleanly. This is a startup smoke check, not a loaded-world
+performance benchmark or comprehensive gameplay test.
+
+### Upstream-removed registry entries
+
+The copied world's registry table contains seven entries removed by the new AE2
+and Fluid Logistics versions (five item IDs and two block IDs). A read-only scan
+of 572,460 serialized region/entity/POI chunks and 327 standalone data files
+found only one reference: a Create factory-panel filter using
+`fluidlogistics:waterproof_cardboard_block`. Parsing that chunk's block palettes
+found zero placed blocks of that removed type. No matching AE2 references were
+found within this scan's scope. This does not cover nested custom compressed
+storage payloads or changes made after the snapshot.
+
+Review or clear/remap that legacy filter in the migration copy before production
+rollout. Preserve the untouched original world and make a fresh live backup.
+The startup check must not be interpreted as proof that every removed registry
+entry can be discarded without affecting player content.
+
 - Full NsTut policy, upstream artifact preservation and renewable recipe checks.
 - Complete client/server exports and archive/artifact checks.
 - Normal dedicated-server startup on a disposable copy of the existing world,
