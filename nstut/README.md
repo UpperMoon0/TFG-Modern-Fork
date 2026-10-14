@@ -52,19 +52,31 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Upstream 0.13.12 migration candidate
+## Upstream 0.13.12 automatic migration
 
-This construction candidate merges the exact upstream 0.13.12 prerelease while
-preserving the .33 custom overlay. See [migration instructions and release gates](PATCH-0.13.12.1.md)
-and [the renewable-resource Core source audit](CORE-AUDIT-0.13.12.md).
-Production remains 0.13.10-nstut.33. A matching complete 0.13.12 base is required;
-the managed overlay alone does not upgrade an existing 0.13.10 installation.
+The 0.13.12 construction branch preserves the .34 MV slurry recipe and all
+15 managed mod artifacts. A complete-base upgrade is required before the overlay;
+automatic client/server migration is being implemented and validated. See
+[the migration notes](PATCH-0.13.12.1.md).
 
-## Overlay 0.13.10-nstut.33 (previous stable release)
+## Overlay 0.13.10-nstut.34 (previous release)
+
+PR #32 adds an optional MV Chemical Reactor recipe: 1,728 mB molten igneous
+mafic plus 8,000 mB water produces 8,000 mB mafic mineral slurry at 120 EU/t
+for 160 ticks. The LV Mixer route and downstream iron requirements are retained.
+The generated Manager manifest includes the updated recipe file and its exact hash.
+Fork-policy checks run for PRs targeting `main` as well as `nstut/**`.
+
+This release preserves all `.33` managed mod pins, including Simply Screens
+0.8.11, Simply Speakers 0.9.1 and PacketWeave 0.1.2. Server patching and Manager
+publication are authorized. Packaged-client recipe visibility and interactive
+machine operation remain unverified. See [release notes](PATCH-0.13.10.34.md).
+
+## Overlay 0.13.10-nstut.33 (previous release)
 
 All ten installed custom mods were checked against official stable releases on 2026-10-13. Simply Screens is updated to 0.8.11, Simply Speakers to 0.9.1, and standalone PacketWeave 0.1.2 is added to both clients and servers. The other eight installed custom mods and all third-party pins are unchanged. See [the complete audit](custom-mod-audit-0.13.10.33.json) and [compatibility and validation notes](PATCH-0.13.10.33.md).
 
-Speakers changes its transfer protocol: update clients and server together before reconnecting. This candidate is not promoted or deployed; the `.33` immutable tag must be created on the reviewed final release commit before normal stable promotion. Earlier `.32` rollout authorization and deferred checks are historical and do not authorize a `.33` rollout.
+Speakers changes its transfer protocol: update clients and server together before reconnecting.
 
 ## Overlay 0.13.10-nstut.32 (authorized rollout)
 

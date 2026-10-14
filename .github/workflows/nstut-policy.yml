@@ -3,9 +3,11 @@ name: NsTut fork policy
 on:
   push:
     branches:
+      - main
       - "nstut/**"
   pull_request:
     branches:
+      - main
       - "nstut/**"
 
 jobs:

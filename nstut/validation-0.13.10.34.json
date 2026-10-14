@@ -1,0 +1,41 @@
+{
+  "overlayVersion": "0.13.10-nstut.34",
+  "validationDate": "2026-10-14",
+  "baseRef": "0.13.10",
+  "preservedManagedArtifacts": 15,
+  "recipeSha256": "57940f98e908eb410a3c96e91aa73386c5f51040f6b0b192884ebc6fcef817c7",
+  "backup": {
+    "mode": "stopped world, configs, scripts, mods and server-owned data",
+    "bytes": 3832823739,
+    "sha256": "8ef0c9ad0027cb33b19600cfc73d95552e633e8e84ff65256719230289e826af"
+  },
+  "server": {
+    "authenticatedReadiness": true,
+    "worldIdMatched": true,
+    "players": 0,
+    "TPS": 20,
+    "gameTimeBefore": 72433945,
+    "gameTimeAfter": 72434007,
+    "saveAllFlushed": true,
+    "startupScripts": 129,
+    "startupErrors": 0,
+    "startupWarnings": 0,
+    "cleanReloadServerScripts": 342,
+    "cleanReloadErrors": 0,
+    "cleanReloadWarnings": 0,
+    "temporaryProbeRemoved": true,
+    "changedFiles": 1,
+    "managedHashesVerified": true,
+    "subsequentPlanItems": 0,
+    "nativeRecipes": [
+      {"id": "tfg:mixer/lv_renewable_iron_mafic_slurry", "EUt": 30, "duration": 300, "maficDust": 16, "waterMb": 8000, "slurryMb": 8000},
+      {"id": "tfg:chemical_reactor/mv_pressurized_mafic_mineral_slurry", "EUt": 120, "duration": 160, "moltenMaficMb": 1728, "waterMb": 8000, "slurryMb": 8000},
+      {"id": "tfg:large_chemical_reactor/mv_pressurized_mafic_mineral_slurry", "EUt": 120, "duration": 160, "moltenMaficMb": 1728, "waterMb": 8000, "slurryMb": 8000}
+    ],
+    "existingWarnings": "Radium/TFC client-class analysis and Greate removal warnings matched the previous startup log. Temporary probe API errors were corrected; the release scripts reported no errors."
+  },
+  "clientFixture": {"managerVersion": "1.0.6", "installedHashesVerified": true, "subsequentPlanItems": 0},
+  "transport": "Intermittent GitHub TLS failures required verified local artifact staging for fixture/server application.",
+  "remainingChecks": ["Packaged client join", "EMI visibility", "Actual machine processing"],
+  "scope": "Startup and registry checks plus Manager application fixtures; not a loaded-world performance benchmark."
+}
