@@ -171,6 +171,36 @@ def main() -> int:
         if not isinstance(cleanup_patterns, list) or not cleanup_patterns:
             fail(f"{cfg_key} must declare at least one cleanup pattern")
 
+    # Screens and Speakers use the standalone PacketWeave API. Keep all three
+    # exact Forge artifacts on both sides; a client-only library pin produces a
+    # dedicated-server missing-dependency failure.
+    transfer_stack = {
+        "packetweave": ("UpperMoon0/PacketWeave", (0, 1, 2)),
+        "simply-screens": ("UpperMoon0/Simply-Screens", (0, 8, 11)),
+        "simply-speakers": ("UpperMoon0/Simply-Speakers", (0, 9, 1)),
+    }
+    for mod_id, (repo_key, minimum) in transfer_stack.items():
+        matches = [mod for mod in managed["mods"] if mod["id"] == mod_id]
+        if len(matches) != 1 or matches[0]["repository"] != repo_key:
+            fail(f"{mod_id} must have exactly one standalone managed pin")
+        mod = matches[0]
+        if mod["installTargets"] != ["client", "server"]:
+            fail(f"{mod_id} is required on both clients and servers")
+        if not re.fullmatch(r"\d+\.\d+\.\d+", mod["version"]):
+            fail(f"{mod_id} must use a reviewed stable version")
+        if tuple(map(int, mod["version"].split("."))) < minimum:
+            fail(f"{mod_id} is older than the reviewed transfer-stack minimum")
+        pinned = by_slug[repo_key]["files"][0]
+        if pinned.get("mc_versions") != ["1.20.1"] or pinned.get("loaders") != ["forge"]:
+            fail(f"{mod_id} must pin the Forge 1.20.1 artifact")
+        if pinned.get("hashes", {}).get("sha256") != mod["sha256"]:
+            fail(f"{mod_id} requires an explicit matching SHA-256 in Pakku")
+        if pinned.get("url") != mod["url"]:
+            fail(f"{mod_id} download URL must match the managed manifest")
+    packetweave = next(mod for mod in managed["mods"] if mod["id"] == "packetweave")
+    if "mods/packetweave-*.jar" not in packetweave["cleanupPatterns"]:
+        fail("PacketWeave must clean stale standalone/core/loader copies on both sides")
+
     # These gameplay additions must remain present in BOTH Pakku and the managed patch.
     # Their transitive requirements already exist in the base pack.
     for mod_id, repo_key, dependency_slug in (

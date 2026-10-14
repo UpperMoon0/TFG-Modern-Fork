@@ -14207,16 +14207,22 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simply_screens-forge-1.20.1-0.8.9.jar",
+                    "file_name": "simply_screens-forge-1.20.1-0.8.11.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.9/simply_screens-forge-1.20.1-0.8.9.jar",
-                    "id": "575202308",
+                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.11/simply_screens-forge-1.20.1-0.8.11.jar",
+                    "id": "631654523",
                     "parent_id": "917864621",
                     "hashes": {
-                        "sha256": "d37e7ba7c78a51a0d086dfc21fee326de1bc5f66103a50da065aa3fbee97b662"
+                        "sha256": "60f9addedbfb4b501f9257cb147471340760bb4042c968478f25be59df0d258f"
                     },
-                    "size": 194553,
-                    "date_published": "2026-09-19T17:43:43Z"
+                    "size": 211886,
+                    "date_published": "2026-10-11T19:50:53Z",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ]
                 }
             ]
         },
@@ -14236,16 +14242,22 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simplyspeakers-forge-1.20.1-0.9.0.jar",
+                    "file_name": "simplyspeakers-forge-1.20.1-0.9.1.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
-                    "id": "628061590",
+                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.1/simplyspeakers-forge-1.20.1-0.9.1.jar",
+                    "id": "634984729",
                     "parent_id": "936467663",
                     "hashes": {
-                        "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9"
+                        "sha256": "b3613d6e3be370bbb6dbe8acac220cc723b7b07795f2897bd501d6a0ac3b7cca"
                     },
-                    "size": 791836,
-                    "date_published": "2026-10-10T13:36:15Z"
+                    "size": 803419,
+                    "date_published": "2026-10-12T21:02:50Z",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ]
                 }
             ]
         },
@@ -17888,6 +17900,43 @@
                     },
                     "size": 674610,
                     "date_published": "2026-10-11T06:44:17Z",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ]
+                }
+            ]
+        },
+        {
+            "pakku_id": "NsTutPacketWeave1",
+            "type": "MOD",
+            "slug": {
+                "github": "UpperMoon0/PacketWeave"
+            },
+            "name": {
+                "github": "PacketWeave"
+            },
+            "id": {
+                "github": "1410904450"
+            },
+            "side": "BOTH",
+            "update_strategy": "NONE",
+            "redistributable": true,
+            "files": [
+                {
+                    "type": "github",
+                    "file_name": "packetweave-forge-1.20.1-0.1.2.jar",
+                    "release_type": "release",
+                    "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.2/packetweave-forge-1.20.1-0.1.2.jar",
+                    "id": "634801607",
+                    "parent_id": "1410904450",
+                    "hashes": {
+                        "sha256": "0b1776f7c4d8b28128fc8d372d205fde7d544e3a7f079a3f748d00b589e611af"
+                    },
+                    "size": 924024,
+                    "date_published": "2026-10-12T19:44:11Z",
                     "mc_versions": [
                         "1.20.1"
                     ],

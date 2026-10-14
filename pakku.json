@@ -308,9 +308,11 @@
             "update_strategy": "NONE"
         },
         "UpperMoon0/Simply-Screens": {
+            "side": "BOTH",
             "update_strategy": "NONE"
         },
         "UpperMoon0/Simply-Speakers": {
+            "side": "BOTH",
             "update_strategy": "NONE"
         },
         "UpperMoon0/CreateHorsePower-CE": {
@@ -338,6 +340,10 @@
             "update_strategy": "NONE"
         },
         "UpperMoon0/SpiceOfLife-Integrations": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "UpperMoon0/PacketWeave": {
             "side": "BOTH",
             "update_strategy": "NONE"
         }

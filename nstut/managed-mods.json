@@ -69,11 +69,11 @@
     {
       "id": "simply-screens",
       "name": "Simply Screens",
-      "version": "0.8.9",
+      "version": "0.8.11",
       "repository": "UpperMoon0/Simply-Screens",
-      "fileName": "simply_screens-forge-1.20.1-0.8.9.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.9/simply_screens-forge-1.20.1-0.8.9.jar",
-      "sha256": "d37e7ba7c78a51a0d086dfc21fee326de1bc5f66103a50da065aa3fbee97b662",
+      "fileName": "simply_screens-forge-1.20.1-0.8.11.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.11/simply_screens-forge-1.20.1-0.8.11.jar",
+      "sha256": "60f9addedbfb4b501f9257cb147471340760bb4042c968478f25be59df0d258f",
       "installTargets": [
         "client",
         "server"
@@ -90,11 +90,11 @@
     {
       "id": "simply-speakers",
       "name": "Simply Speakers",
-      "version": "0.9.0",
+      "version": "0.9.1",
       "repository": "UpperMoon0/Simply-Speakers",
-      "fileName": "simplyspeakers-forge-1.20.1-0.9.0.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
-      "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9",
+      "fileName": "simplyspeakers-forge-1.20.1-0.9.1.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.1/simplyspeakers-forge-1.20.1-0.9.1.jar",
+      "sha256": "b3613d6e3be370bbb6dbe8acac220cc723b7b07795f2897bd501d6a0ac3b7cca",
       "installTargets": [
         "client",
         "server"
@@ -293,6 +293,26 @@
       "cleanupPatterns": [
         "mods/solintegrations-*.jar"
       ]
+    },
+    {
+      "id": "packetweave",
+      "name": "PacketWeave",
+      "repository": "UpperMoon0/PacketWeave",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/packetweave-*.jar"
+      ],
+      "version": "0.1.2",
+      "fileName": "packetweave-forge-1.20.1-0.1.2.jar",
+      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.2/packetweave-forge-1.20.1-0.1.2.jar",
+      "sha256": "0b1776f7c4d8b28128fc8d372d205fde7d544e3a7f079a3f748d00b589e611af"
     }
   ]
 }
