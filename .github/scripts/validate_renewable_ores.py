@@ -33,7 +33,7 @@ def require(condition: bool, message: str) -> None:
 # Source-audit pins: update these only after re-auditing recipe maps and ore prefixes.
 require("gtceu-1.20.1-7.5.3.jar" in pakku_lock,
         "GTCEu version changed: re-audit recipe maps, tanks and prefix behavior")
-require("TerraFirmaGreg-Core-Modern-0.9.23.jar" in pakku_lock,
+require("TerraFirmaGreg-Core-Modern-0.9.25.jar" in pakku_lock,
         "TFG Core version changed: re-audit TFC/GT ore integration")
 
 blocks = re.findall(

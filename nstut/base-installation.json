@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "baseRef": "0.13.12",
+  "requiredMarker": ".nstut-tfg-base-0.13.12"
+}
