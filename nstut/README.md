@@ -55,8 +55,10 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 ## Upstream 0.13.12 automatic migration
 
 The 0.13.12 construction branch preserves the .34 MV slurry recipe and all
-15 managed mod artifacts. A complete-base upgrade is required before the overlay;
-automatic client/server migration is being implemented and validated. See
+15 managed mod artifacts. Modpack Manager 1.0.7 upgrades the installed base and
+applies the overlay automatically; update the Manager first and close Minecraft.
+The server script snapshots, upgrades and checks the current server and world,
+with automatic rollback on failure. See
 [the migration notes](PATCH-0.13.12.1.md).
 
 ## Overlay 0.13.10-nstut.34 (previous release)
