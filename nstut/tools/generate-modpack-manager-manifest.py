@@ -198,10 +198,20 @@ def build_manifest() -> dict:
             f"Generated from UpperMoon0/TFG-Modern-Fork {release['sourceRef']} "
             f"on upstream {release['baseRef']}."
         ),
-        "requiredPaths": ["mods", "config", "kubejs", "defaultconfigs"],
+        "requiredPaths": ["mods", "config", "kubejs", "defaultconfigs"] + required_base_markers(release),
         "artifacts": artifacts,
         "operations": operations,
     }
+
+
+def required_base_markers(release: dict) -> list[str]:
+    path = NSTUT / "base-installation.json"
+    if not path.exists():
+        return []
+    installation = load(path)
+    if installation["baseRef"] != release["baseRef"]:
+        raise ValueError("base installation marker does not match release base")
+    return [installation["requiredMarker"]]
 
 
 def main() -> int:

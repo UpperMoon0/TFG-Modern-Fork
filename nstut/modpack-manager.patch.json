@@ -8,7 +8,8 @@
     "mods",
     "config",
     "kubejs",
-    "defaultconfigs"
+    "defaultconfigs",
+    ".nstut-tfg-base-0.13.12"
   ],
   "artifacts": [
     {

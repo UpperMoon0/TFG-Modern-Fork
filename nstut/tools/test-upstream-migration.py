@@ -49,6 +49,31 @@ class MigrationRegressionTests(unittest.TestCase):
         del self.args[2][next(iter(self.args[2]))]
         self.rejected()
 
+    def base_args(self):
+        return [m.load('nstut/base-installation.json'), m.load('nstut/release.json'), m.load('nstut/modpack-manager.patch.json'),
+                [m.load(f'.pakku/{side}-overrides/.nstut-tfg-base-{m.BASE}') for side in ('client', 'server')]]
+
+    def test_base_marker_contract(self):
+        m.validate_base_installation(*self.base_args())
+
+    def test_overlay_missing_base_guard(self):
+        args = self.base_args()
+        args[2]['requiredPaths'].remove(args[0]['requiredMarker'])
+        with self.assertRaises(AssertionError):
+            m.validate_base_installation(*args)
+
+    def test_pack_marker_wrong_base(self):
+        args = self.base_args()
+        args[3][0]['baseRef'] = '0.13.10'
+        with self.assertRaises(AssertionError):
+            m.validate_base_installation(*args)
+
+    def test_missing_client_marker(self):
+        args = self.base_args()
+        args[3].pop(0)
+        with self.assertRaises(AssertionError):
+            m.validate_base_installation(*args)
+
 
 if __name__ == '__main__':
     unittest.main()

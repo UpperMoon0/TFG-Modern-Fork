@@ -46,10 +46,22 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert len(custom_lang) == 73 and translations == custom_lang, 'custom material names lost or obsolete upstream translations restored'
 
 
+def validate_base_installation(installation, release, manifest, markers):
+    expected = f'.nstut-tfg-base-{BASE}'
+    assert installation == {'schemaVersion': 1, 'baseRef': BASE, 'requiredMarker': expected}, 'invalid base-installation contract'
+    assert release['baseRef'] == BASE, 'release base mismatch'
+    assert expected in manifest['requiredPaths'], 'overlay can be applied to an old base'
+    for marker in markers:
+        assert marker == {'baseRef': BASE, 'upstreamCommit': '4b4732760b2885db45832a07f2925ba10f4c5930'}, 'missing or wrong packaged base marker'
+    assert len(markers) == 2, 'client and server markers required'
+
+
 def main():
     validate(load('pakku-lock.json'), load('nstut/managed-mods.json'), load('kubejs/assets/tfg/lang/en_us.json'),
              historical(BASE, 'pakku-lock.json'), historical(PREVIOUS, 'nstut/managed-mods.json'),
              historical(PREVIOUS, 'kubejs/assets/tfg/lang/en_us.json'), historical('0.13.10', 'kubejs/assets/tfg/lang/en_us.json'))
+    validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
+                              [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
     print('Upstream migration passed: upstream artifact pins and all 15 custom mods preserved; 73 custom translations retained')
 
 

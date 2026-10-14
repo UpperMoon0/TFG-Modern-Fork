@@ -26,6 +26,11 @@ mods, remove obsolete upstream scripts, or replace upstream configuration.
 Do not promote the candidate as an in-place .10 upgrade without a complete
 base-upgrade mechanism.
 
+The candidate's complete client/server exports include `.nstut-tfg-base-0.13.12`.
+The overlay requires this marker, so existing Modpack Manager versions reject
+unmigrated .10 installations before any patch operation. Do not manually add
+the marker to an old installation to bypass this check.
+
 The migration path for this candidate is a fresh complete 0.13.12 pack with
 the custom managed overlay applied, followed by copying preserved world,
 identity and server-owned data while stopped. Do not copy the old mods or
