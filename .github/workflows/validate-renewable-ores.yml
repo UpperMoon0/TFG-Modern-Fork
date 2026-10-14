@@ -3,10 +3,12 @@ name: "Renewable Resource Validation"
 on:
   pull_request:
     branches:
+      - main
       - dev
       - "nstut/**"
     paths:
       - "kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js"
+      - "kubejs/server_scripts/tfg/hv_rework/material.recipes.js"
       - "kubejs/server_scripts/tfg/ores_and_materials/tags.materials.js"
       - "kubejs/startup_scripts/tfg/materials/materials.renewable_ores.js"
       - "kubejs/server_scripts/tfg/recipes.js"
@@ -14,13 +16,16 @@ on:
       - "kubejs/assets/tfg/lang/en_us.json"
       - "pakku-lock.json"
       - ".github/scripts/validate_renewable_ores.py"
+      - ".github/scripts/validate_mv_mafic_recipe.cjs"
       - ".github/workflows/validate-renewable-ores.yml"
   push:
     branches:
+      - main
       - dev
       - "nstut/**"
     paths:
       - "kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js"
+      - "kubejs/server_scripts/tfg/hv_rework/material.recipes.js"
       - "kubejs/server_scripts/tfg/ores_and_materials/tags.materials.js"
       - "kubejs/startup_scripts/tfg/materials/materials.renewable_ores.js"
       - "kubejs/server_scripts/tfg/recipes.js"
@@ -28,6 +33,7 @@ on:
       - "kubejs/assets/tfg/lang/en_us.json"
       - "pakku-lock.json"
       - ".github/scripts/validate_renewable_ores.py"
+      - ".github/scripts/validate_mv_mafic_recipe.cjs"
       - ".github/workflows/validate-renewable-ores.yml"
 
 jobs:
@@ -35,5 +41,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Validate KubeJS recipe syntax
+        run: node --check kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js
       - name: Validate renewable resource chains
         run: python3 .github/scripts/validate_renewable_ores.py
+      - name: Validate LV and MV slurry recipe registration
+        run: node .github/scripts/validate_mv_mafic_recipe.cjs
