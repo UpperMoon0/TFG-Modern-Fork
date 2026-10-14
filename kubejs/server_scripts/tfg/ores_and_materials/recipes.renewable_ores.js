@@ -78,6 +78,21 @@ function registerTFGRenewableOreRecipes(event) {
         .duration(300)
         .EUt(LV);
 
+    // MV thermal slurry: molten mafic is pre-homogenized by the Coal
+    // Liquefaction Tower, saving 25% rock feedstock at higher energy cost.
+    // 1,728 mB molten = 12 mafic dust equivalents (144 mB/dust).
+    // Three tower batches (48 dust -> 6,912 mB) supply four MV slurry
+    // batches (32 B slurry), exactly enough for two Poor Hematite ores.
+    // Keep the LV Mixer route above as an early-game alternative.
+    event.recipes.gtceu.chemical_reactor('tfg:mv_pressurized_mafic_mineral_slurry')
+        .inputFluids(
+            Fluid.of('tfg:igneous_mafic', 1728),
+            Fluid.of('minecraft:water', 8000)
+        )
+        .outputFluids(Fluid.of('tfg:mafic_mineral_slurry', 8000))
+        .duration(160)
+        .EUt(MV);
+
     event.recipes.gtceu.chemical_reactor('tfg:lv_renewable_iron_acid_leach')
         .inputFluids(
             Fluid.of('tfg:mafic_mineral_slurry', 8000),
