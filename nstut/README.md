@@ -52,6 +52,21 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Overlay 0.13.10-nstut.34 (MV slurry candidate)
+
+PR #32 adds an optional MV Chemical Reactor recipe: 1,728 mB molten igneous
+mafic plus 8,000 mB water produces 8,000 mB mafic mineral slurry at 120 EU/t
+for 160 ticks. The LV Mixer route and downstream iron requirements are retained.
+The generated Manager manifest includes the updated recipe file and its exact hash.
+Fork-policy checks run for PRs targeting `main` as well as `nstut/**`.
+
+The `.34` tag is reserved for this candidate and must be created on the final
+reviewed release-construction commit before deployment. This feature branch retains
+its `.32` managed mod pins; it does not incorporate the subsequent `.33` mod updates.
+Carry the feature into the current release-construction branch and regenerate its
+manifest before stable promotion. Packaged Forge/GTCEu recipe visibility and actual
+machine operation remain unverified. This candidate is not a production promotion.
+
 ## Overlay 0.13.10-nstut.32 (authorized rollout)
 
 Server patching and stable updater publication are authorized. The user explicitly deferred packaged-client and interactive checks until after updating; those checks have not passed. See [the preparation and migration checklist](PATCH-0.13.10.32.md) and [the complete custom-mod audit](custom-mod-audit-0.13.10.32.json).
