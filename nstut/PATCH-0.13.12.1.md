@@ -1,93 +1,31 @@
-# 0.13.12-nstut.1 migration candidate
+# 0.13.12-nstut.1 automatic migration
 
-Status: preparation and validation only. Production remains 0.13.10-nstut.33.
-The future `nstut-0.13.12.1` deployment tag is reserved, not published.
+This release upgrades an installed upstream 0.13.10 pack to 0.13.12, then applies the managed fork overlay. It includes upstream 0.13.11 gameplay changes and 0.13.12 server fixes, preserving all 15 managed mod pins from .34 and the LV/MV renewable slurry routes. The upstream source is `4b4732760b2885db45832a07f2925ba10f4c5930`.
 
-## Base and preserved customizations
+## Client update
 
-The candidate merges upstream tag 0.13.12
-(`4b4732760b2885db45832a07f2925ba10f4c5930`) into the existing stable
-history. This is an upstream prerelease, including the 0.13.11 gameplay
-changes and 0.13.12 dedicated-server/Linux recipe fixes.
+Update Modpack Manager to **1.0.7** first, close Minecraft, select the existing TFG installation and apply its update. The Manager verifies the installed Core and every downloaded file, upgrades pack-owned files, removes obsolete upstream files, merges changed TOML/JSON settings against old defaults, and applies the fork overlay. Saves, options, identity data and unknown user files are preserved. Edited obsolete configs and unsupported modified config formats are retained. The base marker is committed only after the complete update succeeds. Interrupted updates can resume, and failed transactions roll back their files.
 
-All 15 managed mod artifacts are retained from .33, including Simply Screens
-0.8.11, Simply Speakers 0.9.1 and PacketWeave 0.1.2. The CE Horse Power
-replacement, renewable ore routes, recipe fixes, 512-bucket Economy storage,
-TrueUUID policy and semantic server overlays remain present. Upstream mod
-artifacts retain their exact 0.13.12 pins. The removed upstream TFG language
-file is replaced with only our 73 custom material names, avoiding restoration
-of obsolete upstream translations. See CORE-AUDIT-0.13.12.md for the Core pin audit.
+Older Managers reject installations lacking the 0.13.12 base marker; manually creating that marker does not upgrade the base. The new Manager also verifies the target Core hash when accepting a completed migration.
 
-## Upgrade installation boundary
+## Server update
 
-The Manager manifest remains an overlay on a matching upstream 0.13.12 base.
-Applying it directly over a 0.13.10 installation does not upgrade upstream
-mods, remove obsolete upstream scripts, or replace upstream configuration.
-Do not promote the candidate as an in-place .10 upgrade without a complete
-base-upgrade mechanism.
+Run the scripts from this release's `nstut/tools` directory:
 
-The candidate's complete client/server exports include `.nstut-tfg-base-0.13.12`.
-The overlay requires this marker, so existing Modpack Manager versions reject
-unmigrated .10 installations before any patch operation. Do not manually add
-the marker to an old installation to bypass this check.
+    python3 migrate-server.py /path/to/current/server --service tfg-manager.service
 
-The migration path for this candidate is a fresh complete 0.13.12 pack with
-the custom managed overlay applied, followed by copying preserved world,
-identity and server-owned data while stopped. Do not copy the old mods or
-entire old kubejs/config directories over the new installation. Review and
-carry over individual runtime settings, serverconfig values, identity registry,
-player data, media storage, permissions, JVM settings and service bindings.
-Server-private identity files must never enter public exports.
+For an installation without the wake manager, omit `--service` and stop the server first. The script obtains the checksum-verified Manager 1.0.7 CLI, follows the published TFG profile, snapshots the stopped installation, audits and migrates the existing world, applies the complete base and overlay, and checks that the subsequent plan is empty. With the wake service it also uses Java 17 and the installed Forge launch arguments, restarts through that service, waits for authenticated readiness and saves the world. Original heap flags, environment setup, ports and service bindings remain in place.
 
-Raw exports preserve the existing redistributable=false policy and can omit
-custom JARs. Apply the managed overlay before calling an installation complete.
-The generator's future tag URLs must be replaced with local artifact paths in
-disposable staging only; never retag or publish an unreviewed candidate to run tests.
+Backups and reports are saved under `.modpack-manager/migration-backups`. Existing root backup/log directories are preserved during rollback; nested world data is included in the snapshot. Interrupted migration retains its original backup through the checkpoint. Failed boot restores that installation only after the JVM has stopped saving. Check available disk space for a full snapshot.
 
-## Required release gates
+The world migration maps removed Fluid Logistics cardboard references only in Create factory-panel filter slots to `tfc:empty_jar`. Unsupported removed block or inventory references abort before world writes. The scan covers serialized region/entity/POI chunks and standalone NBT files, excluding the global registry table and nested custom compressed storage payloads.
 
-Completed preparation evidence is recorded in [validation-0.13.12.1.json](validation-0.13.12.1.json).
-All 291 downloaded projects match provider artifact hashes. Full policy checks,
-89 renewable recipes, upstream pin checks and 12 regression cases pass.
-CurseForge, Modrinth and server archives pass CRC checks; all 12,371 client
-asset files are preserved after simplifying the recursive export selector.
-Packaged base markers are present on both sides. Manager 1.0.6 rejects an old-base
-fixture, applies the complete server overlay and produces an empty subsequent plan.
+## Validation and limits
 
-A disposable copy of the stopped .33 world reached authenticated readiness under
-Java 17 in a private network with a 4-GiB heap, 6-GiB memory cap and one CPU of
-quota. All 130 startup and 346 server scripts loaded with zero script errors or
-warnings. Game ticks advanced, the idle server reported 20 TPS, and it saved all
-dimensions and exited cleanly. This is a startup smoke check, not a loaded-world
-performance benchmark or comprehensive gameplay test.
+Full policy checks, upstream pins, 90 renewable recipes, 12 upstream regression cases, world migration tests, snapshot/rollback tests and Manager migration regressions pass. Immutable client/server payloads and provider downloads are pinned by SHA-256 in `base-migration.json`.
 
-### Upstream-removed registry entries
+A fresh stopped .34 server copy upgraded in place, remapped one legacy filter across 572,460 chunks, and produced an empty plan. Original private identity registry and server properties were preserved. A client fixture also converged to an empty plan and retained options and a private-save sentinel.
 
-The copied world's registry table contains seven entries removed by the new AE2
-and Fluid Logistics versions (five item IDs and two block IDs). A read-only scan
-of 572,460 serialized region/entity/POI chunks and 327 standalone data files
-found only one reference: a Create factory-panel filter using
-`fluidlogistics:waterproof_cardboard_block`. Parsing that chunk's block palettes
-found zero placed blocks of that removed type. No matching AE2 references were
-found within this scan's scope. This does not cover nested custom compressed
-storage payloads or changes made after the snapshot.
+The migrated world booted under Java 17 in an isolated network with a 4-GiB heap, 6-GiB cap and one CPU. All 130 startup and 346 release server scripts loaded without errors or warnings. Authenticated readiness, advancing game ticks, 20 idle TPS, native LV/MV slurry recipes and the automatic large-reactor copy, save-all and graceful shutdown passed. See [validation evidence](validation-0.13.12.1.json).
 
-Review or clear/remap that legacy filter in the migration copy before production
-rollout. Preserve the untouched original world and make a fresh live backup.
-The startup check must not be interpreted as proof that every removed registry
-entry can be discarded without affecting player content.
-
-- Full NsTut policy, upstream artifact preservation and renewable recipe checks.
-- Complete client/server exports and archive/artifact checks.
-- Normal dedicated-server startup on a disposable copy of the existing world,
-  with isolated ports and services and bounded resources.
-- Packaged client join, Screens/Speakers transfer and playback, and Spice of Life
-  integration behavior with the newly embedded TFC implementation.
-- Review oxygen distributors/heat/gravity equipment, gas burners, AE2 recipe and
-  machine changes, Fluid Logistics gauge conversion and changed recipe circuits.
-- Back up the live instance and coordinate the complete base upgrade on server
-  and clients before reconnecting.
-
-After review, merge into nstut/0.13.12, create the exact-head immutable tag,
-pass the promotion gate, and promote through nstut/stable. Keep the current
-stable pointer until the base-installation migration and runtime gates are ready.
+A packaged client join, interactive media/food behavior and comprehensive oxygen, gas-burner, AE2 and machine gameplay remain unverified. The startup check is not a loaded-world performance benchmark.

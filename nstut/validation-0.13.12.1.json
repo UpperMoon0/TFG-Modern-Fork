@@ -1,10 +1,10 @@
 {
   "candidate": "0.13.12-nstut.1",
   "upstreamCommit": "4b4732760b2885db45832a07f2925ba10f4c5930",
-  "preservedOverlay": "0.13.10-nstut.33",
+  "preservedOverlay": "0.13.10-nstut.34",
   "downloadedProjectsVerified": 291,
   "migrationRegressionTests": 12,
-  "renewableRecipes": 89,
+  "renewableRecipes": 90,
   "customMaterials": 73,
   "packaging": {
     "archives": [
@@ -60,10 +60,8 @@
     ]
   },
   "remainingGates": [
-    "Review or clear/remap the legacy waterproof-cardboard factory-panel filter before production migration",
     "Packaged client join and interactive food/media checks",
-    "Gameplay review for oxygen/gas burner/AE2/Fluid Logistics changes",
-    "Fresh production backup and coordinated full-base installation migration"
+    "Gameplay review for oxygen/gas burner/AE2/Fluid Logistics changes"
   ],
   "removedIdSnapshotAudit": {
     "mode": "read-only serialized-NBT ID scan",
@@ -77,5 +75,58 @@
     "scope": "Current serialized region/entity/POI chunks and standalone .dat files in the stopped snapshot; excludes the global registry table in level.dat. Hits are references, not proof of live stack/block counts; nested custom compressed payloads and future changes are not covered.",
     "onlyMatch": "One Create factory-panel top-right filter item; no placed waterproof-cardboard blocks in that chunk.",
     "actualRemovedBlockCountInMatchedChunk": 0
+  },
+  "preparationEvidenceNote": "Original archive hashes and runtime evidence below are retained from PR36 preparation. Current in-place migration evidence is recorded separately in automaticMigration.",
+  "automaticMigration": {
+    "managerVersion": "1.0.7",
+    "serverFixtureChangedPaths": 3487,
+    "clientFixtureChangedPaths": 16722,
+    "serverPostPlanItems": 0,
+    "clientPostPlanItems": 0,
+    "serverPropertiesPreserved": true,
+    "privateIdentityRegistryPreserved": true,
+    "clientOptionsAndPrivateSavePreserved": true,
+    "worldChunksScanned": 572460,
+    "worldRegionsChanged": [
+      "region/r.-5.8.mca"
+    ],
+    "unmappedRemovedReferences": 0,
+    "filterRemap": {
+      "from": "fluidlogistics:waterproof_cardboard_block",
+      "to": "tfc:empty_jar",
+      "scope": "Create factory-panel Filter.id only"
+    },
+    "runtime": {
+      "java": 17,
+      "startupScripts": 130,
+      "releaseServerScripts": 346,
+      "scriptErrors": 0,
+      "scriptWarnings": 0,
+      "authenticatedReady": true,
+      "gameTicks": [
+        72439982,
+        72440022
+      ],
+      "idleTPS": 20,
+      "nativeRecipesVerified": [
+        "LV mixer 30 EU/t 300 ticks",
+        "MV chemical reactor 120 EU/t 160 ticks",
+        "automatic large chemical reactor copy"
+      ],
+      "saveAndGracefulStop": true
+    },
+    "worldMigrationTests": 3,
+    "serverSnapshotRegressionTests": 1,
+    "managerMigrationIntegrationTests": 6,
+    "payloads": {
+      "server": {
+        "bytes": 160699903,
+        "sha256": "c25fbb87ca15df94bf4bd53126cfb86a1a49a061f3dc32886d3812f6dfb81056"
+      },
+      "client": {
+        "bytes": 223024889,
+        "sha256": "950081d1b5fc1d7e25658d78a2aca733d7b010dbd5493dfee7d3fb593bd6e15e"
+      }
+    }
   }
 }

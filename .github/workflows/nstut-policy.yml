@@ -3,9 +3,11 @@ name: NsTut fork policy
 on:
   push:
     branches:
+      - main
       - "nstut/**"
   pull_request:
     branches:
+      - main
       - "nstut/**"
 
 jobs:
@@ -24,6 +26,8 @@ jobs:
           if [ -f nstut/tools/validate-upstream-migration.py ]; then
             python nstut/tools/validate-upstream-migration.py
             python nstut/tools/test-upstream-migration.py
+            python nstut/tools/test-world-migration.py
+            python nstut/tools/test-server-migration.py
           fi
 
   promotion-gate:

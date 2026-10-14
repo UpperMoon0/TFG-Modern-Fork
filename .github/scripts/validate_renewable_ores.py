@@ -41,7 +41,7 @@ blocks = re.findall(
     recipe_text,
     re.DOTALL,
 )
-require(len(blocks) == 89, f"expected exactly 89 audited renewable recipes, found {len(blocks)}")
+require(len(blocks) == 90, f"expected exactly 90 audited renewable recipes, found {len(blocks)}")
 recipe_ids = [recipe_id for _, recipe_id, _ in blocks]
 require(len(recipe_ids) == len(set(recipe_ids)), "duplicate renewable recipe ID")
 recipe_bodies = {recipe_id: body for _, recipe_id, body in blocks}
@@ -169,6 +169,115 @@ for index, (machine_a, recipe_a, signature_a) in enumerate(signatures):
             continue
         require(not (signature_a < signature_b or signature_b < signature_a),
                 f"{machine_a}: strict-subset lookup collision between {recipe_a} and {recipe_b}")
+
+# Thermal mafic optimization (issue #31): the MV recipe must conserve
+# fluids, retain the LV fallback, and pay for its reduced rock consumption.
+# The upstream GTCEu 7.5.3 VA values are 30 EU/t (LV) and 120 EU/t (MV).
+def _compact_js(value: str) -> str:
+    return re.sub(r"\s+", "", value)
+
+
+def _require_call(recipe_id: str, method: str, expected: str) -> None:
+    body = recipe_bodies.get(recipe_id, "")
+    arguments = _method_payloads(body, method)
+    require(len(arguments) == 1 and _compact_js(arguments[0]) == _compact_js(expected),
+            f"{recipe_id}: {method} must have exact arguments {expected}")
+
+
+lv_mafic = "tfg:lv_renewable_iron_mafic_slurry"
+mv_mafic = "tfg:mv_pressurized_mafic_mineral_slurry"
+require(recipe_machines.get(lv_mafic) == "mixer",
+        "LV mafic slurry fallback must remain a Mixer recipe")
+require(recipe_machines.get(mv_mafic) == "chemical_reactor",
+        "MV molten mafic slurry must use the Chemical Reactor")
+
+_require_call(lv_mafic, "itemInputs", "'16x tfg:igneous_mafic_dust'")
+_require_call(lv_mafic, "inputFluids", "Fluid.of('minecraft:water', 8000)")
+_require_call(lv_mafic, "outputFluids", "Fluid.of('tfg:mafic_mineral_slurry', 8000)")
+_require_call(lv_mafic, "duration", "300")
+_require_call(lv_mafic, "EUt", "LV")
+
+_require_call(mv_mafic, "inputFluids", """Fluid.of('tfg:igneous_mafic', 1728),
+                                      Fluid.of('minecraft:water', 8000)""")
+_require_call(mv_mafic, "outputFluids", "Fluid.of('tfg:mafic_mineral_slurry', 8000)")
+_require_call(mv_mafic, "duration", "160")
+_require_call(mv_mafic, "EUt", "MV")
+require(not _method_payloads(recipe_bodies.get(mv_mafic, ""), "itemInputs")
+        and not _method_payloads(recipe_bodies.get(mv_mafic, ""), "notConsumable")
+        and not _method_payloads(recipe_bodies.get(mv_mafic, ""), "itemOutputs"),
+        "MV molten mafic slurry may not require/return hidden solid feedstocks")
+
+# The existing liquefaction output is the only basis for molten-to-dust
+# equivalence. Pin it so subsequent changes cannot silently create a profit loop.
+hv_text = (ROOT / "kubejs/server_scripts/tfg/hv_rework/material.recipes.js").read_text(encoding="utf-8")
+tower_match = re.search(
+    r"event\.recipes\.gtceu\.coal_liquefaction_tower\('tfg:molten_mafic_silicate'\)(.*?);",
+    hv_text,
+    re.DOTALL,
+)
+require(tower_match is not None, "missing molten mafic Coal Liquefaction Tower source")
+if tower_match:
+    tower_body = _compact_js(tower_match.group(1))
+    for fragment in (
+        ".itemInputs(Item.of('tfg:igneous_mafic_dust',16))",
+        ".outputFluids(Fluid.of('tfg:igneous_mafic',144*16))",
+        ".duration(20*50)",
+        ".EUt(GTValues.VA[GTValues.LV])",
+    ):
+        require(_compact_js(fragment) in tower_body,
+                f"molten mafic tower changed; re-audit MV slurry balance: {fragment}")
+
+# No closed conversion loop from slurry back to the molten source material.
+for _, recipe_id, body in blocks:
+    slurry_consumed = "tfg:mafic_mineral_slurry" in "".join(
+        _method_payloads(body, "inputFluids"))
+    molten_returned = "tfg:igneous_mafic" in "".join(
+        _method_payloads(body, "outputFluids"))
+    require(not (slurry_consumed and molten_returned),
+            f"{recipe_id}: mafic slurry may not be refunded into molten mafic")
+
+# Two 8 B slurry batches per Poor Hematite. Compute full-chain energy and
+# aggregate time from the registered iron recipes, not guessed voltage tiers.
+iron_followup_batches = {
+    "tfg:lv_renewable_iron_acid_leach": 2,
+    "tfg:lv_renewable_iron_liquor_purification": 2,
+    "tfg:lv_renewable_iron_hydroxide_precipitation": 1,
+    "tfg:lv_renewable_poor_hematite": 1,
+}
+iron_followup_ticks = 0
+for recipe_id, batches in iron_followup_batches.items():
+    body = recipe_bodies.get(recipe_id, "")
+    durations = _method_payloads(body, "duration")
+    require(len(durations) == 1 and durations[0].strip().isdigit(),
+            f"{recipe_id}: duration missing or not an integer")
+    require(_method_payloads(body, "EUt") == ["LV"],
+            f"{recipe_id}: iron downstream voltage changed; re-audit economics")
+    if len(durations) == 1 and durations[0].strip().isdigit():
+        iron_followup_ticks += batches * int(durations[0].strip())
+
+lv_dust_per_ore = 2 * 16
+mv_dust_per_ore = 2 * 16 * 1728 // (144 * 16)
+require(mv_dust_per_ore == 24 and lv_dust_per_ore == 32,
+        "MV molten mafic slurry must save exactly 25% rock per ore")
+require(3 * (144 * 16) == 4 * 1728,
+        "3 tower batches must provide exactly 4 MV slurry batches")
+# 24 dust per ore corresponds to 1.5 tower batches; normalize across 2 ores.
+require((2 * 1728 * 16) % (144 * 16) == 0,
+        "MV molten mafic slurry amount must represent whole dust equivalents")
+tower_ticks_per_ore = (2 * 1728 * 1000) // (144 * 16)
+require((2 * 1728 * 1000) % (144 * 16) == 0,
+        "tower time must normalize exactly to one poor ore")
+lv_iron_ticks = iron_followup_ticks + 2 * 300
+mv_iron_ticks = iron_followup_ticks + tower_ticks_per_ore + 2 * 160
+lv_iron_eu = iron_followup_ticks * 30 + 2 * 300 * 30
+mv_iron_eu = iron_followup_ticks * 30 + tower_ticks_per_ore * 30 + 2 * 160 * 120
+require((lv_iron_ticks, mv_iron_ticks) == (4200, 5420),
+        f"mafic iron chain time drift: LV={lv_iron_ticks}, MV={mv_iron_ticks}")
+require((lv_iron_eu, mv_iron_eu) == (126000, 191400),
+        f"mafic iron chain EU drift: LV={lv_iron_eu}, MV={mv_iron_eu}")
+require(mv_iron_eu > lv_iron_eu,
+        "MV thermal route must be energy-expensive, not a free upgrade")
+
 
 tin_roast = recipe_bodies.get("tfg:lv_renewable_tin_alkaline_roast", "")
 tin_mixer = recipe_bodies.get("tfg:lv_renewable_sodium_stannate", "")
