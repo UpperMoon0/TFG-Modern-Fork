@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "base": {
+    "repository": "TerraFirmaGreg-Team/Modpack-Modern",
+    "ref": "0.13.10",
+    "minecraft": "1.20.1",
+    "loader": "forge",
+    "loaderVersion": "47.4.13"
+  },
+  "mods": [
+    {
+      "id": "economy",
+      "name": "Economy",
+      "version": "0.0.18",
+      "repository": "UpperMoon0/Economy",
+      "fileName": "economy-forge-1.20.1-0.0.18.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.18/economy-forge-1.20.1-0.0.18.jar",
+      "sha256": "0c3f7a183b22ab4cf644482bbf5bb7e6ac7421a9bb91312ab4102d4c4c6aacff",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/economy-*.jar"
+      ]
+    },
+    {
+      "id": "openui",
+      "name": "OpenUI MC",
+      "version": "0.0.12",
+      "repository": "UpperMoon0/OpenUI-MC",
+      "fileName": "openui-mc-forge-1.20.1-0.0.12.jar",
+      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.12/openui-mc-forge-1.20.1-0.0.12.jar",
+      "sha256": "9a58b71322d96b044c32db758ad2594c73c54d75e8a16ad1218b5aa28c58d3d9",
+      "installTargets": [
+        "client"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/openui-mc-*.jar"
+      ]
+    },
+    {
+      "id": "create-precise-controls",
+      "name": "Create: Precise Controls",
+      "version": "0.1.1",
+      "repository": "UpperMoon0/Create-Precise-Controls",
+      "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.1.1/create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "installTargets": [
+        "client"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/create-precise-controls-*.jar"
+      ]
+    },
+    {
+      "id": "simply-screens",
+      "name": "Simply Screens",
+      "version": "0.8.9",
+      "repository": "UpperMoon0/Simply-Screens",
+      "fileName": "simply_screens-forge-1.20.1-0.8.9.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.8.9/simply_screens-forge-1.20.1-0.8.9.jar",
+      "sha256": "d37e7ba7c78a51a0d086dfc21fee326de1bc5f66103a50da065aa3fbee97b662",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/simply_screens-*.jar",
+        "mods/simply-screens-*.jar"
+      ]
+    },
+    {
+      "id": "simply-speakers",
+      "name": "Simply Speakers",
+      "version": "0.9.0",
+      "repository": "UpperMoon0/Simply-Speakers",
+      "fileName": "simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.9.0/simplyspeakers-forge-1.20.1-0.9.0.jar",
+      "sha256": "76052ffeaf4a9167493982b2a4d43fd829378b42bf309309f6a4bcf91cc0e9e9",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/simplyspeakers-*.jar",
+        "mods/simply_speakers-*.jar",
+        "mods/simply-speakers-*.jar"
+      ]
+    },
+    {
+      "id": "create-horse-power-ce",
+      "name": "Create Horse Power - CE",
+      "version": "1.2.7",
+      "repository": "UpperMoon0/CreateHorsePower-CE",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.7.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
+      "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/createhorsepower-*.jar"
+      ]
+    },
+    {
+      "id": "building-gadgets-extra",
+      "name": "Building Gadgets Extra",
+      "version": "0.0.4",
+      "repository": "UpperMoon0/Building-Gadgets-Extra",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.4.jar",
+      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.4/building-gadgets-extra-forge-1.20.1-0.0.4.jar",
+      "sha256": "deaba4d6c488a1f66dd07d325b91983bdb44c70a60250b921754a88652b6b355",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/building-gadgets-extra-*.jar",
+        "mods/buildinggadgetsextra-*.jar"
+      ]
+    },
+    {
+      "id": "extra-gauges",
+      "name": "Create: Extra Gauges",
+      "version": "2.0.7",
+      "repository": "modrinth:extra-gauges",
+      "fileName": "extra_gauges-2.0.7.jar",
+      "url": "https://cdn.modrinth.com/data/6YJgomwt/versions/ZbA0Ejq9/extra_gauges-2.0.7.jar",
+      "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/extra_gauges-*.jar"
+      ]
+    },
+    {
+      "id": "perfomant-boom",
+      "name": "Perfomant Boom",
+      "version": "1.1.3",
+      "repository": "UpperMoon0/Perfomant-Boom",
+      "fileName": "perfomant_boom-forge-1.1.3.jar",
+      "url": "https://github.com/UpperMoon0/Perfomant-Boom/releases/download/v1.1.3/perfomant_boom-forge-1.1.3.jar",
+      "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/perfomant_boom-*.jar",
+        "mods/perfomant-boom-*.jar"
+      ]
+    },
+    {
+      "id": "celestial-nail",
+      "name": "Celestial Nail",
+      "version": "0.1.6",
+      "repository": "UpperMoon0/Celestial-Nail",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
+      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/celestial-nail-*.jar",
+        "mods/celestial_nail-*.jar"
+      ]
+    },
+    {
+      "id": "trueuuid",
+      "name": "TrueUUID",
+      "version": "1.3.0",
+      "repository": "YuWan-030/TrueUUID",
+      "fileName": "trueuuid-1.3.0-forge-1.20.1.jar",
+      "url": "https://github.com/YuWan-030/TrueUUID/releases/download/v1.3.0/trueuuid-1.3.0-forge-1.20.1.jar",
+      "sha256": "4ad014cf05a9a14620579b54b01f5ee14a306c58665c7b632d84ba1f116eee88",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/trueuuid-*.jar"
+      ]
+    },
+    {
+      "id": "littletiles",
+      "name": "LittleTiles",
+      "version": "1.6.0-pre161",
+      "repository": "modrinth:littletiles",
+      "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/LittleTiles_*.jar",
+        "mods/littletiles-*.jar"
+      ]
+    },
+    {
+      "id": "spice-of-life-classic",
+      "name": "Spice of Life: Classic Edition",
+      "version": "2.13",
+      "repository": "modrinth:foodvariations",
+      "fileName": "spiceoflife_classic-forge-2.13.jar",
+      "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
+      "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/spiceoflife_classic-*.jar",
+        "mods/spiceoflife-classic-*.jar"
+      ]
+    },
+    {
+      "id": "spice-of-life-integrations",
+      "name": "Spice of Life Integrations",
+      "version": "0.1.0",
+      "repository": "UpperMoon0/SpiceOfLife-Integrations",
+      "fileName": "solintegrations-0.1.0.jar",
+      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
+      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/solintegrations-*.jar"
+      ]
+    }
+  ]
+}
