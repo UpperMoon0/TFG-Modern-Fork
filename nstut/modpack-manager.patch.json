@@ -103,6 +103,18 @@
       "fileName": "packetweave-forge-1.20.1-0.1.2.jar"
     },
     {
+      "id": "fork-45f162fa823e19c4",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.12.1/.pakku/client-overrides/.nstut-tfg-base-0.13.12",
+      "sha256": "64468d7290b593ec5162bf0142110ea5e4bd39699b1e9ad3385d10efac2451dc",
+      "fileName": ".nstut-tfg-base-0.13.12"
+    },
+    {
+      "id": "fork-4a4ef21b107462de",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.12.1/.pakku/server-overrides/.nstut-tfg-base-0.13.12",
+      "sha256": "64468d7290b593ec5162bf0142110ea5e4bd39699b1e9ad3385d10efac2451dc",
+      "fileName": ".nstut-tfg-base-0.13.12"
+    },
+    {
       "id": "fork-b33be5cbe1b980b9",
       "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.12.1/kubejs/assets/tfg/lang/en_us.json",
       "sha256": "16e94ba3f65241b0613e34c1341eba75ab35476ea6b148de9c5feba516e4516f",
@@ -624,6 +636,22 @@
       "skipIfMissing": false,
       "targets": [
         "client",
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "fork-45f162fa823e19c4",
+      "destination": ".nstut-tfg-base-0.13.12",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "fork-4a4ef21b107462de",
+      "destination": ".nstut-tfg-base-0.13.12",
+      "targets": [
         "server"
       ]
     },
