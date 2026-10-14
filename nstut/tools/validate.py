@@ -28,6 +28,7 @@ def fail(message: str):
 
 
 PROMOTED_CONTRACT_FILES = (
+    "nstut/base-migration.json",
     "nstut/release.json",
     "nstut/managed-mods.json",
     "nstut/runtime-overlays.json",

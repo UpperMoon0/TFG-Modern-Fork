@@ -1,0 +1,132 @@
+{
+  "candidate": "0.13.12-nstut.1",
+  "upstreamCommit": "4b4732760b2885db45832a07f2925ba10f4c5930",
+  "preservedOverlay": "0.13.10-nstut.34",
+  "downloadedProjectsVerified": 291,
+  "migrationRegressionTests": 12,
+  "renewableRecipes": 90,
+  "customMaterials": 73,
+  "packaging": {
+    "archives": [
+      {
+        "name": "build/curseforge/TerraFirmaGreg-Modern-0.13.12-nstut.1.zip",
+        "sha256": "f11ead8523913a3d2156534c9647751885f43950811d148cf11266c18434da77",
+        "size": 206758640
+      },
+      {
+        "name": "build/serverpack/TerraFirmaGreg-Modern-0.13.12-nstut.1.zip",
+        "sha256": "d2f35386a99b3adff8d10f526fa9450742690d679dd4f901273e5961409d80ca",
+        "size": 537501418
+      },
+      {
+        "name": "build/modrinth/TerraFirmaGreg-Modern-0.13.12-nstut.1.mrpack",
+        "sha256": "57d2174cbb33651869e87741074a16d1b4125c76ab8a570203fbe53621f18a83",
+        "size": 231433515
+      }
+    ],
+    "oldBaseRejected": true,
+    "clientAssetCount": 12371,
+    "packagedBaseMarkersVerified": true
+  },
+  "serverOverlayPostPlan": {
+    "items": [],
+    "warnings": []
+  },
+  "runtime": {
+    "ready": true,
+    "isolatedNetwork": true,
+    "gameTickAdvancing": true,
+    "players": 0,
+    "tps": "Dim minecraft:overworld (minecraft:overworld): Mean tick time: 35.508 ms. Mean TPS: 20.000\nDim ad_astra:venus (tfg:venus): Mean tick time: 0.142 ms. Mean TPS: 20.000\nDim ad_astra:earth_orbit (ad_astra:earth_orbit): Mean tick time: 0.036 ms. Mean TPS: 20.000\nDim ad_astra:mercury (ad_astra:mercury): Mean tick time: 0.027 ms. Mean TPS: 20.000\nDim ad_astra:mercury_orbit (ad_astra:mercury_orbit): Mean tick time: 0.024 ms. Mean TPS: 20.000\nDim ad_astra:glacio_orbit (ad_astra:glacio_orbit): Mean tick time: 0.030 ms. Mean TPS: 20.000\nDim ad_astra:mars_orbit (ad_astra:mars_orbit): Mean tick time: 0.751 ms. Mean TPS: 20.000\nDim minecraft:the_end (minecraft:the_end): Mean tick time: 0.091 ms. Mean TPS: 20.000\nDim minecraft:the_nether (tfg:the_nether): Mean tick time: 2.230 ms. Mean TPS: 20.000\nDim ad_astra:moon_orbit (ad_astra:moon_orbit): Mean tick time: 0.055 ms. Mean TPS: 20.000\nDim ad_astra:glacio (tfg:glacio): Mean tick time: 0.025 ms. Mean TPS: 20.000\nDim ad_astra:moon (tfg:moon): Mean tick time: 0.035 ms. Mean TPS: 20.000\nDim ad_astra:venus_orbit (ad_astra:venus_orbit): Mean tick time: 0.025 ms. Mean TPS: 20.000\nDim ad_astra:mars (ad_astra:mars): Mean tick time: 0.033 ms. Mean TPS: 20.000\nDim ae2:spatial_storage (ae2:spatial_storage): Mean tick time: 0.060 ms. Mean TPS: 20.000\nOverall: Mean tick time: 39.803 ms. Mean TPS: 20.000\n"
+  },
+  "shutdown": "Clean save-all flush and stop; all dimensions saved; isolated service exited successfully",
+  "scriptLoading": {
+    "startupScripts": 130,
+    "serverScripts": 346,
+    "errors": 0,
+    "warnings": 0
+  },
+  "removedRegistryEntries": {
+    "items": [
+      "ae2:auto_complete_card",
+      "ae2:colorizer",
+      "ae2:pattern_box",
+      "ae2:singularity_crafting_storage",
+      "fluidlogistics:waterproof_cardboard_block"
+    ],
+    "blocks": [
+      "ae2:singularity_crafting_storage",
+      "fluidlogistics:waterproof_cardboard_block"
+    ]
+  },
+  "remainingGates": [
+    "Packaged client join and interactive food/media checks",
+    "Gameplay review for oxygen/gas burner/AE2/Fluid Logistics changes"
+  ],
+  "removedIdSnapshotAudit": {
+    "mode": "read-only serialized-NBT ID scan",
+    "regionsScanned": 1297,
+    "emptyRegionFiles": 399,
+    "chunksScanned": 572460,
+    "standaloneDatFilesScanned": 327,
+    "counts": {
+      "fluidlogistics:waterproof_cardboard_block": 1
+    },
+    "scope": "Current serialized region/entity/POI chunks and standalone .dat files in the stopped snapshot; excludes the global registry table in level.dat. Hits are references, not proof of live stack/block counts; nested custom compressed payloads and future changes are not covered.",
+    "onlyMatch": "One Create factory-panel top-right filter item; no placed waterproof-cardboard blocks in that chunk.",
+    "actualRemovedBlockCountInMatchedChunk": 0
+  },
+  "preparationEvidenceNote": "Original archive hashes and runtime evidence below are retained from PR36 preparation. Current in-place migration evidence is recorded separately in automaticMigration.",
+  "automaticMigration": {
+    "managerVersion": "1.0.7",
+    "serverFixtureChangedPaths": 3487,
+    "clientFixtureChangedPaths": 16722,
+    "serverPostPlanItems": 0,
+    "clientPostPlanItems": 0,
+    "serverPropertiesPreserved": true,
+    "privateIdentityRegistryPreserved": true,
+    "clientOptionsAndPrivateSavePreserved": true,
+    "worldChunksScanned": 572460,
+    "worldRegionsChanged": [
+      "region/r.-5.8.mca"
+    ],
+    "unmappedRemovedReferences": 0,
+    "filterRemap": {
+      "from": "fluidlogistics:waterproof_cardboard_block",
+      "to": "tfc:empty_jar",
+      "scope": "Create factory-panel Filter.id only"
+    },
+    "runtime": {
+      "java": 17,
+      "startupScripts": 130,
+      "releaseServerScripts": 346,
+      "scriptErrors": 0,
+      "scriptWarnings": 0,
+      "authenticatedReady": true,
+      "gameTicks": [
+        72439982,
+        72440022
+      ],
+      "idleTPS": 20,
+      "nativeRecipesVerified": [
+        "LV mixer 30 EU/t 300 ticks",
+        "MV chemical reactor 120 EU/t 160 ticks",
+        "automatic large chemical reactor copy"
+      ],
+      "saveAndGracefulStop": true
+    },
+    "worldMigrationTests": 3,
+    "serverSnapshotRegressionTests": 1,
+    "managerMigrationIntegrationTests": 6,
+    "payloads": {
+      "server": {
+        "bytes": 160699903,
+        "sha256": "c25fbb87ca15df94bf4bd53126cfb86a1a49a061f3dc32886d3812f6dfb81056"
+      },
+      "client": {
+        "bytes": 223024889,
+        "sha256": "950081d1b5fc1d7e25658d78a2aca733d7b010dbd5493dfee7d3fb593bd6e15e"
+      }
+    }
+  }
+}

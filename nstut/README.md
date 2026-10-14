@@ -52,7 +52,16 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Overlay 0.13.10-nstut.34 (MV slurry release)
+## Upstream 0.13.12 automatic migration
+
+The 0.13.12 construction branch preserves the .34 MV slurry recipe and all
+15 managed mod artifacts. Modpack Manager 1.0.7 upgrades the installed base and
+applies the overlay automatically; update the Manager first and close Minecraft.
+The server script snapshots, upgrades and checks the current server and world,
+with automatic rollback on failure. See
+[the migration notes](PATCH-0.13.12.1.md).
+
+## Overlay 0.13.10-nstut.34 (previous release)
 
 PR #32 adds an optional MV Chemical Reactor recipe: 1,728 mB molten igneous
 mafic plus 8,000 mB water produces 8,000 mB mafic mineral slurry at 120 EU/t

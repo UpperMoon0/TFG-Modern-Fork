@@ -90,6 +90,21 @@ def build_manifest() -> dict:
     artifacts = []
     operations = []
 
+    migration_path = NSTUT / "base-migration.json"
+    if migration_path.exists():
+        migration = load(migration_path)
+        if migration['baseRef'] != release['baseRef']:
+            raise ValueError('migration payload base does not match release')
+        for side, target in migration['targets'].items():
+            artifact_id = f"base-{side}-{release['baseRef']}"
+            artifacts.append({'id': artifact_id, **target['archive']})
+            fields = {key: target[key] for key in ('sourceFile', 'sourceSha256', 'targetFile', 'targetSha256', 'marker', 'markerContent')}
+            operations.append({'type': 'migratePack', 'artifact': artifact_id, **fields, 'targets': [side]})
+            for download in target['downloads']:
+                artifact_id = 'upstream-' + side + '-' + hashlib.sha256(download['path'].encode()).hexdigest()[:16]
+                artifacts.append({'id': artifact_id, **{key: download[key] for key in ('url', 'sha256', 'fileName')}})
+                operations.append({'type': 'installFile', 'artifact': artifact_id, 'destination': download['path'], 'targets': [side]})
+
     for mod in managed["mods"]:
         artifacts.append(
             {
@@ -159,6 +174,9 @@ def build_manifest() -> dict:
         if ignored(path) or path in SEMANTIC_PATHS:
             continue
         destination, targets = deployment_path(path)
+        if migration_path.exists() and destination.startswith('.nstut-tfg-base-'):
+            # Manager commits the marker only after the entire base and overlay.
+            continue
         if status.startswith("D"):
             operations.append(
                 {
@@ -198,10 +216,20 @@ def build_manifest() -> dict:
             f"Generated from UpperMoon0/TFG-Modern-Fork {release['sourceRef']} "
             f"on upstream {release['baseRef']}."
         ),
-        "requiredPaths": ["mods", "config", "kubejs", "defaultconfigs"],
+        "requiredPaths": ["mods", "config", "kubejs", "defaultconfigs"] + required_base_markers(release),
         "artifacts": artifacts,
         "operations": operations,
     }
+
+
+def required_base_markers(release: dict) -> list[str]:
+    path = NSTUT / "base-installation.json"
+    if not path.exists():
+        return []
+    installation = load(path)
+    if installation["baseRef"] != release["baseRef"]:
+        raise ValueError("base installation marker does not match release base")
+    return [installation["requiredMarker"]]
 
 
 def main() -> int:

@@ -23,6 +23,12 @@ jobs:
           python nstut/tools/generate-modpack-manager-manifest.py
           git diff --exit-code -- nstut/modpack-manager.patch.json
           python nstut/tools/validate.py
+          if [ -f nstut/tools/validate-upstream-migration.py ]; then
+            python nstut/tools/validate-upstream-migration.py
+            python nstut/tools/test-upstream-migration.py
+            python nstut/tools/test-world-migration.py
+            python nstut/tools/test-server-migration.py
+          fi
 
   promotion-gate:
     name: promotion-gate
