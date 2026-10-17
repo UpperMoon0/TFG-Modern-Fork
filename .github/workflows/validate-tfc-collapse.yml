@@ -1,0 +1,24 @@
+name: TFC collapse config validation
+on:
+  pull_request:
+    paths:
+      - '**/tfc-server.toml'
+      - '.github/scripts/validate_tfc_collapse.py'
+      - '.github/workflows/validate-tfc-collapse.yml'
+  push:
+    branches: [dev, 'nstut/**']
+    paths:
+      - '**/tfc-server.toml'
+      - '.github/scripts/validate_tfc_collapse.py'
+      - '.github/workflows/validate-tfc-collapse.yml'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python .github/scripts/validate_tfc_collapse.py
