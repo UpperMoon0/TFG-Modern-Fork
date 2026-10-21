@@ -1,4 +1,4 @@
-# TFG 0.13.15-nstut.2
+# TFG 0.13.15-nstut.3
 
 Upgrades the upstream base from 0.13.12 to 0.13.15. Update with Modpack Manager
 1.0.7 or newer and close Minecraft before applying the update. Older 0.13.10

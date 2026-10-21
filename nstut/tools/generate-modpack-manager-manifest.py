@@ -79,7 +79,24 @@ def deployment_path(path: str) -> tuple[str, list[str]]:
         return path[len(server_prefix):], ["server"]
     if path.startswith(client_prefix):
         return path[len(client_prefix):], ["client"]
+    if (ROOT / server_prefix / path).is_file():
+        # Pakku replaces this root file with its dedicated server override.
+        return path, ["client"]
     return path, ["client", "server"]
+
+
+def validate_install_destinations(manifest):
+    artifacts = {artifact['id']: artifact['sha256'] for artifact in manifest['artifacts']}
+    destinations = {}
+    for operation in manifest['operations']:
+        if operation['type'] != 'installFile':
+            continue
+        checksum = artifacts[operation['artifact']]
+        for side in operation['targets']:
+            key = (side, operation['destination'])
+            if key in destinations and destinations[key] != checksum:
+                raise ValueError(f'conflicting managed artifacts target {side}: {key[1]}')
+            destinations[key] = checksum
 
 
 def build_manifest() -> dict:
@@ -207,7 +224,7 @@ def build_manifest() -> dict:
             }
         )
 
-    return {
+    manifest = {
         "schemaVersion": 1,
         "id": "tfg-nstut-managed",
         "name": "TFG NsTut Fork Overlay",
@@ -220,6 +237,8 @@ def build_manifest() -> dict:
         "artifacts": artifacts,
         "operations": operations,
     }
+    validate_install_destinations(manifest)
+    return manifest
 
 
 def required_base_markers(release: dict) -> list[str]:

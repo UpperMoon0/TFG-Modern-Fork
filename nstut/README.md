@@ -54,11 +54,11 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 ## Current release: upstream 0.13.15
 
-`0.13.15-nstut.2` upgrades the complete 0.13.12 base through Modpack Manager
+`0.13.15-nstut.3` upgrades the complete 0.13.12 base through Modpack Manager
 1.0.7 or newer, preserving all 15 custom mods, expanded renewable recipes,
 runtime overlays and disabled collapse defaults. Close Minecraft before
 updating. Installations still on 0.13.10 must first apply the prior 0.13.12
-migration. See [release and migration notes](PATCH-0.13.15.2.md).
+migration. See [release and migration notes](PATCH-0.13.15.3.md).
 
 ## Previous upstream 0.13.12 automatic migration
 
