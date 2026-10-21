@@ -41,6 +41,15 @@ class MigrationRegressionTests(unittest.TestCase):
         self.args[1]['mods'][0]['version'] = '0.0.1'
         self.rejected()
 
+    def test_base_downloads_exclude_managed_mods(self):
+        m.validate_base_downloads(m.load('nstut/base-migration.json'), m.load('nstut/managed-mods.json'))
+
+    def test_base_cannot_reinstall_old_packetweave(self):
+        migration = m.load('nstut/base-migration.json')
+        migration['targets']['server']['downloads'].append({'path': 'mods/packetweave-forge-1.20.1-0.1.2.jar'})
+        with self.assertRaises(AssertionError):
+            m.validate_base_downloads(migration, m.load('nstut/managed-mods.json'))
+
     def test_old_upstream_translations_restored(self):
         self.args[2].update(self.args[6])
         self.rejected()

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Protect the upstream upgrade and the previously released custom overlay."""
 import json
+import fnmatch
 from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIOUS = 'nstut-0.13.10.33'
+PREVIOUS = 'nstut-0.13.15.4'
 BASE = '0.13.15'
 
 
@@ -28,7 +29,9 @@ def artifact_signature(project):
 
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    assert managed['mods'] == previous_managed['mods'], 'custom managed artifacts changed during base migration'
+    approved = load('nstut/custom-mod-audit-0.13.15.5.json')['approvedMods']
+    assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
+    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod lost during update'
     assert lock['mc_versions'] == upstream['mc_versions'] and lock['loaders'] == upstream['loaders'], 'Minecraft/loader drift'
     actual = {project_key(p): p for p in lock['projects']}
     expected = {project_key(p): p for p in upstream['projects']}
@@ -56,12 +59,21 @@ def validate_base_installation(installation, release, manifest, markers):
     assert len(markers) == 2, 'client and server markers required'
 
 
+def validate_base_downloads(migration, managed):
+    for target in migration['targets'].values():
+        for download in target['downloads']:
+            assert not any(fnmatch.fnmatchcase(download['path'], pattern)
+                           for mod in managed['mods'] for pattern in mod['cleanupPatterns']), \
+                'base migration must not reinstall an overlay-owned mod: ' + download['path']
+
+
 def main():
     validate(load('pakku-lock.json'), load('nstut/managed-mods.json'), load('kubejs/assets/tfg/lang/en_us.json'),
              historical(BASE, 'pakku-lock.json'), historical(PREVIOUS, 'nstut/managed-mods.json'),
              historical(PREVIOUS, 'kubejs/assets/tfg/lang/en_us.json'), historical('0.13.10', 'kubejs/assets/tfg/lang/en_us.json'))
     validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
+    validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
     print('Upstream migration passed: upstream artifact pins and all 15 custom mods preserved; 73 custom translations retained')
 
 

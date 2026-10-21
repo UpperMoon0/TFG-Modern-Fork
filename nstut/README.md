@@ -54,7 +54,12 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 ## Current release: upstream 0.13.15
 
-`0.13.15-nstut.4` upgrades the complete 0.13.12 base through Modpack Manager
+`0.13.15-nstut.5` upgrades Economy, OpenUI, Screens, Speakers, Building Gadgets
+Extra and PacketWeave to their latest compatible releases; the other nine
+custom pins are current. Update clients and server together. See
+[the custom-mod audit and release notes](PATCH-0.13.15.5.md).
+
+The 0.13.15 release line upgrades the complete 0.13.12 base through Modpack Manager
 1.0.7 or newer, preserving all 15 custom mods, expanded renewable recipes,
 runtime overlays and building-safe collapse rules. Close Minecraft before
 updating. Installations still on 0.13.10 must first apply the prior 0.13.12
