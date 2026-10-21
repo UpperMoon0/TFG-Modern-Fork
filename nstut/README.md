@@ -120,3 +120,15 @@ Upstream installation and authentication details: https://github.com/YuWan-030/T
 With the server and wake service stopped, preview `python3 nstut/tools/prepare-premium-identities.py <server-root>`, then repeat with `--apply` to reserve cached premium names that have existing v4 UUID saves. The tool reads Java world-name syntax, preserves existing bindings, refuses conflicting UUIDs or malformed registries, ignores offline IDs and cache entries without saves, and changes only the server-private TrueUUID registry. It refuses to proceed if any saved premium UUID has no reserved name; restore its username cache or confirm and bind that identity first. Back up the world and identity files before changing login policy. A real premium-client join is still required to verify the complete login and gameplay path.
 
 Merge the pack changes through the release-construction branch, tag its final reviewed commit as `nstut-0.13.10.31`, and promote it through the existing stable gate.
+
+
+## Manager fresh-install release check
+
+The `manager-fresh-install` policy job downloads the latest published Manager CLI,
+checks its archive checksum, and runs `install --manifest ... --dry-run` against
+this candidate's generated manifest. It requires the exact overlay version and
+Minecraft/Forge versions in `pakku-lock.json`. Unsupported bases, missing complete
+client payloads, or stale launcher metadata fail the check before promotion.
+Publish a compatible Manager before promoting a pack that needs new installer
+support. The existing `promotion-gate` explicitly requires this job to succeed, including
+when this job fails or is cancelled. A dry run checks planning, not a full game launch.

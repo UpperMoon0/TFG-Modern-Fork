@@ -31,11 +31,44 @@ jobs:
             python nstut/tools/test-server-migration.py
           fi
 
+  manager-fresh-install:
+    name: manager-fresh-install
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Test the candidate files, never the previously promoted stable pack.
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Download the published Manager CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          manager_tag="$(gh release view --repo UpperMoon0/Modpack-Manager --json tagName --jq .tagName)"
+          mkdir -p "$RUNNER_TEMP/manager-install-check"
+          gh release download "$manager_tag" --repo UpperMoon0/Modpack-Manager \
+            --pattern modpackctl-linux-x86_64.tar.gz \
+            --pattern modpackctl-linux-x86_64.tar.gz.sha256 \
+            --dir "$RUNNER_TEMP/manager-install-check"
+          cd "$RUNNER_TEMP/manager-install-check"
+          sha256sum --check modpackctl-linux-x86_64.tar.gz.sha256
+          tar -xzf modpackctl-linux-x86_64.tar.gz
+          echo "Checking pack compatibility with Manager $manager_tag"
+      - name: Require fresh installation support for this pack
+        run: python nstut/tools/check-manager-fresh-install.py --manager "$RUNNER_TEMP/manager-install-check/modpackctl"
+
   promotion-gate:
     name: promotion-gate
-    if: github.event_name == 'pull_request' && github.base_ref == 'nstut/stable'
+    needs: manager-fresh-install
+    if: always() && github.event_name == 'pull_request' && github.base_ref == 'nstut/stable'
     runs-on: ubuntu-latest
     steps:
+      - name: Require published Manager fresh-install compatibility
+        env:
+          COMPATIBILITY: ${{ needs.manager-fresh-install.result }}
+        run: test "$COMPATIBILITY" = success
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
