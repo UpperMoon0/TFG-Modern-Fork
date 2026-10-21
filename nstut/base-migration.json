@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "baseRef": "0.13.12",
-  "sourceBaseRef": "0.13.10",
+  "baseRef": "0.13.15",
+  "sourceBaseRef": "0.13.12",
   "minimumManagerVersion": "1.0.7",
   "targets": {
     "server": {
       "archive": {
-        "fileName": "tfg-base-0.13.12-server.zip",
-        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.12/tfg-base-0.13.12-server.zip",
-        "sha256": "c25fbb87ca15df94bf4bd53126cfb86a1a49a061f3dc32886d3812f6dfb81056"
+        "fileName": "tfg-base-0.13.15-server.zip",
+        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.15/tfg-base-0.13.15-server.zip",
+        "sha256": "695582a787155cb6c741655a1234f3468621142c447c063da464cabfec83ddbb"
       },
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.23.jar",
-      "sourceSha256": "e88263c5babf8033a9196b214ef836409300ce0e2550a4bd969f6696e5b2bd8f",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-      "targetSha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1",
-      "marker": ".nstut-tfg-base-0.13.12",
-      "markerContent": "{\"baseRef\":\"0.13.12\",\"upstreamCommit\":\"4b4732760b2885db45832a07f2925ba10f4c5930\"}\n",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
+      "sourceSha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+      "targetSha256": "e2bfa2366de0337b0b71658831172b5ada8205b05484d4afd13af4bcf5a630df",
+      "marker": ".nstut-tfg-base-0.13.15",
+      "markerContent": "{\"baseRef\":\"0.13.15\",\"upstreamCommit\":\"21a4caf531e6abb8b992cc83c5a94df7a39fc83a\"}\n",
       "downloads": [
         {
           "path": "mods/AE2NetworkAnalyzer-1.20-1.0.6-forge.jar",
@@ -30,16 +30,16 @@
           "sha256": "575a4a8e00f982c064d54bb3e73e5cda2d14414de054a471a3daf3f58bdf560a"
         },
         {
-          "path": "mods/AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "fileName": "AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "url": "https://edge.forgecdn.net/files/9002/476/AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "sha256": "1544000a880d5bb0d8d9e7c8b9769047e757f8a5e56ab7b800029499889dca66"
+          "path": "mods/AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "fileName": "AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "url": "https://edge.forgecdn.net/files/9208/458/AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "sha256": "cddcb83b70d8aeca483d170bb419b864ab0a30f09e45eb926d9ad5b3a79a98fa"
         },
         {
-          "path": "mods/AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "fileName": "AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "url": "https://edge.forgecdn.net/files/9002/478/AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "sha256": "546de640efc8372647fbdee83fd3f74ca0ecdc48ac88b9a6c60bf55aff4b84cd"
+          "path": "mods/AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "fileName": "AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "url": "https://edge.forgecdn.net/files/9208/463/AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "sha256": "777df966bd0d4f925b94ea9216daab43b54dec8ebef217b647eccd5031d29977"
         },
         {
           "path": "mods/AdvancedPeripherals-1.20.1-0.7.48r.jar",
@@ -90,10 +90,10 @@
           "sha256": "b586a3cd1de362c365f923e5c325273916822f4b3a792c0d9ff6747d7deb2be6"
         },
         {
-          "path": "mods/EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "fileName": "EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "url": "https://edge.forgecdn.net/files/8676/471/EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "sha256": "432a9e565e94ff3e1ecbd1ea00b387eac1d49c06dd61646a92e5fce65fdc5c23"
+          "path": "mods/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "fileName": "EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/KjL0jE2w/versions/4IG1vNXQ/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "sha256": "29e8c198c8b45c97e01f2566b2ca2e72b2af5436edca9d04d75259377ebde291"
         },
         {
           "path": "mods/ExtendedAE-1.20-1.4.21-forge.jar",
@@ -228,10 +228,10 @@
           "sha256": "beeb560232c8ee691ea446d53194358902eed8ed38d198515906ac724bdde1fb"
         },
         {
-          "path": "mods/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "fileName": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/mIyVGf3d/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "sha256": "f3077a9f817629b8e8929c1951042d1a1adc62d30b72adebd54d2b074a4faf4f"
+          "path": "mods/PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "fileName": "PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/hOfDHA4g/PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "sha256": "103f1d46c16023e346802a9b2024db885cf8dc3a43ee5106bcd5ed8165073efd"
         },
         {
           "path": "mods/Sacks 'N Such-1.20.1-1.2.8.jar",
@@ -252,10 +252,10 @@
           "sha256": "6513d95e30801ad9fce545e9336c16426b7eb85d9952095bbe7f108d16e37e81"
         },
         {
-          "path": "mods/Splice-Modern-0.3.2.jar",
-          "fileName": "Splice-Modern-0.3.2.jar",
-          "url": "https://edge.forgecdn.net/files/9079/573/Splice-Modern-0.3.2.jar",
-          "sha256": "24622d89faaf18765805d9c7d7ff1a50acf64f8df67fc6a4a3a85174984e381d"
+          "path": "mods/Splice-Modern-0.3.3.jar",
+          "fileName": "Splice-Modern-0.3.3.jar",
+          "url": "https://edge.forgecdn.net/files/9132/250/Splice-Modern-0.3.3.jar",
+          "sha256": "171b7b8b2d7a2b187feb583281d46ff9deb6b19c52cd708c2802979dc6ae7923"
         },
         {
           "path": "mods/Steam_Rails-1.7.3+forge-mc1.20.1.jar",
@@ -306,10 +306,10 @@
           "sha256": "02e8d305354c16e5c135510e66d2aa8d70f16c50d443c10e1dd2feb426105030"
         },
         {
-          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "fileName": "TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/8CWHkOAu/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "sha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1"
+          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "fileName": "TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/QTyP1mj7/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "sha256": "e2bfa2366de0337b0b71658831172b5ada8205b05484d4afd13af4bcf5a630df"
         },
         {
           "path": "mods/ToolBelt-1.20.1-1.20.03.jar",
@@ -336,10 +336,10 @@
           "sha256": "dbbdb08e61e4957069bb68e9a48c035424ae62f6eb8dbde74fbbc74d7e982836"
         },
         {
-          "path": "mods/aaa_particles-forge-1.20.1-2.3.1.jar",
-          "fileName": "aaa_particles-forge-1.20.1-2.3.1.jar",
-          "url": "https://edge.forgecdn.net/files/8995/30/aaa_particles-forge-1.20.1-2.3.1.jar",
-          "sha256": "8b68bb93ba5b90c8bdcd024defa77442a9e82a9c66e61d4c352618774cd0e81e"
+          "path": "mods/aaa_particles-forge-1.20.1-2.3.4.jar",
+          "fileName": "aaa_particles-forge-1.20.1-2.3.4.jar",
+          "url": "https://edge.forgecdn.net/files/9239/318/aaa_particles-forge-1.20.1-2.3.4.jar",
+          "sha256": "6dbb0f581a86a96690f9c03f19bf9ceaa090d272136cae4e4b6cef8f5b47b453"
         },
         {
           "path": "mods/ad_astra-forge-1.20.1-1.15.21.jar",
@@ -402,16 +402,16 @@
           "sha256": "cc77374010d9e951219a05a904062f1a3bf411dc58275ab06543984aa0048254"
         },
         {
-          "path": "mods/alltheleaks-1.1.3+1.20.1-forge.jar",
-          "fileName": "alltheleaks-1.1.3+1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/8779/54/alltheleaks-1.1.3+1.20.1-forge.jar",
-          "sha256": "4bb5a05d7f9caa9e689e43c4b4b65540b67afe53bb7c9e810465f63da4744685"
+          "path": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
+          "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
+          "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716"
         },
         {
-          "path": "mods/almanac-1.20.x-forge-1.0.2.jar",
-          "fileName": "almanac-1.20.x-forge-1.0.2.jar",
-          "url": "https://cdn.modrinth.com/data/Gi02250Z/versions/DnzrwvfD/almanac-1.20.x-forge-1.0.2.jar",
-          "sha256": "b8e0b42329c11739201d132bc99720e8205badc4ce862b30e4eec04b833e3419"
+          "path": "mods/almanac-forge-1.20.1-1.26.10.3.jar",
+          "fileName": "almanac-forge-1.20.1-1.26.10.3.jar",
+          "url": "https://cdn.modrinth.com/data/Gi02250Z/versions/JCG9t4Ek/almanac-forge-1.20.1-1.26.10.3.jar",
+          "sha256": "603a09f46f746e3e9aa96ddccdeafcc8f26219875fbfd834bfa89865eb7e358a"
         },
         {
           "path": "mods/applied_ammo_box-1.20.1-1.2.3.jar",
@@ -420,10 +420,10 @@
           "sha256": "cfad1d77ebab6c0b14cfd1f6a0638677356cf09d260132a3ac795507fb759b97"
         },
         {
-          "path": "mods/appliedenergistics2-forge-15.5.4-uelm.jar",
-          "fileName": "appliedenergistics2-forge-15.5.4-uelm.jar",
-          "url": "https://edge.forgecdn.net/files/8945/43/appliedenergistics2-forge-15.5.4-uelm.jar",
-          "sha256": "83d4b3026c4cda1d1feb4d3462d5cbf5e24fb523e03403ddd98ea451f88f8b90"
+          "path": "mods/appliedenergistics2-forge-15.5.5-uelm.jar",
+          "fileName": "appliedenergistics2-forge-15.5.5-uelm.jar",
+          "url": "https://edge.forgecdn.net/files/9092/15/appliedenergistics2-forge-15.5.5-uelm.jar",
+          "sha256": "1228c6fbf6b9ca8d586ab626b07cf762631b898d40886ef1ff6700fc095b788f"
         },
         {
           "path": "mods/architectury-9.2.14-forge.jar",
@@ -564,10 +564,10 @@
           "sha256": "9f639204588512abe767bb5c2ff97d41f50352af916de939ac8029c95d57ae7b"
         },
         {
-          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "fileName": "corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/gC9IUqZM/corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "sha256": "eed0e0936172e4ad9c2ad4d5e4dd2e740f27ff2363349a209f32a396cb2b6535"
+          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8"
         },
         {
           "path": "mods/cosmeticarmorreworked-1.20.1-v1a.jar",
@@ -678,12 +678,6 @@
           "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f"
         },
         {
-          "path": "mods/do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "fileName": "do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/6FtRfnLg/versions/VH8QpKA5/do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "sha256": "71ffc54d3f1fbe9497cf7b398c79a2724c60f7b06809941e9ded0888587347af"
-        },
-        {
           "path": "mods/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
           "fileName": "domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
           "url": "https://edge.forgecdn.net/files/8765/962/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
@@ -718,6 +712,12 @@
           "fileName": "everycomp-1.20-2.9.27-forge.jar",
           "url": "https://cdn.modrinth.com/data/eiktJyw1/versions/1W3wIglQ/everycomp-1.20-2.9.27-forge.jar",
           "sha256": "888eec4224cd9f990de5c7802d01e090e5a7c137e6abc59a7c7ea02a0e2f9218"
+        },
+        {
+          "path": "mods/expandedae-1.4.3.jar",
+          "fileName": "expandedae-1.4.3.jar",
+          "url": "https://edge.forgecdn.net/files/9225/557/expandedae-1.4.3.jar",
+          "sha256": "321d23bbbb4c95036e0d6f2f1576008f42ad5d330a03072d25611f9f5199f0e2"
         },
         {
           "path": "mods/exposure-forge-1.20.1-1.9.22.jar",
@@ -930,10 +930,10 @@
           "sha256": "a9b0827d264e0d15f90482de0d4783a28fc2dad9dfb477f344dc5e959168838d"
         },
         {
-          "path": "mods/letmedespawn-1.20.x-forge-1.5.0.jar",
-          "fileName": "letmedespawn-1.20.x-forge-1.5.0.jar",
-          "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/1VmupN41/letmedespawn-1.20.x-forge-1.5.0.jar",
-          "sha256": "c6be3d9a62234d96d302369ac0a0ee238bdc0cf1b7f7280532d4365e9fabc09e"
+          "path": "mods/letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "fileName": "letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/Ys9NaV4D/letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "sha256": "9644008fc153c9a84e32dd14924f87dbf1435feec92ebf06ef051d491b365d29"
         },
         {
           "path": "mods/lithostitched-forge-1.20.1-1.4.11.jar",
@@ -972,6 +972,12 @@
           "sha256": "875662b04144b6cdf617e7386e6c1b6f8d21bd7d2a7e51f88fcde312c47202e1"
         },
         {
+          "path": "mods/matter_manipulator-0.1.1+1.20.1.jar",
+          "fileName": "matter_manipulator-0.1.1+1.20.1.jar",
+          "url": "https://edge.forgecdn.net/files/9236/503/matter_manipulator-0.1.1+1.20.1.jar",
+          "sha256": "2188eb1a0d856e3634722ce568e8401e3c5c32007494c449ffc25de3bc9b27e8"
+        },
+        {
           "path": "mods/mcw_tfc_aio-0.2.30-1.20.1.jar",
           "fileName": "mcw_tfc_aio-0.2.30-1.20.1.jar",
           "url": "https://edge.forgecdn.net/files/5196/201/mcw_tfc_aio-0.2.30-1.20.1.jar",
@@ -1002,10 +1008,10 @@
           "sha256": "ec73870ccd4f0f931d7d619a3e8879f32a647b4bf1d4a32fa76c390c6537d111"
         },
         {
-          "path": "mods/moonlight-1.20-2.16.35-forge.jar",
-          "fileName": "moonlight-1.20-2.16.35-forge.jar",
-          "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/W0ZWjZib/moonlight-1.20-2.16.35-forge.jar",
-          "sha256": "55e60e041318c5fabcb02d41e989db2c8b784ba7a991525fa461c6522a67719e"
+          "path": "mods/moonlight-1.20-2.16.37-forge.jar",
+          "fileName": "moonlight-1.20-2.16.37-forge.jar",
+          "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/b1cuadwV/moonlight-1.20-2.16.37-forge.jar",
+          "sha256": "8f0c9c29165911ee399ae9a66ee96c5f1ca9c52557bbfcabae2f44e32f5bb718"
         },
         {
           "path": "mods/morered-1.20.1-4.0.0.4.jar",
@@ -1080,16 +1086,16 @@
           "sha256": "5206c8117f3869f6ea894c034f4a18d4def40ef8b0da106eb662ebd4e8ebbf36"
         },
         {
-          "path": "mods/reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "fileName": "reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/ZKsEZGtK/reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "sha256": "8723815817282d1e9cb369288e59b05560f8fffc2b3c43f20a9b70ccefa89c7e"
+          "path": "mods/reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "fileName": "reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/HRtbZiZi/reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "sha256": "e230ecb5ac95c46cf989e0386338e3bdbcaa2021a28320371e9f364b122af39f"
         },
         {
-          "path": "mods/reliable_remover-3.4.0+1.20.1-forge.jar",
-          "fileName": "reliable_remover-3.4.0+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/uc3AcPW4/reliable_remover-3.4.0+1.20.1-forge.jar",
-          "sha256": "b07c4efd0dbff03f266962394da91cd284a6659a3e70c33a3091c62f0430fae7"
+          "path": "mods/reliable_remover-3.8.1+1.20.1-forge.jar",
+          "fileName": "reliable_remover-3.8.1+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/CeUgdqn5/reliable_remover-3.8.1+1.20.1-forge.jar",
+          "sha256": "3cf79c8e343949506013f564942feff711d020d8c65491e8b2a487db53569fd1"
         },
         {
           "path": "mods/resourcefulconfig-forge-1.20.1-2.1.3.jar",
@@ -1158,16 +1164,22 @@
           "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d"
         },
         {
-          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "fileName": "sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/2bWtsB6d/sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "sha256": "5d3a624678f582155169e206aae8e8e911a55feae4471116585ac7aee0028bd8"
+          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "fileName": "sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/HEEmP5R4/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "sha256": "07479d3f03904bbfcd21e8d7c96277336c790e994cafc2c5bb13cccb5dfb8524"
         },
         {
-          "path": "mods/sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "fileName": "sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/g4iv6aQm/sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "sha256": "980e9a3887f512c296a248d598611c85442ce409b0dfa96ec7c50ff21302a42f"
+          "path": "mods/sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "fileName": "sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/FtB6vAQc/sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "sha256": "c3e3aef025143a57583b01a41c36f85d0aba1989096cb1d3a7140b1e4f5ea0ab"
+        },
+        {
+          "path": "mods/space_gravity-1.0.1.jar",
+          "fileName": "space_gravity-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/8266/553/space_gravity-1.0.1.jar",
+          "sha256": "c7244a9d6b6772578d5d5abbf5b69d22938c9bf152c60bf76e2225f8c81c2f98"
         },
         {
           "path": "mods/species-3.5.jar",
@@ -1353,16 +1365,16 @@
     },
     "client": {
       "archive": {
-        "fileName": "tfg-base-0.13.12-client.zip",
-        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.12/tfg-base-0.13.12-client.zip",
-        "sha256": "950081d1b5fc1d7e25658d78a2aca733d7b010dbd5493dfee7d3fb593bd6e15e"
+        "fileName": "tfg-base-0.13.15-client.zip",
+        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.15/tfg-base-0.13.15-client.zip",
+        "sha256": "f05ce8262681f0aece0a2619f438f4db617c4dc881dab199c9d0b0e1bc1f3f56"
       },
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.23.jar",
-      "sourceSha256": "e88263c5babf8033a9196b214ef836409300ce0e2550a4bd969f6696e5b2bd8f",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-      "targetSha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1",
-      "marker": ".nstut-tfg-base-0.13.12",
-      "markerContent": "{\"baseRef\":\"0.13.12\",\"upstreamCommit\":\"4b4732760b2885db45832a07f2925ba10f4c5930\"}\n",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
+      "sourceSha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+      "targetSha256": "e2bfa2366de0337b0b71658831172b5ada8205b05484d4afd13af4bcf5a630df",
+      "marker": ".nstut-tfg-base-0.13.15",
+      "markerContent": "{\"baseRef\":\"0.13.15\",\"upstreamCommit\":\"21a4caf531e6abb8b992cc83c5a94df7a39fc83a\"}\n",
       "downloads": [
         {
           "path": "mods/AE2NetworkAnalyzer-1.20-1.0.6-forge.jar",
@@ -1377,16 +1389,16 @@
           "sha256": "575a4a8e00f982c064d54bb3e73e5cda2d14414de054a471a3daf3f58bdf560a"
         },
         {
-          "path": "mods/AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "fileName": "AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "url": "https://edge.forgecdn.net/files/9002/476/AdvancedCoreInfo-forge-1.20.1-1.3.0.jar",
-          "sha256": "1544000a880d5bb0d8d9e7c8b9769047e757f8a5e56ab7b800029499889dca66"
+          "path": "mods/AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "fileName": "AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "url": "https://edge.forgecdn.net/files/9208/458/AdvancedCoreInfo-forge-1.20.1-1.5.0.jar",
+          "sha256": "cddcb83b70d8aeca483d170bb419b864ab0a30f09e45eb926d9ad5b3a79a98fa"
         },
         {
-          "path": "mods/AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "fileName": "AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "url": "https://edge.forgecdn.net/files/9002/478/AdvancedLootInfo-forge-1.20.1-2.3.0.jar",
-          "sha256": "546de640efc8372647fbdee83fd3f74ca0ecdc48ac88b9a6c60bf55aff4b84cd"
+          "path": "mods/AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "fileName": "AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "url": "https://edge.forgecdn.net/files/9208/463/AdvancedLootInfo-forge-1.20.1-2.5.0.jar",
+          "sha256": "777df966bd0d4f925b94ea9216daab43b54dec8ebef217b647eccd5031d29977"
         },
         {
           "path": "mods/AdvancedPeripherals-1.20.1-0.7.48r.jar",
@@ -1395,10 +1407,10 @@
           "sha256": "664a94fe47d2e9a7e94bc204c1c546617f4aa4b6787d24bcf5694c19f5c2d2bc"
         },
         {
-          "path": "mods/AmbientSounds_FORGE_v6.3.9_mc1.20.1.jar",
-          "fileName": "AmbientSounds_FORGE_v6.3.9_mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/fM515JnW/versions/EPxVyOnf/AmbientSounds_FORGE_v6.3.9_mc1.20.1.jar",
-          "sha256": "206689da1152bd781032553be6632e8091e0cb046a7a56ba12d1068a63766671"
+          "path": "mods/AmbientSounds_FORGE_v6.3.11_mc1.20.1.jar",
+          "fileName": "AmbientSounds_FORGE_v6.3.11_mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/fM515JnW/versions/YOYpWGZg/AmbientSounds_FORGE_v6.3.11_mc1.20.1.jar",
+          "sha256": "63a4ea6ea11fa63982325306ae09268080c296633b6bfbf72dbd7c8514d4f114"
         },
         {
           "path": "mods/ArmorQuickSwap-v8.0.0-1.20.1-Forge.jar",
@@ -1473,10 +1485,10 @@
           "sha256": "cb0301d2fd82b48eacbd65e841bedd2fd1523997f9e1b2ca7d54bab201634a56"
         },
         {
-          "path": "mods/EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "fileName": "EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "url": "https://edge.forgecdn.net/files/8676/471/EnhancedVisuals_FORGE_v1.8.33_mc1.20.1.jar",
-          "sha256": "432a9e565e94ff3e1ecbd1ea00b387eac1d49c06dd61646a92e5fce65fdc5c23"
+          "path": "mods/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "fileName": "EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/KjL0jE2w/versions/4IG1vNXQ/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
+          "sha256": "29e8c198c8b45c97e01f2566b2ca2e72b2af5436edca9d04d75259377ebde291"
         },
         {
           "path": "mods/EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
@@ -1551,10 +1563,10 @@
           "sha256": "82298214aa3f7225a0ac0ed93eb2cff8283758af211029cc00a7819a0fed6a7c"
         },
         {
-          "path": "mods/ImmediatelyFast-Forge-1.5.4+1.20.4.jar",
-          "fileName": "ImmediatelyFast-Forge-1.5.4+1.20.4.jar",
-          "url": "https://edge.forgecdn.net/files/7537/759/ImmediatelyFast-Forge-1.5.4+1.20.4.jar",
-          "sha256": "da781a31b2c8d8a845ed48c89b6463f1df3f2c655de10d8d4f5bed8123ff68a8"
+          "path": "mods/ImmediatelyFast-Forge-1.5.5+1.20.4.jar",
+          "fileName": "ImmediatelyFast-Forge-1.5.5+1.20.4.jar",
+          "url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/rvsLEEZU/ImmediatelyFast-Forge-1.5.5+1.20.4.jar",
+          "sha256": "82db19cc65b5c11a444498fb4b8cbcb0393c043e794cb5bf368631a0af765035"
         },
         {
           "path": "mods/InventoryProfilesNext-forge-1.20-1.10.20.jar",
@@ -1563,10 +1575,10 @@
           "sha256": "2f664f23ed031f6cfacce01b0461c450e2248435936cb6b7e2e0463c6ec56343"
         },
         {
-          "path": "mods/IrisSearch-1.8.2-forge.jar",
-          "fileName": "IrisSearch-1.8.2-forge.jar",
-          "url": "https://cdn.modrinth.com/data/bkAgg84v/versions/aujGCrx5/IrisSearch-1.8.2-forge.jar",
-          "sha256": "7c72f42c332c42f8a603cc3f4e2b66fcc212eab61677493c10b1accc883aae3d"
+          "path": "mods/IrisSearch-1.8.3-forge.jar",
+          "fileName": "IrisSearch-1.8.3-forge.jar",
+          "url": "https://cdn.modrinth.com/data/bkAgg84v/versions/5pfpY7t9/IrisSearch-1.8.3-forge.jar",
+          "sha256": "8fbc042379b410a9bba1b99a182d39de79d666459a488c000d6f2591d0e48f2e"
         },
         {
           "path": "mods/ItemPhysicLite_FORGE_v1.6.13_mc1.20.1.jar",
@@ -1671,10 +1683,10 @@
           "sha256": "beeb560232c8ee691ea446d53194358902eed8ed38d198515906ac724bdde1fb"
         },
         {
-          "path": "mods/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "fileName": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/mIyVGf3d/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
-          "sha256": "f3077a9f817629b8e8929c1951042d1a1adc62d30b72adebd54d2b074a4faf4f"
+          "path": "mods/PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "fileName": "PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/hOfDHA4g/PuzzlesLib-v8.1.36-1.20.1-Forge.jar",
+          "sha256": "103f1d46c16023e346802a9b2024db885cf8dc3a43ee5106bcd5ed8165073efd"
         },
         {
           "path": "mods/Sacks 'N Such-1.20.1-1.2.8.jar",
@@ -1701,10 +1713,10 @@
           "sha256": "6513d95e30801ad9fce545e9336c16426b7eb85d9952095bbe7f108d16e37e81"
         },
         {
-          "path": "mods/Splice-Modern-0.3.2.jar",
-          "fileName": "Splice-Modern-0.3.2.jar",
-          "url": "https://edge.forgecdn.net/files/9079/573/Splice-Modern-0.3.2.jar",
-          "sha256": "24622d89faaf18765805d9c7d7ff1a50acf64f8df67fc6a4a3a85174984e381d"
+          "path": "mods/Splice-Modern-0.3.3.jar",
+          "fileName": "Splice-Modern-0.3.3.jar",
+          "url": "https://edge.forgecdn.net/files/9132/250/Splice-Modern-0.3.3.jar",
+          "sha256": "171b7b8b2d7a2b187feb583281d46ff9deb6b19c52cd708c2802979dc6ae7923"
         },
         {
           "path": "mods/Steam_Rails-1.7.3+forge-mc1.20.1.jar",
@@ -1761,10 +1773,10 @@
           "sha256": "02e8d305354c16e5c135510e66d2aa8d70f16c50d443c10e1dd2feb426105030"
         },
         {
-          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "fileName": "TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/8CWHkOAu/TerraFirmaGreg-Core-Modern-0.9.25.jar",
-          "sha256": "fdf9a3521a08870eae8f43a5aea1c5ea2f8e07884f516445837c0fdc2a648ec1"
+          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "fileName": "TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/QTyP1mj7/TerraFirmaGreg-Core-Modern-0.9.29.jar",
+          "sha256": "e2bfa2366de0337b0b71658831172b5ada8205b05484d4afd13af4bcf5a630df"
         },
         {
           "path": "mods/ToolBelt-1.20.1-1.20.03.jar",
@@ -1797,10 +1809,10 @@
           "sha256": "dbbdb08e61e4957069bb68e9a48c035424ae62f6eb8dbde74fbbc74d7e982836"
         },
         {
-          "path": "mods/aaa_particles-forge-1.20.1-2.3.1.jar",
-          "fileName": "aaa_particles-forge-1.20.1-2.3.1.jar",
-          "url": "https://edge.forgecdn.net/files/8995/30/aaa_particles-forge-1.20.1-2.3.1.jar",
-          "sha256": "8b68bb93ba5b90c8bdcd024defa77442a9e82a9c66e61d4c352618774cd0e81e"
+          "path": "mods/aaa_particles-forge-1.20.1-2.3.4.jar",
+          "fileName": "aaa_particles-forge-1.20.1-2.3.4.jar",
+          "url": "https://edge.forgecdn.net/files/9239/318/aaa_particles-forge-1.20.1-2.3.4.jar",
+          "sha256": "6dbb0f581a86a96690f9c03f19bf9ceaa090d272136cae4e4b6cef8f5b47b453"
         },
         {
           "path": "mods/ad_astra-forge-1.20.1-1.15.21.jar",
@@ -1845,10 +1857,10 @@
           "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4"
         },
         {
-          "path": "mods/afc-1.0.22-1.20.1.jar",
-          "fileName": "afc-1.0.22-1.20.1.jar",
-          "url": "https://edge.forgecdn.net/files/8071/302/afc-1.0.22-1.20.1.jar",
-          "sha256": "b115634932de50474bf6c28b57b49633c0a7361bafdb9f7e1cca61c052147fd9"
+          "path": "mods/afc-1.0.23-1.20.1.jar",
+          "fileName": "afc-1.0.23-1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/9q4wtMjp/versions/pxyePina/afc-1.0.23-1.20.1.jar",
+          "sha256": "789b6f5618584cef1dc45f5bdbe7b073208069a6ad9a7ce67c52b9c2b2a7cb31"
         },
         {
           "path": "mods/ags_modernmarkings-0.4.5-1.20.1.jar",
@@ -1863,16 +1875,16 @@
           "sha256": "cc77374010d9e951219a05a904062f1a3bf411dc58275ab06543984aa0048254"
         },
         {
-          "path": "mods/alltheleaks-1.1.3+1.20.1-forge.jar",
-          "fileName": "alltheleaks-1.1.3+1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/8779/54/alltheleaks-1.1.3+1.20.1-forge.jar",
-          "sha256": "4bb5a05d7f9caa9e689e43c4b4b65540b67afe53bb7c9e810465f63da4744685"
+          "path": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
+          "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
+          "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716"
         },
         {
-          "path": "mods/almanac-1.20.x-forge-1.0.2.jar",
-          "fileName": "almanac-1.20.x-forge-1.0.2.jar",
-          "url": "https://cdn.modrinth.com/data/Gi02250Z/versions/DnzrwvfD/almanac-1.20.x-forge-1.0.2.jar",
-          "sha256": "b8e0b42329c11739201d132bc99720e8205badc4ce862b30e4eec04b833e3419"
+          "path": "mods/almanac-forge-1.20.1-1.26.10.2.jar",
+          "fileName": "almanac-forge-1.20.1-1.26.10.2.jar",
+          "url": "https://edge.forgecdn.net/files/9201/652/almanac-forge-1.20.1-1.26.10.2.jar",
+          "sha256": "2131a4507f8ffb754b11d306e8b605aa412a90d6987f9c939693dc47126f3de4"
         },
         {
           "path": "mods/applied_ammo_box-1.20.1-1.2.3.jar",
@@ -1881,10 +1893,10 @@
           "sha256": "cfad1d77ebab6c0b14cfd1f6a0638677356cf09d260132a3ac795507fb759b97"
         },
         {
-          "path": "mods/appliedenergistics2-forge-15.5.4-uelm.jar",
-          "fileName": "appliedenergistics2-forge-15.5.4-uelm.jar",
-          "url": "https://edge.forgecdn.net/files/8945/43/appliedenergistics2-forge-15.5.4-uelm.jar",
-          "sha256": "83d4b3026c4cda1d1feb4d3462d5cbf5e24fb523e03403ddd98ea451f88f8b90"
+          "path": "mods/appliedenergistics2-forge-15.5.5-uelm.jar",
+          "fileName": "appliedenergistics2-forge-15.5.5-uelm.jar",
+          "url": "https://edge.forgecdn.net/files/9092/15/appliedenergistics2-forge-15.5.5-uelm.jar",
+          "sha256": "1228c6fbf6b9ca8d586ab626b07cf762631b898d40886ef1ff6700fc095b788f"
         },
         {
           "path": "mods/architectury-9.2.14-forge.jar",
@@ -2055,10 +2067,10 @@
           "sha256": "8d77c5fc8dc981c750a8e66d4665f055457f748f0ce49a303d9bc50347bdbf7c"
         },
         {
-          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "fileName": "corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/gC9IUqZM/corpsecurioscompat-1.20.1-Forge-4.0.1.jar",
-          "sha256": "eed0e0936172e4ad9c2ad4d5e4dd2e740f27ff2363349a209f32a396cb2b6535"
+          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+          "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8"
         },
         {
           "path": "mods/cosmeticarmorreworked-1.20.1-v1a.jar",
@@ -2193,12 +2205,6 @@
           "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f"
         },
         {
-          "path": "mods/do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "fileName": "do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/6FtRfnLg/versions/VH8QpKA5/do_a_barrel_roll-forge-3.5.6+1.20.1.jar",
-          "sha256": "71ffc54d3f1fbe9497cf7b398c79a2724c60f7b06809941e9ded0888587347af"
-        },
-        {
           "path": "mods/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
           "fileName": "domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
           "url": "https://edge.forgecdn.net/files/8765/962/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
@@ -2235,10 +2241,10 @@
           "sha256": "18f9f0bf3a9b4f77ad6913c28ccb927cde24f5d19524152cfe79ebb3dcccacc5"
         },
         {
-          "path": "mods/entityculling-forge-1.11.2-mc1.20.1.jar",
-          "fileName": "entityculling-forge-1.11.2-mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/HPDH6g5B/entityculling-forge-1.11.2-mc1.20.1.jar",
-          "sha256": "5d5dc228dc18422fd8a81cff63e654abb07ca4507b317db114b220aa3fc67d3b"
+          "path": "mods/entityculling-forge-1.11.3-mc1.20.1.jar",
+          "fileName": "entityculling-forge-1.11.3-mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/HUUJcFnt/entityculling-forge-1.11.3-mc1.20.1.jar",
+          "sha256": "86de2a9fc6538bc26e71e5393ae72018eb9bb349a5dbaa0645fd194da5654b66"
         },
         {
           "path": "mods/etched-3.0.4.jar",
@@ -2251,6 +2257,12 @@
           "fileName": "everycomp-1.20-2.9.27-forge.jar",
           "url": "https://cdn.modrinth.com/data/eiktJyw1/versions/1W3wIglQ/everycomp-1.20-2.9.27-forge.jar",
           "sha256": "888eec4224cd9f990de5c7802d01e090e5a7c137e6abc59a7c7ea02a0e2f9218"
+        },
+        {
+          "path": "mods/expandedae-1.4.3.jar",
+          "fileName": "expandedae-1.4.3.jar",
+          "url": "https://edge.forgecdn.net/files/9225/557/expandedae-1.4.3.jar",
+          "sha256": "321d23bbbb4c95036e0d6f2f1576008f42ad5d330a03072d25611f9f5199f0e2"
         },
         {
           "path": "mods/exposure-forge-1.20.1-1.9.22.jar",
@@ -2463,10 +2475,10 @@
           "sha256": "01d9a2d1e26fffff78eb47f3e4837189e7567dde849810b1bf6d278520c1e971"
         },
         {
-          "path": "mods/iris_shader_folder-1.4.2-forge.jar",
-          "fileName": "iris_shader_folder-1.4.2-forge.jar",
-          "url": "https://cdn.modrinth.com/data/yv6sGJzN/versions/LzxDJcqt/iris_shader_folder-1.4.2-forge.jar",
-          "sha256": "7e46a58b108a55b88928bc56ed902a683311c0a3cc655c88f00b78fce06a966e"
+          "path": "mods/iris_shader_folder-1.4.3-forge.jar",
+          "fileName": "iris_shader_folder-1.4.3-forge.jar",
+          "url": "https://cdn.modrinth.com/data/yv6sGJzN/versions/BZqieWsQ/iris_shader_folder-1.4.3-forge.jar",
+          "sha256": "efdb73907678bad9b680a717571628b3b9c48a7044de3f25870123414d735480"
         },
         {
           "path": "mods/itemphysicguns-1.0.3-7686b43.jar",
@@ -2511,10 +2523,10 @@
           "sha256": "a9b0827d264e0d15f90482de0d4783a28fc2dad9dfb477f344dc5e959168838d"
         },
         {
-          "path": "mods/letmedespawn-1.20.x-forge-1.5.0.jar",
-          "fileName": "letmedespawn-1.20.x-forge-1.5.0.jar",
-          "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/1VmupN41/letmedespawn-1.20.x-forge-1.5.0.jar",
-          "sha256": "c6be3d9a62234d96d302369ac0a0ee238bdc0cf1b7f7280532d4365e9fabc09e"
+          "path": "mods/letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "fileName": "letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/Ys9NaV4D/letmedespawn-forge-1.20.1-1.26.10.1.jar",
+          "sha256": "9644008fc153c9a84e32dd14924f87dbf1435feec92ebf06ef051d491b365d29"
         },
         {
           "path": "mods/libIPN-forge-1.20-4.0.2.jar",
@@ -2559,6 +2571,12 @@
           "sha256": "875662b04144b6cdf617e7386e6c1b6f8d21bd7d2a7e51f88fcde312c47202e1"
         },
         {
+          "path": "mods/matter_manipulator-0.1.1+1.20.1.jar",
+          "fileName": "matter_manipulator-0.1.1+1.20.1.jar",
+          "url": "https://edge.forgecdn.net/files/9236/503/matter_manipulator-0.1.1+1.20.1.jar",
+          "sha256": "2188eb1a0d856e3634722ce568e8401e3c5c32007494c449ffc25de3bc9b27e8"
+        },
+        {
           "path": "mods/mcw_tfc_aio-0.2.30-1.20.1.jar",
           "fileName": "mcw_tfc_aio-0.2.30-1.20.1.jar",
           "url": "https://edge.forgecdn.net/files/5196/201/mcw_tfc_aio-0.2.30-1.20.1.jar",
@@ -2595,10 +2613,10 @@
           "sha256": "ec73870ccd4f0f931d7d619a3e8879f32a647b4bf1d4a32fa76c390c6537d111"
         },
         {
-          "path": "mods/moonlight-1.20-2.16.35-forge.jar",
-          "fileName": "moonlight-1.20-2.16.35-forge.jar",
-          "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/W0ZWjZib/moonlight-1.20-2.16.35-forge.jar",
-          "sha256": "55e60e041318c5fabcb02d41e989db2c8b784ba7a991525fa461c6522a67719e"
+          "path": "mods/moonlight-1.20-2.16.37-forge.jar",
+          "fileName": "moonlight-1.20-2.16.37-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9178/412/moonlight-1.20-2.16.37-forge.jar",
+          "sha256": "0cf5a628fd2dcde4a87b9e596657684c409836414fc86cbe110f3858824dc971"
         },
         {
           "path": "mods/morered-1.20.1-4.0.0.4.jar",
@@ -2697,16 +2715,16 @@
           "sha256": "5206c8117f3869f6ea894c034f4a18d4def40ef8b0da106eb662ebd4e8ebbf36"
         },
         {
-          "path": "mods/reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "fileName": "reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/ZKsEZGtK/reliable_recipes-3.3.1+1.20.1-forge.jar",
-          "sha256": "8723815817282d1e9cb369288e59b05560f8fffc2b3c43f20a9b70ccefa89c7e"
+          "path": "mods/reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "fileName": "reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/HRtbZiZi/reliable_recipes-3.7.1+1.20.1-forge.jar",
+          "sha256": "e230ecb5ac95c46cf989e0386338e3bdbcaa2021a28320371e9f364b122af39f"
         },
         {
-          "path": "mods/reliable_remover-3.4.0+1.20.1-forge.jar",
-          "fileName": "reliable_remover-3.4.0+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/uc3AcPW4/reliable_remover-3.4.0+1.20.1-forge.jar",
-          "sha256": "b07c4efd0dbff03f266962394da91cd284a6659a3e70c33a3091c62f0430fae7"
+          "path": "mods/reliable_remover-3.8.1+1.20.1-forge.jar",
+          "fileName": "reliable_remover-3.8.1+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/CeUgdqn5/reliable_remover-3.8.1+1.20.1-forge.jar",
+          "sha256": "3cf79c8e343949506013f564942feff711d020d8c65491e8b2a487db53569fd1"
         },
         {
           "path": "mods/remi-forge-1.20.1-4.7.3.jar",
@@ -2751,10 +2769,10 @@
           "sha256": "7e6dcc7c2b0db19ec2f965fac91a49e13dcc611f2d86f6bb56d7d68da901aaf8"
         },
         {
-          "path": "mods/seasonhud-forge-1.20.1-2.0.10.jar",
-          "fileName": "seasonhud-forge-1.20.1-2.0.10.jar",
-          "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/Cdu2Rh8P/seasonhud-forge-1.20.1-2.0.10.jar",
-          "sha256": "f97ae3daff492a97fe0635c1dee7a22bb5c38b8de75ed8b9df51a2527f6cd256"
+          "path": "mods/seasonhud-forge-1.20.1-2.0.11.jar",
+          "fileName": "seasonhud-forge-1.20.1-2.0.11.jar",
+          "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/J0Bp2ckj/seasonhud-forge-1.20.1-2.0.11.jar",
+          "sha256": "acd37ba9ae52fe2fbea096180b2695e467892bd511a4057882d33e46e41bcc50"
         },
         {
           "path": "mods/showcaser-forge-1.7.4.jar",
@@ -2805,22 +2823,28 @@
           "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d"
         },
         {
-          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "fileName": "sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "url": "https://edge.forgecdn.net/files/9074/417/sophisticatedbackpacks-1.20.1-3.26.7.2188.jar",
-          "sha256": "bd3051492fa10323ad0a1745a2aaf0c997064d8a8ada811d459ac71f7a67de09"
+          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "fileName": "sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "url": "https://edge.forgecdn.net/files/9271/152/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
+          "sha256": "5efea2e5d92acfbe3153e50806d2a89f4a3d4a99d6b463a7798c7a12c947bb81"
         },
         {
-          "path": "mods/sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "fileName": "sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "url": "https://edge.forgecdn.net/files/9074/374/sophisticatedcore-1.20.1-1.5.5.2373.jar",
-          "sha256": "0b24706797f833f0c61483c85b2a6acf2620a5ed1d8e1a296dc30ceca6af5256"
+          "path": "mods/sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "fileName": "sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "url": "https://edge.forgecdn.net/files/9261/206/sophisticatedcore-1.20.1-1.5.14.2419.jar",
+          "sha256": "d781774c9960f609868f5f1e37f58e4245dfeb7504f6603fc5a18909ab330f25"
         },
         {
           "path": "mods/sound-physics-remastered-forge-1.20.1-1.5.1.jar",
           "fileName": "sound-physics-remastered-forge-1.20.1-1.5.1.jar",
           "url": "https://edge.forgecdn.net/files/7032/235/sound-physics-remastered-forge-1.20.1-1.5.1.jar",
           "sha256": "591fa317c4e462039dae01967bf370acb284d5118cf5839a33f1d01b6c0def3c"
+        },
+        {
+          "path": "mods/space_gravity-1.0.1.jar",
+          "fileName": "space_gravity-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/8266/553/space_gravity-1.0.1.jar",
+          "sha256": "c7244a9d6b6772578d5d5abbf5b69d22938c9bf152c60bf76e2225f8c81c2f98"
         },
         {
           "path": "mods/species-3.5.jar",

@@ -59,6 +59,8 @@ def main():
     assert json.loads((previous / 'pakku-lock.json').read_text(encoding='utf-8'))['mc_versions'] == ['1.20.1']
     out.mkdir(parents=True, exist_ok=True)
     lock = json.loads((source / 'pakku-lock.json').read_text(encoding='utf-8'))
+    pack_config = json.loads((source / 'pakku.json').read_text(encoding='utf-8'))
+    pack_name = pack_config['name'] + '-' + pack_config['version'] + '.zip'
     old_lock = json.loads((previous / 'pakku-lock.json').read_text(encoding='utf-8'))
     old_core = next(f for p in old_lock['projects'] if p['slug'].get('modrinth') == 'terrafirmagreg-core' for f in p['files'] if f['type'] == 'modrinth')
     cached_old = out / old_core['file_name']
@@ -75,7 +77,7 @@ def main():
     for side in ('server', 'client'):
         data = {}
         if side == 'server':
-            pack = next((source / 'build/serverpack').glob('*.zip'))
+            pack = source / 'build/serverpack' / pack_name
             with zipfile.ZipFile(pack) as archive:
                 assert archive.testzip() is None
                 for info in archive.infolist():
@@ -85,7 +87,7 @@ def main():
         else:
             # Use the canonical CurseForge export for matching server/client
             # mod versions; Modrinth provider versions can legitimately differ.
-            pack = next((source / 'build/curseforge').glob('*.zip'))
+            pack = source / 'build/curseforge' / pack_name
             with zipfile.ZipFile(pack) as archive:
                 assert archive.testzip() is None
                 manifest = json.loads(archive.read('manifest.json'))
