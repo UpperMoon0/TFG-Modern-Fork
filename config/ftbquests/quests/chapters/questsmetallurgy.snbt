@@ -1,4 +1,5 @@
 {
+	autofocus_id: "3C173357029AB649"
 	default_hide_dependency_lines: false
 	default_quest_shape: ""
 	filename: "questsmetallurgy"
@@ -14,275 +15,181 @@
 		id: "gtceu:wrought_iron_ingot"
 	}
 	id: "5F560FF28458A555"
-	order_index: 2
+	order_index: 1
 	quest_links: [
 		{
 			id: "19CF6D922179DFF9"
 			linked_quest: "11C45DBB20ED7647"
 			shape: "heart"
-			x: 6.5d
-			y: -10.0d
+			x: 3.125d
+			y: -13.375d
 		}
 		{
 			id: "3249AB9EB552BB77"
 			linked_quest: "4B79026C8D2DACC4"
-			x: 5.5d
-			y: 9.0d
+			x: 22.125d
+			y: -12.375d
 		}
 		{
 			id: "5B4E347985A66970"
 			linked_quest: "21C58B2541BFA2EE"
 			shape: "heart"
-			x: 7.5d
-			y: -27.0d
+			x: -13.875d
+			y: -14.375d
 		}
 		{
 			id: "70D405A6CF1B048B"
 			linked_quest: "7178843BCD50A012"
-			x: 8.5d
-			y: -21.0d
+			x: -7.875d
+			y: -15.375d
 		}
 		{
 			id: "78422ADEE9AF06B8"
 			linked_quest: "7A200766AAC1EE19"
 			shape: "heart"
-			x: 4.5d
-			y: -10.0d
-		}
-		{
-			id: "572FD8B81A8B7255"
-			linked_quest: "7EE13BE102F323F3"
-			shape: "heart"
-			x: 5.5d
-			y: -17.0d
-		}
-		{
-			id: "4DCF561EF2E78E72"
-			linked_quest: "598CA763D195C84E"
-			shape: "heart"
-			x: 4.5d
-			y: -14.0d
-		}
-		{
-			id: "6D6C9C52263D16F7"
-			linked_quest: "598BD589D3C3057A"
-			shape: "heart"
-			x: 5.5d
-			y: -14.0d
+			x: 3.125d
+			y: -11.375d
 		}
 		{
 			id: "222003C6AD2BF8C8"
 			linked_quest: "6702D52922D85C0D"
-			x: 5.5d
-			y: -21.0d
+			x: -7.875d
+			y: -12.375d
 		}
 		{
 			id: "54DB3BC997AE05F2"
 			linked_quest: "36B64597F76625ED"
 			shape: "heart"
-			x: 6.5d
-			y: -22.5d
+			x: -9.375d
+			y: -13.375d
 		}
 		{
 			id: "0B1851AE279648DB"
 			linked_quest: "379F434116632A89"
-			x: -8.5d
-			y: -17.5d
+			x: -4.375d
+			y: 1.625d
 		}
 		{
 			id: "1107BD1E172FD8A5"
 			linked_quest: "57492E368B7CDF68"
-			x: 0.5d
-			y: -24.0d
+			x: -10.875d
+			y: -7.375d
 		}
 		{
 			id: "25356B2F4F5AF6D3"
 			linked_quest: "4433748B4DA986B0"
 			shape: "heart"
-			x: 6.5d
-			y: -14.0d
-		}
-		{
-			id: "3BB6632786CE484C"
-			linked_quest: "73D5ED4099F99A47"
-			shape: "heart"
-			x: 5.5d
-			y: -10.0d
+			x: -0.875d
+			y: -13.375d
 		}
 		{
 			id: "6486A795C39453F6"
 			linked_quest: "22E604DB7E7E87FB"
-			x: 9.5d
-			y: -19.0d
+			x: -5.875d
+			y: -16.375d
 		}
 		{
 			id: "556D78EE46298EAF"
 			linked_quest: "382FC8824F311665"
-			x: 12.5d
-			y: -19.0d
+			x: -5.875d
+			y: -19.375d
 		}
 		{
 			id: "7A8638AB1E3F4AC6"
 			linked_quest: "2D959136A5FC5F46"
-			x: 11.0d
-			y: -19.0d
+			x: -5.875d
+			y: -17.875d
 		}
 		{
 			id: "6AC01D56F7FD8035"
 			linked_quest: "037CDA933FBE2CBE"
-			x: 11.0d
-			y: -17.5d
+			x: -4.375d
+			y: -17.875d
 		}
 		{
 			id: "12A3385CA71DCA30"
 			linked_quest: "5443F4F5AE53B91A"
 			shape: "heart"
-			x: 8.5d
-			y: -22.5d
+			x: -9.375d
+			y: -15.375d
 		}
 		{
 			id: "0F4990ABCB76BACD"
 			linked_quest: "0F1603CC9D7D41E3"
 			shape: "heart"
-			x: 7.5d
-			y: -17.0d
-		}
-		{
-			id: "60E01A84A47DDC76"
-			linked_quest: "05528D09F7EE6E33"
-			shape: "heart"
-			x: 6.5d
-			y: -21.0d
+			x: -3.875d
+			y: -14.375d
 		}
 		{
 			id: "78752A85BA6FA834"
 			linked_quest: "46214D40FA69DA7B"
-			x: 9.5d
-			y: -12.0d
+			x: 1.125d
+			y: -17.375d
 		}
 		{
 			id: "61A5C3471B9331BE"
 			linked_quest: "4E87F4BB0D441E00"
-			x: 11.0d
-			y: -12.0d
-		}
-		{
-			id: "060F9F1B0F53041C"
-			linked_quest: "66FDACC7E7F9180C"
-			shape: "heart"
-			x: 8.5d
-			y: -15.5d
-		}
-		{
-			id: "18DFE1D8C0ED416E"
-			linked_quest: "1071B804483BB882"
-			shape: "circle"
-			x: 2.0d
-			y: -30.5d
-		}
-		{
-			id: "7B326D1051F7F114"
-			linked_quest: "76E0058A4DDF3CFB"
-			x: 2.0d
-			y: -32.0d
-		}
-		{
-			id: "679F1B2269B48220"
-			linked_quest: "79FA776C414AE8E5"
-			x: 0.5d
-			y: -32.0d
-		}
-		{
-			id: "5D2F594DAF225B81"
-			linked_quest: "368E3C94EEDC11BB"
-			x: -3.0d
-			y: -33.5d
-		}
-		{
-			id: "66246A79763C5C31"
-			linked_quest: "4E950ADF626B4D94"
-			shape: "heart"
-			x: 7.5d
-			y: -10.0d
+			x: 1.125d
+			y: -18.875d
 		}
 		{
 			id: "7C664644B941316E"
 			linked_quest: "78374FC41EFCFD9B"
 			shape: "heart"
-			x: 7.5d
-			y: -21.0d
+			x: -7.875d
+			y: -14.375d
 		}
 		{
 			id: "190A3AFECB6CA8F0"
 			linked_quest: "3876C12655AE6E3C"
 			shape: "heart"
-			x: 7.5d
-			y: -22.5d
+			x: -9.375d
+			y: -14.375d
 		}
 		{
 			id: "2F755EE1A3BAF47B"
 			linked_quest: "343A712E8869482A"
 			shape: "heart"
-			x: 4.0d
-			y: -30.0d
+			x: -16.875d
+			y: -10.875d
 		}
 		{
 			id: "232DD1F1475227FB"
 			linked_quest: "4425519187BF28FE"
-			x: -3.0d
-			y: -35.0d
+			x: -21.875d
+			y: -3.875d
 		}
 		{
 			id: "67B499A4DFF5F35A"
 			linked_quest: "2A57C41D681E4611"
 			shape: "heart"
-			x: 0.0d
-			y: -30.0d
+			x: -16.875d
+			y: -6.875d
 		}
 		{
 			id: "5789EDC5410D63AE"
 			linked_quest: "75C6BF1C9405B4C7"
 			shape: "heart"
-			x: 8.5d
-			y: -10.0d
-		}
-		{
-			id: "2C77D28C912BD8E4"
-			linked_quest: "30DD0DDF86C96926"
-			shape: "heart"
-			x: 9.5d
-			y: -10.0d
+			x: 3.125d
+			y: -15.375d
 		}
 		{
 			id: "6F22A4ABDAF2C2FA"
 			linked_quest: "5E186CD5E83BFDF0"
-			x: -1.5d
-			y: -24.0d
-		}
-		{
-			id: "62909BF0A0A28A56"
-			linked_quest: "40566F6665A095C6"
-			shape: "heart"
-			x: 7.0d
-			y: -0.5d
+			x: -10.875d
+			y: -5.375d
 		}
 		{
 			id: "4257FF4CF3A440EE"
 			linked_quest: "384B4517EB4F2687"
-			x: 8.0d
-			y: -0.5d
+			x: 12.625d
+			y: -14.875d
 		}
 		{
 			id: "32A6A6BF942C4AB5"
 			linked_quest: "02854A3E8A5D5043"
-			x: 6.5d
-			y: 3.5d
-		}
-		{
-			id: "26211E3EA27D166F"
-			linked_quest: "03696C9BBC53AB26"
-			x: -6.0d
-			y: -32.0d
+			x: 16.625d
+			y: -13.375d
 		}
 	]
 	quests: [
@@ -299,8 +206,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.this_is_a_bucket.title}"
-			x: 2.0d
-			y: 13.5d
+			x: 26.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["56CA2EB7812529C5"]
@@ -323,8 +230,8 @@
 				}
 			]
 			title: "{quests.metal_age.redblu_buckets.title}"
-			x: 2.0d
-			y: 11.0d
+			x: 24.125d
+			y: -8.875d
 		}
 		{
 			dependencies: ["7E0239E9CC73F09F"]
@@ -340,13 +247,13 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.black_steel_anvil.title}"
-			x: 2.0d
-			y: 5.5d
+			x: 18.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["5996A3A0D475B8A6"]
 			description: ["{quests.metal_age.steel_anvil.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/steel"
+			guide_page: "tfg:field_guide tfg:craftsmanship/blast_furnace"
 			id: "04DE7C58F20B535A"
 			shape: "octagon"
 			size: 2.0d
@@ -358,13 +265,13 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.steel_anvil.title}"
-			x: 2.0d
-			y: 1.5d
+			x: 14.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["0A92F5C4BB6AF972"]
 			description: ["{quests.metal_age.wrought_iron_anvil.desc}"]
-			guide_page: "tfc:field_guide tfc:tfg_tips/anvil_working_guide"
+			guide_page: "tfg:field_guide tfg:craftsmanship/anvils 24"
 			id: "174DA15847665CF8"
 			shape: "octagon"
 			size: 2.0d
@@ -376,13 +283,13 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.wrought_iron_anvil.title}"
-			x: 2.0d
-			y: -12.0d
+			x: 1.125d
+			y: -8.875d
 		}
 		{
 			dependencies: ["133DB645B6E0585A"]
 			description: ["{quests.metal_age.bronze_anvil.desc}"]
-			guide_page: "tfc:field_guide tfc:tfg_tips/anvil_working_guide"
+			guide_page: "tfg:field_guide tfg:craftsmanship/anvils 13"
 			id: "3C173357029AB649"
 			shape: "octagon"
 			size: 2.0d
@@ -400,8 +307,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.bronze_anvil.title}"
-			x: 2.0d
-			y: -19.0d
+			x: -5.875d
+			y: -8.875d
 		}
 		{
 			dependencies: ["3C48CA0DAB4EE71B"]
@@ -421,13 +328,13 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.weld_bronze_ingots.title}"
-			x: 2.0d
-			y: -22.5d
+			x: -9.375d
+			y: -8.875d
 		}
 		{
 			dependencies: ["3C173357029AB649"]
 			description: ["{quests.metal_age.bloomery.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/bloomery"
+			guide_page: "tfg:field_guide tfg:craftsmanship/bloomery"
 			id: "0A92F5C4BB6AF972"
 			size: 1.5d
 			subtitle: "{quests.metal_age.bloomery.subtitle}"
@@ -451,8 +358,8 @@
 				}
 			]
 			title: "{quests.metal_age.bloomery.title}"
-			x: 2.0d
-			y: -15.5d
+			x: -2.375d
+			y: -8.875d
 		}
 		{
 			dependencies: [
@@ -461,7 +368,7 @@
 				"00B22730B33CB4DB"
 			]
 			description: ["{quests.metal_age.blast_furnace.desc}"]
-			guide_page: "tfc:field_guide tfc:tfg_tips/blast_furnace_tips"
+			guide_page: "tfg:field_guide tfg:craftsmanship/blast_furnace"
 			icon: "tfc:blast_furnace"
 			id: "5996A3A0D475B8A6"
 			size: 2.0d
@@ -504,8 +411,8 @@
 				}
 			]
 			title: "{quests.metal_age.blast_furnace.title}"
-			x: 2.0d
-			y: -1.0d
+			x: 12.125d
+			y: -8.875d
 		}
 		{
 			dependencies: [
@@ -514,7 +421,7 @@
 			]
 			dependency_requirement: "one_completed"
 			description: ["{quests.metal_age.bellows.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/bellows"
+			guide_page: "tfg:field_guide tfg:craftsmanship/charcoal_forge 7"
 			id: "021D3DEEB15A3D17"
 			subtitle: "{quests.metal_age.bellows.subtitle}"
 			tasks: [{
@@ -523,14 +430,14 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.bellows.title}"
-			x: 3.5d
-			y: -24.0d
+			x: -10.875d
+			y: -10.375d
 		}
 		{
 			dependencies: ["5A936E9BCF30AA3D"]
 			dependency_requirement: "one_completed"
 			description: ["{quests.metal_age.kaolin_clay.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/surface_kaolin"
+			guide_page: "tfg:field_guide tfg:craftsmanship/pottery 12"
 			id: "72F1C122FC26229C"
 			shape: "octagon"
 			size: 2.0d
@@ -552,13 +459,14 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.kaolin_clay.title}"
-			x: 0.0d
-			y: -6.0d
+			x: 7.125d
+			y: -6.875d
 		}
 		{
 			dependencies: ["5A936E9BCF30AA3D"]
 			dependency_requirement: "one_started"
 			description: ["{quests.metal_age.overworld_graphite.desc}"]
+			guide_page: "tfg:field_guide tfg:game_mechanics/mining"
 			icon: "tfc:ore/graphite/gabbro"
 			id: "53E1383F12EC6765"
 			optional: true
@@ -569,8 +477,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.overworld_graphite.title}"
-			x: 4.0d
-			y: -7.5d
+			x: 5.625d
+			y: -10.875d
 		}
 		{
 			dependencies: ["5A936E9BCF30AA3D"]
@@ -594,8 +502,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.graphite.title}"
-			x: 4.0d
-			y: -6.0d
+			x: 7.125d
+			y: -10.875d
 		}
 		{
 			dependencies: [
@@ -603,7 +511,7 @@
 				"31CE13462759950C"
 			]
 			description: ["{quests.metal_age.fire_clay.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/fire_clay"
+			guide_page: "tfg:field_guide tfg:craftsmanship/pottery 18"
 			id: "2C76EE197C14B0DC"
 			subtitle: "{quests.metal_age.fire_clay.subtitle}"
 			tasks: [{
@@ -614,13 +522,13 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.fire_clay.title}"
-			x: 2.0d
-			y: -4.5d
+			x: 8.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["2C76EE197C14B0DC"]
 			description: ["{quests.metal_age.crucible.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/crucible"
+			guide_page: "tfg:field_guide tfg:craftsmanship/crucible"
 			icon: "tfc:crucible"
 			id: "12CB3B9ADC586521"
 			shape: "octagon"
@@ -632,8 +540,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.crucible.title}"
-			x: 0.0d
-			y: -3.0d
+			x: 10.125d
+			y: -6.875d
 		}
 		{
 			dependencies: ["3C173357029AB649"]
@@ -649,13 +557,13 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.anvil_recycling.title}"
-			x: 0.5d
-			y: -20.5d
+			x: -7.375d
+			y: -7.375d
 		}
 		{
 			dependencies: ["3C48CA0DAB4EE71B"]
 			description: ["{quests.metal_age.mining.desc}"]
-			guide_page: "tfc:field_guide tfc:tfg_ores/ore_basics"
+			guide_page: "tfg:field_guide tfg:game_mechanics/mining"
 			icon: {
 				Count: 1
 				ForgeCaps: {
@@ -741,16 +649,14 @@
 				}
 			]
 			title: "{quests.metal_age.mining.title}"
-			x: 5.5d
-			y: -27.0d
+			x: -13.875d
+			y: -12.375d
 		}
 		{
-			dependencies: [
-				"5A936E9BCF30AA3D"
-				"3A7EAA08E124010D"
-			]
+			dependencies: ["5A936E9BCF30AA3D"]
 			dependency_requirement: "one_started"
 			description: ["{quests.metal_age.beneath_kaolin.desc}"]
+			guide_page: "tfg:field_guide tfg:beneath/beneath"
 			id: "061116CF508D54F6"
 			optional: true
 			shape: "diamond"
@@ -773,14 +679,14 @@
 				}
 			]
 			title: "{quests.metal_age.beneath_kaolin.title}"
-			x: 0.0d
-			y: -8.5d
+			x: 4.625d
+			y: -6.875d
 		}
 		{
 			dependencies: ["2C76EE197C14B0DC"]
 			dependency_requirement: "one_completed"
 			description: ["{quests.metal_age.fire_bricks.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/blast_furnace_insulation"
+			guide_page: "tfg:field_guide tfg:craftsmanship/blast_furnace 2"
 			icon: "tfc:fire_bricks"
 			id: "7CD2922D9F6FA6C5"
 			shape: "octagon"
@@ -828,8 +734,8 @@
 				}
 			]
 			title: "{quests.metal_age.fire_bricks.title}"
-			x: 4.0d
-			y: -3.0d
+			x: 10.125d
+			y: -10.875d
 		}
 		{
 			dependencies: ["2C76EE197C14B0DC"]
@@ -889,8 +795,8 @@
 				}
 			]
 			title: "{quests.metal_age.fire_clay_products.title}"
-			x: -2.5d
-			y: -4.5d
+			x: 8.625d
+			y: -4.375d
 		}
 		{
 			dependencies: [
@@ -928,8 +834,8 @@
 				}
 			]
 			title: "{quests.metal_age.fully_stacked_blast_furnace.title}"
-			x: 4.0d
-			y: -1.0d
+			x: 12.125d
+			y: -10.875d
 		}
 		{
 			dependencies: ["52DAF93E2F3D688A"]
@@ -957,8 +863,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.red_blu.title}"
-			x: 2.0d
-			y: 7.0d
+			x: 20.125d
+			y: -8.875d
 		}
 		{
 			dependencies: ["56CA2EB7812529C5"]
@@ -973,8 +879,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.red_steel_flask.title}"
-			x: -1.5d
-			y: 10.0d
+			x: 23.125d
+			y: -5.375d
 		}
 		{
 			dependencies: [
@@ -1000,12 +906,13 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.redblu_anvil.title}"
-			x: 2.0d
-			y: 9.5d
+			x: 22.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["174DA15847665CF8"]
 			description: ["{quests.metal_age.fire_clay_ingredients.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/pottery 18"
 			icon: "minecraft:cartography_table"
 			id: "5A936E9BCF30AA3D"
 			shape: "circle"
@@ -1016,15 +923,13 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.fire_clay_ingredients.title}"
-			x: 2.0d
-			y: -8.0d
+			x: 5.125d
+			y: -8.875d
 		}
 		{
-			dependencies: [
-				"5A936E9BCF30AA3D"
-				"5D0B0B9E61C3DE75"
-			]
+			dependencies: ["5A936E9BCF30AA3D"]
 			description: ["{quests.metal_age.beneath_graphite.desc}"]
+			guide_page: "tfg:field_guide tfg:beneath/beneath"
 			id: "2DB82986FE176CD7"
 			optional: true
 			shape: "diamond"
@@ -1037,12 +942,13 @@
 				value: 1L
 			}]
 			title: "{quests.metal_age.beneath_graphite.title}"
-			x: 4.0d
-			y: -8.5d
+			x: 4.625d
+			y: -10.875d
 		}
 		{
 			dependencies: ["5A936E9BCF30AA3D"]
 			description: ["{quests.metal_age.overworld_kaolin.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/pottery 12"
 			icon: "tfc:plant/tree_fern"
 			id: "68B7D07D57A103BE"
 			optional: true
@@ -1054,8 +960,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.overworld_kaolin.title}"
-			x: 0.0d
-			y: -7.5d
+			x: 5.625d
+			y: -6.875d
 		}
 		{
 			description: ["{quests.metal_age.blast_furance_fuel.desc}"]
@@ -1076,8 +982,8 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.blast_furnace_fuel.title}"
-			x: 2.0d
-			y: -3.0d
+			x: 10.125d
+			y: -8.875d
 		}
 		{
 			dependencies: ["04DE7C58F20B535A"]
@@ -1106,8 +1012,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.steel_goodies.title}"
-			x: 7.0d
-			y: 1.5d
+			x: 14.625d
+			y: -13.875d
 		}
 		{
 			dependencies: ["52DAF93E2F3D688A"]
@@ -1127,8 +1033,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.black_steel_goodies.title}"
-			x: -1.5d
-			y: 5.5d
+			x: 18.625d
+			y: -5.375d
 		}
 		{
 			dependencies: [
@@ -1179,8 +1085,8 @@
 				}
 			]
 			title: "{quests.metal_age.highcarb_black_steel.title}"
-			x: 2.0d
-			y: 3.5d
+			x: 16.625d
+			y: -8.875d
 		}
 		{
 			dependencies: ["5996A3A0D475B8A6"]
@@ -1241,8 +1147,8 @@
 				}
 			]
 			title: "{quests.metal_age.weak_steel.title}"
-			x: 3.5d
-			y: 3.5d
+			x: 16.625d
+			y: -10.375d
 		}
 		{
 			dependencies: ["27FF92982A24BC4E"]
@@ -1294,8 +1200,8 @@
 				}
 			]
 			title: "{quests.metal_age.highcarb_red_steel.title}"
-			x: 1.0d
-			y: 8.0d
+			x: 21.125d
+			y: -7.875d
 		}
 		{
 			dependencies: ["5792DDAA82895E67"]
@@ -1365,8 +1271,8 @@
 				}
 			]
 			title: "{quests.metal_age.weak_red_steel.title}"
-			x: 1.0d
-			y: 7.0d
+			x: 20.125d
+			y: -7.875d
 		}
 		{
 			dependencies: ["5792DDAA82895E67"]
@@ -1436,8 +1342,8 @@
 				}
 			]
 			title: "{quests.metal_age.weak_blu_steel.title}"
-			x: 3.0d
-			y: 7.0d
+			x: 20.125d
+			y: -9.875d
 		}
 		{
 			dependencies: ["64F8A358EC3FEF45"]
@@ -1489,8 +1395,8 @@
 				}
 			]
 			title: "{quests.metal_age.highcarb_blu_steel.title}"
-			x: 3.0d
-			y: 8.0d
+			x: 21.125d
+			y: -9.875d
 		}
 		{
 			dependencies: [
@@ -1499,6 +1405,7 @@
 			]
 			dependency_requirement: "one_completed"
 			description: ["{quests.metal_age.copper_diving.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/exploration_gear 7"
 			id: "70FE6706B43FC5FC"
 			optional: true
 			shape: "heart"
@@ -1539,8 +1446,8 @@
 				}
 			]
 			title: "{quests.metal_age.copper_diving.title}"
-			x: 12.5d
-			y: -20.5d
+			x: -7.375d
+			y: -19.375d
 		}
 		{
 			dependencies: ["72B3EA6588E18CCC"]
@@ -1565,8 +1472,8 @@
 				}
 			]
 			title: "{quests.steam_age.organization.title}"
-			x: 1.0d
-			y: -13.0d
+			x: 0.125d
+			y: -7.875d
 		}
 		{
 			dependencies: ["56CA2EB7812529C5"]
@@ -1586,8 +1493,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.temperature_protection.title}"
-			x: 5.5d
-			y: 10.0d
+			x: 23.125d
+			y: -12.375d
 		}
 		{
 			dependencies: [
@@ -1613,14 +1520,15 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.crafting_station.title}"
-			x: 5.5d
-			y: -25.0d
+			x: -11.875d
+			y: -12.375d
 		}
 		{
 			dependencies: ["3C48CA0DAB4EE71B"]
 			description: ["{quests.tfg_tips.treetap.desc}"]
-			guide_page: "tfc:field_guide tfc:arborfirmacraft/tree_tapping"
+			guide_page: "tfg:field_guide tfg:agriculture/tree_tapping"
 			id: "0CBA3C295E99D8EA"
+			optional: true
 			subtitle: "{quests.tfg_tips.treetap.subtitle}"
 			tasks: [{
 				id: "1ECEBAAF51B53A60"
@@ -1628,13 +1536,13 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.treetap.title}"
-			x: -1.5d
-			y: -27.0d
+			x: -13.875d
+			y: -5.375d
 		}
 		{
 			dependencies: ["0CBA3C295E99D8EA"]
 			description: ["{quests.tfg_tips.find_syrup_tree.desc}"]
-			guide_page: "tfc:field_guide tfc:arborfirmacraft/making_syrups"
+			guide_page: "tfg:field_guide tfg:the_world/earth_tree_index"
 			id: "199BCE58045C287B"
 			optional: true
 			shape: "heart"
@@ -1649,12 +1557,13 @@
 				type: "observation"
 			}]
 			title: "{quests.tfg_tips.find_syrup_tree.title}"
-			x: -3.0d
-			y: -25.5d
+			x: -12.375d
+			y: -3.875d
 		}
 		{
 			dependencies: ["0CBA3C295E99D8EA"]
 			description: ["{quests.tfg_tips.find_rosin_tree.desc}"]
+			guide_page: "tfg:field_guide tfg:the_world/earth_tree_index"
 			id: "25E6F7B0D24450ED"
 			optional: true
 			shape: "heart"
@@ -1669,14 +1578,15 @@
 				type: "observation"
 			}]
 			title: "{quests.tfg_tips.find_rosin_tree.title}"
-			x: -3.0d
-			y: -28.5d
+			x: -15.375d
+			y: -3.875d
 		}
 		{
 			dependencies: ["0CBA3C295E99D8EA"]
 			description: ["{quests.tfg_tips.find_latex_tree.desc}"]
-			guide_page: "tfc:field_guide tfc:arborfirmacraft/making_rubber"
+			guide_page: "tfg:field_guide tfg:the_world/earth_tree_index"
 			id: "6E7C02FA5ADAAC23"
+			optional: true
 			subtitle: "{quests.tfg_tips.find_latex_tree.subtitle}"
 			tasks: [{
 				id: "707E07E621334EF4"
@@ -1691,8 +1601,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.find_latex_tree.title}"
-			x: -3.0d
-			y: -27.0d
+			x: -13.875d
+			y: -3.875d
 		}
 		{
 			dependencies: ["25E6F7B0D24450ED"]
@@ -1707,8 +1617,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.create_conifer_rosin.title}"
-			x: -4.5d
-			y: -30.0d
+			x: -16.875d
+			y: -2.375d
 		}
 		{
 			dependencies: ["199BCE58045C287B"]
@@ -1731,8 +1641,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.create_tree_sugar.title}"
-			x: -4.5d
-			y: -25.5d
+			x: -12.375d
+			y: -2.375d
 		}
 		{
 			dependencies: [
@@ -1751,8 +1661,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.create_sticky_resin.title}"
-			x: -4.5d
-			y: -28.5d
+			x: -15.375d
+			y: -2.375d
 		}
 		{
 			dependencies: [
@@ -1770,18 +1680,18 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.create_rubber_ingot.title}"
-			x: -4.5d
-			y: -27.0d
+			x: -13.875d
+			y: -2.375d
 		}
 		{
 			dependencies: ["68F1232DD918BBC2"]
-			description: ["{quests.tfg_tips.rowboat_materials.desc}"]
-			guide_page: "tfc:field_guide tfc:firmaciv/rowboat"
+			description: ["{quests.tfg_tips.create_rowboat.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/boats 32"
 			icon: "firmaciv:rowboat_icon_only"
 			id: "07400BEB7BC0C58D"
 			optional: true
 			shape: "heart"
-			subtitle: "{quests.tfg_tips.rowboat_materials.subtitle}"
+			subtitle: "{quests.tfg_tips.create_rowboat.subtitle}"
 			tasks: [
 				{
 					count: 24L
@@ -1837,15 +1747,15 @@
 					type: "item"
 				}
 			]
-			title: "{quests.tfg_tips.rowboat_materials.title}"
-			x: 6.5d
-			y: -17.0d
+			title: "{quests.tfg_tips.create_rowboat.title}"
+			x: -3.875d
+			y: -13.375d
 		}
 		{
 			dependencies: ["76F88CCE8FEF27B4"]
 			dependency_requirement: "one_completed"
 			description: ["{quests.tfg_tips.sloop_under_construction_materials.desc}"]
-			guide_page: "tfc:field_guide tfc:firmaciv/sloop"
+			guide_page: "tfg:field_guide tfg:logistics/boats 40"
 			icon: "firmaciv:sloop_icon_only"
 			id: "1AF194B74265872C"
 			optional: true
@@ -1976,8 +1886,8 @@
 				}
 			]
 			title: "{quests.tfg_tips.sloop_under_construction_materials.title}"
-			x: 7.5d
-			y: -14.0d
+			x: -0.875d
+			y: -14.375d
 		}
 		{
 			dependencies: ["61A8220EA30E7649"]
@@ -2001,14 +1911,15 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.create_concrete_support.title}"
-			x: -4.5d
-			y: -33.5d
+			x: -20.375d
+			y: -2.375d
 		}
 		{
 			dependencies: ["0C9B7745D812555A"]
 			description: ["{quests.tfg_tips.create_reinforced_concrete_support.desc}"]
 			id: "620DEF4A7F08EE15"
 			optional: true
+			shape: "heart"
 			subtitle: "{quests.tfg_tips.create_reinforced_concrete_support.subtitle}"
 			tasks: [
 				{
@@ -2034,8 +1945,8 @@
 				}
 			]
 			title: "{quests.tfg_tips.create_reinforced_concrete_support.title}"
-			x: 6.0d
-			y: -0.5d
+			x: 12.625d
+			y: -12.875d
 		}
 		{
 			dependencies: [
@@ -2058,8 +1969,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.basic_millstone.title}"
-			x: -1.5d
-			y: -21.0d
+			x: -7.875d
+			y: -5.375d
 		}
 		{
 			dependencies: ["7B045998769930F0"]
@@ -2077,8 +1988,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.horse_crank.title}"
-			x: -4.5d
-			y: -19.0d
+			x: -5.875d
+			y: -2.375d
 		}
 		{
 			dependencies: ["7B045998769930F0"]
@@ -2087,6 +1998,7 @@
 				"{@pagebreak}"
 				"{quests.steam_age.helve_hammer.desc.2}"
 			]
+			guide_page: "tfg:field_guide tfg:craftsmanship/anvils 24"
 			id: "611EB6284CA7119C"
 			size: 1.5d
 			subtitle: "{quests.steam_age.helve_hammer.subtitle}"
@@ -2096,8 +2008,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.helve_hammer.title}"
-			x: -3.5d
-			y: -17.0d
+			x: -3.875d
+			y: -3.375d
 		}
 		{
 			dependencies: ["3C173357029AB649"]
@@ -2127,8 +2039,8 @@
 				}
 			]
 			title: "{quests.steam_age.basic_greate.title}"
-			x: -1.5d
-			y: -19.0d
+			x: -5.875d
+			y: -5.375d
 		}
 		{
 			dependencies: ["0D0D461AE3A3F7BF"]
@@ -2142,8 +2054,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.water_wheel.title}"
-			x: -4.5d
-			y: -10.0d
+			x: 3.125d
+			y: -2.375d
 		}
 		{
 			dependencies: ["0D0D461AE3A3F7BF"]
@@ -2165,8 +2077,8 @@
 				}
 			]
 			title: "{quests.steam_age.windmill.title}"
-			x: -4.5d
-			y: -14.0d
+			x: -0.875d
+			y: -2.375d
 		}
 		{
 			dependencies: ["6E8CEE02CB5B678B"]
@@ -2180,8 +2092,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.metal_casing.title}"
-			x: -1.5d
-			y: -10.0d
+			x: 3.125d
+			y: -5.375d
 		}
 		{
 			dependencies: [
@@ -2198,8 +2110,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.steel_encased_fan.title}"
-			x: -4.0d
-			y: 3.5d
+			x: 16.625d
+			y: -2.875d
 		}
 		{
 			dependencies: ["09D913288896A67A"]
@@ -2218,27 +2130,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.steel_pump.title}"
-			x: -2.5d
-			y: -0.5d
-		}
-		{
-			dependencies: ["09D913288896A67A"]
-			description: [
-				"{quests.steam_age.blaze_burner.desc.1}"
-				"{@pagebreak}"
-				"{quests.steam_age.blaze_burner.desc.2}"
-			]
-			id: "183D47F04CAEBFA7"
-			optional: true
-			shape: "heart"
-			subtitle: "{quests.steam_age.blaze_burner.subtitle}"
-			tasks: [{
-				id: "4655500474F4236C"
-				item: "create:blaze_burner"
-				type: "item"
-			}]
-			x: -5.5d
-			y: -0.5d
+			x: 12.625d
+			y: -4.375d
 		}
 		{
 			dependencies: ["7F14D2A34F480ACA"]
@@ -2258,8 +2151,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.mechanical_saw.title}"
-			x: -1.5d
-			y: -8.5d
+			x: 4.625d
+			y: -5.375d
 		}
 		{
 			dependencies: ["7F14D2A34F480ACA"]
@@ -2274,8 +2167,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.mechanical_harvester.title}"
-			x: -3.0d
-			y: -10.0d
+			x: 3.125d
+			y: -3.875d
 		}
 		{
 			dependencies: ["6E8CEE02CB5B678B"]
@@ -2302,8 +2195,8 @@
 				}
 			]
 			title: "{quests.steam_age.chute.title}"
-			x: -1.5d
-			y: -14.0d
+			x: -0.875d
+			y: -5.375d
 		}
 		{
 			dependencies: [
@@ -2315,6 +2208,7 @@
 				"{@pagebreak}"
 				"{quests.steam_age.mold_table.desc.2}"
 			]
+			guide_page: "tfg:field_guide tfg:craftsmanship/crucible 10"
 			id: "66DBF1C68493A406"
 			subtitle: "{quests.steam_age.mold_table.subtitle}"
 			tasks: [{
@@ -2323,8 +2217,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.mold_table.title}"
-			x: -2.5d
-			y: -2.0d
+			x: 11.125d
+			y: -4.375d
 		}
 		{
 			dependencies: ["04DE7C58F20B535A"]
@@ -2355,8 +2249,8 @@
 				}
 			]
 			title: "{quests.steam_age.steel_greate.title}"
-			x: -2.5d
-			y: 1.5d
+			x: 14.625d
+			y: -4.375d
 		}
 		{
 			dependencies: [
@@ -2374,8 +2268,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.steel_millstone.title}"
-			x: -2.5d
-			y: 3.5d
+			x: 16.625d
+			y: -4.375d
 		}
 		{
 			dependencies: ["05CC8C5E63CD1DB8"]
@@ -2405,8 +2299,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.item_pipes.title}"
-			x: -3.0d
-			y: -14.0d
+			x: -0.875d
+			y: -3.875d
 		}
 		{
 			dependencies: ["51CBF7378FFAD514"]
@@ -2441,8 +2335,8 @@
 				}
 			]
 			title: "{quests.steam_age.fluid_pipes.title}"
-			x: -1.0d
-			y: -0.5d
+			x: 12.625d
+			y: -5.875d
 		}
 		{
 			dependencies: ["51CBF7378FFAD514"]
@@ -2451,6 +2345,7 @@
 				"{@pagebreak}"
 				"{quests.steam_age.fluid_drums.desc.2}"
 			]
+			guide_page: "tfg:field_guide tfg:logistics/storage 16"
 			icon: "gtceu:bronze_drum"
 			id: "499D24AFADC25AA9"
 			size: 1.0d
@@ -2468,8 +2363,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.fluid_drums.title}"
-			x: -4.0d
-			y: -0.5d
+			x: 12.625d
+			y: -2.875d
 		}
 		{
 			dependencies: ["7B045998769930F0"]
@@ -2511,8 +2406,8 @@
 				}
 			]
 			title: "{quests.steam_age.create_tools.title}"
-			x: -1.5d
-			y: -17.0d
+			x: -3.875d
+			y: -5.375d
 		}
 		{
 			dependencies: ["1059288C22CB56BB"]
@@ -2558,13 +2453,14 @@
 				}
 			]
 			title: "{quests.steam_age.poor_paths.title}"
-			x: -6.5d
-			y: -20.5d
+			x: -7.375d
+			y: -0.375d
 		}
 		{
 			dependencies: ["1059288C22CB56BB"]
 			dependency_requirement: "one_completed"
 			description: ["{quests.steam_age.normal_paths.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/roads"
 			icon: "tfc:grass_path/silty_loam"
 			id: "494E81202B0F36A7"
 			optional: true
@@ -2610,8 +2506,8 @@
 				}
 			]
 			title: "{quests.steam_age.normal_paths.title}"
-			x: -7.0d
-			y: -19.0d
+			x: -5.875d
+			y: 0.125d
 		}
 		{
 			dependencies: [
@@ -2620,6 +2516,7 @@
 			]
 			dependency_requirement: "one_completed"
 			description: ["{quests.steam_age.good_paths.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/roads"
 			icon: "rnr:rock/sett_road/granite"
 			id: "52A82511A64B0A5B"
 			optional: true
@@ -2668,8 +2565,8 @@
 				}
 			]
 			title: "{quests.steam_age.good_paths.title}"
-			x: -6.5d
-			y: -17.5d
+			x: -4.375d
+			y: -0.375d
 		}
 		{
 			dependencies: ["174DA15847665CF8"]
@@ -2694,8 +2591,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.wrought_iron_create.title}"
-			x: -1.5d
-			y: -12.0d
+			x: 1.125d
+			y: -5.375d
 		}
 		{
 			dependencies: ["09D913288896A67A"]
@@ -2708,8 +2605,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.rotation_speed_controller.title}"
-			x: -1.0d
-			y: 3.5d
+			x: 16.625d
+			y: -5.875d
 		}
 		{
 			dependencies: ["6E8CEE02CB5B678B"]
@@ -2721,6 +2618,7 @@
 				""
 				"{image:tfg:textures/quests/auto_coke.png width:100 height:100 align:center}"
 			]
+			guide_page: "tfg:field_guide tfg:craftsmanship/charcoal_pit 7"
 			icon: "gtceu:coke_oven"
 			id: "0D0D461AE3A3F7BF"
 			size: 1.5d
@@ -2743,8 +2641,8 @@
 				}
 			]
 			title: "{quests.metal_age.coke_oven.title}"
-			x: -4.5d
-			y: -12.0d
+			x: 1.125d
+			y: -2.375d
 		}
 		{
 			dependencies: [
@@ -2762,8 +2660,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.basic_mech_press.title}"
-			x: -3.0d
-			y: -21.0d
+			x: -7.875d
+			y: -3.875d
 		}
 		{
 			dependencies: [
@@ -2785,8 +2683,8 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.steel_mech_press.title}"
-			x: -5.5d
-			y: 3.5d
+			x: 16.625d
+			y: -1.375d
 		}
 		{
 			dependencies: ["09D913288896A67A"]
@@ -2800,12 +2698,13 @@
 				type: "item"
 			}]
 			title: "{quests.steam_age.large_water_wheel.title}"
-			x: -5.5d
-			y: 1.0d
+			x: 12.625d
+			y: -1.375d
 		}
 		{
 			dependencies: ["0D0D461AE3A3F7BF"]
 			description: ["{quests.steam_age.multiblock_tank.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/storage 20"
 			icon: "gtceu:wooden_multiblock_tank"
 			id: "636B13A7B9755F2A"
 			optional: true
@@ -2830,8 +2729,8 @@
 				}
 			]
 			title: "{quests.steam_age.multiblock_tank.title}"
-			x: -6.5d
-			y: -12.0d
+			x: 1.125d
+			y: -0.375d
 		}
 		{
 			dependencies: [
@@ -2840,6 +2739,7 @@
 			]
 			dependency_requirement: "one_completed"
 			description: ["{quests.tfg_tips.salvo.desc}"]
+			guide_page: "tfg:field_guide tfg:game_mechanics/hazards 7"
 			id: "1F1C8CD694E233E4"
 			optional: true
 			shape: "heart"
@@ -2857,8 +2757,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.salvo.title}"
-			x: -6.5d
-			y: -14.0d
+			x: -0.875d
+			y: -0.375d
 		}
 		{
 			dependencies: ["3C173357029AB649"]
@@ -2887,8 +2787,8 @@
 				type: "checkmark"
 			}]
 			title: "{quests.metal_age.bronze_goodies.title}"
-			x: 7.0d
-			y: -19.0d
+			x: -5.875d
+			y: -13.875d
 		}
 		{
 			dependencies: ["174DA15847665CF8"]
@@ -2934,8 +2834,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.wrought_iron_goodies.title}"
-			x: 7.0d
-			y: -12.0d
+			x: 1.125d
+			y: -13.875d
 		}
 		{
 			dependencies: ["7178843BCD50A012"]
@@ -2945,6 +2845,7 @@
 				"{quests.metal_age.see_tips}"
 			]
 			disable_toast: true
+			guide_page: "tfg:field_guide tfg:logistics/personal_storage"
 			id: "43CF266DE09B3413"
 			shape: "square"
 			subtitle: "{quests.tfg_tips.first_backpack.subtitle}"
@@ -2955,8 +2856,8 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.first_backpack.title}"
-			x: 9.5d
-			y: -22.5d
+			x: -9.375d
+			y: -16.375d
 		}
 		{
 			dependencies: ["382FC8824F311665"]
@@ -2977,17 +2878,13 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.camera.title}"
-			x: 12.5d
-			y: -17.5d
+			x: -4.375d
+			y: -19.375d
 		}
 		{
 			dependencies: ["382FC8824F311665"]
-			description: [
-				"{quests.metal_age.climate_station.desc}"
-				""
-				""
-				"{quests.metal_age.see_tips}"
-			]
+			description: ["{quests.metal_age.climate_station.desc}"]
+			guide_page: "tfg:field_guide tfg:agriculture/greenhouse"
 			id: "4964F9A696865AD0"
 			optional: true
 			size: 1.5d
@@ -2998,12 +2895,13 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.climate_station.title}"
-			x: 14.5d
-			y: -19.0d
+			x: -5.875d
+			y: -21.375d
 		}
 		{
 			dependencies: ["76F88CCE8FEF27B4"]
 			description: ["{quests.metal_age.lunchbox.desc}"]
+			guide_page: "tfg:field_guide tfg:cooking/decay 24"
 			id: "3A9289CF6C833E00"
 			optional: true
 			shape: "heart"
@@ -3021,8 +2919,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.lunchbox.title}"
-			x: 8.5d
-			y: -14.0d
+			x: -0.875d
+			y: -15.375d
 		}
 		{
 			dependencies: [
@@ -3044,13 +2942,13 @@
 				type: "item"
 			}]
 			title: "{quests.tfg_tips.blank_disc.title}"
-			x: 14.0d
-			y: -17.5d
+			x: -4.375d
+			y: -20.875d
 		}
 		{
 			dependencies: ["68F1232DD918BBC2"]
 			description: ["{quests.metal_age.redstone_devices.desc}"]
-			guide_page: "tfc:field_guide tfc:mechanics/redstone_devices"
+			guide_page: "tfg:field_guide tfg:logistics/redstone_devices"
 			id: "33D123B1353DCB00"
 			optional: true
 			shape: "heart"
@@ -3068,12 +2966,13 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.redstone_devices.title}"
-			x: 8.5d
-			y: -17.0d
+			x: -3.875d
+			y: -15.375d
 		}
 		{
 			dependencies: ["3C48CA0DAB4EE71B"]
 			description: ["{quests.metal_age.copper_construction_wand.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/building_tools 6"
 			id: "142D4E64DC11D682"
 			optional: true
 			shape: "heart"
@@ -3091,12 +2990,13 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.copper_construction_wand.title}"
-			x: 5.5d
-			y: -29.0d
+			x: -15.875d
+			y: -12.375d
 		}
 		{
 			dependencies: ["76F88CCE8FEF27B4"]
 			description: ["{quests.metal_age.iron_construction_wand.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/building_tools"
 			id: "1557C21988C3C155"
 			optional: true
 			shape: "heart"
@@ -3121,14 +3021,14 @@
 				}
 			]
 			title: "{quests.metal_age.iron_construction_wand.title}"
-			x: 9.5d
-			y: -14.0d
+			x: -0.875d
+			y: -16.375d
 		}
 		{
 			dependencies: ["45A09AD0043FF92B"]
 			description: ["{quests.metal_age.copper_anvil.desc}"]
 			disable_toast: true
-			guide_page: "tfc:field_guide tfc:mechanics/anvils"
+			guide_page: "tfg:field_guide tfg:craftsmanship/anvils"
 			id: "3C48CA0DAB4EE71B"
 			shape: "gear"
 			size: 4.0d
@@ -3141,12 +3041,13 @@
 				weak_nbt_match: true
 			}]
 			title: "{quests.metal_age.copper_anvil.title}"
-			x: 2.0d
-			y: -27.0d
+			x: -13.875d
+			y: -8.875d
 		}
 		{
 			dependencies: ["3C173357029AB649"]
 			description: ["{quests.metal_age.tongs.desc}"]
+			guide_page: "tfg:field_guide tfg:game_mechanics/heating"
 			icon: {
 				Count: 1
 				ForgeCaps: {
@@ -3177,8 +3078,8 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.tongs.title}"
-			x: 0.5d
-			y: -17.5d
+			x: -4.375d
+			y: -7.375d
 		}
 		{
 			dependencies: ["09D913288896A67A"]
@@ -3191,12 +3092,13 @@
 				item: "create_connected:kinetic_bridge"
 				type: "item"
 			}]
-			x: -5.5d
-			y: 2.0d
+			x: 14.625d
+			y: -1.375d
 		}
 		{
 			dependencies: ["56CA2EB7812529C5"]
 			description: ["{quests.tfg_tips.lunchbox.desc}"]
+			guide_page: "tfg:field_guide tfg:cooking/decay 24"
 			icon: {
 				Count: 1
 				id: "tfclunchbox:cooling_lunchbox"
@@ -3252,21 +3154,24 @@
 					weak_nbt_match: true
 				}
 			]
-			x: -1.5d
-			y: 9.0d
+			x: 22.125d
+			y: -5.375d
 		}
 		{
 			dependencies: ["0C9B7745D812555A"]
 			description: ["{quests.metal_age.steel_crate.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/storage 4"
 			id: "7D76615185C637B8"
+			optional: true
+			shape: "heart"
 			subtitle: "{quests.metal_age.steel_crate.subtitle}"
 			tasks: [{
 				id: "4073ACBE457E1E17"
 				item: "gtceu:steel_crate"
 				type: "item"
 			}]
-			x: 7.5d
-			y: 3.5d
+			x: 16.625d
+			y: -14.375d
 		}
 		{
 			dependencies: ["52DAF93E2F3D688A"]
@@ -3318,12 +3223,13 @@
 				}
 			]
 			title: "{quests.combat_tips.springfield_gun.title}"
-			x: 5.5d
-			y: 5.5d
+			x: 18.625d
+			y: -12.375d
 		}
 		{
 			dependencies: ["56CA2EB7812529C5"]
 			description: ["{quests.metal_age.blue_steel_construction_wand.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/building_tools 6"
 			id: "09D3185657A6E1E8"
 			optional: true
 			shape: "heart"
@@ -3341,14 +3247,16 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.blue_steel_construction_wand.title}"
-			x: -1.5d
-			y: 11.0d
+			x: 24.125d
+			y: -5.375d
 		}
 		{
 			dependencies: ["68F1232DD918BBC2"]
 			description: ["{quests.metal_age.stonecutters.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/building_tools 2"
 			id: "125AE50ABC50D88E"
 			optional: true
+			shape: "heart"
 			subtitle: "{quests.metal_age.stonecutters.subtitle}"
 			tasks: [
 				{
@@ -3370,16 +3278,17 @@
 				}
 			]
 			title: "{quests.metal_age.stonecutters.title}"
-			x: 9.5d
-			y: -17.0d
+			x: -3.875d
+			y: -16.375d
 		}
 		{
 			dependencies: [
-				"79FA776C414AE8E5"
 				"2936976FC773ABE4"
+				"1637121D67CB91B0"
 			]
 			dependency_requirement: "one_completed"
 			description: ["{quests.metal_age.wax_products.desc}"]
+			guide_page: "tfg:field_guide tfg:cooking/mixing_bowl"
 			id: "61A8220EA30E7649"
 			subtitle: "{quests.metal_age.wax_products.subtitle}"
 			tasks: [{
@@ -3388,8 +3297,326 @@
 				type: "item"
 			}]
 			title: "{quests.metal_age.wax_products.title}"
-			x: -4.5d
-			y: -32.0d
+			x: -18.875d
+			y: -2.375d
+		}
+		{
+			dependencies: [
+				"61A8220EA30E7649"
+				"1637121D67CB91B0"
+			]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.candles.desc}"]
+			guide_page: "tfg:field_guide tfg:game_mechanics/lighting"
+			hide_until_deps_complete: false
+			id: "3D87E94AD7F58C31"
+			optional: true
+			subtitle: "{quests.tfg_tips.candles.subtitle}"
+			tasks: [{
+				id: "3AD2A100023C5E23"
+				item: {
+					Count: 1
+					id: "ftbfiltersystem:smart_filter"
+					tag: {
+						"ftbfiltersystem:filter": "ftbfiltersystem:item_tag(tfc:candles)"
+					}
+				}
+				title: "{quests.tasktype.item.any} #tfc:candles"
+				type: "item"
+			}]
+			title: "{quests.tfg_tips.candles.title}"
+			x: -20.375d
+			y: -3.875d
+		}
+		{
+			dependencies: ["3C48CA0DAB4EE71B"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.beekeeping.desc}"]
+			guide_page: "tfg:field_guide tfg:agriculture/beekeeping"
+			icon: "firmalife:raw_honey"
+			id: "1637121D67CB91B0"
+			optional: true
+			subtitle: "{quests.tfg_tips.beekeeping.subtitle}"
+			tasks: [{
+				id: "063F02D1768BCBA5"
+				item: "firmalife:beeswax"
+				type: "item"
+			}]
+			title: "{quests.tfg_tips.beekeeping.title}"
+			x: -18.875d
+			y: -8.875d
+		}
+		{
+			dependencies: ["76F88CCE8FEF27B4"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.greenhouse_automation.desc}"]
+			guide_page: "tfg:field_guide tfg:agriculture/greenhouse 17"
+			id: "7058443D91C8D461"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.greenhouse_automation.subtitle}"
+			tasks: [
+				{
+					id: "7C2DF141116F0762"
+					item: "firmalife:picker"
+					type: "item"
+				}
+				{
+					id: "0E97EDCE68A5C43E"
+					item: "firmalife:sweeper"
+					type: "item"
+				}
+			]
+			title: "{quests.tfg_tips.greenhouse_automation.title}"
+			x: 3.125d
+			y: -16.375d
+		}
+		{
+			dependencies: ["76F88CCE8FEF27B4"]
+			description: ["{quests.tfg_tips.oven_appliances.desc}"]
+			guide_page: "tfg:field_guide tfg:cooking/cooking_methods 26"
+			id: "56BE73FC3D25BCCB"
+			subtitle: "{quests.tfg_tips.oven_appliances.subtitle}"
+			tasks: [
+				{
+					id: "0EA138E124A0354E"
+					item: "firmalife:vat"
+					type: "item"
+				}
+				{
+					id: "05D8CEDF02CFAF79"
+					item: {
+						Count: 1
+						ForgeCaps: {
+							"tfc:item_heat": {
+								heat: 0.0f
+								ticks: 0L
+							}
+						}
+						id: "tfc:wrought_iron_grill"
+					}
+					optional_task: true
+					type: "item"
+				}
+				{
+					id: "2C057752B7D4B405"
+					item: "firmalife:jarring_station"
+					optional_task: true
+					type: "item"
+				}
+			]
+			title: "{quests.tfg_tips.oven_appliances.title}"
+			x: 3.125d
+			y: -12.375d
+		}
+		{
+			dependencies: ["76F88CCE8FEF27B4"]
+			description: ["{quests.tfg_tips.compost_tumbler.desc}"]
+			guide_page: "tfg:field_guide tfg:agriculture/composting 10"
+			id: "07F580C9462629CF"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.compost_tumbler.subtitle}"
+			tasks: [{
+				id: "4BBC24B9FC1B7DB7"
+				item: "firmalife:compost_tumbler"
+				type: "item"
+			}]
+			x: 3.125d
+			y: -14.375d
+		}
+		{
+			dependencies: ["76F88CCE8FEF27B4"]
+			description: ["{quests.metal_age.schematicannon.desc}"]
+			guide_page: "tfg:field_guide tfg:craftsmanship/building_tools 8"
+			id: "6A3CF1CD0A79DF7E"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.metal_age.schematicannon.subtitle}"
+			tasks: [{
+				id: "7D1CF6158EC144CA"
+				item: "create:schematicannon"
+				type: "item"
+			}]
+			x: -0.875d
+			y: -12.375d
+		}
+		{
+			dependencies: ["68F1232DD918BBC2"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.glider.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/exploration_gear 14"
+			id: "669A31E7B085A3DB"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.glider.subtitle}"
+			tasks: [{
+				id: "023D941945952599"
+				item: {
+					Count: 1
+					id: "hangglider:hang_glider"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			title: "{quests.tfg_tips.glider.title}"
+			x: -3.875d
+			y: -12.375d
+		}
+		{
+			dependencies: ["68F1232DD918BBC2"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.astikorcarts.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/tack"
+			icon: "tfcastikorcarts:wheel/ash"
+			id: "36F08D50D4363A7B"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.astikorcarts.subtitle}"
+			tasks: [{
+				id: "30F6C051C1A1A30E"
+				title: "{quests.tasktype.checkmark}"
+				type: "checkmark"
+			}]
+			title: "{quests.tfg_tips.astikorcarts.title}"
+			x: -7.875d
+			y: -13.375d
+		}
+		{
+			dependencies: ["76F88CCE8FEF27B4"]
+			description: ["{quests.tfg_tips.hiking_boots.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/exploration_gear 1"
+			id: "0C8E678DEB92F74A"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.hiking_boots.subtitle}"
+			tasks: [{
+				id: "0BE1B03517DCF8C2"
+				item: {
+					Count: 1
+					id: "ftbfiltersystem:smart_filter"
+					tag: {
+						"ftbfiltersystem:filter": "or(item(sns:hiking_boots)item(sns:steel_toe_hiking_boots)item(sns:black_steel_toe_hiking_boots)item(sns:blue_steel_toe_hiking_boots)item(sns:red_steel_toe_hiking_boots))"
+					}
+				}
+				title: "{quests.tfg_tips.hiking_boots.task}"
+				type: "item"
+			}]
+			title: "{quests.tfg_tips.hiking_boots.title}"
+			x: -0.875d
+			y: -11.375d
+		}
+		{
+			dependencies: ["0C9B7745D812555A"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.horseshoes.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/tack 3"
+			id: "2B25B8F950B75BCD"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.horseshoes.subtitle}"
+			tasks: [{
+				id: "0B31C1F7023644EE"
+				item: {
+					Count: 1
+					id: "ftbfiltersystem:smart_filter"
+					tag: {
+						"ftbfiltersystem:filter": "or(item(sns:metal/horseshoes/steel)item(sns:metal/horseshoes/black_steel)item(sns:metal/horseshoes/blue_steel)item(sns:metal/horseshoes/red_steel))"
+					}
+				}
+				title: "{quests.tfg_tips.horseshoes.task}"
+				type: "item"
+			}]
+			title: "{quests.tfg_tips.horseshoes.title}"
+			x: 12.625d
+			y: -13.875d
+		}
+		{
+			dependencies: [
+				"611C053A562DA9F0"
+				"1AF194B74265872C"
+			]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.warfare.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/boats 52"
+			id: "43ADE3E09542FDBF"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.warfare.subtitle}"
+			tasks: [
+				{
+					id: "0C7B11DF984D62F0"
+					item: "firmaciv:cannon"
+					type: "item"
+				}
+				{
+					id: "1FCAA896B5AF5DD2"
+					item: {
+						Count: 1
+						ForgeCaps: {
+							"tfc:item_heat": {
+								heat: 0.0f
+								ticks: 0L
+							}
+						}
+						id: "alekiships:cannonball"
+					}
+					type: "item"
+				}
+			]
+			title: "{quests.tfg_tips.warfare.title}"
+			x: -2.375d
+			y: -14.375d
+		}
+		{
+			dependencies: ["61A8220EA30E7649"]
+			dependency_requirement: "one_completed"
+			description: ["{quests.tfg_tips.kayak_materials.desc}"]
+			guide_page: "tfg:field_guide tfg:logistics/boats 24"
+			icon: "firmaciv:kayak"
+			id: "0E1A20D0790AAFEB"
+			optional: true
+			shape: "heart"
+			subtitle: "{quests.tfg_tips.kayak_materials.subtitle}"
+			tasks: [
+				{
+					count: 4L
+					id: "17F68DC90F6C6045"
+					item: {
+						Count: 1
+						id: "ftbfiltersystem:smart_filter"
+						tag: {
+							"ftbfiltersystem:filter": "ftbfiltersystem:item_tag(forge:string)"
+						}
+					}
+					title: "{quests.tasktype.item.any} #forge:string"
+					type: "item"
+				}
+				{
+					count: 3L
+					id: "70903842764E0809"
+					item: {
+						Count: 1
+						id: "ftbfiltersystem:smart_filter"
+						tag: {
+							"ftbfiltersystem:filter": "ftbfiltersystem:item_tag(tfc:lumber)"
+						}
+					}
+					title: "{quests.tasktype.item.any} #tfc:lumber"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "5782AEDC2128D1F9"
+					item: { Count: 2, id: "firmaciv:large_waterproof_hide" }
+					type: "item"
+				}
+			]
+			title: "{quests.tfg_tips.kayak_materials.title}"
+			x: -18.875d
+			y: -0.875d
 		}
 	]
 	subtitle: ["{quests.metal_age.subtitle}"]

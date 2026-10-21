@@ -61,7 +61,7 @@
 	"gui.expatternprovider.ex_interface.config": "Strona konfiguracji %s",
 	"gui.expatternprovider.ex_interface.next": "Następna strona",
 	"gui.expatternprovider.ex_interface.pre": "Poprzednia strona",
-	"gui.expatternprovider.ex_io_port": "Rozszerzony port Wej/Wyj ME",
+	"gui.expatternprovider.ex_io_port": "Rozszerzony port wej/wyj ME",
 	"gui.expatternprovider.ex_molecular_assembler": "Rozszerzony monter molekularny",
 	"gui.expatternprovider.ex_molecular_assembler.next": "Następne zadanie rzemieślnicze",
 	"gui.expatternprovider.ex_molecular_assembler.number": "Zadanie rzemieślnicze %s",

@@ -673,12 +673,19 @@ const registerGTCEURecipes = (event) => {
 		.duration(20*20)
 		.EUt(GTValues.VA[GTValues.MV])
 
-	// Change Sterling Silver Turbine Rotor to be craftable at MV
+	// Change Rene-41 Rotor to be craftable at MV
 
 	// modifyRecipe doesn't work for turbine blades
-	event.recipes.gtceu.assembler('gtceu:assemble_sterling_silver_turbine_blade')
-		.itemInputs('8x #forge:turbine_blades/sterling_silver', '#forge:rods/long/magnalium')
-		.itemOutputs(Item.of('gtceu:turbine_rotor', '{GT.PartStats:{Material:"gtceu:sterling_silver"}}'))
+	event.recipes.gtceu.assembler('tfg:assemble_rene_41_turbine_blade')
+		.itemInputs('8x #forge:turbine_blades/rene_41', '#forge:rods/long/magnalium')
+		.itemOutputs(Item.of('gtceu:turbine_rotor', '{GT.PartStats:{Material:"tfg:rene_41"}}'))
+		.duration(10*20)
+		.EUt(GTValues.VA[GTValues.MV])
+
+	event.remove({ id: 'gtceu:assembler/assemble_vanadium_turbine_blade' })
+	event.recipes.gtceu.assembler('tfg:assemble_vanadium_turbine_blade')
+		.itemInputs('8x #forge:turbine_blades/vanadium', '#forge:rods/long/magnalium')
+		.itemOutputs(Item.of('gtceu:turbine_rotor', '{GT.PartStats:{Material:"gtceu:vanadium"}}'))
 		.duration(10*20)
 		.EUt(GTValues.VA[GTValues.MV])
 
@@ -688,6 +695,15 @@ const registerGTCEURecipes = (event) => {
         newId: "tfg:red_alloy",
         fluidOutputs: { "gtceu:red_alloy": 720 }
 	});
+
+	// Change Butraldehyde to be craftable at MV
+
+	event.remove({ id: 'gtceu:large_chemical_reactor/butraldehyde' })
+	global.modifyRecipe(event, "gtceu:chemical_reactor/butraldehyde", {
+        newId: "tfg:butraldehyde",
+        duration: 20 * 30,
+        eut: GTValues.VA[GTValues.MV]
+    })
 
 	// Change Cracker to require Cleanroom
 

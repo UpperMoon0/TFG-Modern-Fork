@@ -515,12 +515,13 @@
                 "tfg:the_world/geology",
                 "tfg:the_world/wild_animals",
                 "tfg:agriculture/animal_husbandry",
-                "tfg:logistics/tack"
+                "tfg:logistics/tack",
+                "tfg:logistics/trains",
+                "tfg:logistics/boats"
             ]
         }
     ],
     "read_by_default": true,
-    "sortnum": 1,
     "extra_recipe_mappings": {
         "tag:rnr:mattocks": 2,
         "tag:forge:mattock_heads": 2,

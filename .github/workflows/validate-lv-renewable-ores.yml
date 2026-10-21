@@ -12,6 +12,7 @@ on:
       - "kubejs/server_scripts/tfg/recipes.js"
       - "kubejs/startup_scripts/tfg/materials.js"
       - "pakku-lock.json"
+      - "kubejs/assets/tfg/lang/en_us.json"
       - ".github/scripts/validate_lv_renewable_ores.py"
       - ".github/workflows/validate-lv-renewable-ores.yml"
   push:
@@ -25,6 +26,7 @@ on:
       - "kubejs/server_scripts/tfg/recipes.js"
       - "kubejs/startup_scripts/tfg/materials.js"
       - "pakku-lock.json"
+      - "kubejs/assets/tfg/lang/en_us.json"
       - ".github/scripts/validate_lv_renewable_ores.py"
       - ".github/workflows/validate-lv-renewable-ores.yml"
 

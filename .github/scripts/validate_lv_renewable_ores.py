@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -16,6 +17,7 @@ CHROMIUM_RECIPES = ROOT / "kubejs/server_scripts/tfg/ores_and_materials/recipes.
 RECIPE_REGISTRY = ROOT / "kubejs/server_scripts/tfg/recipes.js"
 MATERIAL_REGISTRY = ROOT / "kubejs/startup_scripts/tfg/materials.js"
 TFC_LANG = ROOT / "kubejs/assets/tfc/lang/en_us.json"
+TFG_LANG = ROOT / "kubejs/assets/tfg/lang/en_us.json"
 PAKKU_LOCK = ROOT / "pakku-lock.json"
 
 recipe_text = RECIPES.read_text(encoding="utf-8")
@@ -28,6 +30,7 @@ recipe_registry = RECIPE_REGISTRY.read_text(encoding="utf-8")
 material_registry = MATERIAL_REGISTRY.read_text(encoding="utf-8")
 tfc_lang = TFC_LANG.read_text(encoding="utf-8")
 pakku_lock = PAKKU_LOCK.read_text(encoding="utf-8")
+material_names = json.loads(TFG_LANG.read_text(encoding="utf-8"))
 
 errors: list[str] = []
 
@@ -41,7 +44,7 @@ def require(condition: bool, message: str) -> None:
 # the recipe IO/tank/ore-grade behavior must be re-audited before updating pins.
 require("gtceu-1.20.1-7.5.3.jar" in pakku_lock,
         "GTCEu version changed: re-audit recipe maps, LV tanks and chemistry")
-require("TerraFirmaGreg-Core-Modern-0.9.23.jar" in pakku_lock,
+require("TerraFirmaGreg-Core-Modern-0.9.29.jar" in pakku_lock,
         "TFG Core version changed: re-audit TFC/GT integration and ore-prefix behavior")
 
 # The three LV lines must end at actual TFC poor ores and require a mined seed.
@@ -298,6 +301,8 @@ material_blocks = {
     )
 }
 for material in sorted(custom_materials):
+    require(bool(material_names.get(f"material.tfg.{material}")),
+            f"missing custom material translation: tfg:{material}")
     body = material_blocks.get(material)
     require(body is not None, f"missing custom material registration: tfg:{material}")
     if body is not None:
@@ -417,4 +422,4 @@ print(f" - custom intermediates checked: {len(custom_materials)}")
 print(f" - max fluid stack: {max(fluid_amounts)} mB")
 print(" - final ores: poor hematite, poor malachite, poor sphalerite")
 print(" - tin/cassiterite: absent")
-print(" - source audit: GTCEu 7.5.3 + TFC 3.2.25; pack pin: TFG Core 0.9.23")
+print(" - source audit: GTCEu 7.5.3 + TFC 3.2.25; pack pin: TFG Core 0.9.29")
