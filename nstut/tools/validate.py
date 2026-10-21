@@ -176,9 +176,9 @@ def main() -> int:
     # exact Forge artifacts on both sides; a client-only library pin produces a
     # dedicated-server missing-dependency failure.
     transfer_stack = {
-        "packetweave": ("UpperMoon0/PacketWeave", (0, 1, 2)),
-        "simply-screens": ("UpperMoon0/Simply-Screens", (0, 8, 11)),
-        "simply-speakers": ("UpperMoon0/Simply-Speakers", (0, 9, 1)),
+        "packetweave": ("UpperMoon0/PacketWeave", (0, 1, 3)),
+        "simply-screens": ("UpperMoon0/Simply-Screens", (0, 9, 1)),
+        "simply-speakers": ("UpperMoon0/Simply-Speakers", (0, 10, 1)),
     }
     for mod_id, (repo_key, minimum) in transfer_stack.items():
         matches = [mod for mod in managed["mods"] if mod["id"] == mod_id]
@@ -239,6 +239,9 @@ def main() -> int:
     for client_key in ("UpperMoon0/OpenUI-MC", "UpperMoon0/Create-Precise-Controls"):
         if (config_projects.get(client_key) or {}).get("side") != "CLIENT":
             fail(f"{client_key} must remain client-only")
+    openui = next(mod for mod in managed["mods"] if mod["id"] == "openui")
+    if tuple(map(int, openui["version"].split("."))) < (0, 0, 14):
+        fail("media mod updates require OpenUI MC 0.0.14 or newer on clients")
 
     trueuuid = next((mod for mod in managed["mods"] if mod["id"] == "trueuuid"), None)
     if trueuuid is None or trueuuid["installTargets"] != ["client", "server"]:

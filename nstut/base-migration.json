@@ -174,12 +174,6 @@
           "sha256": "e0f6da577a9b4b4089a5dfa6e89f56483d7c0e8290c8339b4ac598ea3f09e6ce"
         },
         {
-          "path": "mods/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4"
-        },
-        {
           "path": "mods/Measurements-forge-1.20.1-2.0.1.jar",
           "fileName": "Measurements-forge-1.20.1-2.0.1.jar",
           "url": "https://cdn.modrinth.com/data/wLINU2AB/versions/zvV0pT1y/Measurements-forge-1.20.1-2.0.1.jar",
@@ -510,12 +504,6 @@
           "sha256": "36defa26bfcbe2708ffaffa82eec5417573abac8a476fd5fcf650e59e21b7a9c"
         },
         {
-          "path": "mods/celestial-nail-forge-1.20.1-0.1.6.jar",
-          "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
-          "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
-          "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3"
-        },
-        {
           "path": "mods/chalk-1.20.1-1.6.7.jar",
           "fileName": "chalk-1.20.1-1.6.7.jar",
           "url": "https://cdn.modrinth.com/data/YWGP4Y1d/versions/egCIyHFr/chalk-1.20.1-1.6.7.jar",
@@ -630,12 +618,6 @@
           "sha256": "7d6dd0094d18d6bab64fcd7de680ea736015d1a1ffc472d3fe03122bc7aa0864"
         },
         {
-          "path": "mods/createhorsepower-ce-1.20.1-1.2.7.jar",
-          "fileName": "createhorsepower-ce-1.20.1-1.2.7.jar",
-          "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
-          "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025"
-        },
-        {
           "path": "mods/createpickywheels-forge-1.20.1-6.0.8-6.jar",
           "fileName": "createpickywheels-forge-1.20.1-6.0.8-6.jar",
           "url": "https://edge.forgecdn.net/files/7893/92/createpickywheels-forge-1.20.1-6.0.8-6.jar",
@@ -724,12 +706,6 @@
           "fileName": "exposure-forge-1.20.1-1.9.22.jar",
           "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
           "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e"
-        },
-        {
-          "path": "mods/extra_gauges-2.0.7.jar",
-          "fileName": "extra_gauges-2.0.7.jar",
-          "url": "https://cdn.modrinth.com/data/6YJgomwt/versions/ZbA0Ejq9/extra_gauges-2.0.7.jar",
-          "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d"
         },
         {
           "path": "mods/fallingtrees-forge-0.12.7-1.20.jar",
@@ -1032,12 +1008,6 @@
           "sha256": "12f96ecb8e61e0b3d3f0ca5701f479904904501dd251aa7bb60205afdf6bc2ce"
         },
         {
-          "path": "mods/packetweave-forge-1.20.1-0.1.2.jar",
-          "fileName": "packetweave-forge-1.20.1-0.1.2.jar",
-          "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.2/packetweave-forge-1.20.1-0.1.2.jar",
-          "sha256": "0b1776f7c4d8b28128fc8d372d205fde7d544e3a7f079a3f748d00b589e611af"
-        },
-        {
           "path": "mods/pandalib-forge-0.4.2-1.20.jar",
           "fileName": "pandalib-forge-0.4.2-1.20.jar",
           "url": "https://cdn.modrinth.com/data/mEEGbEIu/versions/Hs1ReP4A/pandalib-forge-0.4.2-1.20.jar",
@@ -1048,12 +1018,6 @@
           "fileName": "particular-1.20.1-Forge-1.5.7.jar",
           "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
           "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079"
-        },
-        {
-          "path": "mods/perfomant_boom-forge-1.1.3.jar",
-          "fileName": "perfomant_boom-forge-1.1.3.jar",
-          "url": "https://github.com/UpperMoon0/Perfomant-Boom/releases/download/v1.1.3/perfomant_boom-forge-1.1.3.jar",
-          "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038"
         },
         {
           "path": "mods/playerrevive_compat-1.0.4-daf51f2.jar",
@@ -1158,12 +1122,6 @@
           "sha256": "5a0d2682493ffa7b140a7b81f0d1e70c7536c97969397cf9e718e31391b5b9d5"
         },
         {
-          "path": "mods/solintegrations-0.1.0.jar",
-          "fileName": "solintegrations-0.1.0.jar",
-          "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
-          "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d"
-        },
-        {
           "path": "mods/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
           "fileName": "sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
           "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/HEEmP5R4/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
@@ -1186,12 +1144,6 @@
           "fileName": "species-3.5.jar",
           "url": "https://cdn.modrinth.com/data/s5d4P01r/versions/KwPDNMjG/species-3.5.jar",
           "sha256": "60cdc79387a14440d199dd217fe24edd6cd68d865460ee48e944d4bb0d78b23f"
-        },
-        {
-          "path": "mods/spiceoflife_classic-forge-2.13.jar",
-          "fileName": "spiceoflife_classic-forge-2.13.jar",
-          "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
-          "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336"
         },
         {
           "path": "mods/steampowered-1.20.1-3.1.0.jar",
@@ -1294,12 +1246,6 @@
           "fileName": "toofast-1.20-0.4.3.5.jar",
           "url": "https://cdn.modrinth.com/data/w6JSkKSH/versions/2pix3xrW/toofast-1.20-0.4.3.5.jar",
           "sha256": "5dc0fc5687c43ad9cec522ebb6eda9d9c84edc5b0c401721e91450b1ef57de5a"
-        },
-        {
-          "path": "mods/trueuuid-1.3.0-forge-1.20.1.jar",
-          "fileName": "trueuuid-1.3.0-forge-1.20.1.jar",
-          "url": "https://github.com/YuWan-030/TrueUUID/releases/download/v1.3.0/trueuuid-1.3.0-forge-1.20.1.jar",
-          "sha256": "4ad014cf05a9a14620579b54b01f5ee14a306c58665c7b632d84ba1f116eee88"
         },
         {
           "path": "mods/u_team_core-forge-1.20.1-5.1.4.382.jar",
@@ -1609,12 +1555,6 @@
           "fileName": "Krypton Reno-forge-1.20.1-26.1.1-1.20.1.jar",
           "url": "https://cdn.modrinth.com/data/JkxWVYwU/versions/sEH8i7QQ/Krypton Reno-forge-1.20.1-26.1.1-1.20.1.jar",
           "sha256": "e0f6da577a9b4b4089a5dfa6e89f56483d7c0e8290c8339b4ac598ea3f09e6ce"
-        },
-        {
-          "path": "mods/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
-          "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4"
         },
         {
           "path": "mods/Measurements-forge-1.20.1-2.0.1.jar",
@@ -1989,12 +1929,6 @@
           "sha256": "36defa26bfcbe2708ffaffa82eec5417573abac8a476fd5fcf650e59e21b7a9c"
         },
         {
-          "path": "mods/celestial-nail-forge-1.20.1-0.1.6.jar",
-          "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
-          "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
-          "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3"
-        },
-        {
           "path": "mods/chalk-1.20.1-1.6.7.jar",
           "fileName": "chalk-1.20.1-1.6.7.jar",
           "url": "https://cdn.modrinth.com/data/YWGP4Y1d/versions/egCIyHFr/chalk-1.20.1-1.6.7.jar",
@@ -2109,12 +2043,6 @@
           "sha256": "6fbb910c367dbce8e4fc7e5bf64b6edd4de980906ed00af8e47e4af843c0d9b0"
         },
         {
-          "path": "mods/create-precise-controls-forge-1.20.1-0.1.1.jar",
-          "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
-          "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.1.1/create-precise-controls-forge-1.20.1-0.1.1.jar",
-          "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2"
-        },
-        {
           "path": "mods/create_connected-1.2.3-mc1.20.1-all.jar",
           "fileName": "create_connected-1.2.3-mc1.20.1-all.jar",
           "url": "https://cdn.modrinth.com/data/Vg5TIO6d/versions/6gnvaVkN/create_connected-1.2.3-mc1.20.1-all.jar",
@@ -2143,12 +2071,6 @@
           "fileName": "createdeco-2.0.3-1.20.1-forge.jar",
           "url": "https://cdn.modrinth.com/data/sMvUb4Rb/versions/e9gaSRMd/createdeco-2.0.3-1.20.1-forge.jar",
           "sha256": "7d6dd0094d18d6bab64fcd7de680ea736015d1a1ffc472d3fe03122bc7aa0864"
-        },
-        {
-          "path": "mods/createhorsepower-ce-1.20.1-1.2.7.jar",
-          "fileName": "createhorsepower-ce-1.20.1-1.2.7.jar",
-          "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
-          "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025"
         },
         {
           "path": "mods/createpickywheels-forge-1.20.1-6.0.8-6.jar",
@@ -2269,12 +2191,6 @@
           "fileName": "exposure-forge-1.20.1-1.9.22.jar",
           "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
           "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e"
-        },
-        {
-          "path": "mods/extra_gauges-2.0.7.jar",
-          "fileName": "extra_gauges-2.0.7.jar",
-          "url": "https://cdn.modrinth.com/data/6YJgomwt/versions/ZbA0Ejq9/extra_gauges-2.0.7.jar",
-          "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d"
         },
         {
           "path": "mods/fallingtrees-forge-0.12.7-1.20.jar",
@@ -2643,22 +2559,10 @@
           "sha256": "0945df0cba0f62b3901dd80c3268e5311b770ece78c78037a45db12ac0425fef"
         },
         {
-          "path": "mods/openui-mc-forge-1.20.1-0.0.12.jar",
-          "fileName": "openui-mc-forge-1.20.1-0.0.12.jar",
-          "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.12/openui-mc-forge-1.20.1-0.0.12.jar",
-          "sha256": "9a58b71322d96b044c32db758ad2594c73c54d75e8a16ad1218b5aa28c58d3d9"
-        },
-        {
           "path": "mods/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
           "fileName": "packetfixer-3.3.2-1.18-1.20.4-merged.jar",
           "url": "https://cdn.modrinth.com/data/c7m1mi73/versions/9F4NGhGR/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
           "sha256": "12f96ecb8e61e0b3d3f0ca5701f479904904501dd251aa7bb60205afdf6bc2ce"
-        },
-        {
-          "path": "mods/packetweave-forge-1.20.1-0.1.2.jar",
-          "fileName": "packetweave-forge-1.20.1-0.1.2.jar",
-          "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.2/packetweave-forge-1.20.1-0.1.2.jar",
-          "sha256": "0b1776f7c4d8b28128fc8d372d205fde7d544e3a7f079a3f748d00b589e611af"
         },
         {
           "path": "mods/pandalib-forge-0.4.2-1.20.jar",
@@ -2677,12 +2581,6 @@
           "fileName": "particular-1.20.1-Forge-1.5.7.jar",
           "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
           "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079"
-        },
-        {
-          "path": "mods/perfomant_boom-forge-1.1.3.jar",
-          "fileName": "perfomant_boom-forge-1.1.3.jar",
-          "url": "https://github.com/UpperMoon0/Perfomant-Boom/releases/download/v1.1.3/perfomant_boom-forge-1.1.3.jar",
-          "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038"
         },
         {
           "path": "mods/playerrevive_compat-1.0.4-daf51f2.jar",
@@ -2817,12 +2715,6 @@
           "sha256": "37ec0b6248f04e856e6e5ba2066c4ded9981ce128282a9b45cdb10b67b9c8415"
         },
         {
-          "path": "mods/solintegrations-0.1.0.jar",
-          "fileName": "solintegrations-0.1.0.jar",
-          "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
-          "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d"
-        },
-        {
           "path": "mods/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
           "fileName": "sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
           "url": "https://edge.forgecdn.net/files/9271/152/sophisticatedbackpacks-1.20.1-3.26.14.2226.jar",
@@ -2851,12 +2743,6 @@
           "fileName": "species-3.5.jar",
           "url": "https://cdn.modrinth.com/data/s5d4P01r/versions/KwPDNMjG/species-3.5.jar",
           "sha256": "60cdc79387a14440d199dd217fe24edd6cd68d865460ee48e944d4bb0d78b23f"
-        },
-        {
-          "path": "mods/spiceoflife_classic-forge-2.13.jar",
-          "fileName": "spiceoflife_classic-forge-2.13.jar",
-          "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
-          "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336"
         },
         {
           "path": "mods/steampowered-1.20.1-3.1.0.jar",
@@ -2971,12 +2857,6 @@
           "fileName": "toomanyrecipeviewers-0.8.1+mc.20.1.jar",
           "url": "https://cdn.modrinth.com/data/yFypjcfd/versions/OncYLjJM/toomanyrecipeviewers-0.8.1+mc.20.1.jar",
           "sha256": "3dddc8f933bbaf87cff59d19ec546e799bf8596ab921a8b44e2628f85fad2bc7"
-        },
-        {
-          "path": "mods/trueuuid-1.3.0-forge-1.20.1.jar",
-          "fileName": "trueuuid-1.3.0-forge-1.20.1.jar",
-          "url": "https://github.com/YuWan-030/TrueUUID/releases/download/v1.3.0/trueuuid-1.3.0-forge-1.20.1.jar",
-          "sha256": "4ad014cf05a9a14620579b54b01f5ee14a306c58665c7b632d84ba1f116eee88"
         },
         {
           "path": "mods/u_team_core-forge-1.20.1-5.1.4.382.jar",
