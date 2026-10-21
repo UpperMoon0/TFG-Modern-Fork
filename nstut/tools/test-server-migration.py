@@ -13,7 +13,8 @@ class SnapshotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             paths = ['world/region/r.0.0.mca', 'config/trueuuid-registry.json', 'media/upload.bin',
-                     'server.properties', 'mods/example.jar', '.modpack-manager/state-server.json']
+                     'server.properties', 'mods/example.jar', '.modpack-manager/state-server.json',
+                     '.nstut-tfg-base-0.13.12', 'CHANGELOG.md', 'docs/upstream-sync.md']
             for name in paths:
                 path = root / name
                 path.parent.mkdir(parents=True, exist_ok=True)

@@ -28,9 +28,11 @@ EXCLUDED = ('.modpack-manager', 'backups', 'logs', 'crash-reports')
 
 def protected_inventory(root):
     """Hash instance-owned data outside the public pack's writable roots."""
-    pack_roots = {'mods', 'config', 'defaultconfigs', 'kubejs', 'resourcepacks', 'shaderpacks', 'tacz'}
+    pack_roots = {'mods', 'config', 'defaultconfigs', 'kubejs', 'resourcepacks', 'shaderpacks', 'tacz',
+                  'docs', 'README.md', 'CHANGELOG.md', 'LICENSE'}
     result = {}
-    paths = [p for p in root.iterdir() if p.name not in pack_roots | set(EXCLUDED)]
+    paths = [p for p in root.iterdir() if p.name not in pack_roots | set(EXCLUDED)
+             and not p.name.startswith('.nstut-tfg-base-')]
     identity = root / 'config/trueuuid-registry.json'
     if identity.exists():
         paths.append(identity)
