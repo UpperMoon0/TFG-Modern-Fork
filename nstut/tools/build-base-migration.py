@@ -56,24 +56,28 @@ def main():
     args = parser.parse_args()
     source, previous, out = args.source, args.previous, args.output
     assert not (previous / 'world').exists(), 'previous must be a pristine source checkout'
-    assert json.loads((previous / 'pakku-lock.json').read_text())['mc_versions'] == ['1.20.1']
+    assert json.loads((previous / 'pakku-lock.json').read_text(encoding='utf-8'))['mc_versions'] == ['1.20.1']
     out.mkdir(parents=True, exist_ok=True)
-    lock = json.loads((source / 'pakku-lock.json').read_text())
-    old_lock = json.loads((previous / 'pakku-lock.json').read_text())
-    old_core = next(f for p in old_lock['projects'] for f in p['files'] if f['file_name'] == 'TerraFirmaGreg-Core-Modern-0.9.23.jar')
+    lock = json.loads((source / 'pakku-lock.json').read_text(encoding='utf-8'))
+    pack_config = json.loads((source / 'pakku.json').read_text(encoding='utf-8'))
+    pack_name = pack_config['name'] + '-' + pack_config['version'] + '.zip'
+    old_lock = json.loads((previous / 'pakku-lock.json').read_text(encoding='utf-8'))
+    old_core = next(f for p in old_lock['projects'] if p['slug'].get('modrinth') == 'terrafirmagreg-core' for f in p['files'] if f['type'] == 'modrinth')
     cached_old = out / old_core['file_name']
     if not cached_old.exists():
         cached_old.write_bytes(urllib.request.urlopen(old_core['url'], timeout=90).read())
     assert hashlib.sha1(cached_old.read_bytes()).hexdigest() == old_core['hashes']['sha1']
-    new_core = source / 'mods/TerraFirmaGreg-Core-Modern-0.9.25.jar'
+    new_core_file = next(f for p in lock['projects'] if p['slug'].get('modrinth') == 'terrafirmagreg-core' for f in p['files'] if f['type'] == 'modrinth')
+    new_core = source / 'mods' / new_core_file['file_name']
     assert new_core.is_file()
-    marker = '.nstut-tfg-base-0.13.12'
-    marker_content = (source / '.pakku/client-overrides' / marker).read_text()
-    metadata = {'schemaVersion': 1, 'baseRef': '0.13.12', 'sourceBaseRef': '0.13.10', 'minimumManagerVersion': '1.0.7', 'targets': {}}
+    base_ref = json.loads((source / 'nstut/release.json').read_text(encoding='utf-8'))['baseRef']
+    marker = '.nstut-tfg-base-' + base_ref
+    marker_content = (source / '.pakku/client-overrides' / marker).read_text(encoding='utf-8')
+    metadata = {'schemaVersion': 1, 'baseRef': base_ref, 'sourceBaseRef': '0.13.12', 'minimumManagerVersion': '1.0.7', 'targets': {}}
     for side in ('server', 'client'):
         data = {}
         if side == 'server':
-            pack = next((source / 'build/serverpack').glob('*.zip'))
+            pack = source / 'build/serverpack' / pack_name
             with zipfile.ZipFile(pack) as archive:
                 assert archive.testzip() is None
                 for info in archive.infolist():
@@ -83,7 +87,7 @@ def main():
         else:
             # Use the canonical CurseForge export for matching server/client
             # mod versions; Modrinth provider versions can legitimately differ.
-            pack = next((source / 'build/curseforge').glob('*.zip'))
+            pack = source / 'build/curseforge' / pack_name
             with zipfile.ZipFile(pack) as archive:
                 assert archive.testzip() is None
                 manifest = json.loads(archive.read('manifest.json'))
@@ -127,7 +131,7 @@ def main():
                 continue
             for f in project['files']:
                 inventory.setdefault(folder + '/' + f['file_name'], '0' * 64)
-        path = out / ('tfg-base-0.13.12-' + side + '.zip')
+        path = out / ('tfg-base-' + base_ref + '-' + side + '.zip')
         with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=1) as archive:
             archive.writestr('migration-index.json', json.dumps({'schemaVersion': 1, 'files': {name: sha(b) for name, b in data.items()}, 'previousFiles': inventory}))
             for name, b in sorted(data.items()):
@@ -137,7 +141,7 @@ def main():
                 if name.startswith('config/'):
                     archive.writestr('previous/' + name, b)
         metadata['targets'][side] = {
-            'archive': {'fileName': path.name, 'url': 'https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.12/' + path.name, 'sha256': sha(path.read_bytes())},
+            'archive': {'fileName': path.name, 'url': 'https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-' + base_ref + '/' + path.name, 'sha256': sha(path.read_bytes())},
             'sourceFile': 'mods/' + old_core['file_name'], 'sourceSha256': sha(cached_old.read_bytes()),
             'targetFile': 'mods/' + new_core.name, 'targetSha256': sha(new_core.read_bytes()),
             'marker': marker, 'markerContent': marker_content,

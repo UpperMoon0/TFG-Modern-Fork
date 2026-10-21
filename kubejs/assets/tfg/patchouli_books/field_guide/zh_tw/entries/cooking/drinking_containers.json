@@ -11,7 +11,7 @@
         },
         {
             "type": "patchouli:text",
-            "text": "從容器中飲用$(item)酒$()或其他流體，同樣能獲得飲品效果和$(l:cooking/food_and_water#nutrients)營養$()值。$(br2)$(o)$(7)有些飲水容器在空的時候甚至可以當作樂器吹奏。$()"
+            "text": "從容器中飲用$(item)酒$()或其他流體，同樣能獲得飲品效果和$(l:cooking/food_and_water#nutrients)養分$()值。$(br2)$(o)$(7)有些飲水容器在空的時候甚至可以當作樂器吹奏。$()"
         },
         {
             "type": "tfg:table",
@@ -39,7 +39,7 @@
                     "text": "2%"
                 },
                 {
-                    "text": "葡萄酒杯"
+                    "text": "高腳杯"
                 },
                 {
                     "text": "100"
@@ -70,6 +70,15 @@
                 },
                 {
                     "text": "2000"
+                },
+                {
+                    "text": "∞"
+                },
+                {
+                    "text": "電動水壺"
+                },
+                {
+                    "text": "4000"
                 },
                 {
                     "text": "∞"
@@ -108,7 +117,7 @@
                     "text": "400"
                 },
                 {
-                    "text": "4%"
+                    "text": "∞"
                 },
                 {
                     "text": "硼矽酸鹽燒瓶"
@@ -144,7 +153,7 @@
             "columns": 2,
             "first_column_width": 90,
             "column_width": 72,
-            "row_height": 10,
+            "row_height": 9,
             "left_buffer": 2,
             "top_buffer": 12,
             "draw_background": false
@@ -159,6 +168,12 @@
             "title": "榨汁器",
             "recipe": "beneath:crafting/juicer",
             "text": "$(item)榨汁器$()是一種特殊物品，可以將$(thing)水果$()、$(thing)蘑菇$()和$(thing)仙人掌$()中所含的水分萃取為可飲用的水。"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "anchor": "electric_flask",
+            "item": "tfg:electric_flask",
+            "text": "和$(l:logistics/exploration_gear#digger_helmet)礦工頭盔$()類似，$(item)電動水壺$()會在你口渴時自動讓你喝水。和礦工頭盔不同的是，它適用於任何可飲用的流體！$(br2)它需要充電才能運作，不過沒電時你仍然可以手動飲用。它可以裝 $(thing)4,000mB$() 的流體。"
         },
         {
             "type": "patchouli:relations",

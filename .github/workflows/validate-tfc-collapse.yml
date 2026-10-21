@@ -1,0 +1,31 @@
+name: TFC collapse config validation
+on:
+  pull_request:
+    paths:
+      - '**/tfc-server.toml'
+      - '.github/scripts/validate_tfc_collapse.py'
+      - '.github/workflows/validate-tfc-collapse.yml'
+      - 'kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js'
+      - 'kubejs/server_scripts/main_server_script.js'
+      - '.github/scripts/validate_tfc_building_safety.cjs'
+  push:
+    branches: [dev, 'nstut/**']
+    paths:
+      - '**/tfc-server.toml'
+      - '.github/scripts/validate_tfc_collapse.py'
+      - '.github/workflows/validate-tfc-collapse.yml'
+      - 'kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js'
+      - 'kubejs/server_scripts/main_server_script.js'
+      - '.github/scripts/validate_tfc_building_safety.cjs'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python .github/scripts/validate_tfc_collapse.py
+      - run: node .github/scripts/validate_tfc_building_safety.cjs

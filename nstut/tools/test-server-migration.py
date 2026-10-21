@@ -9,6 +9,21 @@ spec.loader.exec_module(m)
 
 
 class SnapshotTests(unittest.TestCase):
+    def test_protected_inventory_includes_world_identity_and_media(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            paths = ['world/region/r.0.0.mca', 'config/trueuuid-registry.json', 'media/upload.bin',
+                     'server.properties', 'mods/example.jar', '.modpack-manager/state-server.json',
+                     '.nstut-tfg-base-0.13.12', 'CHANGELOG.md', 'docs/upstream-sync.md']
+            for name in paths:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b'original')
+            original = m.protected_inventory(root)
+            self.assertEqual(set(original), set(paths[:4]))
+            (root / paths[0]).write_bytes(b'changed')
+            self.assertNotEqual(m.protected_inventory(root), original)
+
     def test_rollback_preserves_backup_folders_and_nested_world_data(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / 'server'

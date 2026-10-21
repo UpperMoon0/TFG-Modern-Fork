@@ -26,6 +26,24 @@ VERSION = '1.0.7'
 EXCLUDED = ('.modpack-manager', 'backups', 'logs', 'crash-reports')
 
 
+def protected_inventory(root):
+    """Hash instance-owned data outside the public pack's writable roots."""
+    pack_roots = {'mods', 'config', 'defaultconfigs', 'kubejs', 'resourcepacks', 'shaderpacks', 'tacz',
+                  'docs', 'README.md', 'CHANGELOG.md', 'LICENSE'}
+    result = {}
+    paths = [p for p in root.iterdir() if p.name not in pack_roots | set(EXCLUDED)
+             and not p.name.startswith('.nstut-tfg-base-')]
+    identity = root / 'config/trueuuid-registry.json'
+    if identity.exists():
+        paths.append(identity)
+    for entry in paths:
+        for path in entry.rglob('*') if entry.is_dir() else [entry]:
+            if path.is_file() and not path.is_symlink():
+                with path.open('rb') as stream:
+                    result[path.relative_to(root).as_posix()] = hashlib.file_digest(stream, 'sha256').hexdigest()
+    return result
+
+
 def snapshot(root, backup):
     def ignore(path, names):
         return [name for name in names if name in EXCLUDED] if Path(path).resolve() == root else []
@@ -174,12 +192,14 @@ def main():
         world = (root / world_name).resolve()
         world.relative_to(root)
         subprocess.run([sys.executable, str(HERE / 'migrate-world-0.13.12.py'), str(world), '--apply', '--report', str(backup.parent / (stamp + '-world.json'))], check=True)
+        protected = protected_inventory(root)
         command[1] = 'apply'
         result = json.loads(subprocess.check_output(command, text=True))
+        assert protected_inventory(root) == protected, 'pack migration changed protected instance data'
         command[1] = 'plan'
         post = json.loads(subprocess.check_output(command, text=True))
         assert not post['items'], 'migration did not converge to an empty plan'
-        report = {'version': post['manifestVersion'], 'backup': str(backup), 'changedPaths': result['changedPaths'], 'postPlanItems': 0}
+        report = {'version': post['manifestVersion'], 'backup': str(backup), 'changedPaths': result['changedPaths'], 'postPlanItems': 0, 'protectedFilesVerified': len(protected)}
         if control and was_active:
             java17 = Path('/usr/lib/jvm/java-17-openjdk-amd64/bin/java')
             assert java17.is_file(), 'Java 17 is required for the migrated server'

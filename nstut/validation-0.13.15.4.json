@@ -1,0 +1,20 @@
+{
+  "release": "0.13.15-nstut.4",
+  "upstreamCommit": "21a4caf531e6abb8b992cc83c5a94df7a39fc83a",
+  "sourceBase": "0.13.12",
+  "preservedCustomMods": 15,
+  "customTranslations": 73,
+  "renewableRecipes": 90,
+  "syntaxCheckedScripts": 48,
+  "migrationDownloads": {
+    "server": 224,
+    "client": 288
+  },
+  "archiveCRCs": "passed",
+  "migrationArchiveSHA256": "passed",
+  "packagedClientGameplay": "unverified",
+  "serverDeployment": "verified separately at rollout time",
+  "buildingSafety": "real rock table and nested-tag regression passed; cobblestone, raw stone, ores and loose terrain retained",
+  "activeTFCConfig": "Core ServerLifecycleHooksMixin redirects server config to defaultconfigs",
+  "exportScope": "base exports validated before final building-safety overlay; final overlay provides the updated rules"
+}

@@ -52,7 +52,15 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Upstream 0.13.12 automatic migration
+## Current release: upstream 0.13.15
+
+`0.13.15-nstut.4` upgrades the complete 0.13.12 base through Modpack Manager
+1.0.7 or newer, preserving all 15 custom mods, expanded renewable recipes,
+runtime overlays and building-safe collapse rules. Close Minecraft before
+updating. Installations still on 0.13.10 must first apply the prior 0.13.12
+migration. See [release and migration notes](PATCH-0.13.15.4.md).
+
+## Previous upstream 0.13.12 automatic migration
 
 The 0.13.12 construction branch preserves the .34 MV slurry recipe and all
 15 managed mod artifacts. Modpack Manager 1.0.7 upgrades the installed base and

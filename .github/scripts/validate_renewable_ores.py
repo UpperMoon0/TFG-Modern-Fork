@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -21,6 +22,7 @@ recipe_registry = RECIPE_REGISTRY.read_text(encoding="utf-8")
 material_registry = MATERIAL_REGISTRY.read_text(encoding="utf-8")
 pakku_lock = PAKKU_LOCK.read_text(encoding="utf-8")
 gt_lang = (ROOT / "kubejs/assets/gtceu/lang/en_us.json").read_text(encoding="utf-8")
+material_names = json.loads((ROOT / "kubejs/assets/tfg/lang/en_us.json").read_text(encoding="utf-8"))
 
 errors: list[str] = []
 
@@ -33,7 +35,7 @@ def require(condition: bool, message: str) -> None:
 # Source-audit pins: update these only after re-auditing recipe maps and ore prefixes.
 require("gtceu-1.20.1-7.5.3.jar" in pakku_lock,
         "GTCEu version changed: re-audit recipe maps, tanks and prefix behavior")
-require("TerraFirmaGreg-Core-Modern-0.9.25.jar" in pakku_lock,
+require("TerraFirmaGreg-Core-Modern-0.9.29.jar" in pakku_lock,
         "TFG Core version changed: re-audit TFC/GT ore integration")
 
 blocks = re.findall(
@@ -539,6 +541,8 @@ method_calls = re.findall(
     re.DOTALL,
 )
 for material, body in sorted(material_blocks.items()):
+    require(bool(material_names.get(f"material.tfg.{material}")),
+            f"tfg:{material}: missing custom material translation")
     require(".flags(noDecomp)" in body,
             f"tfg:{material}: missing DISABLE_DECOMPOSITION")
     producers = 0

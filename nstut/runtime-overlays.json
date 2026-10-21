@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "baseRef": "0.13.10",
+  "baseRef": "0.13.15",
   "overlays": [
     {
       "format": "yaml",
@@ -111,6 +111,24 @@
       ],
       "values": {
         "tankCapacity": 512000
+      }
+    },
+    {
+      "format": "toml",
+      "path": "defaultconfigs/tfc-server.toml",
+      "targets": [
+        "client",
+        "server"
+      ],
+      "values": {
+        "mechanics.collapses.enableBlockCollapsing": true,
+        "mechanics.collapses.enableExplosionCollapsing": true,
+        "mechanics.collapses.enableBlockLandslides": true,
+        "mechanics.collapses.enableChiselsStartCollapses": true,
+        "mechanics.collapses.collapseTriggerChance": 0.1,
+        "mechanics.collapses.collapseFakeTriggerChance": 0.35,
+        "mechanics.collapses.collapsePropagateChance": 0.55,
+        "mechanics.collapses.collapseExplosionPropagateChance": 0.3
       }
     }
   ]

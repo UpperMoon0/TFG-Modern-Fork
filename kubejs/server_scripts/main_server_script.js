@@ -87,6 +87,7 @@ ServerEvents.tags('block', event => {
 	registerTFGBlockTagsNuclear(event)
 	registerVintageImprovementsBlockTags(event)
 	registerWABBlockTags(event)
+	registerTFGBuildingSafetyTags(event)
 })
 
 /**
@@ -253,6 +254,7 @@ ServerEvents.recipes(event => {
 	registerEndermanOverhaulRecipes(event)
 	registerEveryCompatRecipes(event)
 	registerExtendedAE2Recipes(event)
+	registerExpandedAE2Recipes(event)
 	registerExposureRecipes(event)
 	registerEtchedRecipes(event)
 	registerFirmaCivRecipes(event)
@@ -268,6 +270,7 @@ ServerEvents.recipes(event => {
 	registerHotOrNotRecipes(event)
 	registerImmersiveAircraftRecipes(event)
 	registerJelliesRecipes(event)
+	registerMatterManipulatorRecipes(event)
 	registerMacawsForTFCRecipes(event)
 	registerMeasurementsRecipes(event)
 	registerMegaCellsRecipes(event)
