@@ -7,7 +7,7 @@
 			"type": "patchouli:text",
 			"anchor": "chorus_fruit",
 			"title": "Chorus Fruit",
-			"text": "$(bold)Biomes$(): Chorus Forest, Chorus Thicket$(br2)Chorus Plants grow in tall formations. Breaking the stem will yield nothing, while breaking the Flowers at the top will yield Chorus Fruits or a Flower.$(br)Chorus Fruits can be eaten for $(thing)Fruit$(), cooked and eaten as $(item)Popped Chorus Fruit$(), or can be distilled into $(thing)Nitrogen$().$(br)"
+			"text": "$(bold)Biomes$(): $(l:the_moon/moon_biomes#forest)Chorus Forest$(), $(l:the_moon/moon_biomes#thicket)Chorus Thicket$()$(br2)Chorus Plants grow in tall formations. Breaking the stem will yield nothing, while breaking the Flowers at the top will yield Chorus Fruits or a Flower.$(br)Chorus Fruits can be eaten for $(thing)Fruit$(), cooked and eaten as $(item)Popped Chorus Fruit$(), or can be distilled into $(thing)Nitrogen$().$(br)"
 		},
 		{
 			"type": "patchouli:multiblock",
@@ -43,14 +43,23 @@
 			"enable_visualize": false
 		},
 		{
+			"type": "patchouli:spotlight",
+			"item": "gtceu:nitrogen_bucket",
+			"anchor": "nitrogen",
+			"title": "Chorus Products",
+			"text": "Setting up a renewable source of $(item)Chorus Fruit$() is essential for longer-term moon survival. They are the only real source of $(item)Nitrogen$(), and can also be distilled into Biomass for $(item)Carbon$()."
+		},
+		{
 			"type": "patchouli:relations",
 			"title": "Further Reading",
 			"anchor": "relations",
 			"entries": [
+				"tfg:the_moon/the_moon",
 				"tfg:the_world/climate",
 				"tfg:the_world/wild_crops",
 				"tfg:beneath/beneath_crops",
-				"tfg:mars/mars_crops"
+				"tfg:mars/mars_crops",
+				"tfg:the_moon/moon_biomes"
 			]
 		}
 	],
