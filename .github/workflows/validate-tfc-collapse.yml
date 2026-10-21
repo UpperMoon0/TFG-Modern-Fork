@@ -5,12 +5,18 @@ on:
       - '**/tfc-server.toml'
       - '.github/scripts/validate_tfc_collapse.py'
       - '.github/workflows/validate-tfc-collapse.yml'
+      - 'kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js'
+      - 'kubejs/server_scripts/main_server_script.js'
+      - '.github/scripts/validate_tfc_building_safety.cjs'
   push:
     branches: [dev, 'nstut/**']
     paths:
       - '**/tfc-server.toml'
       - '.github/scripts/validate_tfc_collapse.py'
       - '.github/workflows/validate-tfc-collapse.yml'
+      - 'kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js'
+      - 'kubejs/server_scripts/main_server_script.js'
+      - '.github/scripts/validate_tfc_building_safety.cjs'
 permissions:
   contents: read
 jobs:
@@ -22,3 +28,4 @@ jobs:
         with:
           python-version: '3.11'
       - run: python .github/scripts/validate_tfc_collapse.py
+      - run: node .github/scripts/validate_tfc_building_safety.cjs
