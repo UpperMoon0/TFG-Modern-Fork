@@ -16,13 +16,13 @@ def validate(root=ROOT):
             collapse = tomllib.load(stream)['mechanics']['collapses']
         for key in ('enableBlockCollapsing', 'enableExplosionCollapsing',
                     'enableBlockLandslides', 'enableChiselsStartCollapses'):
-            if collapse[key] is not False:
-                raise AssertionError(f'{relative}: {key} must be disabled')
-        for key in ('collapseTriggerChance', 'collapseFakeTriggerChance',
-                    'collapsePropagateChance', 'collapseExplosionPropagateChance'):
-            if collapse[key] != 0.0:
-                raise AssertionError(f'{relative}: {key} must be zero')
-    print('TFC collapses and landslides disabled in both packaged defaults.')
+            if collapse[key] is not True:
+                raise AssertionError(f'{relative}: {key} must be enabled')
+        for key, value in {'collapseTriggerChance': 0.1, 'collapseFakeTriggerChance': 0.35,
+                           'collapsePropagateChance': 0.55, 'collapseExplosionPropagateChance': 0.3}.items():
+            if collapse[key] != value:
+                raise AssertionError(f'{relative}: {key} must retain the upstream default {value}')
+    print('TFC collapses and landslides enabled with upstream probabilities in both packaged defaults.')
 
 
 if __name__ == '__main__':

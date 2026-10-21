@@ -670,32 +670,32 @@ familiarityDecayLimit = 0.3
 	[mechanics.collapses]
 		#
 		# Enable rock collapsing when mining raw stone blocks
-		enableBlockCollapsing = false
+		enableBlockCollapsing = true
 		#
 		# Enable explosions causing immediate collapses.
-		enableExplosionCollapsing = false
+		enableExplosionCollapsing = true
 		#
 		# Enable land slides (gravity affected blocks) when placing blocks or on block updates.
-		enableBlockLandslides = false
+		enableBlockLandslides = true
 		#
 		# Enable chisels starting collapses
-		enableChiselsStartCollapses = false
+		enableChiselsStartCollapses = true
 		#
 		# Chance for a collapse to be triggered by mining a block.
 		#Range: 0.0 ~ 1.0
-		collapseTriggerChance = 0.0
+		collapseTriggerChance = 0.1
 		#
 		# Chance for a collapse to be fake triggered by mining a block.
 		#Range: 0.0 ~ 1.0
-		collapseFakeTriggerChance = 0.0
+		collapseFakeTriggerChance = 0.35
 		#
 		# Chance for a block fo fall from mining collapse. Higher = more likely.
 		#Range: 0.0 ~ 1.0
-		collapsePropagateChance = 0.0
+		collapsePropagateChance = 0.55
 		#
 		# Chance for a block to fall from an explosion triggered collapse. Higher = mor likely.
 		#Range: 0.0 ~ 1.0
-		collapseExplosionPropagateChance = 0.0
+		collapseExplosionPropagateChance = 0.3
 		#
 		# Minimum radius for a collapse
 		#Range: 1 ~ 32
