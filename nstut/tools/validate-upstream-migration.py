@@ -6,7 +6,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
 PREVIOUS = 'nstut-0.13.10.33'
-BASE = '0.13.12'
+BASE = '0.13.15'
 
 
 def historical(ref, path):
@@ -52,7 +52,7 @@ def validate_base_installation(installation, release, manifest, markers):
     assert release['baseRef'] == BASE, 'release base mismatch'
     assert expected in manifest['requiredPaths'], 'overlay can be applied to an old base'
     for marker in markers:
-        assert marker == {'baseRef': BASE, 'upstreamCommit': '4b4732760b2885db45832a07f2925ba10f4c5930'}, 'missing or wrong packaged base marker'
+        assert marker == {'baseRef': BASE, 'upstreamCommit': '21a4caf531e6abb8b992cc83c5a94df7a39fc83a'}, 'missing or wrong packaged base marker'
     assert len(markers) == 2, 'client and server markers required'
 
 
