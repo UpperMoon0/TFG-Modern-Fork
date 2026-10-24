@@ -54,6 +54,12 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 ## Current release: upstream 0.13.15
 
+`0.13.15-nstut.6` updates Create Horse Power CE to 1.2.8 on clients and
+servers for horse ownership and kinetic network recovery after loading.
+All other pins and runtime settings are unchanged. See [release notes](PATCH-0.13.15.6.md).
+
+### Previous overlay 0.13.15-nstut.5
+
 `0.13.15-nstut.5` upgrades Economy, OpenUI, Screens, Speakers, Building Gadgets
 Extra and PacketWeave to their latest compatible releases; the other nine
 custom pins are current. Update clients and server together. See

@@ -17701,16 +17701,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "createhorsepower-ce-1.20.1-1.2.7.jar",
+                    "file_name": "createhorsepower-ce-1.20.1-1.2.8.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
-                    "id": "592940723",
+                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.8/createhorsepower-ce-1.20.1-1.2.8.jar",
+                    "id": "672636929",
                     "parent_id": "1350393644",
                     "hashes": {
-                        "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025"
+                        "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33"
                     },
-                    "size": 458284,
-                    "date_published": "2026-09-27T13:01:36Z"
+                    "size": 469478,
+                    "date_published": "2026-10-24T15:40:18Z"
                 }
             ]
         },

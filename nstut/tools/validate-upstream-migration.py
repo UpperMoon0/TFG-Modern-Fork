@@ -29,7 +29,7 @@ def artifact_signature(project):
 
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    approved = load('nstut/custom-mod-audit-0.13.15.5.json')['approvedMods']
+    approved = load('nstut/custom-mod-audit-0.13.15.6.json')['approvedMods']
     assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
     assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod lost during update'
     assert lock['mc_versions'] == upstream['mc_versions'] and lock['loaders'] == upstream['loaders'], 'Minecraft/loader drift'
