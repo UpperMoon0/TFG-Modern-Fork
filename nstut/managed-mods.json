@@ -112,11 +112,11 @@
     {
       "id": "create-horse-power-ce",
       "name": "Create Horse Power - CE",
-      "version": "1.2.7",
+      "version": "1.2.8",
       "repository": "UpperMoon0/CreateHorsePower-CE",
-      "fileName": "createhorsepower-ce-1.20.1-1.2.7.jar",
-      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.7/createhorsepower-ce-1.20.1-1.2.7.jar",
-      "sha256": "b1e6c2b5d71d7fea9bfafd2623e23e5897016e90b7955221c5b913d8d0a79025",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.8.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.8/createhorsepower-ce-1.20.1-1.2.8.jar",
+      "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33",
       "installTargets": [
         "client",
         "server"
