@@ -1,4 +1,6 @@
 import importlib.util
+import json
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -30,6 +32,37 @@ class ManifestTargets(unittest.TestCase):
             m.validate_install_destinations(manifest)
         manifest['operations'][1]['targets'] = ['client']
         m.validate_install_destinations(manifest)
+
+
+class VanishGuardTargets(unittest.TestCase):
+    def test_vanishguard_only_installs_and_cleans_server(self):
+        manifest = m.build_manifest()
+        operations = [op for op in manifest['operations']
+                      if op.get('artifact') == 'vanishguard' or 'vanishguard' in op.get('pattern', '')]
+        self.assertEqual(len(operations), 2)
+        self.assertTrue(all(op['targets'] == ['server'] for op in operations))
+        self.assertEqual({op['type'] for op in operations}, {'installFile', 'removeMatching'})
+
+    def test_private_config_has_no_pack_operation(self):
+        manifest = m.build_manifest()
+        self.assertFalse(any('vanishguard.json' in json.dumps(op) for op in manifest['operations']))
+        self.assertFalse(any('vanishguard.json' in json.dumps(a) for a in manifest['artifacts']))
+
+    def test_client_operations_and_artifact_pins_unchanged(self):
+        previous = json.loads(subprocess.check_output([
+            'git', '-C', str(m.ROOT), 'show',
+            'nstut-0.13.15.6:nstut/modpack-manager.patch.json']))
+        candidate = m.build_manifest()
+        client_ops = lambda manifest: [op for op in manifest['operations'] if 'client' in op['targets']]
+        self.assertEqual(client_ops(candidate), client_ops(previous))
+        referenced = {op['artifact'] for op in client_ops(candidate) if 'artifact' in op}
+        self.assertNotIn('vanishguard', referenced)
+        old = {a['id']: a for a in previous['artifacts']}
+        new = {a['id']: a for a in candidate['artifacts']}
+        for artifact in referenced:
+            expected = dict(old[artifact])
+            expected['url'] = expected['url'].replace('/nstut-0.13.15.6/', '/nstut-0.13.15.7/')
+            self.assertEqual(new[artifact], expected)
 
 
 if __name__ == '__main__':

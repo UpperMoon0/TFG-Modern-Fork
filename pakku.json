@@ -349,6 +349,10 @@
         "UpperMoon0/PacketWeave": {
             "side": "BOTH",
             "update_strategy": "NONE"
+        },
+        "UpperMoon0/VanishGuard": {
+            "side": "SERVER",
+            "update_strategy": "NONE"
         }
     },
     "export_server_side_projects_to_client": true

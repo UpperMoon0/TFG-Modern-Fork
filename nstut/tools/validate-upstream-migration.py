@@ -6,7 +6,7 @@ from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIOUS = 'nstut-0.13.15.4'
+PREVIOUS = 'nstut-0.13.15.6'
 BASE = '0.13.15'
 
 
@@ -29,9 +29,10 @@ def artifact_signature(project):
 
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    approved = load('nstut/custom-mod-audit-0.13.15.6.json')['approvedMods']
+    approved = load('nstut/custom-mod-audit-0.13.15.7.json')['approvedMods']
     assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
-    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod lost during update'
+    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']} | {'vanishguard'}, 'only the reviewed VanishGuard addition is allowed'
+    assert [m for m in approved if m['id'] != 'vanishguard'] == previous_managed['mods'], 'existing managed pins changed during server-only addition'
     assert lock['mc_versions'] == upstream['mc_versions'] and lock['loaders'] == upstream['loaders'], 'Minecraft/loader drift'
     actual = {project_key(p): p for p in lock['projects']}
     expected = {project_key(p): p for p in upstream['projects']}
@@ -74,7 +75,7 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
     validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
-    print('Upstream migration passed: upstream artifact pins and all 15 custom mods preserved; 73 custom translations retained')
+    print('Upstream migration passed: upstream artifact pins and all 15 existing custom mods preserved and VanishGuard added server-only; 73 custom translations retained')
 
 
 if __name__ == '__main__':
