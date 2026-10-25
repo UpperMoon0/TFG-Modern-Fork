@@ -18036,6 +18036,41 @@
                     ]
                 }
             ]
+        },
+        {
+            "pakku_id": "ffebfabeec63ae8c",
+            "type": "MOD",
+            "side": "SERVER",
+            "slug": {
+                "github": "UpperMoon0/VanishGuard"
+            },
+            "name": {
+                "github": "VanishGuard"
+            },
+            "id": {
+                "github": "1432430895"
+            },
+            "files": [
+                {
+                    "type": "github",
+                    "file_name": "vanishguard-1.20.1-0.1.0.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://github.com/UpperMoon0/VanishGuard/releases/download/v0.1.0/vanishguard-1.20.1-0.1.0.jar",
+                    "id": "672944445",
+                    "parent_id": "1432430895",
+                    "hashes": {
+                        "sha256": "d9e73e37e6ca9794f2e8458e6330fcc77569bf78a1a41ea2571dad0f205dfb9d"
+                    },
+                    "size": 29683,
+                    "date_published": "2026-10-24T18:06:02Z"
+                }
+            ]
         }
     ],
     "lockfile_version": 2
