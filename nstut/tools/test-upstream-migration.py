@@ -41,6 +41,11 @@ class MigrationRegressionTests(unittest.TestCase):
         self.args[1]['mods'][0]['version'] = '0.0.1'
         self.rejected()
 
+    def test_trueuuid_fork_pin_changed(self):
+        mod = next(m for m in self.args[1]['mods'] if m['id'] == 'trueuuid')
+        mod['repository'] = 'YuWan-030/TrueUUID'
+        self.rejected()
+
     def test_base_downloads_exclude_managed_mods(self):
         m.validate_base_downloads(m.load('nstut/base-migration.json'), m.load('nstut/managed-mods.json'))
 
