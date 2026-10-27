@@ -11,6 +11,14 @@ on:
       - "nstut/**"
 
 jobs:
+  trueuuid-release-asset:
+    name: trueuuid-release-asset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require published hash-verified TrueUUID fork artifact
+        run: python nstut/tools/check-trueuuid-release.py
+
   validate:
     name: validate
     runs-on: ubuntu-latest
