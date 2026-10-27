@@ -333,7 +333,7 @@
         "extra-gauges": {
             "update_strategy": "NONE"
         },
-        "YuWan-030/TrueUUID": {
+        "UpperMoon0/TrueUUID": {
             "update_strategy": "NONE"
         },
         "littletiles": {
@@ -348,6 +348,10 @@
         },
         "UpperMoon0/PacketWeave": {
             "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "UpperMoon0/VanishGuard": {
+            "side": "SERVER",
             "update_strategy": "NONE"
         }
     },

@@ -166,11 +166,23 @@ def main() -> int:
                 f"{side or 'BOTH'} ({expected_targets!r})"
             )
         cleanup_targets = mod.get("cleanupTargets")
-        if cleanup_targets != ["client", "server"]:
-            fail(f"{cfg_key} cleanupTargets must be ['client', 'server'] to scrub stale copies on both sides")
+        expected_cleanup = ["server"] if side == "SERVER" else ["client", "server"]
+        if cleanup_targets != expected_cleanup:
+            fail(f"{cfg_key} cleanupTargets must be {expected_cleanup!r}")
         cleanup_patterns = mod.get("cleanupPatterns")
         if not isinstance(cleanup_patterns, list) or not cleanup_patterns:
             fail(f"{cfg_key} must declare at least one cleanup pattern")
+
+    # VanishGuard is server-only and its private mutable config is never pack-owned.
+    vanish = [mod for mod in managed["mods"] if mod["id"] == "vanishguard"]
+    if len(vanish) != 1 or vanish[0]["repository"] != "UpperMoon0/VanishGuard":
+        fail("VanishGuard must have one reviewed server-only pin")
+    if vanish[0]["installTargets"] != ["server"] or vanish[0]["cleanupTargets"] != ["server"]:
+        fail("VanishGuard must not add client install or cleanup operations")
+    if any("vanishguard.json" in str(entry) for entry in runtime["overlays"]):
+        fail("VanishGuard config must remain unmanaged and server-private")
+    if list(ROOT.glob(".pakku/**/vanishguard.json")) or (ROOT / "config/vanishguard.json").exists():
+        fail("VanishGuard config must be created privately by the server, never shipped")
 
     # Screens and Speakers use the standalone PacketWeave API. Keep all three
     # exact Forge artifacts on both sides; a client-only library pin produces a

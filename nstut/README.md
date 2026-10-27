@@ -52,6 +52,14 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Overlay 0.13.15-nstut.8
+
+TrueUUID 1.3.1 is pinned from the reviewed owner fork on both clients and server.
+The Forge-only public release is hash-verified. Relative to stable .6 this also
+includes the previously approved server-only VanishGuard addition; every other
+mod pin and authentication setting is unchanged. See
+[validation evidence](TRUEUUID-1.3.1-REVIEW.md) and [release notes](PATCH-0.13.15.8.md).
+
 ## Current release: upstream 0.13.15
 
 `0.13.15-nstut.6` updates Create Horse Power CE to 1.2.8 on clients and
