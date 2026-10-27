@@ -52,12 +52,13 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Draft overlay 0.13.15-nstut.8
+## Overlay 0.13.15-nstut.8
 
-The TrueUUID 1.3.1 owner-fork integration is a draft, awaiting approved public
-artifact publication and a passing `trueuuid-release-asset` gate. See
-[review requirements](TRUEUUID-1.3.1-REVIEW.md) and [draft notes](PATCH-0.13.15.8.md).
-Stable and live deployments are unchanged.
+TrueUUID 1.3.1 is pinned from the reviewed owner fork on both clients and server.
+The Forge-only public release is hash-verified. Relative to stable .6 this also
+includes the previously approved server-only VanishGuard addition; every other
+mod pin and authentication setting is unchanged. See
+[validation evidence](TRUEUUID-1.3.1-REVIEW.md) and [release notes](PATCH-0.13.15.8.md).
 
 ## Current release: upstream 0.13.15
 
