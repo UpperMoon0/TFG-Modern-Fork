@@ -17990,16 +17990,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "solintegrations-0.1.0.jar",
+                    "file_name": "solintegrations-0.1.1.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
-                    "id": "630015843",
+                    "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.1/solintegrations-0.1.1.jar",
+                    "id": "685075539",
                     "parent_id": "1413622694",
                     "hashes": {
-                        "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d"
+                        "sha256": "3b2925cb0efbe22ce2dc1da88d359e1264150644112cfdfb7eb19b8bd0c62761"
                     },
-                    "size": 674610,
-                    "date_published": "2026-10-11T06:44:17Z",
+                    "size": 680597,
+                    "date_published": "2026-10-28T13:23:31Z",
                     "mc_versions": [
                         "1.20.1"
                     ],

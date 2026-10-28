@@ -277,11 +277,11 @@
     {
       "id": "spice-of-life-integrations",
       "name": "Spice of Life Integrations",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "repository": "UpperMoon0/SpiceOfLife-Integrations",
-      "fileName": "solintegrations-0.1.0.jar",
-      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
-      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "fileName": "solintegrations-0.1.1.jar",
+      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.1/solintegrations-0.1.1.jar",
+      "sha256": "3b2925cb0efbe22ce2dc1da88d359e1264150644112cfdfb7eb19b8bd0c62761",
       "installTargets": [
         "client",
         "server"

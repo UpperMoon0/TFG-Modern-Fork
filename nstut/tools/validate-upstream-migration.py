@@ -29,10 +29,11 @@ def artifact_signature(project):
 
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    approved = load('nstut/custom-mod-audit-0.13.17.1.json')['approvedMods']
+    audit_version = load('nstut/release.json')['sourceRef'].removeprefix('nstut-')
+    approved = load(f'nstut/custom-mod-audit-{audit_version}.json')['approvedMods']
     assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
     assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod set changed'
-    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave'}
+    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations'}
     unchanged = lambda mods: [m for m in mods if m['id'] not in upgraded]
     assert unchanged(approved) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
     trueuuid = next(m for m in approved if m['id'] == 'trueuuid')
@@ -81,7 +82,7 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
     validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
-    print('Upstream 0.13.17 migration passed: exact upstream pins, 16 custom mods, five reviewed upgrades and 73 custom translations retained')
+    print('Upstream 0.13.17 migration passed: exact upstream pins, 16 custom mods, reviewed custom upgrades and 73 custom translations retained')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,38 @@
+{
+  "checkedOn": "2026-10-28",
+  "overlayVersion": "0.13.17-nstut.2",
+  "changeScope": "Spice of Life Integrations 0.1.0 to 0.1.1; all other managed pins and upstream base unchanged",
+  "addonRepository": "UpperMoon0/SpiceOfLife-Integrations",
+  "addonPullRequest": 2,
+  "addonSha256": "3b2925cb0efbe22ce2dc1da88d359e1264150644112cfdfb7eb19b8bd0c62761",
+  "addonUnitTests": 60,
+  "addonPythonSafetyTests": 82,
+  "localDevelopmentGameTestProfiles": 6,
+  "packagedFullPackGameTests": {
+    "registered": 23,
+    "activeCombinedCases": 16,
+    "completed": 23,
+    "failedRequired": 0,
+    "stack": "TFG Core 0.9.31 / bundled TFC 3.2.28 / Sophisticated Core 1.5.16.2433 / Backpacks 3.26.15.2228"
+  },
+  "productionDeployment": "pending",
+  "limits": [
+    "Interactive client UI not tested",
+    "Real-player reconnect/restart persistence not tested",
+    "TFG extended nutrients not measured separately"
+  ],
+  "addonReleaseCommit": "e5a4b061aca5e1b82e1464565609b771c3d13adc",
+  "addonReleaseWorkflow": 40694640993,
+  "addonReleaseProvenanceVerified": true,
+  "addonPublishedArtifactCrcVerified": true,
+  "addonReleaseCIMatrixProfiles": 6,
+  "packChecks": {
+    "forkPolicy": "passed",
+    "manifestRegressionTests": 5,
+    "upstreamMigration": "passed",
+    "upstreamMigrationRegressionTests": 16,
+    "worldMigrationRegressionTests": 3,
+    "serverMigrationRegressionTests": 2,
+    "publishedManagerFreshInstall": "passed"
+  }
+}
