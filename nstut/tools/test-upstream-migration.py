@@ -55,6 +55,12 @@ class MigrationRegressionTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             m.validate_base_downloads(migration, m.load('nstut/managed-mods.json'))
 
+    def test_wrong_migration_source_is_rejected(self):
+        migration = m.load('nstut/base-migration.json')
+        migration['sourceBaseRef'] = '0.13.12'
+        with self.assertRaises(AssertionError):
+            m.validate_base_downloads(migration, m.load('nstut/managed-mods.json'))
+
     def test_old_upstream_translations_restored(self):
         self.args[2].update(self.args[6])
         self.rejected()

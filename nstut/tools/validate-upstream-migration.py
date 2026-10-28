@@ -6,8 +6,8 @@ from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIOUS = 'nstut-0.13.15.6'
-BASE = '0.13.15'
+PREVIOUS = 'nstut-0.13.15.8'
+BASE = '0.13.17'
 
 
 def historical(ref, path):
@@ -29,10 +29,11 @@ def artifact_signature(project):
 
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    approved = load('nstut/custom-mod-audit-0.13.15.8.json')['approvedMods']
+    approved = load('nstut/custom-mod-audit-0.13.17.1.json')['approvedMods']
     assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
-    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']} | {'vanishguard'}, 'only the reviewed VanishGuard addition is allowed'
-    unchanged = lambda mods: [m for m in mods if m['id'] not in ('vanishguard', 'trueuuid')]
+    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod set changed'
+    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave'}
+    unchanged = lambda mods: [m for m in mods if m['id'] not in upgraded]
     assert unchanged(approved) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
     trueuuid = next(m for m in approved if m['id'] == 'trueuuid')
     assert trueuuid['repository'] == 'UpperMoon0/TrueUUID' and trueuuid['version'] == '1.3.1', 'wrong TrueUUID fork/version'
@@ -60,11 +61,12 @@ def validate_base_installation(installation, release, manifest, markers):
     assert release['baseRef'] == BASE, 'release base mismatch'
     assert expected in manifest['requiredPaths'], 'overlay can be applied to an old base'
     for marker in markers:
-        assert marker == {'baseRef': BASE, 'upstreamCommit': '21a4caf531e6abb8b992cc83c5a94df7a39fc83a'}, 'missing or wrong packaged base marker'
+        assert marker == {'baseRef': BASE, 'upstreamCommit': '32ba9f19d60bfc5b4148888fc84e50316b2b0fed'}, 'missing or wrong packaged base marker'
     assert len(markers) == 2, 'client and server markers required'
 
 
 def validate_base_downloads(migration, managed):
+    assert migration['baseRef'] == BASE and migration['sourceBaseRef'] == '0.13.15', 'wrong migration source/target base'
     for target in migration['targets'].values():
         for download in target['downloads']:
             assert not any(fnmatch.fnmatchcase(download['path'], pattern)
@@ -79,7 +81,7 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
     validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
-    print('Upstream migration passed: upstream artifact pins and all other custom pins preserved, reviewed TrueUUID fork selected and VanishGuard server-only; 73 custom translations retained')
+    print('Upstream 0.13.17 migration passed: exact upstream pins, 16 custom mods, five reviewed upgrades and 73 custom translations retained')
 
 
 if __name__ == '__main__':
