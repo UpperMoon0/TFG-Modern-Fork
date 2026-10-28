@@ -44,7 +44,7 @@ def require(condition: bool, message: str) -> None:
 # the recipe IO/tank/ore-grade behavior must be re-audited before updating pins.
 require("gtceu-1.20.1-7.5.3.jar" in pakku_lock,
         "GTCEu version changed: re-audit recipe maps, LV tanks and chemistry")
-require("TerraFirmaGreg-Core-Modern-0.9.29.jar" in pakku_lock,
+require("TerraFirmaGreg-Core-Modern-0.9.31.jar" in pakku_lock,
         "TFG Core version changed: re-audit TFC/GT integration and ore-prefix behavior")
 
 # The three LV lines must end at actual TFC poor ores and require a mined seed.
@@ -422,4 +422,4 @@ print(f" - custom intermediates checked: {len(custom_materials)}")
 print(f" - max fluid stack: {max(fluid_amounts)} mB")
 print(" - final ores: poor hematite, poor malachite, poor sphalerite")
 print(" - tin/cassiterite: absent")
-print(" - source audit: GTCEu 7.5.3 + TFC 3.2.25; pack pin: TFG Core 0.9.29")
+print(" - source audit: GTCEu 7.5.3 + embedded TFC; pack pin: TFG Core 0.9.31 (docs/upstream-sync-0.13.17.md)")
