@@ -1,3 +1,8 @@
+## 0.13.17-nstut.2
+
+- Update Spice of Life Integrations to 0.1.1, restoring native TFC food hunger and Sophisticated feeding after compatible upstream mod updates.
+- Replace optional-mod exact-version ceilings with API/target checks and specific incompatibility diagnostics.
+
 # Changelog
 
 ### Changes
