@@ -1,0 +1,988 @@
+{
+  "checkedOn": "2026-10-28",
+  "previousRelease": "nstut-0.13.15.8",
+  "scope": "All 16 managed artifacts checked against current published compatible releases. Five owner mods upgraded; original Classic retained for its integration. Download hashes and every JAR CRC verified.",
+  "approvedMods": [
+    {
+      "id": "economy",
+      "name": "Economy",
+      "version": "0.0.21",
+      "repository": "UpperMoon0/Economy",
+      "fileName": "economy-forge-1.20.1-0.0.21.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.21/economy-forge-1.20.1-0.0.21.jar",
+      "sha256": "03b1ff5e0bf18abb78447c73f3b2f27b66e2cdf6c5ea0d94472582fc46d0293a",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/economy-*.jar"
+      ]
+    },
+    {
+      "id": "openui",
+      "name": "OpenUI MC",
+      "version": "0.0.15",
+      "repository": "UpperMoon0/OpenUI-MC",
+      "fileName": "openui-mc-forge-1.20.1-0.0.15.jar",
+      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.15/openui-mc-forge-1.20.1-0.0.15.jar",
+      "sha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
+      "installTargets": [
+        "client"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/openui-mc-*.jar"
+      ]
+    },
+    {
+      "id": "create-precise-controls",
+      "name": "Create: Precise Controls",
+      "version": "0.1.1",
+      "repository": "UpperMoon0/Create-Precise-Controls",
+      "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.1.1/create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "installTargets": [
+        "client"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/create-precise-controls-*.jar"
+      ]
+    },
+    {
+      "id": "simply-screens",
+      "name": "Simply Screens",
+      "version": "0.10.1",
+      "repository": "UpperMoon0/Simply-Screens",
+      "fileName": "simply_screens-forge-1.20.1-0.10.1.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.1/simply_screens-forge-1.20.1-0.10.1.jar",
+      "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/simply_screens-*.jar",
+        "mods/simply-screens-*.jar"
+      ]
+    },
+    {
+      "id": "simply-speakers",
+      "name": "Simply Speakers",
+      "version": "0.10.2",
+      "repository": "UpperMoon0/Simply-Speakers",
+      "fileName": "simplyspeakers-forge-1.20.1-0.10.2.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.10.2/simplyspeakers-forge-1.20.1-0.10.2.jar",
+      "sha256": "ec5c06c78cf6f16802164904b3db6c7719a593d0367f7f0fc91b561c3b55d1e3",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/simplyspeakers-*.jar",
+        "mods/simply_speakers-*.jar",
+        "mods/simply-speakers-*.jar"
+      ]
+    },
+    {
+      "id": "create-horse-power-ce",
+      "name": "Create Horse Power - CE",
+      "version": "1.2.8",
+      "repository": "UpperMoon0/CreateHorsePower-CE",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.8.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.8/createhorsepower-ce-1.20.1-1.2.8.jar",
+      "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/createhorsepower-*.jar"
+      ]
+    },
+    {
+      "id": "building-gadgets-extra",
+      "name": "Building Gadgets Extra",
+      "version": "0.0.7",
+      "repository": "UpperMoon0/Building-Gadgets-Extra",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.7.jar",
+      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.7/building-gadgets-extra-forge-1.20.1-0.0.7.jar",
+      "sha256": "ada3fc7d90839e57194f7022749bda7a12d7aa74b622e550ac55297998525297",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/building-gadgets-extra-*.jar",
+        "mods/buildinggadgetsextra-*.jar"
+      ]
+    },
+    {
+      "id": "extra-gauges",
+      "name": "Create: Extra Gauges",
+      "version": "2.0.7",
+      "repository": "modrinth:extra-gauges",
+      "fileName": "extra_gauges-2.0.7.jar",
+      "url": "https://cdn.modrinth.com/data/6YJgomwt/versions/ZbA0Ejq9/extra_gauges-2.0.7.jar",
+      "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/extra_gauges-*.jar"
+      ]
+    },
+    {
+      "id": "perfomant-boom",
+      "name": "Perfomant Boom",
+      "version": "1.1.3",
+      "repository": "UpperMoon0/Perfomant-Boom",
+      "fileName": "perfomant_boom-forge-1.1.3.jar",
+      "url": "https://github.com/UpperMoon0/Perfomant-Boom/releases/download/v1.1.3/perfomant_boom-forge-1.1.3.jar",
+      "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/perfomant_boom-*.jar",
+        "mods/perfomant-boom-*.jar"
+      ]
+    },
+    {
+      "id": "celestial-nail",
+      "name": "Celestial Nail",
+      "version": "0.1.6",
+      "repository": "UpperMoon0/Celestial-Nail",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
+      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/celestial-nail-*.jar",
+        "mods/celestial_nail-*.jar"
+      ]
+    },
+    {
+      "id": "trueuuid",
+      "name": "TrueUUID",
+      "version": "1.3.1",
+      "repository": "UpperMoon0/TrueUUID",
+      "fileName": "trueuuid-1.3.1-forge-1.20.1.jar",
+      "url": "https://github.com/UpperMoon0/TrueUUID/releases/download/v1.3.1/trueuuid-1.3.1-forge-1.20.1.jar",
+      "sha256": "1d40b23c9a87c4c374bc66d092ed781fd5a303638a83ac3aced6677690b3181f",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/trueuuid-*.jar"
+      ]
+    },
+    {
+      "id": "littletiles",
+      "name": "LittleTiles",
+      "version": "1.6.0-pre161",
+      "repository": "modrinth:littletiles",
+      "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/RCRxC1tD/versions/sBbUjEhq/LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/LittleTiles_*.jar",
+        "mods/littletiles-*.jar"
+      ]
+    },
+    {
+      "id": "spice-of-life-classic",
+      "name": "Spice of Life: Classic Edition",
+      "version": "2.13",
+      "repository": "modrinth:foodvariations",
+      "fileName": "spiceoflife_classic-forge-2.13.jar",
+      "url": "https://cdn.modrinth.com/data/Utos7Mlk/versions/b3ujNB9U/spiceoflife_classic-forge-2.13.jar",
+      "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/spiceoflife_classic-*.jar",
+        "mods/spiceoflife-classic-*.jar"
+      ]
+    },
+    {
+      "id": "spice-of-life-integrations",
+      "name": "Spice of Life Integrations",
+      "version": "0.1.0",
+      "repository": "UpperMoon0/SpiceOfLife-Integrations",
+      "fileName": "solintegrations-0.1.0.jar",
+      "url": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/download/v0.1.0/solintegrations-0.1.0.jar",
+      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/solintegrations-*.jar"
+      ]
+    },
+    {
+      "id": "packetweave",
+      "name": "PacketWeave",
+      "repository": "UpperMoon0/PacketWeave",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/packetweave-*.jar"
+      ],
+      "version": "0.1.4",
+      "fileName": "packetweave-forge-1.20.1-0.1.4.jar",
+      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.4/packetweave-forge-1.20.1-0.1.4.jar",
+      "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001"
+    },
+    {
+      "id": "vanishguard",
+      "name": "VanishGuard",
+      "version": "0.1.0",
+      "repository": "UpperMoon0/VanishGuard",
+      "fileName": "vanishguard-1.20.1-0.1.0.jar",
+      "url": "https://github.com/UpperMoon0/VanishGuard/releases/download/v0.1.0/vanishguard-1.20.1-0.1.0.jar",
+      "sha256": "d9e73e37e6ca9794f2e8458e6330fcc77569bf78a1a41ea2571dad0f205dfb9d",
+      "installTargets": [
+        "server"
+      ],
+      "cleanupTargets": [
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/vanishguard-*.jar"
+      ]
+    }
+  ],
+  "artifactChecks": [
+    {
+      "release": "https://github.com/UpperMoon0/Economy/releases/tag/v0.0.21",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-27T16:42:04Z",
+      "publisherSha256": "03b1ff5e0bf18abb78447c73f3b2f27b66e2cdf6c5ea0d94472582fc46d0293a",
+      "id": "economy",
+      "previousVersion": "0.0.20",
+      "version": "0.0.21",
+      "fileName": "economy-forge-1.20.1-0.0.21.jar",
+      "sha256": "03b1ff5e0bf18abb78447c73f3b2f27b66e2cdf6c5ea0d94472582fc46d0293a",
+      "crcVerified": true,
+      "dependencies": {
+        "economy": [
+          {
+            "modId": "openui_mc",
+            "mandatory": true,
+            "versionRange": "[0.0.13,)",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,48)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/OpenUI-MC/releases/tag/v0.0.15",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-21T17:24:25Z",
+      "publisherSha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
+      "id": "openui",
+      "previousVersion": "0.0.14",
+      "version": "0.0.15",
+      "fileName": "openui-mc-forge-1.20.1-0.0.15.jar",
+      "sha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
+      "crcVerified": true,
+      "dependencies": {
+        "openui_mc": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,48)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/tag/v0.1.1",
+      "releaseCommit": "cb56aafd51e08a123f2fa48570e47b0428578249",
+      "publishedAt": "2026-09-14T19:36:11Z",
+      "publisherSha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "id": "create-precise-controls",
+      "previousVersion": "0.1.1",
+      "version": "0.1.1",
+      "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
+      "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "crcVerified": true,
+      "dependencies": {
+        "createprecisecontrols": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,48)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "create",
+            "mandatory": true,
+            "versionRange": "[6.0.8]",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Simply-Screens/releases/tag/v0.10.1",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-22T04:12:13Z",
+      "publisherSha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
+      "id": "simply-screens",
+      "previousVersion": "0.9.1",
+      "version": "0.10.1",
+      "fileName": "simply_screens-forge-1.20.1-0.10.1.jar",
+      "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
+      "crcVerified": true,
+      "dependencies": {
+        "simply_screens": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "architectury",
+            "mandatory": true,
+            "versionRange": "[9.2.14,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "openui_mc",
+            "mandatory": true,
+            "versionRange": "[0.0.14,)",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "packetweave",
+            "mandatory": true,
+            "versionRange": "[0.1.1,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "patchouli",
+            "mandatory": false,
+            "versionRange": "[0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Simply-Speakers/releases/tag/v0.10.2",
+      "releaseCommit": "23ed9ae060df9632f418cf8d8b5e9d89a82e7f98",
+      "publishedAt": "2026-10-22T03:33:55Z",
+      "publisherSha256": "ec5c06c78cf6f16802164904b3db6c7719a593d0367f7f0fc91b561c3b55d1e3",
+      "id": "simply-speakers",
+      "previousVersion": "0.10.1",
+      "version": "0.10.2",
+      "fileName": "simplyspeakers-forge-1.20.1-0.10.2.jar",
+      "sha256": "ec5c06c78cf6f16802164904b3db6c7719a593d0367f7f0fc91b561c3b55d1e3",
+      "crcVerified": true,
+      "dependencies": {
+        "simplyspeakers": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "architectury",
+            "mandatory": true,
+            "versionRange": "[9.2.14,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "openui_mc",
+            "mandatory": true,
+            "versionRange": "[0.0.14,)",
+            "ordering": "NONE",
+            "side": "CLIENT"
+          },
+          {
+            "modId": "computercraft",
+            "mandatory": false,
+            "versionRange": "[1.109.2,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "patchouli",
+            "mandatory": false,
+            "versionRange": "[0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "packetweave",
+            "mandatory": true,
+            "versionRange": "[0.1.2,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/tag/v1.2.8",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-24T15:40:19Z",
+      "publisherSha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33",
+      "id": "create-horse-power-ce",
+      "previousVersion": "1.2.8",
+      "version": "1.2.8",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.8.jar",
+      "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33",
+      "crcVerified": true,
+      "dependencies": {
+        "createhorsepower": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "create",
+            "mandatory": true,
+            "versionRange": "[6.0.8,6.1.0)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/tag/v0.0.7",
+      "releaseCommit": "da76c15016a26484f7f9c575b7a342562b8e3d71",
+      "publishedAt": "2026-10-15T21:09:42Z",
+      "publisherSha256": "ada3fc7d90839e57194f7022749bda7a12d7aa74b622e550ac55297998525297",
+      "id": "building-gadgets-extra",
+      "previousVersion": "0.0.7",
+      "version": "0.0.7",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.7.jar",
+      "sha256": "ada3fc7d90839e57194f7022749bda7a12d7aa74b622e550ac55297998525297",
+      "crcVerified": true,
+      "dependencies": {
+        "buildinggadgetsextra": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,48)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "buildinggadgets2",
+            "mandatory": true,
+            "versionRange": "[1.0.8,1.1.0)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "packetweave",
+            "mandatory": true,
+            "versionRange": "[0.1.3,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "openui_mc",
+            "mandatory": true,
+            "versionRange": "[0.0.13,)",
+            "ordering": "AFTER",
+            "side": "CLIENT"
+          }
+        ]
+      }
+    },
+    {
+      "versionsApi": "https://api.modrinth.com/v2/project/extra-gauges/version?loaders=%5B%22forge%22%5D&game_versions=%5B%221.20.1%22%5D",
+      "latestCompatibleVersion": "2.0.7",
+      "latestVersionType": "release",
+      "latestPublishedAt": "2025-10-02T16:43:31.740771Z",
+      "id": "extra-gauges",
+      "previousVersion": "2.0.7",
+      "version": "2.0.7",
+      "fileName": "extra_gauges-2.0.7.jar",
+      "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d",
+      "crcVerified": true,
+      "dependencies": {
+        "extra_gauges": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.4,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "create",
+            "mandatory": true,
+            "versionRange": "[6.0.6,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Perfomant-Boom/releases/tag/v1.1.3",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-01T10:48:58Z",
+      "publisherSha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038",
+      "id": "perfomant-boom",
+      "previousVersion": "1.1.3",
+      "version": "1.1.3",
+      "fileName": "perfomant_boom-forge-1.1.3.jar",
+      "sha256": "61fe197fdb6a3b54b3ee5dbaf071523b7acbe376dccef4b9c9a98fa9ef620038",
+      "crcVerified": true,
+      "dependencies": {
+        "perfomant_boom": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "architectury",
+            "mandatory": true,
+            "versionRange": "[9.2.14,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/Celestial-Nail/releases/tag/v0.1.6",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-10T08:01:23Z",
+      "publisherSha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "id": "celestial-nail",
+      "previousVersion": "0.1.6",
+      "version": "0.1.6",
+      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
+      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "crcVerified": true,
+      "dependencies": {
+        "celestial_nail": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "architectury",
+            "mandatory": true,
+            "versionRange": "[9.2.14,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "perfomant_boom",
+            "mandatory": true,
+            "versionRange": "[1.1.3,2.0.0)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/TrueUUID/releases/tag/v1.3.1",
+      "releaseCommit": "de2a916666769f55b7e18c0d1bfbfa2c85a5b280",
+      "publishedAt": "2026-10-27T06:02:05Z",
+      "publisherSha256": "1d40b23c9a87c4c374bc66d092ed781fd5a303638a83ac3aced6677690b3181f",
+      "id": "trueuuid",
+      "previousVersion": "1.3.1",
+      "version": "1.3.1",
+      "fileName": "trueuuid-1.3.1-forge-1.20.1.jar",
+      "sha256": "1d40b23c9a87c4c374bc66d092ed781fd5a303638a83ac3aced6677690b3181f",
+      "crcVerified": true,
+      "dependencies": {
+        "trueuuid": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.20.2)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "versionsApi": "https://api.modrinth.com/v2/project/littletiles/version?loaders=%5B%22forge%22%5D&game_versions=%5B%221.20.1%22%5D",
+      "latestCompatibleVersion": "1.6.0-pre161",
+      "latestVersionType": "beta",
+      "latestPublishedAt": "2025-06-03T09:47:08.827551Z",
+      "id": "littletiles",
+      "previousVersion": "1.6.0-pre161",
+      "version": "1.6.0-pre161",
+      "fileName": "LittleTiles_BETA_v1.6.0-pre161_mc1.20.1.jar",
+      "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4",
+      "crcVerified": true,
+      "dependencies": {
+        "littletiles": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[46,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "creativecore",
+            "mandatory": true,
+            "ordering": "NONE",
+            "side": "BOTH",
+            "versionRange": "[2.12.30,)"
+          }
+        ]
+      }
+    },
+    {
+      "versionsApi": "https://api.modrinth.com/v2/project/foodvariations/version?loaders=%5B%22forge%22%5D&game_versions=%5B%221.20.1%22%5D",
+      "latestCompatibleVersion": "2.13",
+      "latestVersionType": "release",
+      "latestPublishedAt": "2026-09-07T18:33:00.653713Z",
+      "id": "spice-of-life-classic",
+      "previousVersion": "2.13",
+      "version": "2.13",
+      "fileName": "spiceoflife_classic-forge-2.13.jar",
+      "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
+      "crcVerified": true,
+      "dependencies": {
+        "solclassic": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "architectury",
+            "mandatory": true,
+            "versionRange": "[9.2.14,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "diet",
+            "mandatory": false,
+            "versionRange": "[2.0.0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "nutritionalbalance",
+            "mandatory": false,
+            "versionRange": "[0,)",
+            "ordering": "BEFORE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/SpiceOfLife-Integrations/releases/tag/v0.1.0",
+      "releaseCommit": "a5ff8595eedc69dac065a280f71af47146a6e92d",
+      "publishedAt": "2026-10-11T06:44:17Z",
+      "publisherSha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "id": "spice-of-life-integrations",
+      "previousVersion": "0.1.0",
+      "version": "0.1.0",
+      "fileName": "solintegrations-0.1.0.jar",
+      "sha256": "ee4180ec10d5c242941f605268d1e649f364dfe750741e6423407ee86282c92d",
+      "crcVerified": true,
+      "dependencies": {
+        "solintegrations": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.4.13,48)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1]",
+            "ordering": "NONE",
+            "side": "BOTH"
+          },
+          {
+            "modId": "solclassic",
+            "mandatory": true,
+            "versionRange": "[2.13]",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "tfc",
+            "mandatory": false,
+            "versionRange": "[0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          },
+          {
+            "modId": "sophisticatedcore",
+            "mandatory": false,
+            "versionRange": "[0,)",
+            "ordering": "AFTER",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/PacketWeave/releases/tag/v0.1.4",
+      "releaseCommit": "1429e7f3572b95d98dbec1c4715236d5e341d9ac",
+      "publishedAt": "2026-10-21T17:08:55Z",
+      "publisherSha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001",
+      "id": "packetweave",
+      "previousVersion": "0.1.3",
+      "version": "0.1.4",
+      "fileName": "packetweave-forge-1.20.1-0.1.4.jar",
+      "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001",
+      "crcVerified": true,
+      "dependencies": {
+        "packetweave": [
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1,1.21)",
+            "ordering": "NONE",
+            "side": "BOTH"
+          }
+        ]
+      }
+    },
+    {
+      "release": "https://github.com/UpperMoon0/VanishGuard/releases/tag/v0.1.0",
+      "releaseCommit": "main",
+      "publishedAt": "2026-10-24T18:06:03Z",
+      "publisherSha256": "d9e73e37e6ca9794f2e8458e6330fcc77569bf78a1a41ea2571dad0f205dfb9d",
+      "id": "vanishguard",
+      "previousVersion": "0.1.0",
+      "version": "0.1.0",
+      "fileName": "vanishguard-1.20.1-0.1.0.jar",
+      "sha256": "d9e73e37e6ca9794f2e8458e6330fcc77569bf78a1a41ea2571dad0f205dfb9d",
+      "crcVerified": true,
+      "dependencies": {
+        "vanishguard": [
+          {
+            "modId": "forge",
+            "mandatory": true,
+            "versionRange": "[47.4.13]",
+            "ordering": "NONE",
+            "side": "SERVER"
+          },
+          {
+            "modId": "minecraft",
+            "mandatory": true,
+            "versionRange": "[1.20.1]",
+            "ordering": "NONE",
+            "side": "SERVER"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "checkedOn": "2026-10-28",
+  "upstreamCommit": "32ba9f19d60bfc5b4148888fc84e50316b2b0fed",
+  "checks": {
+    "forkPolicy": "passed",
+    "upstreamMigration": "passed",
+    "manifestRegressionTests": 5,
+    "upstreamMigrationRegressionTests": 16,
+    "worldMigrationRegressionTests": 3,
+    "serverMigrationRegressionTests": 2,
+    "renewableRecipes": 90,
+    "customMaterials": 73,
+    "changedJavaScriptSyntaxChecks": 20,
+    "mvMaficRecipe": "passed",
+    "tfcBuildingSafety": "passed",
+    "managedArtifactHashAndCrcChecks": 16,
+    "candidateManagerFreshInstallDryRun": "passed",
+    "candidateManagerClientAndServerUpdatePlans": "passed using exact 0.13.15 Core and stable fork configs"
+  },
+  "baseArchives": [
+    {
+      "target": "server",
+      "archive": "tfg-base-0.13.17-server.zip",
+      "sha256": "c9d97d097501408995b4084d17b679d95fcce1bfdc97d36a6279d1a8ad457d4e",
+      "payloadFiles": 4027,
+      "providerDownloads": 215,
+      "allPayloadHashesAndCrcVerified": true,
+      "overlayOwnedArtifactsExcluded": true
+    },
+    {
+      "target": "client",
+      "archive": "tfg-base-0.13.17-client.zip",
+      "sha256": "f363cf09c5088d0165fb82aac66bc8f3973f08bd088ec0f220be3b00cb8bbe2a",
+      "payloadFiles": 16510,
+      "providerDownloads": 277,
+      "allPayloadHashesAndCrcVerified": true,
+      "overlayOwnedArtifactsExcluded": true
+    }
+  ],
+  "productionDeployment": "not performed",
+  "liveGameStartup": "not tested",
+  "publishedManagerCompatibility": "1.0.13 rejects 0.13.17 fresh installs; prerequisite UpperMoon0/Modpack-Manager#33 passes local tests and clippy"
+}

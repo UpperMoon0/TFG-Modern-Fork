@@ -5,10 +5,13 @@ Mod JARs remain downloads from their original providers; private instance data
 never enters these archives. Run with a pristine previous upstream checkout.
 """
 import argparse
+import fnmatch
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 import urllib.request
+from urllib.parse import quote
 import zipfile
 
 ROOTS = ('mods/', 'config/', 'defaultconfigs/', 'kubejs/', 'resourcepacks/', 'shaderpacks/', 'tacz/')
@@ -16,6 +19,11 @@ ROOTS = ('mods/', 'config/', 'defaultconfigs/', 'kubejs/', 'resourcepacks/', 'sh
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def download(url):
+    # Provider filenames may contain spaces; preserve existing escapes/query.
+    return urllib.request.urlopen(quote(url, safe=':/?&=%+@'), timeout=90).read()
 
 
 def owned(path):
@@ -53,6 +61,7 @@ def main():
     parser.add_argument('--source', required=True, type=Path)
     parser.add_argument('--previous', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--previous-base', default='0.13.12')
     args = parser.parse_args()
     source, previous, out = args.source, args.previous, args.output
     assert not (previous / 'world').exists(), 'previous must be a pristine source checkout'
@@ -65,15 +74,18 @@ def main():
     old_core = next(f for p in old_lock['projects'] if p['slug'].get('modrinth') == 'terrafirmagreg-core' for f in p['files'] if f['type'] == 'modrinth')
     cached_old = out / old_core['file_name']
     if not cached_old.exists():
-        cached_old.write_bytes(urllib.request.urlopen(old_core['url'], timeout=90).read())
+        cached_old.write_bytes(download(old_core['url']))
     assert hashlib.sha1(cached_old.read_bytes()).hexdigest() == old_core['hashes']['sha1']
     new_core_file = next(f for p in lock['projects'] if p['slug'].get('modrinth') == 'terrafirmagreg-core' for f in p['files'] if f['type'] == 'modrinth')
     new_core = source / 'mods' / new_core_file['file_name']
     assert new_core.is_file()
     base_ref = json.loads((source / 'nstut/release.json').read_text(encoding='utf-8'))['baseRef']
+    upstream_lock = json.loads(subprocess.check_output(
+        ['git', '-C', str(source), 'show', base_ref + ':pakku-lock.json']))
     marker = '.nstut-tfg-base-' + base_ref
     marker_content = (source / '.pakku/client-overrides' / marker).read_text(encoding='utf-8')
-    metadata = {'schemaVersion': 1, 'baseRef': base_ref, 'sourceBaseRef': '0.13.12', 'minimumManagerVersion': '1.0.7', 'targets': {}}
+    managed = json.loads((source / 'nstut/managed-mods.json').read_text(encoding='utf-8'))
+    metadata = {'schemaVersion': 1, 'baseRef': base_ref, 'sourceBaseRef': args.previous_base, 'minimumManagerVersion': '1.0.7', 'targets': {}}
     for side in ('server', 'client'):
         data = {}
         if side == 'server':
@@ -92,19 +104,28 @@ def main():
                 assert archive.testzip() is None
                 manifest = json.loads(archive.read('manifest.json'))
                 for ref in manifest['files']:
-                    choices = [(p, f) for p in lock['projects'] for f in p['files']
+                    choices = [(p, f) for p in upstream_lock['projects'] for f in p['files']
                                if f['type'] == 'curseforge' and str(f['parent_id']) == str(ref['projectID']) and str(f['id']) == str(ref['fileID'])]
                     assert len(choices) == 1, ref
                     project, f = choices[0]
                     folder = {'MOD': 'mods', 'RESOURCE_PACK': 'resourcepacks', 'SHADER': 'shaderpacks'}[project['type']]
                     path = folder + '/' + f['file_name']
+                    if any(fnmatch.fnmatchcase(path, pattern)
+                           for mod in managed['mods'] for pattern in mod['cleanupPatterns']):
+                        continue
                     local = source / path
                     if not local.exists():
                         local = source / 'mods' / f['file_name']
+                    cached = out / 'providers' / f['file_name']
+                    if not local.is_file() and cached.is_file():
+                        local = cached
                     b = local.read_bytes() if local.is_file() else b''
                     if not all(hashlib.new(a, b).hexdigest() == h for a, h in f['hashes'].items()):
-                        b = urllib.request.urlopen(f['url'], timeout=90).read()
+                        b = download(f['url'])
                     assert all(hashlib.new(a, b).hexdigest() == h for a, h in f['hashes'].items()), path
+                    if not local.is_file():
+                        cached.parent.mkdir(exist_ok=True)
+                        cached.write_bytes(b)
                     data[path] = b
                 for info in archive.infolist():
                     name = info.filename.removeprefix('overrides/')
@@ -114,6 +135,12 @@ def main():
         # preserving the pack's upstream redistribution boundary.
         downloads = []
         for name in sorted(list(data)):
+            # The overlay installs these after the upstream migration. Exclude
+            # replaced upstream variants as well as current custom artifacts.
+            if any(fnmatch.fnmatchcase(name, pattern)
+                   for mod in managed['mods'] for pattern in mod['cleanupPatterns']):
+                del data[name]
+                continue
             if any(f['file_name'] == Path(name).name for p in lock['projects'] for f in p['files']):
                 b = data.pop(name)
                 f = provider_file(lock, Path(name).name, b)

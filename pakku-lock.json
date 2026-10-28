@@ -17675,8 +17675,9 @@
                     "id": "ZbA0Ejq9",
                     "parent_id": "6YJgomwt",
                     "hashes": {
-                        "sha512": "77cbedf768e1865ccc47a809c7fa722fb5bf52b9ae5725c9cc1013c69b8355dcf5c31a5172ad89ff5d58b777b45d94ddbcdf05a8af4800a01793e953355b5310",
-                        "sha1": "6f3331cc877bfaf15bb58723ff3129fc3207d296"
+                        "sha256": "8d45dc713998e5b8690b8a6d98af7260dfe4b5febffd0b391538a7bac2037f3d",
+                        "sha1": "6f3331cc877bfaf15bb58723ff3129fc3207d296",
+                        "sha512": "77cbedf768e1865ccc47a809c7fa722fb5bf52b9ae5725c9cc1013c69b8355dcf5c31a5172ad89ff5d58b777b45d94ddbcdf05a8af4800a01793e953355b5310"
                     },
                     "required_dependencies": [
                         "LNytGWDc"
@@ -17730,16 +17731,18 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "economy-forge-1.20.1-0.0.20.jar",
+                    "file_name": "economy-forge-1.20.1-0.0.21.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.20/economy-forge-1.20.1-0.0.20.jar",
-                    "id": "651513390",
+                    "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.21/economy-forge-1.20.1-0.0.21.jar",
+                    "id": "682209427",
                     "parent_id": "1169139940",
                     "hashes": {
-                        "sha256": "e66ef97f5ca73a114d9413336425e64315a44ced2d70908d658980c17cd44665"
+                        "sha256": "03b1ff5e0bf18abb78447c73f3b2f27b66e2cdf6c5ea0d94472582fc46d0293a",
+                        "sha1": "6835907f42aa1de394f92054d449155f78f62ade",
+                        "sha512": "5c768731cc69f4ffc9257dab99f1bafc254131537605630e626eb784378a69197b159c831672b6fb4f0934eba4255c358314586753cfec04aef840301a9fac37"
                     },
-                    "size": 753606,
-                    "date_published": "2026-10-17T20:25:27Z",
+                    "size": 802269,
+                    "date_published": "2026-10-27T16:42:03Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -17764,16 +17767,18 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "openui-mc-forge-1.20.1-0.0.14.jar",
+                    "file_name": "openui-mc-forge-1.20.1-0.0.15.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.14/openui-mc-forge-1.20.1-0.0.14.jar",
-                    "id": "660432668",
+                    "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.15/openui-mc-forge-1.20.1-0.0.15.jar",
+                    "id": "663263354",
                     "parent_id": "1341517843",
                     "hashes": {
-                        "sha256": "6e9126033769fbb01c2b5da13aaa124c339aa0757981c86036de990a22a68ca8"
+                        "sha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
+                        "sha1": "03ef025878ef24c968e3fd7ca469fdcf921bbbfa",
+                        "sha512": "a907379605c64827a49ab668168324f66b7d966c5fdadef90dbad9468bc456ae5dbfb24e840191a1b1f5aed62deea78f657bf2b5c28166a260f3fcbe8ae6f4f2"
                     },
-                    "size": 1312629,
-                    "date_published": "2026-10-20T20:42:12Z",
+                    "size": 1313440,
+                    "date_published": "2026-10-21T17:24:23Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -17799,16 +17804,18 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simply_screens-forge-1.20.1-0.9.1.jar",
+                    "file_name": "simply_screens-forge-1.20.1-0.10.1.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.9.1/simply_screens-forge-1.20.1-0.9.1.jar",
-                    "id": "660582725",
+                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.1/simply_screens-forge-1.20.1-0.10.1.jar",
+                    "id": "664636154",
                     "parent_id": "917864621",
                     "hashes": {
-                        "sha256": "14b4fd6bb173f1df3d07e0ce2a0c066f8a2fcda1991e36890dc8ae7a095388a1"
+                        "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
+                        "sha1": "9ba65ad290b983d6a113e9d70124440db059d500",
+                        "sha512": "fbdf1df12816f29023bbfb4050564310e0bef349dd58b591439a3632fdd970dd201a583002341aae574eb711a0b3ce2e67b2ce50bf48b360081c340a73f79503"
                     },
-                    "size": 429576,
-                    "date_published": "2026-10-20T21:48:57Z",
+                    "size": 458168,
+                    "date_published": "2026-10-22T04:12:12Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -17834,16 +17841,18 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simplyspeakers-forge-1.20.1-0.10.1.jar",
+                    "file_name": "simplyspeakers-forge-1.20.1-0.10.2.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.10.1/simplyspeakers-forge-1.20.1-0.10.1.jar",
-                    "id": "660583929",
+                    "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.10.2/simplyspeakers-forge-1.20.1-0.10.2.jar",
+                    "id": "664561263",
                     "parent_id": "936467663",
                     "hashes": {
-                        "sha256": "d6fda5a4acc897f2793888567ac7baff26a07a980cd3d9555806c78714cc313e"
+                        "sha256": "ec5c06c78cf6f16802164904b3db6c7719a593d0367f7f0fc91b561c3b55d1e3",
+                        "sha1": "f48d09799490d90534bce018e81f0ff3090d9a04",
+                        "sha512": "db777ff1f70b9fe8427d9d6d380bd34dda6701132928d56bcd7ef98e242ccd751b8bb1c582904d1a73102d4050bffef2b9526b4a782a7557f18ca03ec6d5c604"
                     },
-                    "size": 901859,
-                    "date_published": "2026-10-20T21:49:29Z",
+                    "size": 904452,
+                    "date_published": "2026-10-22T03:33:54Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -17911,9 +17920,9 @@
                     "id": "sBbUjEhq",
                     "parent_id": "RCRxC1tD",
                     "hashes": {
-                        "sha512": "e9bf001062959a729165c12a6858a6be8349c503840e06240a065dbabaf0d005ce9275589dc2c8cbe44474be0a2f94353f44cc67376ae00d79284aa4ff8e991f",
+                        "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4",
                         "sha1": "858d2de167f660c491632ed9727292b418ca804a",
-                        "sha256": "365cfb137e0f3a95f605b45fea82040afb0ac4fa1a0fc0deaeaf59cb35e8bae4"
+                        "sha512": "e9bf001062959a729165c12a6858a6be8349c503840e06240a065dbabaf0d005ce9275589dc2c8cbe44474be0a2f94353f44cc67376ae00d79284aa4ff8e991f"
                     },
                     "required_dependencies": [
                         "OsZiaDHq"
@@ -17951,9 +17960,9 @@
                     "id": "b3ujNB9U",
                     "parent_id": "Utos7Mlk",
                     "hashes": {
-                        "sha512": "caff0ea2649b28a3d72dae22c1ecdf756178e3d04c2756c2bac5d567889f94872443f4a67d4d844da6aebc0ff42af1a765e82b01c38ec16429a00dd735e57d5a",
+                        "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336",
                         "sha1": "d0ed921636aba3c8a235e14187747dce8300f88c",
-                        "sha256": "c7f1fe7f1d183ca69d69ae1e37284632ef997dff18bfbfce27de343f83dcc336"
+                        "sha512": "caff0ea2649b28a3d72dae22c1ecdf756178e3d04c2756c2bac5d567889f94872443f4a67d4d844da6aebc0ff42af1a765e82b01c38ec16429a00dd735e57d5a"
                     },
                     "required_dependencies": [
                         "lhGA9TYQ"
@@ -18018,16 +18027,18 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "packetweave-forge-1.20.1-0.1.3.jar",
+                    "file_name": "packetweave-forge-1.20.1-0.1.4.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.3/packetweave-forge-1.20.1-0.1.3.jar",
-                    "id": "645070395",
+                    "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.4/packetweave-forge-1.20.1-0.1.4.jar",
+                    "id": "663223806",
                     "parent_id": "1410904450",
                     "hashes": {
-                        "sha256": "4dde6244917de05f8e5241048195960418c342bcfc30ffc6b1dd6223967e511a"
+                        "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001",
+                        "sha1": "b32418ba030ad7a67846df1c552bbefbeca0f04b",
+                        "sha512": "5b37e2b138bf3f75fac4980916488b6f5d44928ba38c95fd648a6582d14280c3810ac000d7a76f94f63ef41565c56c69fad7232622207ba1baa66f1c6722d758"
                     },
-                    "size": 926277,
-                    "date_published": "2026-10-15T20:25:28Z",
+                    "size": 926276,
+                    "date_published": "2026-10-21T17:08:53Z",
                     "mc_versions": [
                         "1.20.1"
                     ],

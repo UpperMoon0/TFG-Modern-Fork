@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "base": {
     "repository": "TerraFirmaGreg-Team/Modpack-Modern",
-    "ref": "0.13.15",
+    "ref": "0.13.17",
     "minecraft": "1.20.1",
     "loader": "forge",
     "loaderVersion": "47.4.13"
@@ -11,11 +11,11 @@
     {
       "id": "economy",
       "name": "Economy",
-      "version": "0.0.20",
+      "version": "0.0.21",
       "repository": "UpperMoon0/Economy",
-      "fileName": "economy-forge-1.20.1-0.0.20.jar",
-      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.20/economy-forge-1.20.1-0.0.20.jar",
-      "sha256": "e66ef97f5ca73a114d9413336425e64315a44ced2d70908d658980c17cd44665",
+      "fileName": "economy-forge-1.20.1-0.0.21.jar",
+      "url": "https://github.com/UpperMoon0/Economy/releases/download/v0.0.21/economy-forge-1.20.1-0.0.21.jar",
+      "sha256": "03b1ff5e0bf18abb78447c73f3b2f27b66e2cdf6c5ea0d94472582fc46d0293a",
       "installTargets": [
         "client",
         "server"
@@ -31,11 +31,11 @@
     {
       "id": "openui",
       "name": "OpenUI MC",
-      "version": "0.0.14",
+      "version": "0.0.15",
       "repository": "UpperMoon0/OpenUI-MC",
-      "fileName": "openui-mc-forge-1.20.1-0.0.14.jar",
-      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.14/openui-mc-forge-1.20.1-0.0.14.jar",
-      "sha256": "6e9126033769fbb01c2b5da13aaa124c339aa0757981c86036de990a22a68ca8",
+      "fileName": "openui-mc-forge-1.20.1-0.0.15.jar",
+      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.15/openui-mc-forge-1.20.1-0.0.15.jar",
+      "sha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
       "installTargets": [
         "client"
       ],
@@ -69,11 +69,11 @@
     {
       "id": "simply-screens",
       "name": "Simply Screens",
-      "version": "0.9.1",
+      "version": "0.10.1",
       "repository": "UpperMoon0/Simply-Screens",
-      "fileName": "simply_screens-forge-1.20.1-0.9.1.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.9.1/simply_screens-forge-1.20.1-0.9.1.jar",
-      "sha256": "14b4fd6bb173f1df3d07e0ce2a0c066f8a2fcda1991e36890dc8ae7a095388a1",
+      "fileName": "simply_screens-forge-1.20.1-0.10.1.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.1/simply_screens-forge-1.20.1-0.10.1.jar",
+      "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
       "installTargets": [
         "client",
         "server"
@@ -90,11 +90,11 @@
     {
       "id": "simply-speakers",
       "name": "Simply Speakers",
-      "version": "0.10.1",
+      "version": "0.10.2",
       "repository": "UpperMoon0/Simply-Speakers",
-      "fileName": "simplyspeakers-forge-1.20.1-0.10.1.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.10.1/simplyspeakers-forge-1.20.1-0.10.1.jar",
-      "sha256": "d6fda5a4acc897f2793888567ac7baff26a07a980cd3d9555806c78714cc313e",
+      "fileName": "simplyspeakers-forge-1.20.1-0.10.2.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Speakers/releases/download/v0.10.2/simplyspeakers-forge-1.20.1-0.10.2.jar",
+      "sha256": "ec5c06c78cf6f16802164904b3db6c7719a593d0367f7f0fc91b561c3b55d1e3",
       "installTargets": [
         "client",
         "server"
@@ -309,10 +309,10 @@
       "cleanupPatterns": [
         "mods/packetweave-*.jar"
       ],
-      "version": "0.1.3",
-      "fileName": "packetweave-forge-1.20.1-0.1.3.jar",
-      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.3/packetweave-forge-1.20.1-0.1.3.jar",
-      "sha256": "4dde6244917de05f8e5241048195960418c342bcfc30ffc6b1dd6223967e511a"
+      "version": "0.1.4",
+      "fileName": "packetweave-forge-1.20.1-0.1.4.jar",
+      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.4/packetweave-forge-1.20.1-0.1.4.jar",
+      "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001"
     },
     {
       "id": "vanishguard",
