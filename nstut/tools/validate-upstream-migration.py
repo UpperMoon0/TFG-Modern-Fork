@@ -33,7 +33,7 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     approved = load(f'nstut/custom-mod-audit-{audit_version}.json')['approvedMods']
     assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
     assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod set changed'
-    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations'}
+    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations', 'building-gadgets-extra', 'create-horse-power-ce'}
     unchanged = lambda mods: [m for m in mods if m['id'] not in upgraded]
     assert unchanged(approved) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
     trueuuid = next(m for m in approved if m['id'] == 'trueuuid')

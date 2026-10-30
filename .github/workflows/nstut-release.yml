@@ -24,6 +24,9 @@ jobs:
           set -euo pipefail
           python nstut/tools/generate-modpack-manager-manifest.py --check
           python nstut/tools/validate.py
+          python nstut/tools/validate-upstream-migration.py
+          python nstut/tools/test-upstream-migration.py
+          python nstut/tools/test-manifest-targets.py
           git fetch origin nstut/stable:refs/remotes/origin/nstut/stable --force
           previous="$(git show origin/nstut/stable:nstut/release.json | python -c 'import json,sys; print(json.load(sys.stdin)["overlayVersion"])')"
           current="$(python -c 'import json;print(json.load(open("nstut/release.json"))["overlayVersion"])')"
@@ -40,9 +43,9 @@ jobs:
           set -euo pipefail
           tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
           [[ "$tag" =~ ^nstut-[A-Za-z0-9._-]+$ ]] || exit 1
-          existing="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha' 2>/dev/null || true)"
+          existing="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha // empty' 2>/dev/null || true)"
           if [[ -n "$existing" ]]; then
-            [[ "$existing" == "$GITHUB_SHA" ]] || { echo "Immutable tag already points elsewhere" >&2; exit 1; }
+            [[ "$existing" == "$GITHUB_SHA" ]] || { echo "Immutable tag $tag is $existing but head is $GITHUB_SHA" >&2; exit 1; }
           else
             gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA" >/dev/null
           fi
@@ -73,7 +76,6 @@ jobs:
           set -euo pipefail
           tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
           version="$(python -c 'import json;print(json.load(open("nstut/release.json"))["overlayVersion"])')"
-          note="nstut/PATCH-${version#*-nstut.}.md"
           base="$(python -c 'import json;print(json.load(open("nstut/release.json"))["baseRef"])')"
           note="nstut/PATCH-$base.${version##*.}.md"
           test -s "$note"
