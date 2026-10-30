@@ -17600,16 +17600,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "building-gadgets-extra-forge-1.20.1-0.0.7.jar",
+                    "file_name": "building-gadgets-extra-forge-1.20.1-0.0.8.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.7/building-gadgets-extra-forge-1.20.1-0.0.7.jar",
-                    "id": "645179284",
+                    "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.8/building-gadgets-extra-forge-1.20.1-0.0.8.jar",
+                    "id": "692264033",
                     "parent_id": "1304635397",
                     "hashes": {
-                        "sha256": "ada3fc7d90839e57194f7022749bda7a12d7aa74b622e550ac55297998525297"
+                        "sha256": "033b65db2123e48a2144ddf87d307b8982116881e148a60fa006bcb344d67ff9"
                     },
-                    "size": 324598,
-                    "date_published": "2026-10-15T21:09:42Z",
+                    "size": 325363,
+                    "date_published": "2026-10-30T13:49:20Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -17702,16 +17702,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "createhorsepower-ce-1.20.1-1.2.8.jar",
+                    "file_name": "createhorsepower-ce-1.20.1-1.2.10.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.8/createhorsepower-ce-1.20.1-1.2.8.jar",
-                    "id": "672636929",
+                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.10/createhorsepower-ce-1.20.1-1.2.10.jar",
+                    "id": "691785200",
                     "parent_id": "1350393644",
                     "hashes": {
-                        "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33"
+                        "sha256": "b75972612164968851f62d9b6bbe5122c1cad42f1fdbc0600d9975a409825c0f"
                     },
-                    "size": 469478,
-                    "date_published": "2026-10-24T15:40:18Z"
+                    "size": 570435,
+                    "date_published": "2026-10-30T10:44:17Z"
                 }
             ]
         },
@@ -17804,18 +17804,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "simply_screens-forge-1.20.1-0.10.1.jar",
+                    "file_name": "simply_screens-forge-1.20.1-0.10.2.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.1/simply_screens-forge-1.20.1-0.10.1.jar",
-                    "id": "664636154",
+                    "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.2/simply_screens-forge-1.20.1-0.10.2.jar",
+                    "id": "690533028",
                     "parent_id": "917864621",
                     "hashes": {
-                        "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
-                        "sha1": "9ba65ad290b983d6a113e9d70124440db059d500",
-                        "sha512": "fbdf1df12816f29023bbfb4050564310e0bef349dd58b591439a3632fdd970dd201a583002341aae574eb711a0b3ce2e67b2ce50bf48b360081c340a73f79503"
+                        "sha256": "0d5d72c24e42e134aa67ad65eaa49c8f3d5a754c113cf36ed604aac7ed363b10"
                     },
-                    "size": 458168,
-                    "date_published": "2026-10-22T04:12:12Z",
+                    "size": 475611,
+                    "date_published": "2026-10-30T01:34:17Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -18027,18 +18025,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "packetweave-forge-1.20.1-0.1.4.jar",
+                    "file_name": "packetweave-forge-1.20.1-0.1.5.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.4/packetweave-forge-1.20.1-0.1.4.jar",
-                    "id": "663223806",
+                    "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.5/packetweave-forge-1.20.1-0.1.5.jar",
+                    "id": "690026141",
                     "parent_id": "1410904450",
                     "hashes": {
-                        "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001",
-                        "sha1": "b32418ba030ad7a67846df1c552bbefbeca0f04b",
-                        "sha512": "5b37e2b138bf3f75fac4980916488b6f5d44928ba38c95fd648a6582d14280c3810ac000d7a76f94f63ef41565c56c69fad7232622207ba1baa66f1c6722d758"
+                        "sha256": "2799299b9ff94b8ce663163dc3fd3a6b2d6f3a1ac445a6e4b7a25783a4f54af5"
                     },
-                    "size": 926276,
-                    "date_published": "2026-10-21T17:08:53Z",
+                    "size": 934120,
+                    "date_published": "2026-10-29T21:55:41Z",
                     "mc_versions": [
                         "1.20.1"
                     ],

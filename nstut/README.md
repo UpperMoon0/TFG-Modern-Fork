@@ -52,14 +52,23 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
-## Candidate: upstream 0.13.17
+## Current release: upstream 0.13.17
 
-`0.13.17-nstut.1` integrates upstream 0.13.17 and updates Economy, OpenUI,
-Simply Screens, Simply Speakers and PacketWeave. All sixteen managed artifacts
-are hash/CRC verified; recipes, building protections and runtime policies are
-preserved. See [release notes and promotion prerequisites](PATCH-0.13.17.1.md).
-The 0.13.15 to 0.13.17 migration includes complete client/server base payloads.
-Publish compatible Modpack Manager support before promoting this candidate.
+**0.13.17-nstut.3** refreshes all custom-mod pins against the latest compatible
+published Forge 1.20.1 releases. The four upgrades are Building Gadgets Extra
+0.0.8 (production CopyGUI Mixin fix), Create Horse Power CE 1.2.10 (optional
+Bionics worker support and crank safety), Simply Screens 0.10.2, and PacketWeave
+0.1.5 (bounded receipt-driven transfer flow). The Screens and PacketWeave
+updates are coupled: the new Screens transport requires PacketWeave 0.1.5+.
+All twelve other managed mod pins remain unchanged. See
+[the release notes](PATCH-0.13.17.3.md) and
+[the pinned release audit](custom-mod-audit-0.13.17.3.json).
+
+The upstream base remains TFG 0.13.17, including the 0.13.17-nstut.2
+Spice of Life Integrations hunger restoration. Migration payloads, renewable
+recipes, build protection, and private server settings remain unchanged.
+Clients and servers must update together when deployment is authorized;
+publication does not deploy the live server.
 
 ## Previous overlay 0.13.15-nstut.8
 

@@ -1,0 +1,85 @@
+name: NsTut immutable pack release
+
+on:
+  push:
+    branches:
+      - "nstut/0.13.17"
+      - "nstut/stable"
+
+permissions:
+  contents: write
+
+jobs:
+  tag-reviewed-release:
+    name: Tag validated release construction
+    if: github.ref == 'refs/heads/nstut/0.13.17'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Validate complete candidate and monotonic version
+        shell: bash
+        run: |
+          set -euo pipefail
+          python nstut/tools/generate-modpack-manager-manifest.py --check
+          python nstut/tools/validate.py
+          git fetch origin nstut/stable:refs/remotes/origin/nstut/stable --force
+          previous="$(git show origin/nstut/stable:nstut/release.json | python -c 'import json,sys; print(json.load(sys.stdin)["overlayVersion"])')"
+          current="$(python -c 'import json;print(json.load(open("nstut/release.json"))["overlayVersion"])')"
+          if [[ "$previous" == "$current" ]]; then
+            echo "Refusing to retag an unchanged stable release" >&2; exit 1
+          fi
+          declared="$(python -c 'import json;print(json.load(open("nstut/release.json"))["branch"])')"
+          [[ "$declared" == "$GITHUB_REF_NAME" ]] || { echo "Release branch mismatch" >&2; exit 1; }
+      - name: Create immutable source tag (never move an existing tag)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
+          [[ "$tag" =~ ^nstut-[A-Za-z0-9._-]+$ ]] || exit 1
+          existing="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha' 2>/dev/null || true)"
+          if [[ -n "$existing" ]]; then
+            [[ "$existing" == "$GITHUB_SHA" ]] || { echo "Immutable tag already points elsewhere" >&2; exit 1; }
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA" >/dev/null
+          fi
+          echo "Immutable source tag $tag targets $GITHUB_SHA"
+
+  publish-promoted-release:
+    name: Publish stable pack release (no server deployment)
+    if: github.ref == 'refs/heads/nstut/stable'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require valid promoted tree and source tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin --tags --force
+          python nstut/tools/generate-modpack-manager-manifest.py --check
+          python nstut/tools/validate.py
+          tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
+          [[ "$(git rev-parse "$tag^{tree}")" == "$(git rev-parse "HEAD^{tree}")" ]] || { echo "Stable tree does not match immutable tag" >&2; exit 1; }
+      - name: Publish GitHub release and Manager manifest
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
+          version="$(python -c 'import json;print(json.load(open("nstut/release.json"))["overlayVersion"])')"
+          note="nstut/PATCH-${version#*-nstut.}.md"
+          base="$(python -c 'import json;print(json.load(open("nstut/release.json"))["baseRef"])')"
+          note="nstut/PATCH-$base.${version##*.}.md"
+          test -s "$note"
+          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release $tag already exists"; exit 0
+          fi
+          gh release create "$tag" "nstut/modpack-manager.patch.json#modpack-manager.patch.json" \
+            --repo "$GITHUB_REPOSITORY" --verify-tag \
+            --title "TFG $version — custom mod refresh" --notes-file "$note" --latest
