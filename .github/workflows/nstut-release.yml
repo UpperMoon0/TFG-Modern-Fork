@@ -43,11 +43,14 @@ jobs:
           set -euo pipefail
           tag="$(python -c 'import json;print(json.load(open("nstut/release.json"))["sourceRef"])')"
           [[ "$tag" =~ ^nstut-[A-Za-z0-9._-]+$ ]] || exit 1
+          # The API may return a JSON 404 body even with --jq; only a real
+          # 40-character object SHA counts as an existing immutable ref.
           existing="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" --jq '.object.sha // empty' 2>/dev/null || true)"
-          if [[ -n "$existing" ]]; then
-            [[ "$existing" == "$GITHUB_SHA" ]] || { echo "Immutable tag $tag is $existing but head is $GITHUB_SHA" >&2; exit 1; }
+          if [[ "$existing" =~ ^[0-9a-f]{40}$ ]]; then
+            [[ "$existing" == "$GITHUB_SHA" ]] || { echo "Immutable tag $tag points to $existing, not $GITHUB_SHA" >&2; exit 1; }
           else
-            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA" >/dev/null
+            response="$(gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA")"
+            echo "$response" | jq -e --arg ref "refs/tags/$tag" --arg sha "$GITHUB_SHA"               '.ref == $ref and .object.sha == $sha' >/dev/null               || { echo "Tag creation did not return the requested ref/commit" >&2; exit 1; }
           fi
           echo "Immutable source tag $tag targets $GITHUB_SHA"
 
