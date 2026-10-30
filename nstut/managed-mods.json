@@ -69,11 +69,11 @@
     {
       "id": "simply-screens",
       "name": "Simply Screens",
-      "version": "0.10.1",
+      "version": "0.10.2",
       "repository": "UpperMoon0/Simply-Screens",
-      "fileName": "simply_screens-forge-1.20.1-0.10.1.jar",
-      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.1/simply_screens-forge-1.20.1-0.10.1.jar",
-      "sha256": "7f28bf65432c7e7d3cc114d7c04ca6e999708ee5ad0a38677446c59d57f44012",
+      "fileName": "simply_screens-forge-1.20.1-0.10.2.jar",
+      "url": "https://github.com/UpperMoon0/Simply-Screens/releases/download/v0.10.2/simply_screens-forge-1.20.1-0.10.2.jar",
+      "sha256": "0d5d72c24e42e134aa67ad65eaa49c8f3d5a754c113cf36ed604aac7ed363b10",
       "installTargets": [
         "client",
         "server"
@@ -112,11 +112,11 @@
     {
       "id": "create-horse-power-ce",
       "name": "Create Horse Power - CE",
-      "version": "1.2.8",
+      "version": "1.2.10",
       "repository": "UpperMoon0/CreateHorsePower-CE",
-      "fileName": "createhorsepower-ce-1.20.1-1.2.8.jar",
-      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.8/createhorsepower-ce-1.20.1-1.2.8.jar",
-      "sha256": "ff51780958fb24e038f3f7db7b1ae75cc0479b66c48e35974aac63d586151d33",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.10.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.10/createhorsepower-ce-1.20.1-1.2.10.jar",
+      "sha256": "b75972612164968851f62d9b6bbe5122c1cad42f1fdbc0600d9975a409825c0f",
       "installTargets": [
         "client",
         "server"
@@ -132,11 +132,11 @@
     {
       "id": "building-gadgets-extra",
       "name": "Building Gadgets Extra",
-      "version": "0.0.7",
+      "version": "0.0.8",
       "repository": "UpperMoon0/Building-Gadgets-Extra",
-      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.7.jar",
-      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.7/building-gadgets-extra-forge-1.20.1-0.0.7.jar",
-      "sha256": "ada3fc7d90839e57194f7022749bda7a12d7aa74b622e550ac55297998525297",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.8.jar",
+      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.8/building-gadgets-extra-forge-1.20.1-0.0.8.jar",
+      "sha256": "033b65db2123e48a2144ddf87d307b8982116881e148a60fa006bcb344d67ff9",
       "installTargets": [
         "client",
         "server"
@@ -309,10 +309,10 @@
       "cleanupPatterns": [
         "mods/packetweave-*.jar"
       ],
-      "version": "0.1.4",
-      "fileName": "packetweave-forge-1.20.1-0.1.4.jar",
-      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.4/packetweave-forge-1.20.1-0.1.4.jar",
-      "sha256": "fe76329cceaf17481e69acdf04e47db626d85ff10ad9a85a35ee380399461001"
+      "version": "0.1.5",
+      "fileName": "packetweave-forge-1.20.1-0.1.5.jar",
+      "url": "https://github.com/UpperMoon0/PacketWeave/releases/download/v0.1.5/packetweave-forge-1.20.1-0.1.5.jar",
+      "sha256": "2799299b9ff94b8ce663163dc3fd3a6b2d6f3a1ac445a6e4b7a25783a4f54af5"
     },
     {
       "id": "vanishguard",
