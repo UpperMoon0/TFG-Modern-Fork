@@ -92,7 +92,7 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
     validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
-    print('Upstream 0.13.17 migration passed: exact upstream pins, 16 custom mods, reviewed custom upgrades and 73 custom translations retained')
+    print(f"Upstream 0.13.17 migration passed: exact upstream pins, {len(load('nstut/managed-mods.json')['mods'])} managed mods, reviewed custom upgrades and 73 custom translations retained")
 
 
 if __name__ == '__main__':
