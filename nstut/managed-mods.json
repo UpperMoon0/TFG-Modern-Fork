@@ -29,6 +29,27 @@
       ]
     },
     {
+      "id": "ldlib",
+      "name": "LDLib (NsTut compatibility fork)",
+      "version": "1.0.52.a-nstut.2",
+      "repository": "UpperMoon0/LDLib-MultiLoader",
+      "fileName": "ldlib-forge-1.20.1-1.0.52.a-nstut.2.jar",
+      "url": "https://github.com/UpperMoon0/LDLib-MultiLoader/releases/download/v1.0.52.a-nstut.2/ldlib-forge-1.20.1-1.0.52.a-nstut.2.jar",
+      "sha256": "7b8963e05f002b22a027656395572c458e45749994a3a270d745e3517941850c",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/ldlib-*.jar",
+        "mods/ldlib_*.jar"
+      ]
+    },
+    {
       "id": "openui",
       "name": "OpenUI MC",
       "version": "0.0.15",
@@ -112,11 +133,11 @@
     {
       "id": "create-horse-power-ce",
       "name": "Create Horse Power - CE",
-      "version": "1.2.10",
+      "version": "1.2.11",
       "repository": "UpperMoon0/CreateHorsePower-CE",
-      "fileName": "createhorsepower-ce-1.20.1-1.2.10.jar",
-      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.10/createhorsepower-ce-1.20.1-1.2.10.jar",
-      "sha256": "b75972612164968851f62d9b6bbe5122c1cad42f1fdbc0600d9975a409825c0f",
+      "fileName": "createhorsepower-ce-1.20.1-1.2.11.jar",
+      "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.11/createhorsepower-ce-1.20.1-1.2.11.jar",
+      "sha256": "b8aef9f329760d4ca3a7b7c4c8d6d4654b8d0c11a671c95098f3362c465fcfb0",
       "installTargets": [
         "client",
         "server"

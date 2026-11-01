@@ -62,6 +62,28 @@ const registerBuildingGadgetsRecipes = (event) => {
 		.EUt(1925)
 		.addMaterialInfo(true)
 
+	// Builder's Multitool (Building Gadgets Extra). The addon default crafting recipe
+	// requires five gadgets plus vanilla Nether items, which bypasses TFG's tech
+	// progression and has no useful replacement after the base gadget rewrites.
+	// Assemble the fully functional five-gadget tool at IV after EV gadgets.
+	event.remove({ id: 'buildinggadgetsextra:builders_multitool' })
+	event.recipes.gtceu.assembler('tfg:assembler/builders_multitool')
+		.itemInputs(
+			'1x buildinggadgets2:gadget_building',
+			'1x buildinggadgets2:gadget_exchanging',
+			'1x buildinggadgets2:gadget_copy_paste',
+			'1x buildinggadgets2:gadget_cut_paste',
+			'1x buildinggadgets2:gadget_destruction',
+			'2x #forge:double_plates/titanium',
+			'1x gtceu:iv_field_generator',
+			'1x #gtceu:circuits/iv'
+		)
+		.circuit(4)
+		.itemOutputs('buildinggadgetsextra:builders_multitool')
+		.duration(20 * 30)
+		.EUt(GTValues.VA[GTValues.IV])
+		.addMaterialInfo(true)
+
 	// Template Manager
 	event.recipes.gtceu.assembler('buildinggadgets2:/assembler/template_manager')
 		.itemInputs('1x gtceu:robust_machine_casing','2x gtceu:iv_electric_motor','8x #forge:plates/tungsten_steel', '1x #gtceu:circuits/iv', '1x gtceu:chemical_blue_dye', '1x gtceu:chemical_red_dye', '1x create:clipboard')
