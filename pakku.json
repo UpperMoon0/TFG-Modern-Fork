@@ -1,359 +1,363 @@
 {
-    "name": "TerraFirmaGreg-Modern",
-    "version": "0.13.17-nstut.3",
-    "release_type": "release",
-    "description": "An innovative modpack that contains GregTech and TerraFirmaCraft on 1.20.x.",
-    "author": "Exception, Xikaro",
-    "overrides": [
-        "config",
-        "defaultconfigs",
-        "kubejs",
-        "tacz",
-        "!kubejs/.prettierrc",
-        "!kubejs/eslint.config.js",
-        "!kubejs/package-lock.json",
-        "!kubejs/package.json",
-        "!kubejs/tsconfig.json",
-        "!kubejs/probe/**",
-        "!kubejs/assets",
-        "!defaultconfigs/tfc-server.toml",
-        "!defaultconfigs/ftbranks/ranks.snbt",
-        "!config/ftbbackups2.json"
-    ],
-    "server_overrides": [],
-    "client_overrides": [
-        "resourcepacks",
-        "shaderpacks",
-        "kubejs/assets",
-        "defaultconfigs/tfc-server.toml",
-        "config/ftbbackups2.json",
-        "defaultconfigs/ftbranks/ranks.snbt"
-    ],
-    "projects": {
-        "ambient-environment": {
-            "side": "CLIENT"
-        },
-        "ambientsounds": {
-            "side": "CLIENT"
-        },
-        "better-chat": {
-            "side": "CLIENT"
-        },
-        "betterf3": {
-            "side": "CLIENT"
-        },
-        "blur": {
-            "side": "CLIENT"
-        },
-        "better-ping-display": {
-            "side": "CLIENT"
-        },
-        "better-third-person": {
-            "side": "CLIENT"
-        },
-        "chunk-animator": {
-            "side": "CLIENT"
-        },
-        "craftpresence": {
-            "side": "CLIENT"
-        },
-        "better-loading-screen": {
-            "side": "CLIENT"
-        },
-        "controlling": {
-            "side": "CLIENT"
-        },
-        "dynamic-darkness": {
-            "side": "CLIENT"
-        },
-        "dynamic-lights": {
-            "side": "CLIENT"
-        },
-        "dynamic-surroundings": {
-            "side": "CLIENT"
-        },
-        "fancymenu": {
-            "side": "CLIENT"
-        },
-        "farsight": {
-            "side": "CLIENT"
-        },
-        "fps-reducer": {
-            "side": "CLIENT"
-        },
-        "inventory-hud-forge": {
-            "side": "CLIENT"
-        },
-        "itemphysic-lite": {
-            "side": "CLIENT"
-        },
-        "legendary-tooltips": {
-            "side": "CLIENT"
-        },
-        "konkrete": {
-            "side": "CLIENT"
-        },
-        "more-overlays": {
-            "side": "CLIENT"
-        },
-        "my-server-is-compatible": {
-            "side": "CLIENT"
-        },
-        "mouse-tweaks-unofficial": {
-            "side": "CLIENT"
-        },
-        "options-enforcer": {
-            "side": "CLIENT"
-        },
-        "particle-culling": {
-            "side": "CLIENT"
-        },
-        "placement-preview": {
-            "side": "CLIENT"
-        },
-        "real-first-person-render": {
-            "side": "CLIENT"
-        },
-        "valkyrie": {
-            "side": "CLIENT"
-        },
-        "wrapfix": {
-            "side": "CLIENT"
-        },
-        "sound-physics-remixin": {
-            "side": "CLIENT"
-        },
-        "tfc-towerheat": {
-            "side": "CLIENT"
-        },
-        "tfc-toohotaroundhere": {
-            "side": "CLIENT"
-        },
-        "keybind-description-fix": {
-            "side": "CLIENT"
-        },
-        "better-quest-pop-up": {
-            "side": "CLIENT"
-        },
-        "ctm": {
-            "side": "CLIENT"
-        },
-        "simple-login": {
-            "side": "CLIENT"
-        },
-        "cherished-worlds": {
-            "side": "CLIENT"
-        },
-        "jetif": {
-            "side": "CLIENT"
-        },
-        "client-tweaks": {
-            "side": "CLIENT"
-        },
-        "chat-heads": {
-            "side": "CLIENT"
-        },
-        "drippy-loading-screen": {
-            "side": "CLIENT"
-        },
-        "embeddium": {
-            "side": "CLIENT"
-        },
-        "first-person-model": {
-            "side": "CLIENT"
-        },
-        "no-report-button": {
-            "side": "CLIENT"
-        },
-        "not-enough-animations": {
-            "side": "CLIENT"
-        },
-        "mouse-tweaks": {
-            "side": "CLIENT"
-        },
-        "oculus": {
-            "side": "CLIENT"
-        },
-        "sound-physics-remastered": {
-            "side": "CLIENT"
-        },
-        "searchables": {
-            "side": "CLIENT"
-        },
-        "tfc-vessel-tooltip": {
-            "side": "CLIENT"
-        },
-        "sodium-options-api": {
-            "side": "CLIENT"
-        },
-        "magnesium-extras": {
-            "side": "CLIENT"
-        },
-        "dynamiclights-reforged": {
-            "side": "CLIENT"
-        },
-        "rainboows": {
-            "side": "CLIENT"
-        },
-        "fix-gpu-memory-leak": {
-            "side": "CLIENT"
-        },
-        "tfc-support-indicator": {
-            "side": "CLIENT"
-        },
-        "immediatelyfast": {
-            "side": "CLIENT"
-        },
-        "unilib": {
-            "side": "CLIENT"
-        },
-        "fast-ip-ping": {
-            "side": "CLIENT"
-        },
-        "badoptimizations": {
-            "side": "CLIENT"
-        },
-        "entityculling": {
-            "side": "CLIENT"
-        },
-        "resourceful-config": {
-            "side": "BOTH"
-        },
-        "resourceful-lib": {
-            "side": "BOTH"
-        },
-        "enderman-overhaul": {
-            "side": "BOTH"
-        },
-        "primitive-creatures": {
-            "side": "BOTH"
-        },
-        "geckolib": {
-            "side": "BOTH"
-        },
-        "tfcgenviewer": {
-            "side": "BOTH"
-        },
-        "tfc-hot-or-not": {
-            "side": "BOTH"
-        },
-        "xaeros-minimap": {
-            "side": "BOTH"
-        },
-        "particular-reforged": {
-            "side": "BOTH"
-        },
-        "pick-up-notifier": {
-            "side": "CLIENT"
-        },
-        "third-person-shooting": {
-            "side": "CLIENT"
-        },
-        "inventory-tweaks-refoxed": {
-            "side": "BOTH"
-        },
-        "fastboot": {
-            "side": "BOTH"
-        },
-        "detected-setblock-be-gone": {
-            "side": "BOTH"
-        },
-        "colorwheel": {
-            "side": "CLIENT"
-        },
-        "crashexploitfixer": {
-            "side": "SERVER"
-        },
-        "autopack-director": {
-            "export": false
-        },
-        "ftb-backups-2": {
-            "side": "BOTH",
-            "export": true
-        },
-        "ftb-chunks-forge": {
-            "export": true
-        },
-        "ftb-essentials": {
-            "export": true
-        },
-        "ftb-filter-system": {
-            "export": true
-        },
-        "ftb-library-forge": {
-            "export": true
-        },
-        "ftb-quests-forge": {
-            "export": true
-        },
-        "ftb-ranks-forge": {
-            "export": true
-        },
-        "ftb-teams-forge": {
-            "export": true
-        },
-        "ftb-xmod-compat": {
-            "export": true
-        },
-        "probejs": {
-            "side": "CLIENT",
-            "export": false
-        },
-        "UpperMoon0/Economy": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/OpenUI-MC": {
-            "side": "CLIENT",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Create-Precise-Controls": {
-            "side": "CLIENT",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Simply-Screens": {
-            "side": "BOTH",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Simply-Speakers": {
-            "side": "BOTH",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/CreateHorsePower-CE": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Building-Gadgets-Extra": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Perfomant-Boom": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/Celestial-Nail": {
-            "update_strategy": "NONE"
-        },
-        "extra-gauges": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/TrueUUID": {
-            "update_strategy": "NONE"
-        },
-        "littletiles": {
-            "update_strategy": "NONE"
-        },
-        "foodvariations": {
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/SpiceOfLife-Integrations": {
-            "side": "BOTH",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/PacketWeave": {
-            "side": "BOTH",
-            "update_strategy": "NONE"
-        },
-        "UpperMoon0/VanishGuard": {
-            "side": "SERVER",
-            "update_strategy": "NONE"
-        }
+  "name": "TerraFirmaGreg-Modern",
+  "version": "0.13.17-nstut.3",
+  "release_type": "release",
+  "description": "An innovative modpack that contains GregTech and TerraFirmaCraft on 1.20.x.",
+  "author": "Exception, Xikaro",
+  "overrides": [
+    "config",
+    "defaultconfigs",
+    "kubejs",
+    "tacz",
+    "!kubejs/.prettierrc",
+    "!kubejs/eslint.config.js",
+    "!kubejs/package-lock.json",
+    "!kubejs/package.json",
+    "!kubejs/tsconfig.json",
+    "!kubejs/probe/**",
+    "!kubejs/assets",
+    "!defaultconfigs/tfc-server.toml",
+    "!defaultconfigs/ftbranks/ranks.snbt",
+    "!config/ftbbackups2.json"
+  ],
+  "server_overrides": [],
+  "client_overrides": [
+    "resourcepacks",
+    "shaderpacks",
+    "kubejs/assets",
+    "defaultconfigs/tfc-server.toml",
+    "config/ftbbackups2.json",
+    "defaultconfigs/ftbranks/ranks.snbt"
+  ],
+  "projects": {
+    "ambient-environment": {
+      "side": "CLIENT"
     },
-    "export_server_side_projects_to_client": true
+    "ambientsounds": {
+      "side": "CLIENT"
+    },
+    "better-chat": {
+      "side": "CLIENT"
+    },
+    "betterf3": {
+      "side": "CLIENT"
+    },
+    "blur": {
+      "side": "CLIENT"
+    },
+    "better-ping-display": {
+      "side": "CLIENT"
+    },
+    "better-third-person": {
+      "side": "CLIENT"
+    },
+    "chunk-animator": {
+      "side": "CLIENT"
+    },
+    "craftpresence": {
+      "side": "CLIENT"
+    },
+    "better-loading-screen": {
+      "side": "CLIENT"
+    },
+    "controlling": {
+      "side": "CLIENT"
+    },
+    "dynamic-darkness": {
+      "side": "CLIENT"
+    },
+    "dynamic-lights": {
+      "side": "CLIENT"
+    },
+    "dynamic-surroundings": {
+      "side": "CLIENT"
+    },
+    "fancymenu": {
+      "side": "CLIENT"
+    },
+    "farsight": {
+      "side": "CLIENT"
+    },
+    "fps-reducer": {
+      "side": "CLIENT"
+    },
+    "inventory-hud-forge": {
+      "side": "CLIENT"
+    },
+    "itemphysic-lite": {
+      "side": "CLIENT"
+    },
+    "legendary-tooltips": {
+      "side": "CLIENT"
+    },
+    "konkrete": {
+      "side": "CLIENT"
+    },
+    "more-overlays": {
+      "side": "CLIENT"
+    },
+    "my-server-is-compatible": {
+      "side": "CLIENT"
+    },
+    "mouse-tweaks-unofficial": {
+      "side": "CLIENT"
+    },
+    "options-enforcer": {
+      "side": "CLIENT"
+    },
+    "particle-culling": {
+      "side": "CLIENT"
+    },
+    "placement-preview": {
+      "side": "CLIENT"
+    },
+    "real-first-person-render": {
+      "side": "CLIENT"
+    },
+    "valkyrie": {
+      "side": "CLIENT"
+    },
+    "wrapfix": {
+      "side": "CLIENT"
+    },
+    "sound-physics-remixin": {
+      "side": "CLIENT"
+    },
+    "tfc-towerheat": {
+      "side": "CLIENT"
+    },
+    "tfc-toohotaroundhere": {
+      "side": "CLIENT"
+    },
+    "keybind-description-fix": {
+      "side": "CLIENT"
+    },
+    "better-quest-pop-up": {
+      "side": "CLIENT"
+    },
+    "ctm": {
+      "side": "CLIENT"
+    },
+    "simple-login": {
+      "side": "CLIENT"
+    },
+    "cherished-worlds": {
+      "side": "CLIENT"
+    },
+    "jetif": {
+      "side": "CLIENT"
+    },
+    "client-tweaks": {
+      "side": "CLIENT"
+    },
+    "chat-heads": {
+      "side": "CLIENT"
+    },
+    "drippy-loading-screen": {
+      "side": "CLIENT"
+    },
+    "embeddium": {
+      "side": "CLIENT"
+    },
+    "first-person-model": {
+      "side": "CLIENT"
+    },
+    "no-report-button": {
+      "side": "CLIENT"
+    },
+    "not-enough-animations": {
+      "side": "CLIENT"
+    },
+    "mouse-tweaks": {
+      "side": "CLIENT"
+    },
+    "oculus": {
+      "side": "CLIENT"
+    },
+    "sound-physics-remastered": {
+      "side": "CLIENT"
+    },
+    "searchables": {
+      "side": "CLIENT"
+    },
+    "tfc-vessel-tooltip": {
+      "side": "CLIENT"
+    },
+    "sodium-options-api": {
+      "side": "CLIENT"
+    },
+    "magnesium-extras": {
+      "side": "CLIENT"
+    },
+    "dynamiclights-reforged": {
+      "side": "CLIENT"
+    },
+    "rainboows": {
+      "side": "CLIENT"
+    },
+    "fix-gpu-memory-leak": {
+      "side": "CLIENT"
+    },
+    "tfc-support-indicator": {
+      "side": "CLIENT"
+    },
+    "immediatelyfast": {
+      "side": "CLIENT"
+    },
+    "unilib": {
+      "side": "CLIENT"
+    },
+    "fast-ip-ping": {
+      "side": "CLIENT"
+    },
+    "badoptimizations": {
+      "side": "CLIENT"
+    },
+    "entityculling": {
+      "side": "CLIENT"
+    },
+    "resourceful-config": {
+      "side": "BOTH"
+    },
+    "resourceful-lib": {
+      "side": "BOTH"
+    },
+    "enderman-overhaul": {
+      "side": "BOTH"
+    },
+    "primitive-creatures": {
+      "side": "BOTH"
+    },
+    "geckolib": {
+      "side": "BOTH"
+    },
+    "tfcgenviewer": {
+      "side": "BOTH"
+    },
+    "tfc-hot-or-not": {
+      "side": "BOTH"
+    },
+    "xaeros-minimap": {
+      "side": "BOTH"
+    },
+    "particular-reforged": {
+      "side": "BOTH"
+    },
+    "pick-up-notifier": {
+      "side": "CLIENT"
+    },
+    "third-person-shooting": {
+      "side": "CLIENT"
+    },
+    "inventory-tweaks-refoxed": {
+      "side": "BOTH"
+    },
+    "fastboot": {
+      "side": "BOTH"
+    },
+    "detected-setblock-be-gone": {
+      "side": "BOTH"
+    },
+    "colorwheel": {
+      "side": "CLIENT"
+    },
+    "crashexploitfixer": {
+      "side": "SERVER"
+    },
+    "autopack-director": {
+      "export": false
+    },
+    "ftb-backups-2": {
+      "side": "BOTH",
+      "export": true
+    },
+    "ftb-chunks-forge": {
+      "export": true
+    },
+    "ftb-essentials": {
+      "export": true
+    },
+    "ftb-filter-system": {
+      "export": true
+    },
+    "ftb-library-forge": {
+      "export": true
+    },
+    "ftb-quests-forge": {
+      "export": true
+    },
+    "ftb-ranks-forge": {
+      "export": true
+    },
+    "ftb-teams-forge": {
+      "export": true
+    },
+    "ftb-xmod-compat": {
+      "export": true
+    },
+    "probejs": {
+      "side": "CLIENT",
+      "export": false
+    },
+    "UpperMoon0/Economy": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/OpenUI-MC": {
+      "side": "CLIENT",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Create-Precise-Controls": {
+      "side": "CLIENT",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Simply-Screens": {
+      "side": "BOTH",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Simply-Speakers": {
+      "side": "BOTH",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/CreateHorsePower-CE": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Building-Gadgets-Extra": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Perfomant-Boom": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/Celestial-Nail": {
+      "update_strategy": "NONE"
+    },
+    "extra-gauges": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/TrueUUID": {
+      "update_strategy": "NONE"
+    },
+    "littletiles": {
+      "update_strategy": "NONE"
+    },
+    "foodvariations": {
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/SpiceOfLife-Integrations": {
+      "side": "BOTH",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/PacketWeave": {
+      "side": "BOTH",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/VanishGuard": {
+      "side": "SERVER",
+      "update_strategy": "NONE"
+    },
+    "UpperMoon0/LDLib-MultiLoader": {
+      "side": "BOTH",
+      "update_strategy": "NONE"
+    }
+  },
+  "export_server_side_projects_to_client": true
 }
