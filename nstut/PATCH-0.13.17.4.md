@@ -11,7 +11,7 @@ This candidate **does not patch the live server or authorize a stable promotion*
 | LDLib | Upstream `1.0.52.a` | NsTut `1.0.52.a-nstut.2` | GitHub **prerelease**, Forge 1.20.1 JAR, SHA-256 pinned |
 | Create Horse Power CE | `1.2.10` | `1.2.11` | Published GitHub release, Forge 1.20.1 JAR, SHA-256 pinned |
 
-Pakku no longer resolves upstream `ldlib`; it locks `UpperMoon0/LDLib-MultiLoader` instead. The managed installation removes any prior `ldlib-*.jar` on **both clients and servers**, then installs exactly one checked fork JAR. Historical base-migration payloads may still stage the upstream JAR first, but managed cleanup removes it before installation completes.
+Pakku no longer resolves upstream `ldlib`; it locks `UpperMoon0/LDLib-MultiLoader` instead. The managed installation removes any prior `ldlib-*.jar` on **both clients and servers**, then installs exactly one checked fork JAR. The base-migration download lists now omit the upstream LDLib JAR entirely on both sides. Managed cleanup also removes pre-existing LDLib JARs before installing the fork.
 
 The fork fixes RPC target indexing and stale/reused modular-UI slots. The Forge networking channel is now `0.0.2`; **do not mix old/new clients and servers**. Passing JUnit and an isolated Forge/GTCEu server smoke test is not the same as a connected client/server acceptance run.
 
