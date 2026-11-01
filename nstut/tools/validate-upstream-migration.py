@@ -30,10 +30,17 @@ def artifact_signature(project):
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
     assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
     audit_version = load('nstut/release.json')['sourceRef'].removeprefix('nstut-')
-    approved = load(f'nstut/custom-mod-audit-{audit_version}.json')['approvedMods']
-    assert managed['mods'] == approved, 'custom managed artifacts differ from the reviewed release audit'
-    assert {m['id'] for m in approved} == {m['id'] for m in previous_managed['mods']}, 'custom managed mod set changed'
-    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations', 'building-gadgets-extra', 'create-horse-power-ce'}
+    audit = load(f'nstut/custom-mod-audit-{audit_version}.json')
+    # Current release audits record a reviewed projection of each managed pin
+    # rather than the historical full approvedMods structure.
+    pin_keys = ('id', 'repository', 'version', 'fileName', 'url', 'sha256', 'installTargets')
+    approved = audit['pins']
+    actual_pins = [{k: mod[k] for k in pin_keys if k in mod} for mod in managed['mods']]
+    assert actual_pins == approved, 'custom managed artifacts differ from reviewed release audit'
+    prior_ids = {m['id'] for m in previous_managed['mods']}
+    assert {m['id'] for m in managed['mods']} - prior_ids == {'ldlib'}, 'unexpected new managed mods'
+    assert prior_ids <= {m['id'] for m in managed['mods']}, 'previously managed mod was removed'
+    upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations', 'building-gadgets-extra', 'create-horse-power-ce', 'ldlib'}
     unchanged = lambda mods: [m for m in mods if m['id'] not in upgraded]
     assert unchanged(approved) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
     trueuuid = next(m for m in approved if m['id'] == 'trueuuid')
@@ -47,7 +54,10 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     for mod in managed['mods']:
         repository = mod['repository']
         custom_keys.add((('modrinth', repository.split(':', 1)[1]),) if repository.startswith('modrinth:') else (('github', repository),))
-    removed = {(('curseforge', 'create-horse-power'), ('modrinth', 'create-horse-power'))}
+    removed = {
+        (('curseforge', 'create-horse-power'), ('modrinth', 'create-horse-power')),
+        (('curseforge', 'ldlib'), ('modrinth', 'ldlib')),
+    }
     assert actual.keys() - expected.keys() == custom_keys, 'unexpected added projects or missing custom mods'
     assert expected.keys() - actual.keys() == removed, 'unexpected upstream project removal'
     for key in actual.keys() & expected.keys():
