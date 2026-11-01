@@ -347,6 +347,44 @@ def main() -> int:
         else:
             fail("identity preparation must refuse conflicting cache names")
 
+    # The managed LDLib fork must replace upstream LDLib rather than running
+    # two JARs with the same mod ID on either side of the client/server pair.
+    ldlib = [mod for mod in managed["mods"] if mod["id"] == "ldlib"]
+    if len(ldlib) != 1 or ldlib[0]["repository"] != "UpperMoon0/LDLib-MultiLoader":
+        fail("exactly one NsTut LDLib fork must be managed")
+    if ldlib[0]["installTargets"] != ["client", "server"]:
+        fail("LDLib RPC format requires a coordinated client/server update")
+    if "mods/ldlib-*.jar" not in ldlib[0]["cleanupPatterns"]:
+        fail("LDLib cleanup must remove the original upstream JAR")
+    if any(
+        (p.get("slug") or {}).get("modrinth") == "ldlib"
+        or (p.get("slug") or {}).get("curseforge") == "ldlib"
+        for p in lock["projects"]
+    ):
+        fail("upstream LDLib must be replaced, not co-installed in Pakku")
+
+    # TFG removes the standalone gadget recipes. The multitool must have an
+    # explicit IV assembly route using all five EV Building Gadgets 2 tools.
+    gadgets = (ROOT / "kubejs/server_scripts/buildinggadgets2/recipes.js").read_text(
+        encoding="utf-8"
+    )
+    if gadgets.count("tfg:assembler/builders_multitool") != 1:
+        fail("Builder's Multitool must have exactly one assembler recipe")
+    for token in (
+        "event.remove({ id: 'buildinggadgetsextra:builders_multitool' })",
+        "'1x buildinggadgets2:gadget_building'",
+        "'1x buildinggadgets2:gadget_exchanging'",
+        "'1x buildinggadgets2:gadget_copy_paste'",
+        "'1x buildinggadgets2:gadget_cut_paste'",
+        "'1x buildinggadgets2:gadget_destruction'",
+        "'1x gtceu:iv_field_generator'",
+        "'1x #gtceu:circuits/iv'",
+        ".itemOutputs('buildinggadgetsextra:builders_multitool')",
+        ".EUt(GTValues.VA[GTValues.IV])",
+    ):
+        if token not in gadgets:
+            fail(f"missing required Builder's Multitool IV recipe component: {token}")
+
     # Alabaster recipe audit: raw decoloring must target raw alabaster, and
     # colored bricks must have exactly one dyeing registration. Duplicate
     # Chemical Bath signatures are rejected by GTCEu's lookup DB.
