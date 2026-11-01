@@ -42,7 +42,7 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert prior_ids <= {m['id'] for m in managed['mods']}, 'previously managed mod was removed'
     upgraded = {'economy', 'openui', 'simply-screens', 'simply-speakers', 'packetweave', 'spice-of-life-integrations', 'building-gadgets-extra', 'create-horse-power-ce', 'ldlib'}
     unchanged = lambda mods: [m for m in mods if m['id'] not in upgraded]
-    assert unchanged(approved) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
+    assert unchanged(managed['mods']) == unchanged(previous_managed['mods']), 'unreviewed existing managed pin changed'
     trueuuid = next(m for m in approved if m['id'] == 'trueuuid')
     assert trueuuid['repository'] == 'UpperMoon0/TrueUUID' and trueuuid['version'] == '1.3.1', 'wrong TrueUUID fork/version'
     assert trueuuid['installTargets'] == ['client', 'server'], 'TrueUUID must remain installed on both sides'
