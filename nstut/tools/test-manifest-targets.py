@@ -63,7 +63,16 @@ class VanishGuardTargets(unittest.TestCase):
         installs = lambda manifest: {op['artifact']: op['targets']
                                      for op in manifest['operations']
                                      if op['type'] == 'installFile' and op['artifact'] in ids}
-        self.assertEqual(installs(candidate), installs(previous))
+        previous_installs = installs(previous)
+        candidate_installs = installs(candidate)
+        # Existing mod-side policy stays immutable. LDLib is the one deliberate
+        # new managed dependency, replacing the upstream Pakku entry on both sides.
+        self.assertEqual(
+            {mod_id: candidate_installs[mod_id] for mod_id in previous_installs},
+            previous_installs,
+        )
+        self.assertEqual(set(candidate_installs) - set(previous_installs), {"ldlib"})
+        self.assertEqual(candidate_installs["ldlib"], ["client", "server"])
 
 
 if __name__ == '__main__':

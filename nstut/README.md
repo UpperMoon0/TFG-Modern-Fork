@@ -52,6 +52,19 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Next integration candidate: 0.13.17-nstut.4 (not yet promoted)
+
+This candidate replaces the original Forge LDLib 1.0.52.a with the SHA-256-pinned
+NsTut LDLib 1.0.52.a-nstut.2 **prerelease**, upgrades the published Create Horse
+Power CE to 1.2.11, and adds the IV GTCEu assembler path for Building Gadgets
+Extra's Builder's Multitool. It does not deploy or restart the live server.
+
+**Release blocker:** LDLib's new 0.0.2 RPC protocol and dynamic GUI slot paths
+require connected client/server acceptance before this candidate is promoted.
+TrueUUID 1.3.2 is not yet a published/approved JAR, so 1.3.1 stays pinned.
+See [candidate notes](PATCH-0.13.17.4.md) and
+[artifact audit](custom-mod-audit-0.13.17.4.json).
+
 ## Current release: upstream 0.13.17
 
 **0.13.17-nstut.3** refreshes all custom-mod pins against the latest compatible

@@ -10348,63 +10348,38 @@
             ]
         },
         {
-            "pakku_id": "futdwoBr1oAuED36",
+            "pakku_id": "NsTutLDLibFork152",
             "type": "MOD",
             "side": "BOTH",
             "slug": {
-                "curseforge": "ldlib",
-                "modrinth": "ldlib"
+                "github": "UpperMoon0/LDLib-MultiLoader"
             },
             "name": {
-                "curseforge": "LDLib",
-                "modrinth": "LDLib"
+                "github": "LDLib-MultiLoader"
             },
             "id": {
-                "curseforge": "626676",
-                "modrinth": "B1CBVXHX"
+                "github": "1440904340"
             },
+            "redistributable": true,
             "files": [
                 {
-                    "type": "modrinth",
-                    "file_name": "ldlib-forge-1.20.1-1.0.52.a.jar",
+                    "type": "github",
+                    "file_name": "ldlib-forge-1.20.1-1.0.52.a-nstut.2.jar",
+                    "release_type": "beta",
+                    "url": "https://github.com/UpperMoon0/LDLib-MultiLoader/releases/download/v1.0.52.a-nstut.2/ldlib-forge-1.20.1-1.0.52.a-nstut.2.jar",
+                    "id": "697735180",
+                    "parent_id": "1440904340",
+                    "hashes": {
+                        "sha256": "7b8963e05f002b22a027656395572c458e45749994a3a270d745e3517941850c"
+                    },
+                    "size": 3133752,
+                    "date_published": "2026-11-01T09:16:18Z",
                     "mc_versions": [
                         "1.20.1"
                     ],
                     "loaders": [
                         "forge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/B1CBVXHX/versions/YSOP0G6O/ldlib-forge-1.20.1-1.0.52.a.jar",
-                    "id": "YSOP0G6O",
-                    "parent_id": "B1CBVXHX",
-                    "hashes": {
-                        "sha512": "9aebc17d4406aeccc37b93b22affc7baa67ab695a3e58874860aba12db039b79f399b589ece07ad99b250a814f6a078f482e5c3b1045219c347c73e5bd7eba47",
-                        "sha1": "b341bc49b53a1e1e2566e369339ab66bb53167c6"
-                    },
-                    "required_dependencies": [],
-                    "size": 3125867,
-                    "date_published": "2026-09-07T14:39:24.039563Z"
-                },
-                {
-                    "type": "curseforge",
-                    "file_name": "ldlib-forge-1.20.1-1.0.52.a.jar",
-                    "mc_versions": [
-                        "1.20.1"
-                    ],
-                    "loaders": [
-                        "forge"
-                    ],
-                    "release_type": "release",
-                    "url": "https://edge.forgecdn.net/files/8830/518/ldlib-forge-1.20.1-1.0.52.a.jar",
-                    "id": "8830518",
-                    "parent_id": "626676",
-                    "hashes": {
-                        "sha1": "b341bc49b53a1e1e2566e369339ab66bb53167c6",
-                        "md5": "1644c0566b831a276eaa599c88ed7409"
-                    },
-                    "required_dependencies": [],
-                    "size": 3125867,
-                    "date_published": "2026-09-07T14:39:21.410Z"
+                    ]
                 }
             ]
         },
@@ -17702,16 +17677,16 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "createhorsepower-ce-1.20.1-1.2.10.jar",
+                    "file_name": "createhorsepower-ce-1.20.1-1.2.11.jar",
                     "release_type": "release",
-                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.10/createhorsepower-ce-1.20.1-1.2.10.jar",
-                    "id": "691785200",
+                    "url": "https://github.com/UpperMoon0/CreateHorsePower-CE/releases/download/v1.2.11/createhorsepower-ce-1.20.1-1.2.11.jar",
+                    "id": "695091784",
                     "parent_id": "1350393644",
                     "hashes": {
-                        "sha256": "b75972612164968851f62d9b6bbe5122c1cad42f1fdbc0600d9975a409825c0f"
+                        "sha256": "b8aef9f329760d4ca3a7b7c4c8d6d4654b8d0c11a671c95098f3362c465fcfb0"
                     },
-                    "size": 570435,
-                    "date_published": "2026-10-30T10:44:17Z"
+                    "size": 570431,
+                    "date_published": "2026-10-31T10:36:35Z"
                 }
             ]
         },
