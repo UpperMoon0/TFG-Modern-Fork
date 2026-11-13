@@ -51,7 +51,7 @@ class VanishGuardTargets(unittest.TestCase):
     def test_runtime_policies_preserved_from_previous_release(self):
         previous = json.loads(subprocess.check_output([
             'git', '-C', str(m.ROOT), 'show',
-            'nstut-0.13.15.8:nstut/modpack-manager.patch.json']))
+            'nstut-0.13.17.5:nstut/modpack-manager.patch.json']))
         candidate = m.build_manifest()
         # A new base and new mod binaries must retain authentication, capacity,
         # upload, collapse and other semantic policies on their original sides.
@@ -65,14 +65,14 @@ class VanishGuardTargets(unittest.TestCase):
                                      if op['type'] == 'installFile' and op['artifact'] in ids}
         previous_installs = installs(previous)
         candidate_installs = installs(candidate)
-        # Existing mod-side policy stays immutable. LDLib is the one deliberate
-        # new managed dependency, replacing the upstream Pakku entry on both sides.
+        # Existing mod-side policy stays immutable. Additional Placements
+        # replaces the upstream binary on both client and server.
         self.assertEqual(
             {mod_id: candidate_installs[mod_id] for mod_id in previous_installs},
             previous_installs,
         )
-        self.assertEqual(set(candidate_installs) - set(previous_installs), {"ldlib"})
-        self.assertEqual(candidate_installs["ldlib"], ["client", "server"])
+        self.assertEqual(set(candidate_installs) - set(previous_installs), {"additional-placements"})
+        self.assertEqual(candidate_installs["additional-placements"], ["client", "server"])
 
 
 if __name__ == '__main__':

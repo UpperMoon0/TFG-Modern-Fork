@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "base": {
     "repository": "TerraFirmaGreg-Team/Modpack-Modern",
-    "ref": "0.13.17",
+    "ref": "0.13.18",
     "minecraft": "1.20.1",
     "loader": "forge",
     "loaderVersion": "47.4.13"
@@ -52,11 +52,11 @@
     {
       "id": "openui",
       "name": "OpenUI MC",
-      "version": "0.0.15",
+      "version": "0.0.16",
       "repository": "UpperMoon0/OpenUI-MC",
-      "fileName": "openui-mc-forge-1.20.1-0.0.15.jar",
-      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.15/openui-mc-forge-1.20.1-0.0.15.jar",
-      "sha256": "ccce99fee181206da04e8477d131934530339834fc6f6f9e96a5ebd0f575b1aa",
+      "fileName": "openui-mc-forge-1.20.1-0.0.16.jar",
+      "url": "https://github.com/UpperMoon0/OpenUI-MC/releases/download/v0.0.16/openui-mc-forge-1.20.1-0.0.16.jar",
+      "sha256": "ba442954b66adaf27dbe5b5d24336c9b4c874a272ee5d95e1f7826d57fd08722",
       "installTargets": [
         "client"
       ],
@@ -71,11 +71,11 @@
     {
       "id": "create-precise-controls",
       "name": "Create: Precise Controls",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "repository": "UpperMoon0/Create-Precise-Controls",
-      "fileName": "create-precise-controls-forge-1.20.1-0.1.1.jar",
-      "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.1.1/create-precise-controls-forge-1.20.1-0.1.1.jar",
-      "sha256": "6d1f2e012bba9406d32fe5fe1fb998742371f570020d35408d7ddd70fd9b43f2",
+      "fileName": "create-precise-controls-forge-1.20.1-0.2.0.jar",
+      "url": "https://github.com/UpperMoon0/Create-Precise-Controls/releases/download/v0.2.0/create-precise-controls-forge-1.20.1-0.2.0.jar",
+      "sha256": "7a86d5ce7a79f8a078ba714b4743e2012b0824c2536541616185a796ff1cc046",
       "installTargets": [
         "client"
       ],
@@ -153,11 +153,11 @@
     {
       "id": "building-gadgets-extra",
       "name": "Building Gadgets Extra",
-      "version": "0.0.8",
+      "version": "0.0.9",
       "repository": "UpperMoon0/Building-Gadgets-Extra",
-      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.8.jar",
-      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.8/building-gadgets-extra-forge-1.20.1-0.0.8.jar",
-      "sha256": "033b65db2123e48a2144ddf87d307b8982116881e148a60fa006bcb344d67ff9",
+      "fileName": "building-gadgets-extra-forge-1.20.1-0.0.9.jar",
+      "url": "https://github.com/UpperMoon0/Building-Gadgets-Extra/releases/download/v0.0.9/building-gadgets-extra-forge-1.20.1-0.0.9.jar",
+      "sha256": "a08a9d3dd18266865504e4e66d1856d74ed8599c524ac900bfcdd9da20422acc",
       "installTargets": [
         "client",
         "server"
@@ -215,11 +215,11 @@
     {
       "id": "celestial-nail",
       "name": "Celestial Nail",
-      "version": "0.1.6",
+      "version": "0.2.0",
       "repository": "UpperMoon0/Celestial-Nail",
-      "fileName": "celestial-nail-forge-1.20.1-0.1.6.jar",
-      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.1.6/celestial-nail-forge-1.20.1-0.1.6.jar",
-      "sha256": "845b95ac045650e9ac61419175d3e4e35c6f3d9caec77381bfc66ea36ea222a3",
+      "fileName": "celestial-nail-forge-1.20.1-0.2.0.jar",
+      "url": "https://github.com/UpperMoon0/Celestial-Nail/releases/download/v0.2.0/celestial-nail-forge-1.20.1-0.2.0.jar",
+      "sha256": "7f928214f9789ddea18992e7164e426b24bfc0837e2ec72175eff49598f0e488",
       "installTargets": [
         "client",
         "server"
@@ -351,6 +351,27 @@
       ],
       "cleanupPatterns": [
         "mods/vanishguard-*.jar"
+      ]
+    },
+    {
+      "id": "additional-placements",
+      "name": "Additional Placements (NsTut fork)",
+      "version": "3.0.1.2",
+      "repository": "UpperMoon0/Additional-Placements",
+      "fileName": "additionalplacements-forge-3.0.1.2.jar",
+      "url": "https://github.com/UpperMoon0/Additional-Placements/releases/download/v3.0.1.2/additionalplacements-forge-3.0.1.2.jar",
+      "sha256": "e5ca0051d3ecc6e6d90509ef16d3bfa0c606c82edf39b5235faa77576f42b603",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/*Additional Placements*.jar",
+        "mods/additionalplacements-*.jar"
       ]
     }
   ]

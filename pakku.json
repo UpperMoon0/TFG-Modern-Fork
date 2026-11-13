@@ -1,6 +1,6 @@
 {
     "name": "TerraFirmaGreg-Modern",
-    "version": "0.13.17-nstut.5",
+    "version": "0.13.18-nstut.1",
     "release_type": "release",
     "description": "An innovative modpack that contains GregTech and TerraFirmaCraft on 1.20.x.",
     "author": "Exception, Xikaro",
@@ -355,6 +355,10 @@
             "update_strategy": "NONE"
         },
         "UpperMoon0/LDLib-MultiLoader": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "UpperMoon0/Additional-Placements": {
             "side": "BOTH",
             "update_strategy": "NONE"
         }
