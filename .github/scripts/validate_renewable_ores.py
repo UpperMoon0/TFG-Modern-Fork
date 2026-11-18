@@ -7,6 +7,7 @@ import json
 import re
 from pathlib import Path
 
+# Resolve every validation input from the checkout that contains this script.
 ROOT = Path(__file__).resolve().parents[2]
 RECIPES = ROOT / "kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js"
 MATERIALS = ROOT / "kubejs/startup_scripts/tfg/materials/materials.renewable_ores.js"
