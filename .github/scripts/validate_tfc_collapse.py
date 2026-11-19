@@ -27,3 +27,5 @@ def validate(root=ROOT):
 
 if __name__ == '__main__':
     validate()
+
+# KAN-61: source-only signed PR validation acceptance, 2026-11-19.

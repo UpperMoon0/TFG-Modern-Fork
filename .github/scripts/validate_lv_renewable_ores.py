@@ -423,3 +423,5 @@ print(f" - max fluid stack: {max(fluid_amounts)} mB")
 print(" - final ores: poor hematite, poor malachite, poor sphalerite")
 print(" - tin/cassiterite: absent")
 print(" - source audit: GTCEu 7.5.3 + embedded TFC; pack pin: TFG Core 0.9.31 (docs/upstream-sync-0.13.17.md)")
+
+# KAN-61: source-only signed PR validation acceptance, 2026-11-19.
