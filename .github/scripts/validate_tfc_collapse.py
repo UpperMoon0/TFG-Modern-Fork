@@ -29,3 +29,5 @@ if __name__ == '__main__':
     validate()
 
 # KAN-61: source-only Jenkins webhook/PR acceptance canary; validation behavior unchanged.
+
+# KAN-61: isolate original collapse pull_request path parity, source-only canary.
