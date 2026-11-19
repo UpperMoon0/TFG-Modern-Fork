@@ -27,3 +27,5 @@ def validate(root=ROOT):
 
 if __name__ == '__main__':
     validate()
+
+# KAN-61: source-only Jenkins webhook/PR acceptance canary; validation behavior unchanged.
