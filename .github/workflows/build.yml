@@ -534,56 +534,6 @@ jobs:
           # generate_release_notes: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  release-curseforge:
-    name: "[🚀] Release to CurseForge"
-    needs: [info, build-project, release-github]
-    runs-on: ubuntu-latest
-    if: ${{ needs.info.outputs.make_release == 'true' }}
-    outputs:
-      id: ${{ steps.release.outputs.id }}
-
-    steps:
-      - name: Check if CURSEFORGE_TOKEN exist
-        shell: bash
-        run: |
-          if [ "${{ secrets.CURSEFORGE_TOKEN }}" == '' ]; then
-            echo '::error::No value found for secret key `CURSEFORGE_TOKEN`. See https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository' && exit 1
-          fi  
-
-      - name: Download artifact
-        uses: actions/download-artifact@v8.0.1
-        with:
-          merge-multiple: true
-
-      - name: Check if artifact exist
-        id: check_artifact
-        shell: bash
-        run: |
-          if [ ! -f ${{ needs.info.outputs.project_full_name }}-curseforge.zip ]; then
-            echo '::error::No value found for artifact `curseforge.zip`.' && exit 1
-          fi
-          if [ ! -f ${{ needs.info.outputs.project_full_name }}-serverpack.zip ]; then
-            echo '::error::No value found for artifact `serverpack.zip`.' && exit 1
-          fi
-          echo "✔️ All artifacts found"
-
-      - name: Upload Curseforge
-        id: release
-        uses: Xikaro/upload-curseforge-modpack-action@1.1.1
-        with:
-          api-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          project-id: ${{ vars.CURSEFORGE_ID }}
-          display-name: ${{ needs.info.outputs.project_full_name }}
-          modpack-path: ${{ needs.info.outputs.project_full_name }}-curseforge.zip
-          # server-display-name: ${{ needs.info.outputs.project_full_name }}-serverpack
-          # modpack-server-path: ${{ needs.info.outputs.project_full_name }}-serverpack.zip
-          changelog: |
-            ${{ needs.info.outputs.changelog }}
-            ${{ needs.info.outputs.diff }}
-          changelog-format: markdown
-          game-version: ${{ needs.info.outputs.mc_version }}
-          release-type: ${{ needs.info.outputs.release_type }}
-
   release-modrinth:
       name: "[🚀] Release to Modrinth"
       needs: [info, build-project, release-github]
@@ -630,7 +580,7 @@ jobs:
 
   discord-message:
     name: "[📱] Discord Message"
-    needs: [info, release-github, release-curseforge]
+    needs: [info, release-github]
     runs-on: ubuntu-latest
     steps:
       - name: Truncate Changelog
@@ -652,7 +602,7 @@ jobs:
             **Release Type**: `${{ needs.info.outputs.release_type }}`
             **Game Version**: `${{ needs.info.outputs.mc_version }}`
 
-            [CurseForge](https://www.curseforge.com/minecraft/modpacks/terrafirmagreg-modern/files/${{ needs.release-curseforge.outputs.id }}) • [ServerPack](https://github.com/${{ github.repository }}/releases/download/${{ needs.info.outputs.project_version }}/${{ needs.info.outputs.project_full_name }}-serverpack.zip) • [GitHub](${{ needs.release-github.outputs.url }}) • [Issues](https://github.com/${{ github.repository }}/issues)
+            [ServerPack](https://github.com/${{ github.repository }}/releases/download/${{ needs.info.outputs.project_version }}/${{ needs.info.outputs.project_full_name }}-serverpack.zip) • [GitHub](${{ needs.release-github.outputs.url }}) • [Issues](https://github.com/${{ github.repository }}/issues)
             ```markdown
             ${{ steps.truncated.outputs.text  }}
             - ...```
