@@ -1,3 +1,4 @@
+# TFG fork pack builds use signed pushes to Jenkins. GitHub Actions is disabled.
 name: "Project Build"
 run-name: "[📦]: Project Build #${{ github.run_number }}"
 on:
