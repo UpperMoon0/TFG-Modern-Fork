@@ -20,3 +20,32 @@
 - Run source, recipe, quest, renewable-ore, world-migration and dedicated-server smoke validations on isolated test infrastructure.
 - Verify new serverpack and client export checksums and rollback preparation before creating an immutable tag.
 - Preserve Jenkins-only triggers and privileged host publication isolation. No GitHub Actions or live-server execution is authorized by this integration.
+
+
+## Clockwork and Hard-difficulty spring water candidate amendments
+
+Clockwork is now a required **both-side** install in this fork's unpromoted
+0.13.19 candidate. Pakku pins Clockwork `0.5.7.1` (Modrinth
+`PPCx7dxb`), Valkyrien Skies `2.4.11` (`pOkdwuUh`) and Kelvin Lib
+`1.20.1-0.5.2` (CurseForge file `9602094`). All file hashes are
+provider-resolved and Kelvin's JAR SHA-1 and MD5 were rechecked against the
+official downloaded Forge binary. Existing Create `6.0.8`, Architectury
+`9.2.14` and Kotlin for Forge `4.12.0` satisfy additional dependencies.
+`config/lithium.properties` already has `mixin.ai.poi=false` from the
+upstream 0.13.19 compatibility change.
+
+**Spring water:** upstream's 0.13.19 release notes claim Hard difficulty
+disables healing, but `TerraFirmaGreg-Team/Core-Modern` tag `0.9.36`,
+`net/dries007/tfc/common/blocks/HotWaterBlock.java`, still calls
+`living.heal(TFCConfig.SERVER.hotWaterHealAmount.get().floatValue())`
+without checking difficulty. Both fork client/server TFC configuration
+templates retain `hotWaterHealAmount = 0.08`. No new healing tick hook
+is added because this could double-heal or introduce a server performance
+regression. A regression guard verifies that both templates remain positive.
+**The Hard-mode runtime behavior has not yet been verified** in an isolated
+game world; do not promote on this source-only finding.
+
+Run `python3 nstut/tools/validate-clockwork-spring-water.py` for source
+checks and then dedicated server + client tests on isolated infrastructure.
+Clockwork's open-beta physics interactions and known ModernFix compatibility
+risks require explicit runtime qualification before any release.

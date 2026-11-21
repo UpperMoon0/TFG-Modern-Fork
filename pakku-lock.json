@@ -17994,6 +17994,124 @@
                     "date_published": "2026-11-09T20:34:03.460Z"
                 }
             ]
+        },
+        {
+            "pakku_id": "ScoEMrR9KLGCRn1B",
+            "pakku_links": [
+                "tCNMmVcVz858M2jb"
+            ],
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "create-clockwork"
+            },
+            "name": {
+                "modrinth": "Clockwork"
+            },
+            "id": {
+                "modrinth": "84USeAvk"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "clockwork-0.5.7.1.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/84USeAvk/versions/PPCx7dxb/clockwork-0.5.7.1.jar",
+                    "id": "PPCx7dxb",
+                    "parent_id": "84USeAvk",
+                    "hashes": {
+                        "sha512": "edd63d431ada3bb8cacdd835169034e0caab7fdb2e3a466404ea354becb108d6083ae1e8d8cf130f9dc7a54d567a5347d8af5e22b3e63f1a467188adfe14e705",
+                        "sha1": "8c8a77782088c8d34b563a0f1005b771846999ab"
+                    },
+                    "required_dependencies": [
+                        "LNytGWDc",
+                        "V5ujR2yw"
+                    ],
+                    "size": 11240455,
+                    "date_published": "2026-11-18T03:06:19.326290Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "tCNMmVcVz858M2jb",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "valkyrien-skies"
+            },
+            "name": {
+                "modrinth": "Valkyrien Skies"
+            },
+            "id": {
+                "modrinth": "V5ujR2yw"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "valkyrienskies-120-2.4.11.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/pOkdwuUh/valkyrienskies-120-2.4.11.jar",
+                    "id": "pOkdwuUh",
+                    "parent_id": "V5ujR2yw",
+                    "hashes": {
+                        "sha512": "6a0d959ed4bf76f08dcad0e6a360bda842d85386a05f510069eafbcc6b46b4216cdcfd9e377f82e4266b0f07e6b74118d8382af0bafcbdd65712f8a92f16e146",
+                        "sha1": "bd3478fcd43d4168950dfa7e77188d7bb12fd43e"
+                    },
+                    "required_dependencies": [
+                        "ordsPcFz"
+                    ],
+                    "size": 27752937,
+                    "date_published": "2026-04-10T20:28:26.906001Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "NsTutKelvinLib01",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "curseforge": "kelvin-vs"
+            },
+            "name": {
+                "curseforge": "Kelvin Lib"
+            },
+            "id": {
+                "curseforge": "1751257"
+            },
+            "files": [
+                {
+                    "type": "curseforge",
+                    "file_name": "kelvin-1.20.1-0.5.2.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://edge.forgecdn.net/files/9602/94/kelvin-1.20.1-0.5.2.jar",
+                    "id": "9602094",
+                    "parent_id": "1751257",
+                    "hashes": {
+                        "sha1": "f531f465eda99a32e7b6e98c18d42062b5c57027",
+                        "md5": "4018b6e74c51dc0bcee30a3d2b58b3c0"
+                    },
+                    "required_dependencies": [],
+                    "size": 836931
+                }
+            ]
         }
     ],
     "lockfile_version": 2

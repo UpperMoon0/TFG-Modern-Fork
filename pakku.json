@@ -361,6 +361,18 @@
         "UpperMoon0/Additional-Placements": {
             "side": "BOTH",
             "update_strategy": "NONE"
+        },
+        "create-clockwork": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "valkyrien-skies": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "kelvin-vs": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
         }
     },
     "export_server_side_projects_to_client": true
