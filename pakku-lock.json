@@ -18112,6 +18112,85 @@
                     "size": 836931
                 }
             ]
+        },
+        {
+            "pakku_id": "NsTutMCAReborn01",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "modrinth": "minecraft-comes-alive-reborn"
+            },
+            "name": {
+                "modrinth": "MCA Reborn"
+            },
+            "id": {
+                "modrinth": "1W98a849"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "forge",
+                        "quilt"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/1W98a849/versions/7syRW46i/minecraft-comes-alive-7.6.26%2B1.20.1-universal.jar",
+                    "id": "7syRW46i",
+                    "parent_id": "1W98a849",
+                    "hashes": {
+                        "sha512": "8b42fd3e54b4b535a95807b469221d228a6e99a61e7049dd58b720163aa4627822dea320e21c60b59ca00cd2e51ee18bfde87daea6697998010beb88cdf54a5e",
+                        "sha1": "ee5900137b6b54487276ea0e45f6d564e408af53"
+                    },
+                    "required_dependencies": [
+                        "lhGA9TYQ"
+                    ],
+                    "size": 13058547,
+                    "date_published": "2026-06-25T03:37:48.446259Z"
+                }
+            ]
+        },
+        {
+            "pakku_id": "NsTutDistantH001",
+            "type": "MOD",
+            "side": "CLIENT",
+            "slug": {
+                "modrinth": "distanthorizons"
+            },
+            "name": {
+                "modrinth": "Distant Horizons"
+            },
+            "id": {
+                "modrinth": "uCdwusMi"
+            },
+            "files": [
+                {
+                    "type": "modrinth",
+                    "file_name": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "fabric",
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+                    "id": "6UnEfsRQ",
+                    "parent_id": "uCdwusMi",
+                    "hashes": {
+                        "sha512": "2ac0a2fd34fe17bb3a3764bb53838f00595998a7e0b4bd70c5068aa9244626c6b0e622af548f97a1614dbb0b7c3df29b6d313edfc890d572dc361591c2a176c0",
+                        "sha1": "5447c4716571bfdba817c85278a9ce0d411573ec"
+                    },
+                    "required_dependencies": [],
+                    "size": 27700542,
+                    "date_published": "2026-09-29T00:04:02.102920Z"
+                }
+            ]
         }
     ],
     "lockfile_version": 2
