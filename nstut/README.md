@@ -52,6 +52,10 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Release 0.13.19-nstut.2 (renewable compatibility audit)
+
+This unpromoted candidate replaces the .1 source with a Core 0.9.36 renewable-ore audit fix. See [PATCH-0.13.19.2.md](PATCH-0.13.19.2.md). The .1 tag is immutable and must not be moved.
+
 ## Release 0.13.19-nstut.1 (upstream integration)
 
 Upstream 0.13.19, Clockwork/Valkyrien Skies/Kelvin Lib, MCA Reborn and Distant Horizons are integrated with immutable pinned assets. The production host uses a 2-thread Distant Horizons generation cap. See [release notes](PATCH-0.13.19.1.md) and [upstream acceptance checklist](../docs/upstream-sync-0.13.19.md). Existing world data and private identity settings must remain server-local, and full client/server and migration checks are required before rollout.
