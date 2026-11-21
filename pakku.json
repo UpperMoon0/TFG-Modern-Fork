@@ -373,6 +373,14 @@
         "kelvin-vs": {
             "side": "BOTH",
             "update_strategy": "NONE"
+        },
+        "minecraft-comes-alive-reborn": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "distanthorizons": {
+            "side": "CLIENT",
+            "update_strategy": "NONE"
         }
     },
     "export_server_side_projects_to_client": true
