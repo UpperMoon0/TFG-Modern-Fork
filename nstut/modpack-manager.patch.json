@@ -2,21 +2,21 @@
   "schemaVersion": 1,
   "id": "tfg-nstut-managed",
   "name": "TFG NsTut Fork Overlay",
-  "version": "0.13.18-nstut.2",
-  "description": "Generated from UpperMoon0/TFG-Modern-Fork nstut-0.13.18.2 on upstream 0.13.18.",
+  "version": "0.13.19-nstut.2",
+  "description": "Generated from UpperMoon0/TFG-Modern-Fork nstut-0.13.19.2 on upstream 0.13.19.",
   "requiredPaths": [
     "mods",
     "config",
     "kubejs",
     "defaultconfigs",
-    ".nstut-tfg-base-0.13.18"
+    ".nstut-tfg-base-0.13.19"
   ],
   "artifacts": [
     {
-      "id": "base-server-0.13.18",
-      "fileName": "tfg-base-0.13.18-server.zip",
-      "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.18/tfg-base-0.13.18-server.zip",
-      "sha256": "9eeeb6df6526b1ab191cbcd9ef85d067b8ac4087dc497c7cfd8a44cee3a4bf8a"
+      "id": "base-server-0.13.19",
+      "fileName": "tfg-base-0.13.19-server.zip",
+      "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.19/tfg-base-0.13.19-server.zip",
+      "sha256": "be7c8b4348de959f51dc46852a3f6c5574a25521e31817f166435bbe7642f9a1"
     },
     {
       "id": "upstream-server-e7d3167caacc4f15",
@@ -79,16 +79,22 @@
       "fileName": "Chunky-1.3.146.jar"
     },
     {
-      "id": "upstream-server-dd9d371295d50615",
-      "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/ChKayKur/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-      "sha256": "936de62489c0d6fbe74202486cbe2b191b8629b02bab1d480acfdb03690f33f4",
-      "fileName": "CreativeCore_FORGE_v2.12.40_mc1.20.1.jar"
+      "id": "upstream-server-7a33be74a2bec5f5",
+      "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/HGkNDl47/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+      "sha256": "8d90a490c590613f79e51066bd885e5d93f947ab12790740c9b7cbd4e49b2676",
+      "fileName": "CreativeCore_FORGE_v2.12.42_mc1.20.1.jar"
     },
     {
       "id": "upstream-server-a0712cf33c609167",
       "url": "https://cdn.modrinth.com/data/Rw1NrDzF/versions/xnLznSfT/Cucumber-1.20.1-7.0.16.jar",
       "sha256": "b586a3cd1de362c365f923e5c325273916822f4b3a792c0d9ff6747d7deb2be6",
       "fileName": "Cucumber-1.20.1-7.0.16.jar"
+    },
+    {
+      "id": "upstream-server-c4f22ae47f6d5bfd",
+      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+      "sha256": "a537a71171d935540b56b7598d0de2c106f6f5026336c713d89a1d9ea0ea14e3",
+      "fileName": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar"
     },
     {
       "id": "upstream-server-dc010ae028610a2a",
@@ -185,12 +191,6 @@
       "url": "https://cdn.modrinth.com/data/e4uFcbDl/versions/DVOCes0G/MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
       "sha256": "293f2a1c911f300c31081da9210c53a43d30475322d83d8287a266040a9e4cde",
       "fileName": "MoreRed-CCT-Compat-1.20.1-1.0.0.jar"
-    },
-    {
-      "id": "upstream-server-0e316b2d31e1d0e4",
-      "url": "https://cdn.modrinth.com/data/qQyHxfxd/versions/2XUIKIAa/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-      "sha256": "1f6505721ce6a78ce46e662f65fc81646705f82f169e9b7565951d1965d51672",
-      "fileName": "NoChatReports-FORGE-1.20.1-v2.2.3.jar"
     },
     {
       "id": "upstream-server-97e38896dc4bee0a",
@@ -301,10 +301,10 @@
       "fileName": "TFC_punishment_for_death-1.20.1-1.0.0.16.jar"
     },
     {
-      "id": "upstream-server-db1a3116f2775d7a",
-      "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/U3YTPchH/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "sha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "fileName": "TerraFirmaGreg-Core-Modern-0.9.34.jar"
+      "id": "upstream-server-9f6c4e68004a8582",
+      "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/JRPRWuem/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "sha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "fileName": "TerraFirmaGreg-Core-Modern-0.9.36.jar"
     },
     {
       "id": "upstream-server-19bad1a27d89ee9c",
@@ -367,10 +367,10 @@
       "fileName": "ae2insertexportcard-1.20.1-1.3.0.jar"
     },
     {
-      "id": "upstream-server-5bab4a4c6a3aa5ac",
-      "url": "https://cdn.modrinth.com/data/pNabrMMw/versions/z8QXeyI0/ae2wtlib-15.3.3-forge.jar",
-      "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4",
-      "fileName": "ae2wtlib-15.3.3-forge.jar"
+      "id": "upstream-server-58e1d447723eb797",
+      "url": "https://edge.forgecdn.net/files/9531/944/ae2wtlib-15.4.1.jar",
+      "sha256": "bbf3d2bc5fa87b127c593074d8429a0181679d570d57676a70513114f40fbf3e",
+      "fileName": "ae2wtlib-15.4.1.jar"
     },
     {
       "id": "upstream-server-9117bb13c2544ee8",
@@ -391,10 +391,10 @@
       "fileName": "alekiNiftyShips-FORGE-1.20.1-1.0.14.jar"
     },
     {
-      "id": "upstream-server-2ec8f4792b296764",
-      "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
-      "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716",
-      "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar"
+      "id": "upstream-server-bbeaa497e80bfc5e",
+      "url": "https://edge.forgecdn.net/files/9640/602/alltheleaks-1.1.6-1.20.1-forge.jar",
+      "sha256": "6f5ad3c243b7425e181a61e973d31c7c415dd467e49638d3c5c2ffd25142dca0",
+      "fileName": "alltheleaks-1.1.6-1.20.1-forge.jar"
     },
     {
       "id": "upstream-server-28ac0503fce47bdb",
@@ -409,10 +409,10 @@
       "fileName": "applied_ammo_box-1.20.1-1.2.4.jar"
     },
     {
-      "id": "upstream-server-3d02dc6c71c497ec",
-      "url": "https://edge.forgecdn.net/files/9481/64/appliedenergistics2-forge-15.5.8-uelm.jar",
-      "sha256": "fcc7039b6c0004a71d0209acc363d6a658be924c55ee0efd8aa77601ba157b37",
-      "fileName": "appliedenergistics2-forge-15.5.8-uelm.jar"
+      "id": "upstream-server-de38c8e45a0bb843",
+      "url": "https://edge.forgecdn.net/files/9531/710/appliedenergistics2-forge-15.5.9-uelm.jar",
+      "sha256": "75f7dca11ca1922cb0f0a3ad37f1581c28a8bf74ce6527034c095de4ed2b618a",
+      "fileName": "appliedenergistics2-forge-15.5.9-uelm.jar"
     },
     {
       "id": "upstream-server-205f7c92dcd041aa",
@@ -505,10 +505,16 @@
       "fileName": "chalk-1.20.1-1.6.7.jar"
     },
     {
-      "id": "upstream-server-ea5d83abcf5cffb5",
-      "url": "https://edge.forgecdn.net/files/9465/347/chromatic_codes-0.16.5.jar",
-      "sha256": "4d4dcf518c7da746a7cd7e6b8ecc063f353c81f4117927113957132b20cabb7b",
-      "fileName": "chromatic_codes-0.16.5.jar"
+      "id": "upstream-server-8eea4b5dea7ea6c2",
+      "url": "https://edge.forgecdn.net/files/9677/835/chromatic_codes-0.16.7.jar",
+      "sha256": "099a1db11332ae96acd3939d18957cf61e00c5e0f8eecceebeffa3aa0177f6d7",
+      "fileName": "chromatic_codes-0.16.7.jar"
+    },
+    {
+      "id": "upstream-server-7228ea2c59ac0b7f",
+      "url": "https://cdn.modrinth.com/data/84USeAvk/versions/PPCx7dxb/clockwork-0.5.7.1.jar",
+      "sha256": "53c09b8c38296e4ebea6da4a1cbbbe999fa6d26d21bf2138618e6577eb4876d8",
+      "fileName": "clockwork-0.5.7.1.jar"
     },
     {
       "id": "upstream-server-d911aa572b230058",
@@ -547,10 +553,10 @@
       "fileName": "corpse-forge-1.20.1-1.0.23.jar"
     },
     {
-      "id": "upstream-server-abfc10b28cf0fdf3",
-      "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-      "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8",
-      "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar"
+      "id": "upstream-server-011122687dc54d38",
+      "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/quaQqSQa/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+      "sha256": "e175615cfc77c09b29c1312d9f93cc1e624523c589bb3eb8bfdaebcaeee7c6a9",
+      "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.1.jar"
     },
     {
       "id": "upstream-server-5e2f4d25cbf659dc",
@@ -649,10 +655,10 @@
       "fileName": "decay_2012-1.20.1-2.0.1.jar"
     },
     {
-      "id": "upstream-server-f42623a851ad7372",
-      "url": "https://edge.forgecdn.net/files/9017/119/diggerhelmet-1.20.1-1.0.0.32.jar",
-      "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f",
-      "fileName": "diggerhelmet-1.20.1-1.0.0.32.jar"
+      "id": "upstream-server-8043934adc09bc21",
+      "url": "https://edge.forgecdn.net/files/9679/176/diggerhelmet-1.20.1-1.0.0.33.jar",
+      "sha256": "132d6baabb4a35efd7f351fa028a727d46fd861be80f73a0be9a1f400996b783",
+      "fileName": "diggerhelmet-1.20.1-1.0.0.33.jar"
     },
     {
       "id": "upstream-server-510145f0bf030b14",
@@ -697,10 +703,10 @@
       "fileName": "expandedae-1.4.3.jar"
     },
     {
-      "id": "upstream-server-b662d3f5c83574c4",
-      "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
-      "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e",
-      "fileName": "exposure-forge-1.20.1-1.9.22.jar"
+      "id": "upstream-server-0bbab7fd5641dbcd",
+      "url": "https://cdn.modrinth.com/data/hB899VmG/versions/vPrmURi1/exposure-forge-1.20.1-1.9.24.jar",
+      "sha256": "0cdead21f9a70517ada89eb4cdcdd25d96ce7666afadf45b84e8180109a556a3",
+      "fileName": "exposure-forge-1.20.1-1.9.24.jar"
     },
     {
       "id": "upstream-server-86ab7fcd212088be",
@@ -829,10 +835,10 @@
       "fileName": "gregtechterminals-6.9.6.jar"
     },
     {
-      "id": "upstream-server-171a3011e7194d26",
-      "url": "https://edge.forgecdn.net/files/9410/927/gtcables-1.0.0.jar",
-      "sha256": "11028b321e8018e2577299eccb491b69d5dfe68f1eadb9ba032899551206afd9",
-      "fileName": "gtcables-1.0.0.jar"
+      "id": "upstream-server-1f3b4026d685170d",
+      "url": "https://edge.forgecdn.net/files/9519/545/gtcables-1.0.1.jar",
+      "sha256": "43bbd7fae3172eaa9bad6d8e98f516ed92ea4430f2e265cd48b1769d50b809ce",
+      "fileName": "gtcables-1.0.1.jar"
     },
     {
       "id": "upstream-server-1b268f45a4981b39",
@@ -847,10 +853,10 @@
       "fileName": "gtmoldraw-3.4.0.jar"
     },
     {
-      "id": "upstream-server-773f3d2a01dfe449",
-      "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/IyQ8F7M8/gtmutils-2.10.2.jar",
-      "sha256": "c64c9c5cc79deb753883380182a1095802e723fb34963efd5c1a06a64b5a33ca",
-      "fileName": "gtmutils-2.10.2.jar"
+      "id": "upstream-server-e0fa7a75c79925a1",
+      "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/fUyv1smw/gtmutils-2.10.3.jar",
+      "sha256": "357048d978610960f7dabbcad8e1c63442a76eab71593d5e4216d67f75aebc57",
+      "fileName": "gtmutils-2.10.3.jar"
     },
     {
       "id": "upstream-server-a772f722796f30f2",
@@ -877,6 +883,12 @@
       "fileName": "immersive_optimization-forge-1.20.1-0.2.0.jar"
     },
     {
+      "id": "upstream-server-6fadf61d2ff9d98f",
+      "url": "https://edge.forgecdn.net/files/9602/94/kelvin-1.20.1-0.5.2.jar",
+      "sha256": "1f70e4ada1f35d86d4e6000ad6908596865ddf471204c87e2fe0d8859f31e926",
+      "fileName": "kelvin-1.20.1-0.5.2.jar"
+    },
+    {
       "id": "upstream-server-76d1424d5cee8427",
       "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/Zsh14XeQ/kotlinforforge-4.12.0-all.jar",
       "sha256": "6a66c6a68ec09f8717cdbf06883394f0ee24d7cd826b7134a0f81839e8e720ae",
@@ -895,10 +907,10 @@
       "fileName": "kubejs-forge-2001.6.5-build.24.jar"
     },
     {
-      "id": "upstream-server-68543ba37475ca71",
-      "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/HNprLaYs/kubejs_tfc-1.20.1-1.3.5.jar",
-      "sha256": "9b7538f3eeef60841d1c02b8d42355675f4490612edc6f04c566ad0ac3ab71ed",
-      "fileName": "kubejs_tfc-1.20.1-1.3.5.jar"
+      "id": "upstream-server-a45a6753bd8b7ac3",
+      "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/8SZRYO65/kubejs_tfc-1.20.1-1.3.6.jar",
+      "sha256": "82af1131f29113cb846ba4980f2d968d0c0d2c92569f340e41fee734c731c625",
+      "fileName": "kubejs_tfc-1.20.1-1.3.6.jar"
     },
     {
       "id": "upstream-server-a63268a860271927",
@@ -967,6 +979,12 @@
       "fileName": "merequester-forge-1.20.1-1.2.1.jar"
     },
     {
+      "id": "upstream-server-9cd92ad15b70571c",
+      "url": "https://cdn.modrinth.com/data/1W98a849/versions/7syRW46i/minecraft-comes-alive-7.6.26%2B1.20.1-universal.jar",
+      "sha256": "5dc3ee1f2f74221b3b7b73456451bf9a3f0cc87c8378a64233680f051dbc3d19",
+      "fileName": "minecraft-comes-alive-7.6.26+1.20.1-universal.jar"
+    },
+    {
       "id": "upstream-server-688be6cb4c02aa4d",
       "url": "https://edge.forgecdn.net/files/4579/551/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
       "sha256": "0e7f355c721d4ec0f60e0fd89058fd0fbe6d6705b7ac7d8138f8fce00fe1a68e",
@@ -1009,10 +1027,10 @@
       "fileName": "pandalib-forge-0.4.2-1.20.jar"
     },
     {
-      "id": "upstream-server-864610f283d6a3a6",
-      "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
-      "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079",
-      "fileName": "particular-1.20.1-Forge-1.5.7.jar"
+      "id": "upstream-server-53c1e85f6d935086",
+      "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/mc1iueNJ/particular-1.20.1-Forge-1.6.1.jar",
+      "sha256": "6a51c5222805e8a936b4fc4c9bc82595138d436da6c2dc44dcd0bcab43facd53",
+      "fileName": "particular-1.20.1-Forge-1.6.1.jar"
     },
     {
       "id": "upstream-server-20f43cbe1831d879",
@@ -1045,16 +1063,16 @@
       "fileName": "realmrpg_skeletons-1.1.0-forge-1.20.1.jar"
     },
     {
-      "id": "upstream-server-55651ed1a12a6e7c",
-      "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/9RyEwybp/reliable_recipes-3.8.3+1.20.1-forge.jar",
-      "sha256": "99db0bd9d14832941cb0aad0239b774094ac3347005f352459d1cb5db6415fcb",
-      "fileName": "reliable_recipes-3.8.3+1.20.1-forge.jar"
+      "id": "upstream-server-520224ba6ff5b278",
+      "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/RRvvmIQM/reliable_recipes-3.9.0+1.20.1-forge.jar",
+      "sha256": "e756327eaf389973fad424bb3ea015fd6b0c61d124b6c733951dcb1b96e5c256",
+      "fileName": "reliable_recipes-3.9.0+1.20.1-forge.jar"
     },
     {
-      "id": "upstream-server-c91786f6274ddc95",
-      "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/DxmNFYLh/reliable_remover-3.8.4+1.20.1-forge.jar",
-      "sha256": "7857ab8056b2473c1ed0a4de9d9a5696b5d3ec76d2a118e6b9034aed6b072144",
-      "fileName": "reliable_remover-3.8.4+1.20.1-forge.jar"
+      "id": "upstream-server-ac6c8c70693b56ae",
+      "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/EwatjwlO/reliable_remover-3.9.3+1.20.1-forge.jar",
+      "sha256": "bc2582a411681c9a357b186e77a8909e48638ccab5ee3e0beb0bed07ce11ce30",
+      "fileName": "reliable_remover-3.9.3+1.20.1-forge.jar"
     },
     {
       "id": "upstream-server-91a397f572d96027",
@@ -1117,16 +1135,16 @@
       "fileName": "smoothboot(reloaded)-mc1.20.1-0.0.4.jar"
     },
     {
-      "id": "upstream-server-86f8f9d127a1d5ea",
-      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/VjliRs3R/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-      "sha256": "cb91112f013b314b411d0487739f3c5ecbe6b4732bbba5f8dd13cc64b0abca39",
-      "fileName": "sophisticatedbackpacks-1.20.1-3.26.19.2239.jar"
+      "id": "upstream-server-08264372df932a22",
+      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/gKcE0zFj/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+      "sha256": "3ec2aa5a143bdc1b2975e749044f28596fccc4479b3e9de5f52cd84d1dc46e38",
+      "fileName": "sophisticatedbackpacks-1.20.1-3.26.21.2256.jar"
     },
     {
-      "id": "upstream-server-59a976b11a567a64",
-      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/dICsXsDi/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-      "sha256": "d9d100956dc674b82f375f8001e907d92b336a6d6737584726f30d9cc05df76b",
-      "fileName": "sophisticatedcore-1.20.1-1.5.29.2459.jar"
+      "id": "upstream-server-013d890a6d566ec9",
+      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/lg9huR0q/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+      "sha256": "28e3c610fefa14b72c8f8c1fb60bf38e0685dfd5180f8a9cf9025de517fd1769",
+      "fileName": "sophisticatedcore-1.20.1-1.5.37.2488.jar"
     },
     {
       "id": "upstream-server-da683a9672f5b3cf",
@@ -1249,6 +1267,12 @@
       "fileName": "u_team_core-forge-1.20.1-5.1.4.382.jar"
     },
     {
+      "id": "upstream-server-05c19e8e0f57e4d0",
+      "url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/pOkdwuUh/valkyrienskies-120-2.4.11.jar",
+      "sha256": "f99f24de62015451a047f90484cf9d25970cac350105b581c22b2d5247ebfd53",
+      "fileName": "valkyrienskies-120-2.4.11.jar"
+    },
+    {
       "id": "upstream-server-1571f357d9cfeff4",
       "url": "https://cdn.modrinth.com/data/u2r2GYRW/versions/TUKYnKui/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
       "sha256": "158f3d5c4f61923ed5a8e3fdb6821efd116b31e8b0219dc697ce3baf291269d8",
@@ -1303,10 +1327,10 @@
       "fileName": "yet_another_config_lib_v3-3.6.6+1.20.1-forge.jar"
     },
     {
-      "id": "base-client-0.13.18",
-      "fileName": "tfg-base-0.13.18-client.zip",
-      "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.18/tfg-base-0.13.18-client.zip",
-      "sha256": "82585d62860562c6ff1d7fd5fb5defc8213365152b0a82716cc941698ed0d933"
+      "id": "base-client-0.13.19",
+      "fileName": "tfg-base-0.13.19-client.zip",
+      "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.19/tfg-base-0.13.19-client.zip",
+      "sha256": "aeb5ba6d6bd9191b38cd03115c47a57895b907c147d95488969381bcb8c604be"
     },
     {
       "id": "upstream-client-e7d3167caacc4f15",
@@ -1399,10 +1423,10 @@
       "fileName": "CrashAssistant-forge-1.19-1.20.1-1.11.12.jar"
     },
     {
-      "id": "upstream-client-dd9d371295d50615",
-      "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/ChKayKur/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-      "sha256": "936de62489c0d6fbe74202486cbe2b191b8629b02bab1d480acfdb03690f33f4",
-      "fileName": "CreativeCore_FORGE_v2.12.40_mc1.20.1.jar"
+      "id": "upstream-client-7a33be74a2bec5f5",
+      "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/HGkNDl47/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+      "sha256": "8d90a490c590613f79e51066bd885e5d93f947ab12790740c9b7cbd4e49b2676",
+      "fileName": "CreativeCore_FORGE_v2.12.42_mc1.20.1.jar"
     },
     {
       "id": "upstream-client-a0712cf33c609167",
@@ -1417,16 +1441,22 @@
       "fileName": "CutThrough-v8.0.2-1.20.1-Forge.jar"
     },
     {
+      "id": "upstream-client-c4f22ae47f6d5bfd",
+      "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+      "sha256": "a537a71171d935540b56b7598d0de2c106f6f5026336c713d89a1d9ea0ea14e3",
+      "fileName": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar"
+    },
+    {
       "id": "upstream-client-dc010ae028610a2a",
       "url": "https://cdn.modrinth.com/data/KjL0jE2w/versions/4IG1vNXQ/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
       "sha256": "29e8c198c8b45c97e01f2566b2ca2e72b2af5436edca9d04d75259377ebde291",
       "fileName": "EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar"
     },
     {
-      "id": "upstream-client-532bc99f4aeea9f7",
-      "url": "https://cdn.modrinth.com/data/4H6sumDB/versions/fhNVBg6d/EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
-      "sha256": "65f7437bbfc2474f5c3208e5280cd898f0623c451af541d8a5777cfb21d44c78",
-      "fileName": "EuphoriaPatcher-1.10.5-r5.9.3-forge.jar"
+      "id": "upstream-client-8361639803ca15eb",
+      "url": "https://cdn.modrinth.com/data/4H6sumDB/versions/qpFdTZF4/EuphoriaPatcher-1.11.1-r5.10-forge.jar",
+      "sha256": "9114d1fcd7351f1ce357725f03b1a789d9df8edcdd93fb02a5303db3fd03dc4c",
+      "fileName": "EuphoriaPatcher-1.11.1-r5.10-forge.jar"
     },
     {
       "id": "upstream-client-05c4e7126ba25356",
@@ -1567,12 +1597,6 @@
       "fileName": "MyServerIsCompatible-1.20-1.0.jar"
     },
     {
-      "id": "upstream-client-0e316b2d31e1d0e4",
-      "url": "https://cdn.modrinth.com/data/qQyHxfxd/versions/2XUIKIAa/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-      "sha256": "1f6505721ce6a78ce46e662f65fc81646705f82f169e9b7565951d1965d51672",
-      "fileName": "NoChatReports-FORGE-1.20.1-v2.2.3.jar"
-    },
-    {
       "id": "upstream-client-97e38896dc4bee0a",
       "url": "https://cdn.modrinth.com/data/bQh7xzFq/versions/xXV9YBzF/Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
       "sha256": "8f05afb56310b21e91d2f1d1200a9c0d98a34a9689b9b6288a6507c0498b299d",
@@ -1699,10 +1723,10 @@
       "fileName": "TFC_punishment_for_death-1.20.1-1.0.0.16.jar"
     },
     {
-      "id": "upstream-client-db1a3116f2775d7a",
-      "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/U3YTPchH/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "sha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "fileName": "TerraFirmaGreg-Core-Modern-0.9.34.jar"
+      "id": "upstream-client-9f6c4e68004a8582",
+      "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/JRPRWuem/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "sha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "fileName": "TerraFirmaGreg-Core-Modern-0.9.36.jar"
     },
     {
       "id": "upstream-client-19bad1a27d89ee9c",
@@ -1771,10 +1795,10 @@
       "fileName": "ae2insertexportcard-1.20.1-1.3.0.jar"
     },
     {
-      "id": "upstream-client-5bab4a4c6a3aa5ac",
-      "url": "https://cdn.modrinth.com/data/pNabrMMw/versions/z8QXeyI0/ae2wtlib-15.3.3-forge.jar",
-      "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4",
-      "fileName": "ae2wtlib-15.3.3-forge.jar"
+      "id": "upstream-client-58e1d447723eb797",
+      "url": "https://edge.forgecdn.net/files/9531/944/ae2wtlib-15.4.1.jar",
+      "sha256": "bbf3d2bc5fa87b127c593074d8429a0181679d570d57676a70513114f40fbf3e",
+      "fileName": "ae2wtlib-15.4.1.jar"
     },
     {
       "id": "upstream-client-9117bb13c2544ee8",
@@ -1795,10 +1819,10 @@
       "fileName": "alekiNiftyShips-FORGE-1.20.1-1.0.14.jar"
     },
     {
-      "id": "upstream-client-2ec8f4792b296764",
-      "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
-      "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716",
-      "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar"
+      "id": "upstream-client-bbeaa497e80bfc5e",
+      "url": "https://edge.forgecdn.net/files/9640/602/alltheleaks-1.1.6-1.20.1-forge.jar",
+      "sha256": "6f5ad3c243b7425e181a61e973d31c7c415dd467e49638d3c5c2ffd25142dca0",
+      "fileName": "alltheleaks-1.1.6-1.20.1-forge.jar"
     },
     {
       "id": "upstream-client-28ac0503fce47bdb",
@@ -1813,10 +1837,10 @@
       "fileName": "applied_ammo_box-1.20.1-1.2.4.jar"
     },
     {
-      "id": "upstream-client-3d02dc6c71c497ec",
-      "url": "https://edge.forgecdn.net/files/9481/64/appliedenergistics2-forge-15.5.8-uelm.jar",
-      "sha256": "fcc7039b6c0004a71d0209acc363d6a658be924c55ee0efd8aa77601ba157b37",
-      "fileName": "appliedenergistics2-forge-15.5.8-uelm.jar"
+      "id": "upstream-client-de38c8e45a0bb843",
+      "url": "https://edge.forgecdn.net/files/9531/710/appliedenergistics2-forge-15.5.9-uelm.jar",
+      "sha256": "75f7dca11ca1922cb0f0a3ad37f1581c28a8bf74ce6527034c095de4ed2b618a",
+      "fileName": "appliedenergistics2-forge-15.5.9-uelm.jar"
     },
     {
       "id": "upstream-client-205f7c92dcd041aa",
@@ -1927,16 +1951,22 @@
       "fileName": "cherishedworlds-forge-6.1.7+1.20.1.jar"
     },
     {
-      "id": "upstream-client-ea5d83abcf5cffb5",
-      "url": "https://edge.forgecdn.net/files/9465/347/chromatic_codes-0.16.5.jar",
-      "sha256": "4d4dcf518c7da746a7cd7e6b8ecc063f353c81f4117927113957132b20cabb7b",
-      "fileName": "chromatic_codes-0.16.5.jar"
+      "id": "upstream-client-8eea4b5dea7ea6c2",
+      "url": "https://edge.forgecdn.net/files/9677/835/chromatic_codes-0.16.7.jar",
+      "sha256": "099a1db11332ae96acd3939d18957cf61e00c5e0f8eecceebeffa3aa0177f6d7",
+      "fileName": "chromatic_codes-0.16.7.jar"
     },
     {
       "id": "upstream-client-81009610dd6083d2",
       "url": "https://edge.forgecdn.net/files/8697/32/clienttweaks-forge-1.20.1-11.1.11.jar",
       "sha256": "4516ae5b631e9405ccd2215613d25f482d8890cffc486e6e736a0e79134123ca",
       "fileName": "clienttweaks-forge-1.20.1-11.1.11.jar"
+    },
+    {
+      "id": "upstream-client-7228ea2c59ac0b7f",
+      "url": "https://cdn.modrinth.com/data/84USeAvk/versions/PPCx7dxb/clockwork-0.5.7.1.jar",
+      "sha256": "53c09b8c38296e4ebea6da4a1cbbbe999fa6d26d21bf2138618e6577eb4876d8",
+      "fileName": "clockwork-0.5.7.1.jar"
     },
     {
       "id": "upstream-client-d911aa572b230058",
@@ -1981,10 +2011,10 @@
       "fileName": "corpse-forge-1.20.1-1.0.23.jar"
     },
     {
-      "id": "upstream-client-abfc10b28cf0fdf3",
-      "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-      "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8",
-      "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar"
+      "id": "upstream-client-011122687dc54d38",
+      "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/quaQqSQa/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+      "sha256": "e175615cfc77c09b29c1312d9f93cc1e624523c589bb3eb8bfdaebcaeee7c6a9",
+      "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.1.jar"
     },
     {
       "id": "upstream-client-5e2f4d25cbf659dc",
@@ -2101,10 +2131,10 @@
       "fileName": "defaultoptions-forge-1.20.1-18.0.5.jar"
     },
     {
-      "id": "upstream-client-f42623a851ad7372",
-      "url": "https://edge.forgecdn.net/files/9017/119/diggerhelmet-1.20.1-1.0.0.32.jar",
-      "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f",
-      "fileName": "diggerhelmet-1.20.1-1.0.0.32.jar"
+      "id": "upstream-client-8043934adc09bc21",
+      "url": "https://edge.forgecdn.net/files/9679/176/diggerhelmet-1.20.1-1.0.0.33.jar",
+      "sha256": "132d6baabb4a35efd7f351fa028a727d46fd861be80f73a0be9a1f400996b783",
+      "fileName": "diggerhelmet-1.20.1-1.0.0.33.jar"
     },
     {
       "id": "upstream-client-510145f0bf030b14",
@@ -2143,10 +2173,10 @@
       "fileName": "endermanoverhaul-forge-1.20.1-1.0.4.jar"
     },
     {
-      "id": "upstream-client-e5146761e551f24d",
-      "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/HUUJcFnt/entityculling-forge-1.11.3-mc1.20.1.jar",
-      "sha256": "86de2a9fc6538bc26e71e5393ae72018eb9bb349a5dbaa0645fd194da5654b66",
-      "fileName": "entityculling-forge-1.11.3-mc1.20.1.jar"
+      "id": "upstream-client-6cc5b9b8e7a439e3",
+      "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/Udu5Sovd/entityculling-forge-1.12.1-mc1.20.1.jar",
+      "sha256": "94f8881f696dfa73f1fe59395fca040655187ca87340747fb65cad69e13759b9",
+      "fileName": "entityculling-forge-1.12.1-mc1.20.1.jar"
     },
     {
       "id": "upstream-client-a037857d785c72d4",
@@ -2167,10 +2197,10 @@
       "fileName": "expandedae-1.4.3.jar"
     },
     {
-      "id": "upstream-client-b662d3f5c83574c4",
-      "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
-      "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e",
-      "fileName": "exposure-forge-1.20.1-1.9.22.jar"
+      "id": "upstream-client-0bbab7fd5641dbcd",
+      "url": "https://cdn.modrinth.com/data/hB899VmG/versions/vPrmURi1/exposure-forge-1.20.1-1.9.24.jar",
+      "sha256": "0cdead21f9a70517ada89eb4cdcdd25d96ce7666afadf45b84e8180109a556a3",
+      "fileName": "exposure-forge-1.20.1-1.9.24.jar"
     },
     {
       "id": "upstream-client-86ab7fcd212088be",
@@ -2317,10 +2347,10 @@
       "fileName": "gregtechterminals-6.9.6.jar"
     },
     {
-      "id": "upstream-client-171a3011e7194d26",
-      "url": "https://edge.forgecdn.net/files/9410/927/gtcables-1.0.0.jar",
-      "sha256": "11028b321e8018e2577299eccb491b69d5dfe68f1eadb9ba032899551206afd9",
-      "fileName": "gtcables-1.0.0.jar"
+      "id": "upstream-client-1f3b4026d685170d",
+      "url": "https://edge.forgecdn.net/files/9519/545/gtcables-1.0.1.jar",
+      "sha256": "43bbd7fae3172eaa9bad6d8e98f516ed92ea4430f2e265cd48b1769d50b809ce",
+      "fileName": "gtcables-1.0.1.jar"
     },
     {
       "id": "upstream-client-1b268f45a4981b39",
@@ -2335,10 +2365,10 @@
       "fileName": "gtmoldraw-3.4.0.jar"
     },
     {
-      "id": "upstream-client-773f3d2a01dfe449",
-      "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/IyQ8F7M8/gtmutils-2.10.2.jar",
-      "sha256": "c64c9c5cc79deb753883380182a1095802e723fb34963efd5c1a06a64b5a33ca",
-      "fileName": "gtmutils-2.10.2.jar"
+      "id": "upstream-client-e0fa7a75c79925a1",
+      "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/fUyv1smw/gtmutils-2.10.3.jar",
+      "sha256": "357048d978610960f7dabbcad8e1c63442a76eab71593d5e4216d67f75aebc57",
+      "fileName": "gtmutils-2.10.3.jar"
     },
     {
       "id": "upstream-client-a772f722796f30f2",
@@ -2389,6 +2419,12 @@
       "fileName": "itemphysicguns-1.0.3-7686b43.jar"
     },
     {
+      "id": "upstream-client-6fadf61d2ff9d98f",
+      "url": "https://edge.forgecdn.net/files/9602/94/kelvin-1.20.1-0.5.2.jar",
+      "sha256": "1f70e4ada1f35d86d4e6000ad6908596865ddf471204c87e2fe0d8859f31e926",
+      "fileName": "kelvin-1.20.1-0.5.2.jar"
+    },
+    {
       "id": "upstream-client-c6782ed0c9b8693b",
       "url": "https://cdn.modrinth.com/data/J81TRJWm/versions/skYziQQL/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
       "sha256": "e78686b92c3761ec26eb9d3c53efdd3d6ca77981cbd3723995e1163b7103ae0b",
@@ -2413,10 +2449,10 @@
       "fileName": "kubejs-forge-2001.6.5-build.24.jar"
     },
     {
-      "id": "upstream-client-68543ba37475ca71",
-      "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/HNprLaYs/kubejs_tfc-1.20.1-1.3.5.jar",
-      "sha256": "9b7538f3eeef60841d1c02b8d42355675f4490612edc6f04c566ad0ac3ab71ed",
-      "fileName": "kubejs_tfc-1.20.1-1.3.5.jar"
+      "id": "upstream-client-a45a6753bd8b7ac3",
+      "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/8SZRYO65/kubejs_tfc-1.20.1-1.3.6.jar",
+      "sha256": "82af1131f29113cb846ba4980f2d968d0c0d2c92569f340e41fee734c731c625",
+      "fileName": "kubejs_tfc-1.20.1-1.3.6.jar"
     },
     {
       "id": "upstream-client-a63268a860271927",
@@ -2497,6 +2533,12 @@
       "fileName": "merequester-forge-1.20.1-1.2.1.jar"
     },
     {
+      "id": "upstream-client-9cd92ad15b70571c",
+      "url": "https://cdn.modrinth.com/data/1W98a849/versions/7syRW46i/minecraft-comes-alive-7.6.26%2B1.20.1-universal.jar",
+      "sha256": "5dc3ee1f2f74221b3b7b73456451bf9a3f0cc87c8378a64233680f051dbc3d19",
+      "fileName": "minecraft-comes-alive-7.6.26+1.20.1-universal.jar"
+    },
+    {
       "id": "upstream-client-688be6cb4c02aa4d",
       "url": "https://edge.forgecdn.net/files/4579/551/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
       "sha256": "0e7f355c721d4ec0f60e0fd89058fd0fbe6d6705b7ac7d8138f8fce00fe1a68e",
@@ -2557,10 +2599,10 @@
       "fileName": "particle_core-0.3.3+1.20.1+forge.jar"
     },
     {
-      "id": "upstream-client-864610f283d6a3a6",
-      "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
-      "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079",
-      "fileName": "particular-1.20.1-Forge-1.5.7.jar"
+      "id": "upstream-client-53c1e85f6d935086",
+      "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/mc1iueNJ/particular-1.20.1-Forge-1.6.1.jar",
+      "sha256": "6a51c5222805e8a936b4fc4c9bc82595138d436da6c2dc44dcd0bcab43facd53",
+      "fileName": "particular-1.20.1-Forge-1.6.1.jar"
     },
     {
       "id": "upstream-client-20f43cbe1831d879",
@@ -2593,22 +2635,22 @@
       "fileName": "realmrpg_skeletons-1.1.0-forge-1.20.1.jar"
     },
     {
-      "id": "upstream-client-5aeb0343bb7c1922",
-      "url": "https://edge.forgecdn.net/files/9364/987/reliable_recipes-3.8.3-1.20.1-forge.jar",
-      "sha256": "99db0bd9d14832941cb0aad0239b774094ac3347005f352459d1cb5db6415fcb",
-      "fileName": "reliable_recipes-3.8.3-1.20.1-forge.jar"
+      "id": "upstream-client-ca3ca6d2c7f40d1d",
+      "url": "https://edge.forgecdn.net/files/9567/42/reliable_recipes-3.9.0-1.20.1-forge.jar",
+      "sha256": "e756327eaf389973fad424bb3ea015fd6b0c61d124b6c733951dcb1b96e5c256",
+      "fileName": "reliable_recipes-3.9.0-1.20.1-forge.jar"
     },
     {
-      "id": "upstream-client-ada1a0ecc8fe7df2",
-      "url": "https://edge.forgecdn.net/files/9406/632/reliable_remover-3.8.4-1.20.1-forge.jar",
-      "sha256": "7857ab8056b2473c1ed0a4de9d9a5696b5d3ec76d2a118e6b9034aed6b072144",
-      "fileName": "reliable_remover-3.8.4-1.20.1-forge.jar"
+      "id": "upstream-client-5e7c3f146618ac4b",
+      "url": "https://edge.forgecdn.net/files/9662/707/reliable_remover-3.9.3-1.20.1-forge.jar",
+      "sha256": "bc2582a411681c9a357b186e77a8909e48638ccab5ee3e0beb0bed07ce11ce30",
+      "fileName": "reliable_remover-3.9.3-1.20.1-forge.jar"
     },
     {
-      "id": "upstream-client-e3f13670609035d3",
-      "url": "https://cdn.modrinth.com/data/N9WucjHL/versions/9b1U5yMI/remi-forge-1.20.1-4.8.1.jar",
-      "sha256": "55b8f771ed78d1d02917673c3a66150af253d638683411158f41ca8b41ca71c3",
-      "fileName": "remi-forge-1.20.1-4.8.1.jar"
+      "id": "upstream-client-0b3e447c4911dcfb",
+      "url": "https://cdn.modrinth.com/data/N9WucjHL/versions/jW9hlLFS/remi-forge-1.20.1-4.9.0.jar",
+      "sha256": "6483c4011759b7078453ce7acb33331c41498a7bf2a8bae13c4d8cd59ca61a15",
+      "fileName": "remi-forge-1.20.1-4.9.0.jar"
     },
     {
       "id": "upstream-client-91a397f572d96027",
@@ -2647,10 +2689,10 @@
       "fileName": "saturn-mc1.20.1-0.1.3.jar"
     },
     {
-      "id": "upstream-client-4d80a8d1f852fb9e",
-      "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/J0Bp2ckj/seasonhud-forge-1.20.1-2.0.11.jar",
-      "sha256": "acd37ba9ae52fe2fbea096180b2695e467892bd511a4057882d33e46e41bcc50",
-      "fileName": "seasonhud-forge-1.20.1-2.0.11.jar"
+      "id": "upstream-client-2ec4e872b570c348",
+      "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/6n2Hz48p/seasonhud-forge-1.20.1-2.0.12.jar",
+      "sha256": "23a74e8bfae02ebe943d8e1bcb3218ead9ec11f097863d1ce551f5e6f0e5ed2f",
+      "fileName": "seasonhud-forge-1.20.1-2.0.12.jar"
     },
     {
       "id": "upstream-client-d22164259569afab",
@@ -2695,16 +2737,16 @@
       "fileName": "sodiumoptionsapi-forge-1.0.10-1.20.1.jar"
     },
     {
-      "id": "upstream-client-86f8f9d127a1d5ea",
-      "url": "https://edge.forgecdn.net/files/9385/316/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-      "sha256": "570a1aac649185e29a574b57dfaa78a631a7247477667020a8ce5266f6c48746",
-      "fileName": "sophisticatedbackpacks-1.20.1-3.26.19.2239.jar"
+      "id": "upstream-client-08264372df932a22",
+      "url": "https://edge.forgecdn.net/files/9692/535/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+      "sha256": "b797b5a0c3096e1a1a6182eaa3eae0edb1fd8b3797a1c3e56184b92ae7ba9d40",
+      "fileName": "sophisticatedbackpacks-1.20.1-3.26.21.2256.jar"
     },
     {
-      "id": "upstream-client-59a976b11a567a64",
-      "url": "https://edge.forgecdn.net/files/9477/656/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-      "sha256": "d0881bf634ee03ad8c38497f09a3bc3fe2c252af88791a4e7147f2f36cff3493",
-      "fileName": "sophisticatedcore-1.20.1-1.5.29.2459.jar"
+      "id": "upstream-client-013d890a6d566ec9",
+      "url": "https://edge.forgecdn.net/files/9692/501/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+      "sha256": "afb2c333a03db21c794481c3e9917f355da3f75b1098cd95f1f2ec9a0dcd2300",
+      "fileName": "sophisticatedcore-1.20.1-1.5.37.2488.jar"
     },
     {
       "id": "upstream-client-c7afe38f82b78f7e",
@@ -2845,6 +2887,12 @@
       "fileName": "u_team_core-forge-1.20.1-5.1.4.382.jar"
     },
     {
+      "id": "upstream-client-05c19e8e0f57e4d0",
+      "url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/pOkdwuUh/valkyrienskies-120-2.4.11.jar",
+      "sha256": "f99f24de62015451a047f90484cf9d25970cac350105b581c22b2d5247ebfd53",
+      "fileName": "valkyrienskies-120-2.4.11.jar"
+    },
+    {
       "id": "upstream-client-1571f357d9cfeff4",
       "url": "https://cdn.modrinth.com/data/u2r2GYRW/versions/TUKYnKui/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
       "sha256": "158f3d5c4f61923ed5a8e3fdb6821efd116b31e8b0219dc697ce3baf291269d8",
@@ -2953,10 +3001,10 @@
       "fileName": "tfg-accurate-create-machines.zip"
     },
     {
-      "id": "upstream-client-9f5fbfc683276e4b",
-      "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/B1kyfoUZ/ComplementaryUnbound_r5.9.3.zip",
-      "sha256": "98ac741dee294d2a3c82d153349148c3bb7fb688c30eb3b49c3b9ac37e968c5a",
-      "fileName": "ComplementaryUnbound_r5.9.3.zip"
+      "id": "upstream-client-752ed2d89451b440",
+      "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/QJiYQisE/ComplementaryUnbound_r5.10.zip",
+      "sha256": "f19bf3268669576485124b7a717980f46b6200cde146fa181e794a2df0f9c2da",
+      "fileName": "ComplementaryUnbound_r5.10.zip"
     },
     {
       "id": "upstream-client-68634a590a7e24f2",
@@ -3074,127 +3122,139 @@
     },
     {
       "id": "fork-11d6e27de2cfa11b",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/.pakku/server-overrides/README.md",
-      "sha256": "10cbacfb31555386f4dd011976f05054680b9f9d9775ad399c00215f6be9fee2",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/.pakku/server-overrides/README.md",
+      "sha256": "15c1608bde553dce615a83029ce94830dcd8f30b0a45eaed3acc511835fa0d15",
       "fileName": "README.md"
     },
     {
       "id": "fork-06572a96a58dc510",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/CHANGELOG.md",
-      "sha256": "073607c5c7ead83159fca8402390d4fecd4052b2cbcf6cea9bf4017348da2577",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/CHANGELOG.md",
+      "sha256": "5a2260b8ce8546300cd91ec2b35f7934e109db5d762cdf8fdafbc48d88ba5dca",
       "fileName": "CHANGELOG.md"
     },
     {
+      "id": "fork-236df6564aa1c03b",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/config/DistantHorizons.toml",
+      "sha256": "58fb4f5ed43989a6d46dd0c2a479f146bd704bbea5c421b880c30d693d6656c8",
+      "fileName": "DistantHorizons.toml"
+    },
+    {
       "id": "fork-2d9a5a87b7ededb5",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/docs/upstream-sync-0.13.15.md",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/docs/upstream-sync-0.13.15.md",
       "sha256": "82fa4d0a3220f9de74dab3193792ca8279283769b0b8d19c1fc7b066af9254fa",
       "fileName": "upstream-sync-0.13.15.md"
     },
     {
       "id": "fork-addaa29105c4aff7",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/docs/upstream-sync-0.13.17.md",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/docs/upstream-sync-0.13.17.md",
       "sha256": "632e080f4f04d06603f85ce01bf448ef36a4a2567422e54e2cf0ddd91cc949db",
       "fileName": "upstream-sync-0.13.17.md"
     },
     {
+      "id": "fork-ccb16ac12550281a",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/docs/upstream-sync-0.13.19.md",
+      "sha256": "8a22f2a026cefcbc656cbf3e2efb432d7a554849caf99e9088d18053f9edac35",
+      "fileName": "upstream-sync-0.13.19.md"
+    },
+    {
       "id": "fork-b33be5cbe1b980b9",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/assets/tfg/lang/en_us.json",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/assets/tfg/lang/en_us.json",
       "sha256": "16e94ba3f65241b0613e34c1341eba75ab35476ea6b148de9c5feba516e4516f",
       "fileName": "en_us.json"
     },
     {
       "id": "fork-a2d4b0c6511f1a68",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/buildinggadgets2/recipes.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/buildinggadgets2/recipes.js",
       "sha256": "7b4364e936adfe6908beffc879df762a3a45c321ed57111457487a4ad57ea56a",
       "fileName": "recipes.js"
     },
     {
       "id": "fork-69871d7cdf9c6489",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/main_server_script.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/main_server_script.js",
       "sha256": "a435527fa12bfd202987fe988f59f204b67200dcf0d93772d74def9bc014bbd0",
       "fileName": "main_server_script.js"
     },
     {
       "id": "fork-237b5676858bc7c4",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/mega_cells/recipes.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/mega_cells/recipes.js",
       "sha256": "4a71c281fbece816670def191714be2e01a1b7cc3cb9729724bbc559c4fa4cc1",
       "fileName": "recipes.js"
     },
     {
       "id": "fork-cb08779a96f77818",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/species/recipes.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/species/recipes.js",
       "sha256": "72812b265fc822396ae978c4e4fdc070e369f9b236cb4537b826db0178e562ad",
       "fileName": "recipes.js"
     },
     {
       "id": "fork-8aab3c717235e8f7",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/food/recipes.food.sandwiches.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/food/recipes.food.sandwiches.js",
       "sha256": "f63b31ff4add27464f890fe41eea5ca528392745cc70975f218dcee9c99c9ed0",
       "fileName": "recipes.food.sandwiches.js"
     },
     {
       "id": "fork-caebfa881c79cfaf",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/natural_blocks/recipes.alabaster.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/natural_blocks/recipes.alabaster.js",
       "sha256": "8ea9077d4455648c2255f8974d9bf544266b25d621f54520fb541380abcf2f4d",
       "fileName": "recipes.alabaster.js"
     },
     {
       "id": "fork-58c6b419d5ee7755",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/natural_blocks/recipes.rocks.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/natural_blocks/recipes.rocks.js",
       "sha256": "e8f735b16888639e414557e9dc1fecb86548341b2cf83d5421c3ac1c0eaca84f",
       "fileName": "recipes.rocks.js"
     },
     {
       "id": "fork-71de343cdc2a4ece",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/natural_blocks/tags.building_safety.js",
       "sha256": "937cf26aa3283984c4e0726dfa19e59e82faf6dc4b03e325ed70c992cfeb5699",
       "fileName": "tags.building_safety.js"
     },
     {
       "id": "fork-6de99e816e18e0fd",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/ores_and_materials/recipes.alloys.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/ores_and_materials/recipes.alloys.js",
       "sha256": "5c5684bc1c3dd1d66e7888fdcdf60d94ccf6c3a110f136226b8a9478db596a20",
       "fileName": "recipes.alloys.js"
     },
     {
       "id": "fork-b98f9210172db41f",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/ores_and_materials/recipes.renewable_ores.js",
       "sha256": "57940f98e908eb410a3c96e91aa73386c5f51040f6b0b192884ebc6fcef817c7",
       "fileName": "recipes.renewable_ores.js"
     },
     {
       "id": "fork-d47bef3134b6f04b",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/ores_and_materials/tags.materials.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/ores_and_materials/tags.materials.js",
       "sha256": "a90fb17bce475a038a7f70c580ad3f27f3ff588d946f49cd6794cd4179fd21fd",
       "fileName": "tags.materials.js"
     },
     {
       "id": "fork-3ed704fbacf021f3",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/primitive/medicine/recipes.medicine.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/primitive/medicine/recipes.medicine.js",
       "sha256": "9eaba86bc041593b7321bc9719fe64499d1df34153bf42d0bc364c3a98d7a694",
       "fileName": "recipes.medicine.js"
     },
     {
       "id": "fork-acbbc3617991e1a2",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/primitive/recipes.compost.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/primitive/recipes.compost.js",
       "sha256": "6c4423912d734ac47efb1b21b81905d8f70bb435f48cb9cdffc0889614089039",
       "fileName": "recipes.compost.js"
     },
     {
       "id": "fork-49f8525e4c1f8aeb",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/server_scripts/tfg/recipes.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/server_scripts/tfg/recipes.js",
       "sha256": "9e9e19688050f0683c0b46cbd26bc0da15ee6d84df66dbddd866452ba6ffddef",
       "fileName": "recipes.js"
     },
     {
       "id": "fork-5449fb0a6e2f7eb0",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/startup_scripts/tfg/materials.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/startup_scripts/tfg/materials.js",
       "sha256": "1b73035ff03e85d2b3ed75cb55ccd46860c74f9c9f006d694a8dacbe1d2c29f8",
       "fileName": "materials.js"
     },
     {
       "id": "fork-8720a4453c43dfce",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.18.2/kubejs/startup_scripts/tfg/materials/materials.renewable_ores.js",
+      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.2/kubejs/startup_scripts/tfg/materials/materials.renewable_ores.js",
       "sha256": "8645d46eef6ad2bfb02f341566c338d89f86fbb87966b22f953a88a0f752eb09",
       "fileName": "materials.renewable_ores.js"
     }
@@ -3202,13 +3262,13 @@
   "operations": [
     {
       "type": "migratePack",
-      "artifact": "base-server-0.13.18",
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.31.jar",
-      "sourceSha256": "9b78d57b898a309783b82b623128899ed60badb70aac401e31936195d8620913",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "targetSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "marker": ".nstut-tfg-base-0.13.18",
-      "markerContent": "{\n  \"baseRef\": \"0.13.18\",\n  \"upstreamCommit\": \"a51824514af63ada07fcfd162ef85b3b9840c103\"\n}\n",
+      "artifact": "base-server-0.13.19",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "sourceSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "targetSha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "marker": ".nstut-tfg-base-0.13.19",
+      "markerContent": "{\n  \"baseRef\": \"0.13.19\",\n  \"upstreamCommit\": \"065edebfa6196056767c3484648286964b949536\"\n}\n",
       "targets": [
         "server"
       ]
@@ -3295,8 +3355,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-dd9d371295d50615",
-      "destination": "mods/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
+      "artifact": "upstream-server-7a33be74a2bec5f5",
+      "destination": "mods/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
       "targets": [
         "server"
       ]
@@ -3305,6 +3365,14 @@
       "type": "installFile",
       "artifact": "upstream-server-a0712cf33c609167",
       "destination": "mods/Cucumber-1.20.1-7.0.16.jar",
+      "targets": [
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "upstream-server-c4f22ae47f6d5bfd",
+      "destination": "mods/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
       "targets": [
         "server"
       ]
@@ -3433,14 +3501,6 @@
       "type": "installFile",
       "artifact": "upstream-server-76d203f65170c317",
       "destination": "mods/MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
-      "targets": [
-        "server"
-      ]
-    },
-    {
-      "type": "installFile",
-      "artifact": "upstream-server-0e316b2d31e1d0e4",
-      "destination": "mods/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
       "targets": [
         "server"
       ]
@@ -3591,8 +3651,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-db1a3116f2775d7a",
-      "destination": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "artifact": "upstream-server-9f6c4e68004a8582",
+      "destination": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
       "targets": [
         "server"
       ]
@@ -3679,8 +3739,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-5bab4a4c6a3aa5ac",
-      "destination": "mods/ae2wtlib-15.3.3-forge.jar",
+      "artifact": "upstream-server-58e1d447723eb797",
+      "destination": "mods/ae2wtlib-15.4.1.jar",
       "targets": [
         "server"
       ]
@@ -3711,8 +3771,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-2ec8f4792b296764",
-      "destination": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
+      "artifact": "upstream-server-bbeaa497e80bfc5e",
+      "destination": "mods/alltheleaks-1.1.6-1.20.1-forge.jar",
       "targets": [
         "server"
       ]
@@ -3735,8 +3795,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-3d02dc6c71c497ec",
-      "destination": "mods/appliedenergistics2-forge-15.5.8-uelm.jar",
+      "artifact": "upstream-server-de38c8e45a0bb843",
+      "destination": "mods/appliedenergistics2-forge-15.5.9-uelm.jar",
       "targets": [
         "server"
       ]
@@ -3863,8 +3923,16 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-ea5d83abcf5cffb5",
-      "destination": "mods/chromatic_codes-0.16.5.jar",
+      "artifact": "upstream-server-8eea4b5dea7ea6c2",
+      "destination": "mods/chromatic_codes-0.16.7.jar",
+      "targets": [
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "upstream-server-7228ea2c59ac0b7f",
+      "destination": "mods/clockwork-0.5.7.1.jar",
       "targets": [
         "server"
       ]
@@ -3919,8 +3987,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-abfc10b28cf0fdf3",
-      "destination": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+      "artifact": "upstream-server-011122687dc54d38",
+      "destination": "mods/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
       "targets": [
         "server"
       ]
@@ -4055,8 +4123,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-f42623a851ad7372",
-      "destination": "mods/diggerhelmet-1.20.1-1.0.0.32.jar",
+      "artifact": "upstream-server-8043934adc09bc21",
+      "destination": "mods/diggerhelmet-1.20.1-1.0.0.33.jar",
       "targets": [
         "server"
       ]
@@ -4119,8 +4187,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-b662d3f5c83574c4",
-      "destination": "mods/exposure-forge-1.20.1-1.9.22.jar",
+      "artifact": "upstream-server-0bbab7fd5641dbcd",
+      "destination": "mods/exposure-forge-1.20.1-1.9.24.jar",
       "targets": [
         "server"
       ]
@@ -4295,8 +4363,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-171a3011e7194d26",
-      "destination": "mods/gtcables-1.0.0.jar",
+      "artifact": "upstream-server-1f3b4026d685170d",
+      "destination": "mods/gtcables-1.0.1.jar",
       "targets": [
         "server"
       ]
@@ -4319,8 +4387,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-773f3d2a01dfe449",
-      "destination": "mods/gtmutils-2.10.2.jar",
+      "artifact": "upstream-server-e0fa7a75c79925a1",
+      "destination": "mods/gtmutils-2.10.3.jar",
       "targets": [
         "server"
       ]
@@ -4359,6 +4427,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-server-6fadf61d2ff9d98f",
+      "destination": "mods/kelvin-1.20.1-0.5.2.jar",
+      "targets": [
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-server-76d1424d5cee8427",
       "destination": "mods/kotlinforforge-4.12.0-all.jar",
       "targets": [
@@ -4383,8 +4459,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-68543ba37475ca71",
-      "destination": "mods/kubejs_tfc-1.20.1-1.3.5.jar",
+      "artifact": "upstream-server-a45a6753bd8b7ac3",
+      "destination": "mods/kubejs_tfc-1.20.1-1.3.6.jar",
       "targets": [
         "server"
       ]
@@ -4479,6 +4555,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-server-9cd92ad15b70571c",
+      "destination": "mods/minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+      "targets": [
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-server-688be6cb4c02aa4d",
       "destination": "mods/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
       "targets": [
@@ -4535,8 +4619,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-864610f283d6a3a6",
-      "destination": "mods/particular-1.20.1-Forge-1.5.7.jar",
+      "artifact": "upstream-server-53c1e85f6d935086",
+      "destination": "mods/particular-1.20.1-Forge-1.6.1.jar",
       "targets": [
         "server"
       ]
@@ -4583,16 +4667,16 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-55651ed1a12a6e7c",
-      "destination": "mods/reliable_recipes-3.8.3+1.20.1-forge.jar",
+      "artifact": "upstream-server-520224ba6ff5b278",
+      "destination": "mods/reliable_recipes-3.9.0+1.20.1-forge.jar",
       "targets": [
         "server"
       ]
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-c91786f6274ddc95",
-      "destination": "mods/reliable_remover-3.8.4+1.20.1-forge.jar",
+      "artifact": "upstream-server-ac6c8c70693b56ae",
+      "destination": "mods/reliable_remover-3.9.3+1.20.1-forge.jar",
       "targets": [
         "server"
       ]
@@ -4679,16 +4763,16 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-86f8f9d127a1d5ea",
-      "destination": "mods/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
+      "artifact": "upstream-server-08264372df932a22",
+      "destination": "mods/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
       "targets": [
         "server"
       ]
     },
     {
       "type": "installFile",
-      "artifact": "upstream-server-59a976b11a567a64",
-      "destination": "mods/sophisticatedcore-1.20.1-1.5.29.2459.jar",
+      "artifact": "upstream-server-013d890a6d566ec9",
+      "destination": "mods/sophisticatedcore-1.20.1-1.5.37.2488.jar",
       "targets": [
         "server"
       ]
@@ -4855,6 +4939,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-server-05c19e8e0f57e4d0",
+      "destination": "mods/valkyrienskies-120-2.4.11.jar",
+      "targets": [
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-server-1571f357d9cfeff4",
       "destination": "mods/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
       "targets": [
@@ -4927,13 +5019,13 @@
     },
     {
       "type": "migratePack",
-      "artifact": "base-client-0.13.18",
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.31.jar",
-      "sourceSha256": "9b78d57b898a309783b82b623128899ed60badb70aac401e31936195d8620913",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "targetSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "marker": ".nstut-tfg-base-0.13.18",
-      "markerContent": "{\n  \"baseRef\": \"0.13.18\",\n  \"upstreamCommit\": \"a51824514af63ada07fcfd162ef85b3b9840c103\"\n}\n",
+      "artifact": "base-client-0.13.19",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "sourceSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "targetSha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "marker": ".nstut-tfg-base-0.13.19",
+      "markerContent": "{\n  \"baseRef\": \"0.13.19\",\n  \"upstreamCommit\": \"065edebfa6196056767c3484648286964b949536\"\n}\n",
       "targets": [
         "client"
       ]
@@ -5060,8 +5152,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-dd9d371295d50615",
-      "destination": "mods/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
+      "artifact": "upstream-client-7a33be74a2bec5f5",
+      "destination": "mods/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
       "targets": [
         "client"
       ]
@@ -5084,6 +5176,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-client-c4f22ae47f6d5bfd",
+      "destination": "mods/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-client-dc010ae028610a2a",
       "destination": "mods/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
       "targets": [
@@ -5092,8 +5192,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-532bc99f4aeea9f7",
-      "destination": "mods/EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
+      "artifact": "upstream-client-8361639803ca15eb",
+      "destination": "mods/EuphoriaPatcher-1.11.1-r5.10-forge.jar",
       "targets": [
         "client"
       ]
@@ -5284,14 +5384,6 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-0e316b2d31e1d0e4",
-      "destination": "mods/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-      "targets": [
-        "client"
-      ]
-    },
-    {
-      "type": "installFile",
       "artifact": "upstream-client-97e38896dc4bee0a",
       "destination": "mods/Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
       "targets": [
@@ -5460,8 +5552,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-db1a3116f2775d7a",
-      "destination": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "artifact": "upstream-client-9f6c4e68004a8582",
+      "destination": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
       "targets": [
         "client"
       ]
@@ -5556,8 +5648,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-5bab4a4c6a3aa5ac",
-      "destination": "mods/ae2wtlib-15.3.3-forge.jar",
+      "artifact": "upstream-client-58e1d447723eb797",
+      "destination": "mods/ae2wtlib-15.4.1.jar",
       "targets": [
         "client"
       ]
@@ -5588,8 +5680,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-2ec8f4792b296764",
-      "destination": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
+      "artifact": "upstream-client-bbeaa497e80bfc5e",
+      "destination": "mods/alltheleaks-1.1.6-1.20.1-forge.jar",
       "targets": [
         "client"
       ]
@@ -5612,8 +5704,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-3d02dc6c71c497ec",
-      "destination": "mods/appliedenergistics2-forge-15.5.8-uelm.jar",
+      "artifact": "upstream-client-de38c8e45a0bb843",
+      "destination": "mods/appliedenergistics2-forge-15.5.9-uelm.jar",
       "targets": [
         "client"
       ]
@@ -5764,8 +5856,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-ea5d83abcf5cffb5",
-      "destination": "mods/chromatic_codes-0.16.5.jar",
+      "artifact": "upstream-client-8eea4b5dea7ea6c2",
+      "destination": "mods/chromatic_codes-0.16.7.jar",
       "targets": [
         "client"
       ]
@@ -5774,6 +5866,14 @@
       "type": "installFile",
       "artifact": "upstream-client-81009610dd6083d2",
       "destination": "mods/clienttweaks-forge-1.20.1-11.1.11.jar",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "upstream-client-7228ea2c59ac0b7f",
+      "destination": "mods/clockwork-0.5.7.1.jar",
       "targets": [
         "client"
       ]
@@ -5836,8 +5936,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-abfc10b28cf0fdf3",
-      "destination": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
+      "artifact": "upstream-client-011122687dc54d38",
+      "destination": "mods/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
       "targets": [
         "client"
       ]
@@ -5996,8 +6096,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-f42623a851ad7372",
-      "destination": "mods/diggerhelmet-1.20.1-1.0.0.32.jar",
+      "artifact": "upstream-client-8043934adc09bc21",
+      "destination": "mods/diggerhelmet-1.20.1-1.0.0.33.jar",
       "targets": [
         "client"
       ]
@@ -6052,8 +6152,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-e5146761e551f24d",
-      "destination": "mods/entityculling-forge-1.11.3-mc1.20.1.jar",
+      "artifact": "upstream-client-6cc5b9b8e7a439e3",
+      "destination": "mods/entityculling-forge-1.12.1-mc1.20.1.jar",
       "targets": [
         "client"
       ]
@@ -6084,8 +6184,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-b662d3f5c83574c4",
-      "destination": "mods/exposure-forge-1.20.1-1.9.22.jar",
+      "artifact": "upstream-client-0bbab7fd5641dbcd",
+      "destination": "mods/exposure-forge-1.20.1-1.9.24.jar",
       "targets": [
         "client"
       ]
@@ -6284,8 +6384,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-171a3011e7194d26",
-      "destination": "mods/gtcables-1.0.0.jar",
+      "artifact": "upstream-client-1f3b4026d685170d",
+      "destination": "mods/gtcables-1.0.1.jar",
       "targets": [
         "client"
       ]
@@ -6308,8 +6408,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-773f3d2a01dfe449",
-      "destination": "mods/gtmutils-2.10.2.jar",
+      "artifact": "upstream-client-e0fa7a75c79925a1",
+      "destination": "mods/gtmutils-2.10.3.jar",
       "targets": [
         "client"
       ]
@@ -6380,6 +6480,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-client-6fadf61d2ff9d98f",
+      "destination": "mods/kelvin-1.20.1-0.5.2.jar",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-client-c6782ed0c9b8693b",
       "destination": "mods/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
       "targets": [
@@ -6412,8 +6520,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-68543ba37475ca71",
-      "destination": "mods/kubejs_tfc-1.20.1-1.3.5.jar",
+      "artifact": "upstream-client-a45a6753bd8b7ac3",
+      "destination": "mods/kubejs_tfc-1.20.1-1.3.6.jar",
       "targets": [
         "client"
       ]
@@ -6524,6 +6632,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-client-9cd92ad15b70571c",
+      "destination": "mods/minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-client-688be6cb4c02aa4d",
       "destination": "mods/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
       "targets": [
@@ -6604,8 +6720,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-864610f283d6a3a6",
-      "destination": "mods/particular-1.20.1-Forge-1.5.7.jar",
+      "artifact": "upstream-client-53c1e85f6d935086",
+      "destination": "mods/particular-1.20.1-Forge-1.6.1.jar",
       "targets": [
         "client"
       ]
@@ -6652,24 +6768,24 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-5aeb0343bb7c1922",
-      "destination": "mods/reliable_recipes-3.8.3-1.20.1-forge.jar",
+      "artifact": "upstream-client-ca3ca6d2c7f40d1d",
+      "destination": "mods/reliable_recipes-3.9.0-1.20.1-forge.jar",
       "targets": [
         "client"
       ]
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-ada1a0ecc8fe7df2",
-      "destination": "mods/reliable_remover-3.8.4-1.20.1-forge.jar",
+      "artifact": "upstream-client-5e7c3f146618ac4b",
+      "destination": "mods/reliable_remover-3.9.3-1.20.1-forge.jar",
       "targets": [
         "client"
       ]
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-e3f13670609035d3",
-      "destination": "mods/remi-forge-1.20.1-4.8.1.jar",
+      "artifact": "upstream-client-0b3e447c4911dcfb",
+      "destination": "mods/remi-forge-1.20.1-4.9.0.jar",
       "targets": [
         "client"
       ]
@@ -6724,8 +6840,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-4d80a8d1f852fb9e",
-      "destination": "mods/seasonhud-forge-1.20.1-2.0.11.jar",
+      "artifact": "upstream-client-2ec4e872b570c348",
+      "destination": "mods/seasonhud-forge-1.20.1-2.0.12.jar",
       "targets": [
         "client"
       ]
@@ -6788,16 +6904,16 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-86f8f9d127a1d5ea",
-      "destination": "mods/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
+      "artifact": "upstream-client-08264372df932a22",
+      "destination": "mods/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
       "targets": [
         "client"
       ]
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-59a976b11a567a64",
-      "destination": "mods/sophisticatedcore-1.20.1-1.5.29.2459.jar",
+      "artifact": "upstream-client-013d890a6d566ec9",
+      "destination": "mods/sophisticatedcore-1.20.1-1.5.37.2488.jar",
       "targets": [
         "client"
       ]
@@ -6988,6 +7104,14 @@
     },
     {
       "type": "installFile",
+      "artifact": "upstream-client-05c19e8e0f57e4d0",
+      "destination": "mods/valkyrienskies-120-2.4.11.jar",
+      "targets": [
+        "client"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "upstream-client-1571f357d9cfeff4",
       "destination": "mods/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
       "targets": [
@@ -7132,8 +7256,8 @@
     },
     {
       "type": "installFile",
-      "artifact": "upstream-client-9f5fbfc683276e4b",
-      "destination": "shaderpacks/ComplementaryUnbound_r5.9.3.zip",
+      "artifact": "upstream-client-752ed2d89451b440",
+      "destination": "shaderpacks/ComplementaryUnbound_r5.10.zip",
       "targets": [
         "client"
       ]
@@ -7688,6 +7812,15 @@
     },
     {
       "type": "installFile",
+      "artifact": "fork-236df6564aa1c03b",
+      "destination": "config/DistantHorizons.toml",
+      "targets": [
+        "client",
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
       "artifact": "fork-2d9a5a87b7ededb5",
       "destination": "docs/upstream-sync-0.13.15.md",
       "targets": [
@@ -7699,6 +7832,15 @@
       "type": "installFile",
       "artifact": "fork-addaa29105c4aff7",
       "destination": "docs/upstream-sync-0.13.17.md",
+      "targets": [
+        "client",
+        "server"
+      ]
+    },
+    {
+      "type": "installFile",
+      "artifact": "fork-ccb16ac12550281a",
+      "destination": "docs/upstream-sync-0.13.19.md",
       "targets": [
         "client",
         "server"
