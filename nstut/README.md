@@ -52,6 +52,10 @@ The validator checks the upstream ancestry, Forge/Minecraft target, exact manage
 
 `nstut/stable` is therefore intentionally boring: it exists to identify the latest approved immutable release, not to accumulate development commits. Pakku server-overrides and client-overrides are generated to their real installation path and target, never copied under `.pakku`.
 
+## Release 0.13.19-nstut.1 (upstream integration)
+
+Upstream 0.13.19, Clockwork/Valkyrien Skies/Kelvin Lib, MCA Reborn and Distant Horizons are integrated with immutable pinned assets. The production host uses a 2-thread Distant Horizons generation cap. See [release notes](PATCH-0.13.19.1.md) and [upstream acceptance checklist](../docs/upstream-sync-0.13.19.md). Existing world data and private identity settings must remain server-local, and full client/server and migration checks are required before rollout.
+
 ## Release 0.13.17-nstut.5 (production promotion)
 
 This release supersedes the already-tagged .4 integration candidate, using identical mod and gameplay changes but rebased into a merge descendant of the production stable history. It replaces the original Forge LDLib 1.0.52.a with the SHA-256-pinned
