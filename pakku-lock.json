@@ -18157,7 +18157,7 @@
         {
             "pakku_id": "NsTutDistantH001",
             "type": "MOD",
-            "side": "CLIENT",
+            "side": "BOTH",
             "slug": {
                 "modrinth": "distanthorizons"
             },
