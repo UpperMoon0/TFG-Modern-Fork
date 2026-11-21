@@ -4,6 +4,7 @@ from pathlib import Path
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[2]
+# Both default files are versioned inputs to the dedicated-server check.
 PATHS = (
     'defaultconfigs/tfc-server.toml',
     '.pakku/server-overrides/defaultconfigs/tfc-server.toml',
