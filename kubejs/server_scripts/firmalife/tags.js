@@ -120,12 +120,17 @@ const registerFirmaLifeBlockTags = (event) => {
 }
 
 const registerFirmaLifeFluidTags = (event) => {
+
+    event.removeAllTagsFrom('firmalife:coconut_milk');
+    event.removeAllTagsFrom('firmalife:pina_colada');
     
     // Добавляем тег для скрытия в EMI
     event.add('c:hidden_from_recipe_viewers', 'firmalife:metal/chromium')
     event.add('c:hidden_from_recipe_viewers', 'firmalife:metal/stainless_steel')
     event.add('c:hidden_from_recipe_viewers', 'firmalife:chocolate')
     event.add('c:hidden_from_recipe_viewers', 'firmalife:fruity_fluid')
+    event.add('c:hidden_from_recipe_viewers', 'firmalife:coconut_milk')
+    event.add('c:hidden_from_recipe_viewers', 'firmalife:pina_colada')
 
     // Im going to leave these, but I dont think this tag does anything(?).
     event.add('firmalife:mixable', 'tfc:spring_water')
@@ -141,8 +146,4 @@ const registerFirmaLifeFluidTags = (event) => {
     event.add('firmalife:oils', 'tfg:triglyceride_oil')
     event.add('firmalife:oils', 'tfg:peanut_oil')
     event.add('firmalife:oils', 'tfg:palm_oil');
-
-    event.remove('tfc:milks', 'firmalife:coconut_milk');
-    event.remove('tfc:drinkables', 'firmalife:coconut_milk');
-    event.remove('tfc:any_drinkables', 'firmalife:coconut_milk');
 }
