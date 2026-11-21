@@ -580,3 +580,7 @@ print(f" - max fluid stack: {max(fluid_amounts)} mB")
 print(" - LV: iron, copper, zinc, redstone, tin, lead")
 print(" - MV: nickel, silver, arsenic, cobaltite")
 print(" - HV: gold")
+
+# KAN-61: signed renewable CI source-only acceptance, 2026-11-19.
+
+# KAN-61: renewed exact-head Jenkins cutover acceptance event; no validator behavior change.
