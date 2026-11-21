@@ -56,11 +56,11 @@ Source-only, unpromoted additions for the forthcoming 0.13.19 candidate:
 
 | Project | Locked version / Modrinth ID | Distribution |
 |---|---|---|
-| MCA Reborn | \`7.6.26+1.20.1\` / \`7syRW46i\` | Both client and dedicated server |
-| Distant Horizons | \`3.3.3-1.20.1\` / \`6UnEfsRQ\` | Client only |
+| MCA Reborn | `7.6.26+1.20.1` / `7syRW46i` | Both client and dedicated server |
+| Distant Horizons | `3.3.3-1.20.1` / `6UnEfsRQ` | Both client and dedicated server |
 
 Both artifacts are pinned to the official Modrinth download and SHA-1/SHA-512 in
-\`pakku-lock.json\` with \`update_strategy: NONE\` in \`pakku.json\`. The pack already
+`pakku-lock.json` with `update_strategy: NONE` in `pakku.json`. The pack already
 includes MCA Reborn's required Architectury API (Forge 9.2.14). The official
 MCA Reborn 7.7.1 builds for MC 1.20.1 are pre-release; 7.6.26 is selected as
 the current stable line instead.
@@ -68,22 +68,27 @@ the current stable line instead.
 **Pre-release acceptance requirements:**
 
 - Reconcile both actual client and server exports: MCA Reborn must be in
-  *both* distributions; Distant Horizons must be in *client only*; no duplicates.
+  *both* distributions; Distant Horizons must also be in *both*; no duplicates.
 - Test first boot and world save/load on an **isolated copy** of a TFG world.
   MCA changes villagers, village behavior and structures; check TFC / custom
   world generation, existing villagers, server-client registry agreement,
   interactions and multiplayer joins. Do not test migration on the live world.
-- Test Distant Horizons on Forge 1.20.1 with current Embeddium \`0.3.31\`,
-  Oculus \`1.8.0\`, and existing shaders, both with shaders disabled and enabled.
+- Test Distant Horizons on Forge 1.20.1 with current Embeddium `0.3.31`,
+  Oculus `1.8.0`, and existing shaders, both with shaders disabled and enabled.
   Include first launch, dimension switching, entering new terrain and sustained
   load; verify distant LOD visibility, colors, terrain blending and crash-free
   shutdown.
-- \`config/DistantHorizons.toml\` already exists (256-chunk LOD radius,
-  \`INTERNAL_SERVER\` distant generator and eight worker threads). This is a
+- `config/DistantHorizons.toml` already exists (256-chunk LOD radius,
+  `INTERNAL_SERVER` distant generator and eight worker threads). This is a
   potentially expensive default. Measure client CPU/RAM, frame-time and
   generation cost, and explicitly tune it before promotion if needed. Preserve
   this existing config until qualified; do not assume it is safe for weak
-  clients. Client-only DH does **not** enable dedicated-server LOD streaming.
+  clients. DH 3.3.3 supports Forge dedicated-server LOD generation and streaming;
+  `enableDistantGeneration = true` and `enableServerGeneration = true` are
+  present in the existing config. Before deployment, cap or benchmark the
+  dedicated server's generation CPU threads, request rate, memory, disk growth
+  and bandwidth, and verify those controls independently of client settings.
+  Validate server LOD sync on fresh client caches and LOD reuse after reconnect.
 - TerraFirmaCraft generation uses neighboring biome decoration data: if
   DH-generated far terrain lacks trees or plants, investigate the dedicated
   [TFG - DH Generation](https://www.curseforge.com/minecraft/mc-mods/tfg-dh)
@@ -94,7 +99,7 @@ the current stable line instead.
   smoke tests, migration/rollback evidence, and Jenkins release gates before
   any production promotion.
 
-**Observed source validation:** \`java -jar pakku.jar ls\` succeeded with 299
+**Observed source validation:** `java -jar pakku.jar ls` succeeded with 299
 projects and exact manifest/lockfile side/pin checks for both new mods.
 No client/game runtime, server smoke, or rollout verification has yet been
 performed; the **HARD HOLD** at the top of this document remains in force.
