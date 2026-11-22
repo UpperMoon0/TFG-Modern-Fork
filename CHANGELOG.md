@@ -1,3 +1,9 @@
+## 0.13.19-nstut.4
+
+- Pin corrected Distant Horizons v3.3.3-nstut.2, fixing Forge SecureJar multi-release archive startup failure.
+- Verified on Forge 47.4.13 with Chunky; preserve all player data and existing mod semantics.
+- Retain previous immutable releases for rollback.
+
 ## 0.13.19-nstut.3
 
 - Pin the UpperMoon0 Distant Horizons Forge 1.20.1 compatibility fork, fixing early Chunky provider registration that blocked the previous server upgrade.
