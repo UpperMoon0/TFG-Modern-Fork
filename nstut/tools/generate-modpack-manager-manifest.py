@@ -161,6 +161,13 @@ def build_manifest() -> dict:
                     "targets": overlay["targets"],
                 }
             )
+        elif overlay["format"] == "removeMatching":
+            pattern = overlay["path"]
+            if pattern != "mods/Chunky-*.jar" or set(overlay["targets"]) != {"client", "server"}:
+                raise ValueError("Only reviewed cross-side Chunky/DH compatibility cleanup is permitted")
+            operations.append({
+                "type": "removeMatching", "pattern": pattern, "targets": overlay["targets"],
+            })
         elif overlay["format"] == "properties":
             operations.append({
                 "type": "patchProperties", "destination": overlay["path"],

@@ -130,6 +130,14 @@
         "mechanics.collapses.collapsePropagateChance": 0.55,
         "mechanics.collapses.collapseExplosionPropagateChance": 0.3
       }
+    },
+    {
+      "format": "removeMatching",
+      "path": "mods/Chunky-*.jar",
+      "targets": [
+        "client",
+        "server"
+      ]
     }
   ]
 }

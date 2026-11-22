@@ -1,3 +1,9 @@
+## 0.13.19-nstut.3 — production boot fix
+
+- Remove optional Chunky 1.3.146 from the pinned server and client pack; its initialization race with Distant Horizons 3.3.3 crashed the migrated production world after Forge reached Done.
+- Preserve Distant Horizons, Clockwork, Valkyrien Skies, MCA Reborn and all NsTut managed mods. Reuse unchanged, verified 0.13.19 base migration archives, with a narrow Chunky cleanup for already-updated clients/servers.
+- The failed .2 rollout was automatically restored to 0.13.18-nstut.2 with world/player files preserved. New deployment requires native gates and isolated real-world boot verification.
+
 ## 0.13.17-nstut.2
 
 - Update Spice of Life Integrations to 0.1.1, restoring native TFC food hunger and Sophisticated feeding after compatible upstream mod updates.

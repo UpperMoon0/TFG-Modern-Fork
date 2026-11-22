@@ -75,5 +75,41 @@ class VanishGuardTargets(unittest.TestCase):
         self.assertEqual(candidate_installs["additional-placements"], ["client", "server"])
 
 
+class ChunkyDhCompatibility(unittest.TestCase):
+    """DH 3.3.3 must never encounter Chunky during base or in-place updates."""
+
+    def test_chunky_removed_for_both_side_targets_without_touching_dh(self):
+        manifest = m.build_manifest()
+        self.assertEqual(manifest['version'], '0.13.19-nstut.3')
+        self.assertFalse(any('chunky' in a.get('fileName', '').lower()
+                             for a in manifest['artifacts']))
+        self.assertFalse(any(op['type'] == 'installFile' and 'chunky' in op['destination'].lower()
+                             for op in manifest['operations'] if op['type'] == 'installFile'))
+        self.assertEqual([op for op in manifest['operations']
+                          if op.get('pattern') == 'mods/Chunky-*.jar'],
+                         [{'type': 'removeMatching', 'pattern': 'mods/Chunky-*.jar',
+                           'targets': ['client', 'server']}])
+        for side in ('server', 'client'):
+            self.assertTrue(any(op['type'] == 'installFile'
+                                and 'DistantHorizons-' in op['destination']
+                                and side in op['targets']
+                                for op in manifest['operations']))
+
+    def test_new_migration_only_drops_chunky_and_reuses_base_checksums(self):
+        current = json.loads((m.ROOT / 'nstut/base-migration.json').read_text())
+        previous = json.loads(subprocess.check_output([
+            'git', '-C', str(m.ROOT), 'show',
+            '0b1a607e6f0252d8ace7da90fdf18594103b9069:nstut/base-migration.json']))
+        for side in ('server', 'client'):
+            new = current['targets'][side]
+            old = previous['targets'][side]
+            self.assertEqual(new['archive'], old['archive'])
+            self.assertEqual(new['downloads'],
+                             [d for d in old['downloads']
+                              if d['path'] != 'mods/Chunky-1.3.146.jar'])
+            self.assertEqual(len(old['downloads']) - len(new['downloads']), 1)
+
+
+
 if __name__ == '__main__':
     unittest.main()
