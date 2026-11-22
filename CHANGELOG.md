@@ -1,3 +1,9 @@
+## 0.13.19-nstut.3
+
+- Pin the UpperMoon0 Distant Horizons Forge 1.20.1 compatibility fork, fixing early Chunky provider registration that blocked the previous server upgrade.
+- Manage the exact client/server JAR in Pakku and Modpack Manager, remove prior DH JARs and disable automatic upstream updates.
+- No intended player-world, TrueUUID or save-format changes.
+
 ## 0.13.17-nstut.2
 
 - Update Spice of Life Integrations to 0.1.1, restoring native TFC food hunger and Sophisticated feeding after compatible upstream mod updates.

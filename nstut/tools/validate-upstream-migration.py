@@ -18,7 +18,6 @@ REVIEWED_CANDIDATE = '8aa1e56cb321be92af0f58348116ba828fe5b5e7'
 FORK_ADDITIONS = {
     (('curseforge', 'kelvin-vs'),),
     (('modrinth', 'create-clockwork'),),
-    (('modrinth', 'distanthorizons'),),
     (('modrinth', 'extra-gauges'),),
     (('modrinth', 'foodvariations'),),
     (('modrinth', 'littletiles'),),
@@ -44,12 +43,14 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert managed['base']['ref'] == BASE, 'wrong managed-mod base'
     release = load('nstut/release.json')
     assert release['baseRef'] == BASE and release['branch'] == 'nstut/'+BASE
-    assert release['overlayVersion'] == BASE+'-nstut.2' and release['sourceRef'] == 'nstut-0.13.19.2'
-    audit = load('nstut/custom-mod-audit-0.13.19.2.json')
+    assert release['overlayVersion'] == BASE+'-nstut.3' and release['sourceRef'] == 'nstut-0.13.19.3'
+    assert load('pakku.json')['version'] == release['overlayVersion'], 'Pakku pack version differs from immutable release'
+    audit = load('nstut/custom-mod-audit-0.13.19.3.json')
     pin_keys = ('id','repository','version','fileName','url','sha256','installTargets')
     pins = [{k:m[k] for k in pin_keys if k in m} for m in managed['mods']]
     assert pins == audit['pins'] and audit['sourceRef'] == release['sourceRef'] and audit['baseRef'] == BASE
-    assert managed['mods'] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
+    assert managed['mods'][:-1] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
+    assert len(managed['mods']) == len(previous_managed['mods']) + 1 and managed['mods'][-1]['id'] == 'distant-horizons', 'exactly one reviewed managed DH fork required'
     assert translations == previous_lang, 'fork translations changed from promoted 0.13.18'
     assert lock['mc_versions'] == upstream['mc_versions'] == ['1.20.1']
     assert lock['loaders'] == upstream['loaders']
@@ -66,8 +67,19 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     for key in actual.keys() & expected.keys():
         assert actual[key] == expected[key], f'official 0.13.19 project pin drift: {key}'
     reviewed = historical(REVIEWED_CANDIDATE, 'pakku-lock.json')
-    assert lock['projects'] == reviewed['projects'], 'candidate pin drift since source/runtime review'
-    for slug in ('create-clockwork','distanthorizons','minecraft-comes-alive-reborn','valkyrien-skies'):
+    # All reviewed projects are immutable except the one explicit DH provider
+    # transition from Modrinth to our published, checksum-verified Forge binary.
+    def without_dh(projects):
+        return [p for p in projects if p['slug'].get('modrinth') != 'distanthorizons'
+                and p['slug'].get('github') != 'UpperMoon0/DistantHorizons']
+    assert without_dh(lock['projects']) == without_dh(reviewed['projects']), 'unrelated Pakku project pin drift since review'
+    dh_projects = [p for p in lock['projects'] if p['slug'].get('github') == 'UpperMoon0/DistantHorizons']
+    assert len(dh_projects) == 1 and dh_projects[0]['side'] == 'BOTH', 'exactly one both-side DH fork required'
+    dh_file = dh_projects[0]['files']
+    assert len(dh_file) == 1 and dh_file[0]['file_name'] == managed['mods'][-1]['fileName'], 'DH fork artifact differs from managed pin'
+    assert dh_file[0]['hashes']['sha256'] == managed['mods'][-1]['sha256'], 'DH lockfile checksum differs from published managed mod'
+    assert dh_file[0]['url'] == managed['mods'][-1]['url'], 'DH lockfile URL differs from published managed mod'
+    for slug in ('create-clockwork','minecraft-comes-alive-reborn','valkyrien-skies'):
         matches = [p for p in lock['projects'] if p['slug'].get('modrinth')==slug]
         assert len(matches) == 1 and matches[0]['side'] == 'BOTH', f'{slug} must be both-side'
     kelvin = [p for p in lock['projects'] if p['slug'].get('curseforge')=='kelvin-vs']
@@ -101,6 +113,6 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'),load('nstut/release.json'),load('nstut/modpack-manager.patch.json'),
                                [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client','server')])
     validate_base_downloads(load('nstut/base-migration.json'),load('nstut/managed-mods.json'))
-    print('Upstream 0.13.19: all 279 official projects, 16 immutable managed mods, 8 reviewed extra projects, 5 both-side expansion pins and rollback migration contracts verified')
+    print('Upstream 0.13.19: all 279 official projects, 18 preserved managed mods, 1 verified DH fork, reviewed extra projects and rollback contracts verified')
 
 if __name__=='__main__': main()

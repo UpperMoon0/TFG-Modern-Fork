@@ -66,13 +66,39 @@ class VanishGuardTargets(unittest.TestCase):
         previous_installs = installs(previous)
         candidate_installs = installs(candidate)
         # Existing mod-side policy stays immutable. Additional Placements
-        # replaces the upstream binary on both client and server.
+        # and the DH Chunky compatibility fork replace upstream binaries
+        # on both client and server without changing semantic overlays.
         self.assertEqual(
             {mod_id: candidate_installs[mod_id] for mod_id in previous_installs},
             previous_installs,
         )
-        self.assertEqual(set(candidate_installs) - set(previous_installs), {"additional-placements"})
+        self.assertEqual(set(candidate_installs) - set(previous_installs),
+                         {"additional-placements", "distant-horizons"})
         self.assertEqual(candidate_installs["additional-placements"], ["client", "server"])
+        self.assertEqual(candidate_installs["distant-horizons"], ["client", "server"])
+
+    def test_distant_horizons_replaces_upstream_client_and_server_jar(self):
+        manifest = m.build_manifest()
+        artifacts = [a for a in manifest['artifacts'] if a['id'] == 'distant-horizons']
+        self.assertEqual(len(artifacts), 1)
+        self.assertEqual(
+            artifacts[0]['sha256'],
+            'f6d8339b55537baff3a2e45b89b8280373f85ab51821faba35095a8ccaa7c169')
+        self.assertTrue(artifacts[0]['url'].startswith(
+            'https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.1/'))
+        operations = [op for op in manifest['operations']
+                      if op.get('artifact') == 'distant-horizons'
+                      or op.get('pattern') in ('mods/DistantHorizons-*.jar',
+                                              'mods/distanthorizons-*.jar')]
+        self.assertEqual(len(operations), 3)
+        self.assertEqual(
+            {op['pattern'] for op in operations if op['type'] == 'removeMatching'},
+            {'mods/DistantHorizons-*.jar', 'mods/distanthorizons-*.jar'})
+        self.assertTrue(all(op['targets'] == ['client', 'server'] for op in operations))
+        install = [op for op in operations if op['type'] == 'installFile']
+        self.assertEqual(len(install), 1)
+        self.assertEqual(install[0]['destination'],
+                         'mods/DistantHorizons-forge-3.3.3-nstut.1-1.20.1.jar')
 
 
 if __name__ == '__main__':
