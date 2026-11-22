@@ -1,6 +1,6 @@
 {
     "name": "TerraFirmaGreg-Modern",
-    "version": "0.13.18-nstut.1",
+    "version": "0.13.19-nstut.1",
     "release_type": "release",
     "description": "An innovative modpack that contains GregTech and TerraFirmaCraft on 1.20.x.",
     "author": "Exception, Xikaro",
@@ -359,6 +359,26 @@
             "update_strategy": "NONE"
         },
         "UpperMoon0/Additional-Placements": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "create-clockwork": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "valkyrien-skies": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "kelvin-vs": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "minecraft-comes-alive-reborn": {
+            "side": "BOTH",
+            "update_strategy": "NONE"
+        },
+        "distanthorizons": {
             "side": "BOTH",
             "update_strategy": "NONE"
         }

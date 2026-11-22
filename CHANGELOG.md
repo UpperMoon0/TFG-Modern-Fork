@@ -8,6 +8,41 @@
 ### Changes
 ### Bug fixes
 
+## [0.13.19] - 18-11-2026
+### Java security vulnerability
+- Java recently announced a [new security vulnerability](https://calif.io/java4shell/). You should [update](https://www.oracle.com/anz/java/technologies/downloads/) your version of java as soon as possible. You don't have to change versions.
+### Changes
+- Added a new terminal (and wireless terminal): the **Order Terminal**. This works with the new **Storage Provider**, essentially working like create logistics' stock keeper and package system, cutting down on patternslop for crafts you only need a small number of times. Read the new quest in the AE2 chapter for more information! @ko-lja
+- Barrels storing food sealed in vinegar now gain an additional preservation bonus when inside a cellar @Zippity
+- Hoes and scythes should now also work on herbs and spices @Pyritie
+- Removed battery alloy from TFC heating (#5334) @Pyritie
+- Added some proper trades for the wandering trader if you turn him on via `/gamerule doTraderSpawning`. He is still off by default. @Pyritie
+- Spring water no longer heals on Hard difficulty @Pyritie
+- Added some more plants to the medicine tags @Pyritie
+### Bug fixes
+- Fixed Create Deco's shipping containers voiding/duping items @Pyritie
+- Fixed firmalife bees never getting diseases @Zippity
+- Fixed a crash when respawning on servers (#5119, #5318) @Pyritie
+- Fixed a crash when opening a barrel GUI while it's placed in a sloop and is raining (#5206) @Pyritie
+- Fixed a rare crash when generating a mineshaft (#5332) @Pyritie
+- Fixed a crash when "creeping" plants tried to spread into a fluid block (#5330) @Pyritie
+- Fixed canoes starting to burn as soon as you finished carving them (#5139) @Pyritie
+- Fixed beneath's large stone pillars not being properly hardened @Egogorka
+### Mods
+#### Optional Mods
+- Added **Clockwork (Valkyrian Skies)**, check the [optional mods](https://wiki.terrafirmagreg.team/modern/en_us/modpack/optional-mods) page for installation instructions.
+- Added **Create: Return Ticket**.
+#### TerraFirmaCraft
+- Fix some incompatibilities with Create and other mods that take drops from our block entities.
+- Fixed an issue with patchouli tables.
+- Increased minimum depth of Octopoteuthis spawns.
+- Fixed a bug where Octopoteuthis didn't glow.
+- Made a performance improvement to oceans.
+- Fixed a bug with stick drops from double crops.
+- Backported a number of minor fixes to entities, worldgen, and plant behavior.
+#### No Crash Reports
+- Was unfortunately taken down from CurseForge by Microsoft.
+
 ## [0.13.18] - 07-11-2026
 #### CC-Tweaked
 - Fixes a [severe security vulnerability](https://github.com/cc-tweaked/CC-Tweaked/security/advisories/GHSA-g5h5-fp5g-fmx4)
@@ -217,7 +252,6 @@ This is a hotfix release, check the [0.13.11 changelog](https://github.com/Terra
 - The ME Resonnance Charger can't be rotated any more, so you can't stack them to charge your Budding Certus. The multiblock structure has also changed a little @TomPlop
 - The circuit numbers for Annihilation and Formation Cores and Printed Circuits were changed in the ME Assembler, to allow for easier passive crafting @TomPlop
 #### Recipes
-- Added expensive LV renewable Poor Ore synthesis chains for hematite, malachite, and sphalerite, including a renewable seawater sulfate-brine -> marine gypsum -> calcium sulfide -> H2S chain. @UpperMoon0
 - Laser hatches now need a glass lens instead of a diamond lens @ashleney
 - GregTech covers are now crafting table recipes instead of assembler recipes (#4997) @ashleney
 - Changed mechanical press double ingot/double plate recipes to use circuit 0 (#4991) @Pyritie

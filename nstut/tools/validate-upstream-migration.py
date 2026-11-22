@@ -1,100 +1,106 @@
 #!/usr/bin/env python3
-"""Validate full TFG 0.13.18 upstream ancestry, immutable custom pins and migration."""
-import json
+"""Validate the immutable 0.13.19 upstream migration and NsTut overlay pins.
+
+The 0.13.19 update must retain every official project unchanged, all existing
+managed mods, and only the reviewed extra projects from the staging candidate.
+"""
 import fnmatch
+import json
 from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIOUS = 'nstut-0.13.17.5'
-BASE = '0.13.18'
-PREVIOUS_BASE = '0.13.17'
-UPSTREAM_COMMIT = 'a51824514af63ada07fcfd162ef85b3b9840c103'
-
+BASE = '0.13.19'
+PREVIOUS_BASE = '0.13.18'
+PREVIOUS = 'nstut-0.13.18.2'
+UPSTREAM_COMMIT = '065edebfa6196056767c3484648286964b949536'
+REVIEWED_CANDIDATE = '8aa1e56cb321be92af0f58348116ba828fe5b5e7'
+FORK_ADDITIONS = {
+    (('curseforge', 'kelvin-vs'),),
+    (('modrinth', 'create-clockwork'),),
+    (('modrinth', 'distanthorizons'),),
+    (('modrinth', 'extra-gauges'),),
+    (('modrinth', 'foodvariations'),),
+    (('modrinth', 'littletiles'),),
+    (('modrinth', 'minecraft-comes-alive-reborn'),),
+    (('modrinth', 'valkyrien-skies'),),
+}
+REMOVED_UPSTREAM = {
+    (('curseforge', 'additional-placements'), ('modrinth', 'additional-placements')),
+    (('curseforge', 'create-horse-power'), ('modrinth', 'create-horse-power')),
+    (('curseforge', 'ldlib'), ('modrinth', 'ldlib')),
+}
 
 def historical(ref, path):
     return json.loads(subprocess.check_output(['git', '-C', str(ROOT), 'show', f'{ref}:{path}']))
 
-
 def load(path):
-    return json.loads((ROOT / path).read_text(encoding='utf-8-sig'))
-
+    return json.loads((ROOT/path).read_text(encoding='utf-8-sig'))
 
 def project_key(project):
     return tuple(sorted(project['slug'].items()))
 
-
-def artifact_signature(project):
-    return {key: project.get(key) for key in ('type', 'side', 'slug', 'id', 'files')}
-
-
 def validate(lock, managed, translations, upstream, previous_managed, previous_lang, old_lang):
-    assert managed['base']['ref'] == BASE, 'wrong declared managed-mod base'
-    audit_version = load('nstut/release.json')['sourceRef'].removeprefix('nstut-')
-    audit = load(f'nstut/custom-mod-audit-{audit_version}.json')
-    pin_keys = ('id', 'repository', 'version', 'fileName', 'url', 'sha256', 'installTargets')
-    actual_pins = [{k: mod[k] for k in pin_keys if k in mod} for mod in managed['mods']]
-    assert actual_pins == audit['pins'], 'custom managed artifacts differ from reviewed release audit'
-    prior = {m['id']: m for m in previous_managed['mods']}
-    current = {m['id']: m for m in managed['mods']}
-    assert set(current) - set(prior) == {'additional-placements'}, 'unexpected new managed mods'
-    assert set(prior) <= set(current), 'previously managed mod was removed'
-    changed = {'openui', 'create-precise-controls', 'building-gadgets-extra', 'celestial-nail'}
-    assert {mid for mid in prior if current[mid] != prior[mid]} == changed, 'unreviewed change to existing mod pins'
-    assert all(current[mid]['repository']==prior[mid]['repository'] for mid in changed), 'modified managed repository identity'
-    trueuuid = current['trueuuid']
-    assert trueuuid['repository'] == 'UpperMoon0/TrueUUID' and trueuuid['version'] == '1.3.1', 'wrong TrueUUID pin'
-    assert trueuuid['installTargets'] == ['client', 'server'], 'TrueUUID must remain both-side'
-    assert lock['mc_versions'] == upstream['mc_versions'] and lock['loaders'] == upstream['loaders'], 'Minecraft/loader drift'
-
+    assert managed['base']['ref'] == BASE, 'wrong managed-mod base'
+    release = load('nstut/release.json')
+    assert release['baseRef'] == BASE and release['branch'] == 'nstut/'+BASE
+    assert release['overlayVersion'] == BASE+'-nstut.2' and release['sourceRef'] == 'nstut-0.13.19.2'
+    audit = load('nstut/custom-mod-audit-0.13.19.2.json')
+    pin_keys = ('id','repository','version','fileName','url','sha256','installTargets')
+    pins = [{k:m[k] for k in pin_keys if k in m} for m in managed['mods']]
+    assert pins == audit['pins'] and audit['sourceRef'] == release['sourceRef'] and audit['baseRef'] == BASE
+    assert managed['mods'] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
+    assert translations == previous_lang, 'fork translations changed from promoted 0.13.18'
+    assert lock['mc_versions'] == upstream['mc_versions'] == ['1.20.1']
+    assert lock['loaders'] == upstream['loaders']
     actual = {project_key(p): p for p in lock['projects']}
     expected = {project_key(p): p for p in upstream['projects']}
-    assert len(actual) == len(lock['projects']), 'duplicate provider project'
-    custom_keys = set()
-    for mod in managed['mods']:
-        repo = mod['repository']
-        custom_keys.add((('modrinth', repo.split(':', 1)[1]),) if repo.startswith('modrinth:') else (('github', repo),))
-    removed = {
-        (('curseforge', 'create-horse-power'), ('modrinth', 'create-horse-power')),
-        (('curseforge', 'ldlib'), ('modrinth', 'ldlib')),
-        (('curseforge', 'additional-placements'), ('modrinth', 'additional-placements')),
-    }
-    assert actual.keys() - expected.keys() == custom_keys, 'unexpected added projects or custom project missing'
-    assert expected.keys() - actual.keys() == removed, 'unexpected upstream project replacement/removal'
+    assert len(actual) == len(lock['projects']) == 299, 'duplicate or missing locked projects'
+    assert len(expected) == len(upstream['projects']), 'duplicate official project'
+    custom = set()
+    for m in managed['mods']:
+        repo = m['repository']
+        custom.add((('modrinth', repo.split(':',1)[1]),) if repo.startswith('modrinth:') else (('github',repo),))
+    assert actual.keys() - expected.keys() == custom | FORK_ADDITIONS, 'unexpected fork project additions or removals'
+    assert expected.keys() - actual.keys() == REMOVED_UPSTREAM, 'missing unexpected official projects'
     for key in actual.keys() & expected.keys():
-        assert artifact_signature(actual[key]) == artifact_signature(expected[key]), f'upstream artifact drift: {key}'
-    custom_lang = {key: value for key, value in previous_lang.items() if old_lang.get(key) != value}
-    assert len(custom_lang) == 73 and translations == custom_lang, 'custom material translations lost or unexpected upstream translations restored'
-
+        assert actual[key] == expected[key], f'official 0.13.19 project pin drift: {key}'
+    reviewed = historical(REVIEWED_CANDIDATE, 'pakku-lock.json')
+    assert lock['projects'] == reviewed['projects'], 'candidate pin drift since source/runtime review'
+    for slug in ('create-clockwork','distanthorizons','minecraft-comes-alive-reborn','valkyrien-skies'):
+        matches = [p for p in lock['projects'] if p['slug'].get('modrinth')==slug]
+        assert len(matches) == 1 and matches[0]['side'] == 'BOTH', f'{slug} must be both-side'
+    kelvin = [p for p in lock['projects'] if p['slug'].get('curseforge')=='kelvin-vs']
+    assert len(kelvin)==1 and kelvin[0]['side']=='BOTH'
 
 def validate_base_installation(installation, release, manifest, markers):
-    expected = f'.nstut-tfg-base-{BASE}'
-    assert installation == {'schemaVersion': 1, 'baseRef': BASE, 'requiredMarker': expected}, 'invalid base-installation contract'
-    assert release['baseRef'] == BASE, 'release base mismatch'
-    assert expected in manifest['requiredPaths'], 'overlay can be applied to an old base'
-    for marker in markers:
-        assert marker == {'baseRef': BASE, 'upstreamCommit': UPSTREAM_COMMIT}, 'missing or wrong packaged base marker'
-    assert len(markers) == 2, 'client and server markers required'
-
+    marker = f'.nstut-tfg-base-{BASE}'
+    assert installation == {'schemaVersion':1,'baseRef':BASE,'requiredMarker':marker}
+    assert release['baseRef'] == BASE and marker in manifest['requiredPaths']
+    assert len(markers)==2 and all(m=={'baseRef':BASE,'upstreamCommit':UPSTREAM_COMMIT} for m in markers)
 
 def validate_base_downloads(migration, managed):
-    assert migration['baseRef'] == BASE and migration['sourceBaseRef'] == PREVIOUS_BASE, 'wrong migration source/target base'
-    for target in migration['targets'].values():
+    assert migration['baseRef']==BASE and migration['sourceBaseRef']==PREVIOUS_BASE
+    assert set(migration['targets'])=={'server','client'}
+    for side,target in migration['targets'].items():
+        a=target['archive']
+        assert a['fileName']==f'tfg-base-{BASE}-{side}.zip'
+        assert a['url'].startswith(f'https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-{BASE}/')
+        assert len(a['sha256'])==64
+        assert target['marker']==f'.nstut-tfg-base-{BASE}'
+        assert json.loads(target['markerContent'])=={'baseRef':BASE,'upstreamCommit':UPSTREAM_COMMIT}
         for download in target['downloads']:
-            assert not any(fnmatch.fnmatchcase(download['path'], pattern)
-                           for mod in managed['mods'] for pattern in mod['cleanupPatterns']), \
-                'base migration must not reinstall an overlay-owned mod: ' + download['path']
-
+            assert len(download.get('sha256',''))==64 and download.get('url','').startswith('https://')
+            assert not any(fnmatch.fnmatchcase(download['path'],p)
+                           for mod in managed['mods'] for p in mod['cleanupPatterns']), 'base migration would reinstall custom mod: '+download['path']
 
 def main():
-    validate(load('pakku-lock.json'), load('nstut/managed-mods.json'), load('kubejs/assets/tfg/lang/en_us.json'),
-             historical(BASE, 'pakku-lock.json'), historical(PREVIOUS, 'nstut/managed-mods.json'),
-             historical(PREVIOUS, 'kubejs/assets/tfg/lang/en_us.json'), historical('0.13.10', 'kubejs/assets/tfg/lang/en_us.json'))
-    validate_base_installation(load('nstut/base-installation.json'), load('nstut/release.json'), load('nstut/modpack-manager.patch.json'),
-                              [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client', 'server')])
-    validate_base_downloads(load('nstut/base-migration.json'), load('nstut/managed-mods.json'))
-    print(f"Upstream {BASE} migration passed: exact upstream pins, {len(load('nstut/managed-mods.json')['mods'])} managed mods, reviewed upgrades and 73 custom translations retained")
+    validate(load('pakku-lock.json'),load('nstut/managed-mods.json'),load('kubejs/assets/tfg/lang/en_us.json'),
+             historical(BASE,'pakku-lock.json'),historical(PREVIOUS,'nstut/managed-mods.json'),
+             historical(PREVIOUS,'kubejs/assets/tfg/lang/en_us.json'),historical('0.13.10','kubejs/assets/tfg/lang/en_us.json'))
+    validate_base_installation(load('nstut/base-installation.json'),load('nstut/release.json'),load('nstut/modpack-manager.patch.json'),
+                               [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client','server')])
+    validate_base_downloads(load('nstut/base-migration.json'),load('nstut/managed-mods.json'))
+    print('Upstream 0.13.19: all 279 official projects, 16 immutable managed mods, 8 reviewed extra projects, 5 both-side expansion pins and rollback migration contracts verified')
 
-
-if __name__ == '__main__':
-    main()
+if __name__=='__main__': main()

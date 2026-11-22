@@ -104,9 +104,9 @@ def main():
                 assert archive.testzip() is None
                 manifest = json.loads(archive.read('manifest.json'))
                 for ref in manifest['files']:
-                    choices = [(p, f) for p in upstream_lock['projects'] for f in p['files']
+                    choices = [(p, f) for p in lock['projects'] for f in p['files']
                                if f['type'] == 'curseforge' and str(f['parent_id']) == str(ref['projectID']) and str(f['id']) == str(ref['fileID'])]
-                    assert len(choices) == 1, ref
+                    assert len(choices) == 1, f'current pinned provider missing or ambiguous: {ref}'
                     project, f = choices[0]
                     folder = {'MOD': 'mods', 'RESOURCE_PACK': 'resourcepacks', 'SHADER': 'shaderpacks'}[project['type']]
                     path = folder + '/' + f['file_name']

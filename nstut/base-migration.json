@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "baseRef": "0.13.18",
-  "sourceBaseRef": "0.13.17",
+  "baseRef": "0.13.19",
+  "sourceBaseRef": "0.13.18",
   "minimumManagerVersion": "1.0.7",
   "targets": {
     "server": {
       "archive": {
-        "fileName": "tfg-base-0.13.18-server.zip",
-        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.18/tfg-base-0.13.18-server.zip",
-        "sha256": "9eeeb6df6526b1ab191cbcd9ef85d067b8ac4087dc497c7cfd8a44cee3a4bf8a"
+        "fileName": "tfg-base-0.13.19-server.zip",
+        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.19/tfg-base-0.13.19-server.zip",
+        "sha256": "be7c8b4348de959f51dc46852a3f6c5574a25521e31817f166435bbe7642f9a1"
       },
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.31.jar",
-      "sourceSha256": "9b78d57b898a309783b82b623128899ed60badb70aac401e31936195d8620913",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "targetSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "marker": ".nstut-tfg-base-0.13.18",
-      "markerContent": "{\n  \"baseRef\": \"0.13.18\",\n  \"upstreamCommit\": \"a51824514af63ada07fcfd162ef85b3b9840c103\"\n}\n",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "sourceSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "targetSha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "marker": ".nstut-tfg-base-0.13.19",
+      "markerContent": "{\n  \"baseRef\": \"0.13.19\",\n  \"upstreamCommit\": \"065edebfa6196056767c3484648286964b949536\"\n}\n",
       "downloads": [
         {
           "path": "mods/AE2NetworkAnalyzer-1.20-1.0.6-forge.jar",
@@ -78,16 +78,22 @@
           "sha256": "996a3c9b53e6c0e0850fb9e78d3546d2c37a1b789ddaf529b17e4fe62ab23141"
         },
         {
-          "path": "mods/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "fileName": "CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/ChKayKur/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "sha256": "936de62489c0d6fbe74202486cbe2b191b8629b02bab1d480acfdb03690f33f4"
+          "path": "mods/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "fileName": "CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/HGkNDl47/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "sha256": "8d90a490c590613f79e51066bd885e5d93f947ab12790740c9b7cbd4e49b2676"
         },
         {
           "path": "mods/Cucumber-1.20.1-7.0.16.jar",
           "fileName": "Cucumber-1.20.1-7.0.16.jar",
           "url": "https://cdn.modrinth.com/data/Rw1NrDzF/versions/xnLznSfT/Cucumber-1.20.1-7.0.16.jar",
           "sha256": "b586a3cd1de362c365f923e5c325273916822f4b3a792c0d9ff6747d7deb2be6"
+        },
+        {
+          "path": "mods/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "fileName": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "sha256": "a537a71171d935540b56b7598d0de2c106f6f5026336c713d89a1d9ea0ea14e3"
         },
         {
           "path": "mods/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
@@ -184,12 +190,6 @@
           "fileName": "MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
           "url": "https://cdn.modrinth.com/data/e4uFcbDl/versions/DVOCes0G/MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
           "sha256": "293f2a1c911f300c31081da9210c53a43d30475322d83d8287a266040a9e4cde"
-        },
-        {
-          "path": "mods/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "fileName": "NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "url": "https://cdn.modrinth.com/data/qQyHxfxd/versions/2XUIKIAa/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "sha256": "1f6505721ce6a78ce46e662f65fc81646705f82f169e9b7565951d1965d51672"
         },
         {
           "path": "mods/Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
@@ -300,10 +300,10 @@
           "sha256": "02e8d305354c16e5c135510e66d2aa8d70f16c50d443c10e1dd2feb426105030"
         },
         {
-          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "fileName": "TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/U3YTPchH/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "sha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338"
+          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "fileName": "TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/JRPRWuem/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "sha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a"
         },
         {
           "path": "mods/ToolBelt-1.20.1-1.20.03.jar",
@@ -366,10 +366,10 @@
           "sha256": "329dff2184edc476e7261b073f17239015636543a22c16df1161fafe547d6b1c"
         },
         {
-          "path": "mods/ae2wtlib-15.3.3-forge.jar",
-          "fileName": "ae2wtlib-15.3.3-forge.jar",
-          "url": "https://cdn.modrinth.com/data/pNabrMMw/versions/z8QXeyI0/ae2wtlib-15.3.3-forge.jar",
-          "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4"
+          "path": "mods/ae2wtlib-15.4.1.jar",
+          "fileName": "ae2wtlib-15.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/9531/944/ae2wtlib-15.4.1.jar",
+          "sha256": "bbf3d2bc5fa87b127c593074d8429a0181679d570d57676a70513114f40fbf3e"
         },
         {
           "path": "mods/afc-1.0.23-1.20.1.jar",
@@ -390,10 +390,10 @@
           "sha256": "cc77374010d9e951219a05a904062f1a3bf411dc58275ab06543984aa0048254"
         },
         {
-          "path": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
-          "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
-          "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716"
+          "path": "mods/alltheleaks-1.1.6-1.20.1-forge.jar",
+          "fileName": "alltheleaks-1.1.6-1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9640/602/alltheleaks-1.1.6-1.20.1-forge.jar",
+          "sha256": "6f5ad3c243b7425e181a61e973d31c7c415dd467e49638d3c5c2ffd25142dca0"
         },
         {
           "path": "mods/almanac-forge-1.20.1-1.26.11.1.jar",
@@ -408,10 +408,10 @@
           "sha256": "ca8ef5c3b47eeae106880dfd27b385f073a4db2c920acb16175e635b09fb570b"
         },
         {
-          "path": "mods/appliedenergistics2-forge-15.5.8-uelm.jar",
-          "fileName": "appliedenergistics2-forge-15.5.8-uelm.jar",
-          "url": "https://edge.forgecdn.net/files/9481/64/appliedenergistics2-forge-15.5.8-uelm.jar",
-          "sha256": "fcc7039b6c0004a71d0209acc363d6a658be924c55ee0efd8aa77601ba157b37"
+          "path": "mods/appliedenergistics2-forge-15.5.9-uelm.jar",
+          "fileName": "appliedenergistics2-forge-15.5.9-uelm.jar",
+          "url": "https://edge.forgecdn.net/files/9531/710/appliedenergistics2-forge-15.5.9-uelm.jar",
+          "sha256": "75f7dca11ca1922cb0f0a3ad37f1581c28a8bf74ce6527034c095de4ed2b618a"
         },
         {
           "path": "mods/architectury-9.2.14-forge.jar",
@@ -504,10 +504,16 @@
           "sha256": "ff3531adba026a5891e098e791a8ac7a1efa5c800657216548867befd26ace51"
         },
         {
-          "path": "mods/chromatic_codes-0.16.5.jar",
-          "fileName": "chromatic_codes-0.16.5.jar",
-          "url": "https://edge.forgecdn.net/files/9465/347/chromatic_codes-0.16.5.jar",
-          "sha256": "4d4dcf518c7da746a7cd7e6b8ecc063f353c81f4117927113957132b20cabb7b"
+          "path": "mods/chromatic_codes-0.16.7.jar",
+          "fileName": "chromatic_codes-0.16.7.jar",
+          "url": "https://edge.forgecdn.net/files/9677/835/chromatic_codes-0.16.7.jar",
+          "sha256": "099a1db11332ae96acd3939d18957cf61e00c5e0f8eecceebeffa3aa0177f6d7"
+        },
+        {
+          "path": "mods/clockwork-0.5.7.1.jar",
+          "fileName": "clockwork-0.5.7.1.jar",
+          "url": "https://cdn.modrinth.com/data/84USeAvk/versions/PPCx7dxb/clockwork-0.5.7.1.jar",
+          "sha256": "53c09b8c38296e4ebea6da4a1cbbbe999fa6d26d21bf2138618e6577eb4876d8"
         },
         {
           "path": "mods/cloth-config-11.1.136-forge.jar",
@@ -546,10 +552,10 @@
           "sha256": "9f639204588512abe767bb5c2ff97d41f50352af916de939ac8029c95d57ae7b"
         },
         {
-          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8"
+          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/quaQqSQa/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "sha256": "e175615cfc77c09b29c1312d9f93cc1e624523c589bb3eb8bfdaebcaeee7c6a9"
         },
         {
           "path": "mods/cosmeticarmorreworked-1.20.1-v1a.jar",
@@ -648,10 +654,10 @@
           "sha256": "f9a374b99c2954dae08e33cc1b3195c1def169e7adc1de8fa11d1a364405c801"
         },
         {
-          "path": "mods/diggerhelmet-1.20.1-1.0.0.32.jar",
-          "fileName": "diggerhelmet-1.20.1-1.0.0.32.jar",
-          "url": "https://edge.forgecdn.net/files/9017/119/diggerhelmet-1.20.1-1.0.0.32.jar",
-          "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f"
+          "path": "mods/diggerhelmet-1.20.1-1.0.0.33.jar",
+          "fileName": "diggerhelmet-1.20.1-1.0.0.33.jar",
+          "url": "https://edge.forgecdn.net/files/9679/176/diggerhelmet-1.20.1-1.0.0.33.jar",
+          "sha256": "132d6baabb4a35efd7f351fa028a727d46fd861be80f73a0be9a1f400996b783"
         },
         {
           "path": "mods/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
@@ -696,10 +702,10 @@
           "sha256": "321d23bbbb4c95036e0d6f2f1576008f42ad5d330a03072d25611f9f5199f0e2"
         },
         {
-          "path": "mods/exposure-forge-1.20.1-1.9.22.jar",
-          "fileName": "exposure-forge-1.20.1-1.9.22.jar",
-          "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
-          "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e"
+          "path": "mods/exposure-forge-1.20.1-1.9.24.jar",
+          "fileName": "exposure-forge-1.20.1-1.9.24.jar",
+          "url": "https://cdn.modrinth.com/data/hB899VmG/versions/vPrmURi1/exposure-forge-1.20.1-1.9.24.jar",
+          "sha256": "0cdead21f9a70517ada89eb4cdcdd25d96ce7666afadf45b84e8180109a556a3"
         },
         {
           "path": "mods/fallingtrees-forge-0.12.7-1.20.jar",
@@ -828,10 +834,10 @@
           "sha256": "8ba2ae2038d2fdb6e129ace15b3d2f85dc2ebd7c631fba686aff4416cedbe9f4"
         },
         {
-          "path": "mods/gtcables-1.0.0.jar",
-          "fileName": "gtcables-1.0.0.jar",
-          "url": "https://edge.forgecdn.net/files/9410/927/gtcables-1.0.0.jar",
-          "sha256": "11028b321e8018e2577299eccb491b69d5dfe68f1eadb9ba032899551206afd9"
+          "path": "mods/gtcables-1.0.1.jar",
+          "fileName": "gtcables-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/9519/545/gtcables-1.0.1.jar",
+          "sha256": "43bbd7fae3172eaa9bad6d8e98f516ed92ea4430f2e265cd48b1769d50b809ce"
         },
         {
           "path": "mods/gtceu-1.20.1-7.5.3.jar",
@@ -846,10 +852,10 @@
           "sha256": "ff0716a24d5fc08f1299371f4d88b138495259e1c14744d622ad972298d10d46"
         },
         {
-          "path": "mods/gtmutils-2.10.2.jar",
-          "fileName": "gtmutils-2.10.2.jar",
-          "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/IyQ8F7M8/gtmutils-2.10.2.jar",
-          "sha256": "c64c9c5cc79deb753883380182a1095802e723fb34963efd5c1a06a64b5a33ca"
+          "path": "mods/gtmutils-2.10.3.jar",
+          "fileName": "gtmutils-2.10.3.jar",
+          "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/fUyv1smw/gtmutils-2.10.3.jar",
+          "sha256": "357048d978610960f7dabbcad8e1c63442a76eab71593d5e4216d67f75aebc57"
         },
         {
           "path": "mods/guideme-20.1.15.jar",
@@ -876,6 +882,12 @@
           "sha256": "61e2272d4fc27989d9a0e721057d6e7af99a25d06b1c8aa89768a1c4e5350d75"
         },
         {
+          "path": "mods/kelvin-1.20.1-0.5.2.jar",
+          "fileName": "kelvin-1.20.1-0.5.2.jar",
+          "url": "https://edge.forgecdn.net/files/9602/94/kelvin-1.20.1-0.5.2.jar",
+          "sha256": "1f70e4ada1f35d86d4e6000ad6908596865ddf471204c87e2fe0d8859f31e926"
+        },
+        {
           "path": "mods/kotlinforforge-4.12.0-all.jar",
           "fileName": "kotlinforforge-4.12.0-all.jar",
           "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/Zsh14XeQ/kotlinforforge-4.12.0-all.jar",
@@ -894,10 +906,10 @@
           "sha256": "41719240421262acc0f348dfec92dc3c3654983662de6ae0358737029ad09076"
         },
         {
-          "path": "mods/kubejs_tfc-1.20.1-1.3.5.jar",
-          "fileName": "kubejs_tfc-1.20.1-1.3.5.jar",
-          "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/HNprLaYs/kubejs_tfc-1.20.1-1.3.5.jar",
-          "sha256": "9b7538f3eeef60841d1c02b8d42355675f4490612edc6f04c566ad0ac3ab71ed"
+          "path": "mods/kubejs_tfc-1.20.1-1.3.6.jar",
+          "fileName": "kubejs_tfc-1.20.1-1.3.6.jar",
+          "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/8SZRYO65/kubejs_tfc-1.20.1-1.3.6.jar",
+          "sha256": "82af1131f29113cb846ba4980f2d968d0c0d2c92569f340e41fee734c731c625"
         },
         {
           "path": "mods/letmedespawn-forge-1.20.1-1.26.11.1.jar",
@@ -966,6 +978,12 @@
           "sha256": "490de12be0237e5699aba8ae57d9c40a97ae7491d6ae33ecb1fc5d3b30f391ea"
         },
         {
+          "path": "mods/minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+          "fileName": "minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+          "url": "https://cdn.modrinth.com/data/1W98a849/versions/7syRW46i/minecraft-comes-alive-7.6.26%2B1.20.1-universal.jar",
+          "sha256": "5dc3ee1f2f74221b3b7b73456451bf9a3f0cc87c8378a64233680f051dbc3d19"
+        },
+        {
           "path": "mods/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
           "fileName": "mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
           "url": "https://edge.forgecdn.net/files/4579/551/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
@@ -1008,10 +1026,10 @@
           "sha256": "154ab2769046d01bca6b2bb6e6c48819433a5adfaa5158c973f922ffa32fc770"
         },
         {
-          "path": "mods/particular-1.20.1-Forge-1.5.7.jar",
-          "fileName": "particular-1.20.1-Forge-1.5.7.jar",
-          "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
-          "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079"
+          "path": "mods/particular-1.20.1-Forge-1.6.1.jar",
+          "fileName": "particular-1.20.1-Forge-1.6.1.jar",
+          "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/mc1iueNJ/particular-1.20.1-Forge-1.6.1.jar",
+          "sha256": "6a51c5222805e8a936b4fc4c9bc82595138d436da6c2dc44dcd0bcab43facd53"
         },
         {
           "path": "mods/playerrevive_compat-1.0.4-daf51f2.jar",
@@ -1044,16 +1062,16 @@
           "sha256": "5206c8117f3869f6ea894c034f4a18d4def40ef8b0da106eb662ebd4e8ebbf36"
         },
         {
-          "path": "mods/reliable_recipes-3.8.3+1.20.1-forge.jar",
-          "fileName": "reliable_recipes-3.8.3+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/9RyEwybp/reliable_recipes-3.8.3+1.20.1-forge.jar",
-          "sha256": "99db0bd9d14832941cb0aad0239b774094ac3347005f352459d1cb5db6415fcb"
+          "path": "mods/reliable_recipes-3.9.0+1.20.1-forge.jar",
+          "fileName": "reliable_recipes-3.9.0+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/Hl4ARA1z/versions/RRvvmIQM/reliable_recipes-3.9.0+1.20.1-forge.jar",
+          "sha256": "e756327eaf389973fad424bb3ea015fd6b0c61d124b6c733951dcb1b96e5c256"
         },
         {
-          "path": "mods/reliable_remover-3.8.4+1.20.1-forge.jar",
-          "fileName": "reliable_remover-3.8.4+1.20.1-forge.jar",
-          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/DxmNFYLh/reliable_remover-3.8.4+1.20.1-forge.jar",
-          "sha256": "7857ab8056b2473c1ed0a4de9d9a5696b5d3ec76d2a118e6b9034aed6b072144"
+          "path": "mods/reliable_remover-3.9.3+1.20.1-forge.jar",
+          "fileName": "reliable_remover-3.9.3+1.20.1-forge.jar",
+          "url": "https://cdn.modrinth.com/data/pLxsKvNt/versions/EwatjwlO/reliable_remover-3.9.3+1.20.1-forge.jar",
+          "sha256": "bc2582a411681c9a357b186e77a8909e48638ccab5ee3e0beb0bed07ce11ce30"
         },
         {
           "path": "mods/resourcefulconfig-forge-1.20.1-2.1.3.jar",
@@ -1116,16 +1134,16 @@
           "sha256": "5a0d2682493ffa7b140a7b81f0d1e70c7536c97969397cf9e718e31391b5b9d5"
         },
         {
-          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "fileName": "sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/VjliRs3R/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "sha256": "cb91112f013b314b411d0487739f3c5ecbe6b4732bbba5f8dd13cc64b0abca39"
+          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "fileName": "sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/gKcE0zFj/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "sha256": "3ec2aa5a143bdc1b2975e749044f28596fccc4479b3e9de5f52cd84d1dc46e38"
         },
         {
-          "path": "mods/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "fileName": "sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/dICsXsDi/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "sha256": "d9d100956dc674b82f375f8001e907d92b336a6d6737584726f30d9cc05df76b"
+          "path": "mods/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "fileName": "sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/lg9huR0q/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "sha256": "28e3c610fefa14b72c8f8c1fb60bf38e0685dfd5180f8a9cf9025de517fd1769"
         },
         {
           "path": "mods/space_gravity-1.0.1.jar",
@@ -1248,6 +1266,12 @@
           "sha256": "ff502986f27f47409b3bd1c02cbbeeacf9d035069c47b2560fc81bafca8a2c35"
         },
         {
+          "path": "mods/valkyrienskies-120-2.4.11.jar",
+          "fileName": "valkyrienskies-120-2.4.11.jar",
+          "url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/pOkdwuUh/valkyrienskies-120-2.4.11.jar",
+          "sha256": "f99f24de62015451a047f90484cf9d25970cac350105b581c22b2d5247ebfd53"
+        },
+        {
           "path": "mods/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
           "fileName": "vintage_kubejs-1.20.1-1.0.0rc-2.jar",
           "url": "https://cdn.modrinth.com/data/u2r2GYRW/versions/TUKYnKui/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
@@ -1305,16 +1329,16 @@
     },
     "client": {
       "archive": {
-        "fileName": "tfg-base-0.13.18-client.zip",
-        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.18/tfg-base-0.13.18-client.zip",
-        "sha256": "82585d62860562c6ff1d7fd5fb5defc8213365152b0a82716cc941698ed0d933"
+        "fileName": "tfg-base-0.13.19-client.zip",
+        "url": "https://github.com/UpperMoon0/TFG-Modern-Fork/releases/download/nstut-base-0.13.19/tfg-base-0.13.19-client.zip",
+        "sha256": "aeb5ba6d6bd9191b38cd03115c47a57895b907c147d95488969381bcb8c604be"
       },
-      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.31.jar",
-      "sourceSha256": "9b78d57b898a309783b82b623128899ed60badb70aac401e31936195d8620913",
-      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-      "targetSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
-      "marker": ".nstut-tfg-base-0.13.18",
-      "markerContent": "{\n  \"baseRef\": \"0.13.18\",\n  \"upstreamCommit\": \"a51824514af63ada07fcfd162ef85b3b9840c103\"\n}\n",
+      "sourceFile": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
+      "sourceSha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338",
+      "targetFile": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+      "targetSha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a",
+      "marker": ".nstut-tfg-base-0.13.19",
+      "markerContent": "{\n  \"baseRef\": \"0.13.19\",\n  \"upstreamCommit\": \"065edebfa6196056767c3484648286964b949536\"\n}\n",
       "downloads": [
         {
           "path": "mods/AE2NetworkAnalyzer-1.20-1.0.6-forge.jar",
@@ -1407,10 +1431,10 @@
           "sha256": "398fd4dd2c2d51e801f83e1a2dd30a9ddda5d40d520b28cc5fe7682972ba1f7e"
         },
         {
-          "path": "mods/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "fileName": "CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/ChKayKur/CreativeCore_FORGE_v2.12.40_mc1.20.1.jar",
-          "sha256": "936de62489c0d6fbe74202486cbe2b191b8629b02bab1d480acfdb03690f33f4"
+          "path": "mods/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "fileName": "CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/HGkNDl47/CreativeCore_FORGE_v2.12.42_mc1.20.1.jar",
+          "sha256": "8d90a490c590613f79e51066bd885e5d93f947ab12790740c9b7cbd4e49b2676"
         },
         {
           "path": "mods/Cucumber-1.20.1-7.0.16.jar",
@@ -1425,16 +1449,22 @@
           "sha256": "cb0301d2fd82b48eacbd65e841bedd2fd1523997f9e1b2ca7d54bab201634a56"
         },
         {
+          "path": "mods/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "fileName": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+          "sha256": "a537a71171d935540b56b7598d0de2c106f6f5026336c713d89a1d9ea0ea14e3"
+        },
+        {
           "path": "mods/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
           "fileName": "EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
           "url": "https://cdn.modrinth.com/data/KjL0jE2w/versions/4IG1vNXQ/EnhancedVisuals_FORGE_v1.8.34_mc1.20.1.jar",
           "sha256": "29e8c198c8b45c97e01f2566b2ca2e72b2af5436edca9d04d75259377ebde291"
         },
         {
-          "path": "mods/EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
-          "fileName": "EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
-          "url": "https://cdn.modrinth.com/data/4H6sumDB/versions/fhNVBg6d/EuphoriaPatcher-1.10.5-r5.9.3-forge.jar",
-          "sha256": "65f7437bbfc2474f5c3208e5280cd898f0623c451af541d8a5777cfb21d44c78"
+          "path": "mods/EuphoriaPatcher-1.11.1-r5.10-forge.jar",
+          "fileName": "EuphoriaPatcher-1.11.1-r5.10-forge.jar",
+          "url": "https://cdn.modrinth.com/data/4H6sumDB/versions/qpFdTZF4/EuphoriaPatcher-1.11.1-r5.10-forge.jar",
+          "sha256": "9114d1fcd7351f1ce357725f03b1a789d9df8edcdd93fb02a5303db3fd03dc4c"
         },
         {
           "path": "mods/ExtendedAE-1.20-1.4.22-forge.jar",
@@ -1575,12 +1605,6 @@
           "sha256": "74bd64fe43eefa4a81006184b7558ceff20f6579597c0c35baeb44e70cfaaf51"
         },
         {
-          "path": "mods/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "fileName": "NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "url": "https://cdn.modrinth.com/data/qQyHxfxd/versions/2XUIKIAa/NoChatReports-FORGE-1.20.1-v2.2.3.jar",
-          "sha256": "1f6505721ce6a78ce46e662f65fc81646705f82f169e9b7565951d1965d51672"
-        },
-        {
           "path": "mods/Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
           "fileName": "Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
           "url": "https://cdn.modrinth.com/data/bQh7xzFq/versions/xXV9YBzF/Not Enough Recipe Book-FORGE-0.4.1+1.20.1.jar",
@@ -1707,10 +1731,10 @@
           "sha256": "02e8d305354c16e5c135510e66d2aa8d70f16c50d443c10e1dd2feb426105030"
         },
         {
-          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "fileName": "TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/U3YTPchH/TerraFirmaGreg-Core-Modern-0.9.34.jar",
-          "sha256": "a3168a58ca067b43cf5346258dfcef6f30ccbc8ad50082920efd7bfc184fb338"
+          "path": "mods/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "fileName": "TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/JRPRWuem/TerraFirmaGreg-Core-Modern-0.9.36.jar",
+          "sha256": "92b2bd513656507d9f5e0a4ecabd70d78fbb2967a82f688215533fd7e203737a"
         },
         {
           "path": "mods/ToolBelt-1.20.1-1.20.03.jar",
@@ -1779,10 +1803,10 @@
           "sha256": "329dff2184edc476e7261b073f17239015636543a22c16df1161fafe547d6b1c"
         },
         {
-          "path": "mods/ae2wtlib-15.3.3-forge.jar",
-          "fileName": "ae2wtlib-15.3.3-forge.jar",
-          "url": "https://cdn.modrinth.com/data/pNabrMMw/versions/z8QXeyI0/ae2wtlib-15.3.3-forge.jar",
-          "sha256": "39e5cede37d5c6a07592d6c1e83398791e037f3d434bc44f7460cd085a4de5f4"
+          "path": "mods/ae2wtlib-15.4.1.jar",
+          "fileName": "ae2wtlib-15.4.1.jar",
+          "url": "https://edge.forgecdn.net/files/9531/944/ae2wtlib-15.4.1.jar",
+          "sha256": "bbf3d2bc5fa87b127c593074d8429a0181679d570d57676a70513114f40fbf3e"
         },
         {
           "path": "mods/afc-1.0.23-1.20.1.jar",
@@ -1803,10 +1827,10 @@
           "sha256": "cc77374010d9e951219a05a904062f1a3bf411dc58275ab06543984aa0048254"
         },
         {
-          "path": "mods/alltheleaks-1.1.4+1.20.1-forge.jar",
-          "fileName": "alltheleaks-1.1.4+1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/9188/826/alltheleaks-1.1.4+1.20.1-forge.jar",
-          "sha256": "fb72063a7d17df97740d24355444ef2f95eab97728e1256c639bb432c61b7716"
+          "path": "mods/alltheleaks-1.1.6-1.20.1-forge.jar",
+          "fileName": "alltheleaks-1.1.6-1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9640/602/alltheleaks-1.1.6-1.20.1-forge.jar",
+          "sha256": "6f5ad3c243b7425e181a61e973d31c7c415dd467e49638d3c5c2ffd25142dca0"
         },
         {
           "path": "mods/almanac-forge-1.20.1-1.26.11.1.jar",
@@ -1821,10 +1845,10 @@
           "sha256": "ca8ef5c3b47eeae106880dfd27b385f073a4db2c920acb16175e635b09fb570b"
         },
         {
-          "path": "mods/appliedenergistics2-forge-15.5.8-uelm.jar",
-          "fileName": "appliedenergistics2-forge-15.5.8-uelm.jar",
-          "url": "https://edge.forgecdn.net/files/9481/64/appliedenergistics2-forge-15.5.8-uelm.jar",
-          "sha256": "fcc7039b6c0004a71d0209acc363d6a658be924c55ee0efd8aa77601ba157b37"
+          "path": "mods/appliedenergistics2-forge-15.5.9-uelm.jar",
+          "fileName": "appliedenergistics2-forge-15.5.9-uelm.jar",
+          "url": "https://edge.forgecdn.net/files/9531/710/appliedenergistics2-forge-15.5.9-uelm.jar",
+          "sha256": "75f7dca11ca1922cb0f0a3ad37f1581c28a8bf74ce6527034c095de4ed2b618a"
         },
         {
           "path": "mods/architectury-9.2.14-forge.jar",
@@ -1935,16 +1959,22 @@
           "sha256": "d9717f9a57562784b704764c2b040f14db68f12ef3fa17f66e4a02346f37dddd"
         },
         {
-          "path": "mods/chromatic_codes-0.16.5.jar",
-          "fileName": "chromatic_codes-0.16.5.jar",
-          "url": "https://edge.forgecdn.net/files/9465/347/chromatic_codes-0.16.5.jar",
-          "sha256": "4d4dcf518c7da746a7cd7e6b8ecc063f353c81f4117927113957132b20cabb7b"
+          "path": "mods/chromatic_codes-0.16.7.jar",
+          "fileName": "chromatic_codes-0.16.7.jar",
+          "url": "https://edge.forgecdn.net/files/9677/835/chromatic_codes-0.16.7.jar",
+          "sha256": "099a1db11332ae96acd3939d18957cf61e00c5e0f8eecceebeffa3aa0177f6d7"
         },
         {
           "path": "mods/clienttweaks-forge-1.20.1-11.1.11.jar",
           "fileName": "clienttweaks-forge-1.20.1-11.1.11.jar",
           "url": "https://edge.forgecdn.net/files/8697/32/clienttweaks-forge-1.20.1-11.1.11.jar",
           "sha256": "4516ae5b631e9405ccd2215613d25f482d8890cffc486e6e736a0e79134123ca"
+        },
+        {
+          "path": "mods/clockwork-0.5.7.1.jar",
+          "fileName": "clockwork-0.5.7.1.jar",
+          "url": "https://cdn.modrinth.com/data/84USeAvk/versions/PPCx7dxb/clockwork-0.5.7.1.jar",
+          "sha256": "53c09b8c38296e4ebea6da4a1cbbbe999fa6d26d21bf2138618e6577eb4876d8"
         },
         {
           "path": "mods/cloth-config-11.1.136-forge.jar",
@@ -1989,10 +2019,10 @@
           "sha256": "8d77c5fc8dc981c750a8e66d4665f055457f748f0ce49a303d9bc50347bdbf7c"
         },
         {
-          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/c5UUAB2v/corpsecurioscompat-1.20.1-Forge-4.2.0.jar",
-          "sha256": "cf2902e3b21ddd96dae3683e1f7619d813b8c40987d76da7f031a8e81c7b46a8"
+          "path": "mods/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "fileName": "corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "url": "https://cdn.modrinth.com/data/pJGcKPh1/versions/quaQqSQa/corpsecurioscompat-1.20.1-Forge-4.2.1.jar",
+          "sha256": "e175615cfc77c09b29c1312d9f93cc1e624523c589bb3eb8bfdaebcaeee7c6a9"
         },
         {
           "path": "mods/cosmeticarmorreworked-1.20.1-v1a.jar",
@@ -2109,10 +2139,10 @@
           "sha256": "28a34106f7dc91015bc202924593e7a375c9d4dd2681aec58f5abd06fa5eaeee"
         },
         {
-          "path": "mods/diggerhelmet-1.20.1-1.0.0.32.jar",
-          "fileName": "diggerhelmet-1.20.1-1.0.0.32.jar",
-          "url": "https://edge.forgecdn.net/files/9017/119/diggerhelmet-1.20.1-1.0.0.32.jar",
-          "sha256": "a709c3c3440da835847ec2d964ecab253481caf86bde3e88860478c877c1442f"
+          "path": "mods/diggerhelmet-1.20.1-1.0.0.33.jar",
+          "fileName": "diggerhelmet-1.20.1-1.0.0.33.jar",
+          "url": "https://edge.forgecdn.net/files/9679/176/diggerhelmet-1.20.1-1.0.0.33.jar",
+          "sha256": "132d6baabb4a35efd7f351fa028a727d46fd861be80f73a0be9a1f400996b783"
         },
         {
           "path": "mods/domum_ornamentum-1.20.1-1.0.304-snapshot-universal.jar",
@@ -2151,10 +2181,10 @@
           "sha256": "18f9f0bf3a9b4f77ad6913c28ccb927cde24f5d19524152cfe79ebb3dcccacc5"
         },
         {
-          "path": "mods/entityculling-forge-1.11.3-mc1.20.1.jar",
-          "fileName": "entityculling-forge-1.11.3-mc1.20.1.jar",
-          "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/HUUJcFnt/entityculling-forge-1.11.3-mc1.20.1.jar",
-          "sha256": "86de2a9fc6538bc26e71e5393ae72018eb9bb349a5dbaa0645fd194da5654b66"
+          "path": "mods/entityculling-forge-1.12.1-mc1.20.1.jar",
+          "fileName": "entityculling-forge-1.12.1-mc1.20.1.jar",
+          "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/Udu5Sovd/entityculling-forge-1.12.1-mc1.20.1.jar",
+          "sha256": "94f8881f696dfa73f1fe59395fca040655187ca87340747fb65cad69e13759b9"
         },
         {
           "path": "mods/etched-3.0.4.jar",
@@ -2175,10 +2205,10 @@
           "sha256": "321d23bbbb4c95036e0d6f2f1576008f42ad5d330a03072d25611f9f5199f0e2"
         },
         {
-          "path": "mods/exposure-forge-1.20.1-1.9.22.jar",
-          "fileName": "exposure-forge-1.20.1-1.9.22.jar",
-          "url": "https://cdn.modrinth.com/data/hB899VmG/versions/P0Y8dFLl/exposure-forge-1.20.1-1.9.22.jar",
-          "sha256": "aa2138af2ff4c123b86319278e7ffc56193bb3822096228ca263e99138e2e91e"
+          "path": "mods/exposure-forge-1.20.1-1.9.24.jar",
+          "fileName": "exposure-forge-1.20.1-1.9.24.jar",
+          "url": "https://cdn.modrinth.com/data/hB899VmG/versions/vPrmURi1/exposure-forge-1.20.1-1.9.24.jar",
+          "sha256": "0cdead21f9a70517ada89eb4cdcdd25d96ce7666afadf45b84e8180109a556a3"
         },
         {
           "path": "mods/fallingtrees-forge-0.12.7-1.20.jar",
@@ -2325,10 +2355,10 @@
           "sha256": "8ba2ae2038d2fdb6e129ace15b3d2f85dc2ebd7c631fba686aff4416cedbe9f4"
         },
         {
-          "path": "mods/gtcables-1.0.0.jar",
-          "fileName": "gtcables-1.0.0.jar",
-          "url": "https://edge.forgecdn.net/files/9410/927/gtcables-1.0.0.jar",
-          "sha256": "11028b321e8018e2577299eccb491b69d5dfe68f1eadb9ba032899551206afd9"
+          "path": "mods/gtcables-1.0.1.jar",
+          "fileName": "gtcables-1.0.1.jar",
+          "url": "https://edge.forgecdn.net/files/9519/545/gtcables-1.0.1.jar",
+          "sha256": "43bbd7fae3172eaa9bad6d8e98f516ed92ea4430f2e265cd48b1769d50b809ce"
         },
         {
           "path": "mods/gtceu-1.20.1-7.5.3.jar",
@@ -2343,10 +2373,10 @@
           "sha256": "ff0716a24d5fc08f1299371f4d88b138495259e1c14744d622ad972298d10d46"
         },
         {
-          "path": "mods/gtmutils-2.10.2.jar",
-          "fileName": "gtmutils-2.10.2.jar",
-          "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/IyQ8F7M8/gtmutils-2.10.2.jar",
-          "sha256": "c64c9c5cc79deb753883380182a1095802e723fb34963efd5c1a06a64b5a33ca"
+          "path": "mods/gtmutils-2.10.3.jar",
+          "fileName": "gtmutils-2.10.3.jar",
+          "url": "https://cdn.modrinth.com/data/KMnOsM3N/versions/fUyv1smw/gtmutils-2.10.3.jar",
+          "sha256": "357048d978610960f7dabbcad8e1c63442a76eab71593d5e4216d67f75aebc57"
         },
         {
           "path": "mods/guideme-20.1.15.jar",
@@ -2397,6 +2427,12 @@
           "sha256": "ebd6e5957521fa8a1bc29dcc7f157e56c6ea0332d5302a8d66975381f06d607a"
         },
         {
+          "path": "mods/kelvin-1.20.1-0.5.2.jar",
+          "fileName": "kelvin-1.20.1-0.5.2.jar",
+          "url": "https://edge.forgecdn.net/files/9602/94/kelvin-1.20.1-0.5.2.jar",
+          "sha256": "1f70e4ada1f35d86d4e6000ad6908596865ddf471204c87e2fe0d8859f31e926"
+        },
+        {
           "path": "mods/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
           "fileName": "konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
           "url": "https://cdn.modrinth.com/data/J81TRJWm/versions/skYziQQL/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
@@ -2421,10 +2457,10 @@
           "sha256": "41719240421262acc0f348dfec92dc3c3654983662de6ae0358737029ad09076"
         },
         {
-          "path": "mods/kubejs_tfc-1.20.1-1.3.5.jar",
-          "fileName": "kubejs_tfc-1.20.1-1.3.5.jar",
-          "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/HNprLaYs/kubejs_tfc-1.20.1-1.3.5.jar",
-          "sha256": "9b7538f3eeef60841d1c02b8d42355675f4490612edc6f04c566ad0ac3ab71ed"
+          "path": "mods/kubejs_tfc-1.20.1-1.3.6.jar",
+          "fileName": "kubejs_tfc-1.20.1-1.3.6.jar",
+          "url": "https://cdn.modrinth.com/data/mhtClB2S/versions/8SZRYO65/kubejs_tfc-1.20.1-1.3.6.jar",
+          "sha256": "82af1131f29113cb846ba4980f2d968d0c0d2c92569f340e41fee734c731c625"
         },
         {
           "path": "mods/letmedespawn-forge-1.20.1-1.26.11.1.jar",
@@ -2505,6 +2541,12 @@
           "sha256": "490de12be0237e5699aba8ae57d9c40a97ae7491d6ae33ecb1fc5d3b30f391ea"
         },
         {
+          "path": "mods/minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+          "fileName": "minecraft-comes-alive-7.6.26+1.20.1-universal.jar",
+          "url": "https://cdn.modrinth.com/data/1W98a849/versions/7syRW46i/minecraft-comes-alive-7.6.26%2B1.20.1-universal.jar",
+          "sha256": "5dc3ee1f2f74221b3b7b73456451bf9a3f0cc87c8378a64233680f051dbc3d19"
+        },
+        {
           "path": "mods/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
           "fileName": "mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
           "url": "https://edge.forgecdn.net/files/4579/551/mixininheaven-mc1.17.1-1.20-v0.0.1-hotfix.jar",
@@ -2565,10 +2607,10 @@
           "sha256": "bd4023e4618333f3e6020a7d6f4db3ae7e8fe41b39a43f47e6a1da4fbd80bc1b"
         },
         {
-          "path": "mods/particular-1.20.1-Forge-1.5.7.jar",
-          "fileName": "particular-1.20.1-Forge-1.5.7.jar",
-          "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/LJTyWvQX/particular-1.20.1-Forge-1.5.7.jar",
-          "sha256": "b6689b09b75a54690797308f853969e083b8ae89343676163ddb03bd0755b079"
+          "path": "mods/particular-1.20.1-Forge-1.6.1.jar",
+          "fileName": "particular-1.20.1-Forge-1.6.1.jar",
+          "url": "https://cdn.modrinth.com/data/pYFUU6cq/versions/mc1iueNJ/particular-1.20.1-Forge-1.6.1.jar",
+          "sha256": "6a51c5222805e8a936b4fc4c9bc82595138d436da6c2dc44dcd0bcab43facd53"
         },
         {
           "path": "mods/playerrevive_compat-1.0.4-daf51f2.jar",
@@ -2601,22 +2643,22 @@
           "sha256": "5206c8117f3869f6ea894c034f4a18d4def40ef8b0da106eb662ebd4e8ebbf36"
         },
         {
-          "path": "mods/reliable_recipes-3.8.3-1.20.1-forge.jar",
-          "fileName": "reliable_recipes-3.8.3-1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/9364/987/reliable_recipes-3.8.3-1.20.1-forge.jar",
-          "sha256": "99db0bd9d14832941cb0aad0239b774094ac3347005f352459d1cb5db6415fcb"
+          "path": "mods/reliable_recipes-3.9.0-1.20.1-forge.jar",
+          "fileName": "reliable_recipes-3.9.0-1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9567/42/reliable_recipes-3.9.0-1.20.1-forge.jar",
+          "sha256": "e756327eaf389973fad424bb3ea015fd6b0c61d124b6c733951dcb1b96e5c256"
         },
         {
-          "path": "mods/reliable_remover-3.8.4-1.20.1-forge.jar",
-          "fileName": "reliable_remover-3.8.4-1.20.1-forge.jar",
-          "url": "https://edge.forgecdn.net/files/9406/632/reliable_remover-3.8.4-1.20.1-forge.jar",
-          "sha256": "7857ab8056b2473c1ed0a4de9d9a5696b5d3ec76d2a118e6b9034aed6b072144"
+          "path": "mods/reliable_remover-3.9.3-1.20.1-forge.jar",
+          "fileName": "reliable_remover-3.9.3-1.20.1-forge.jar",
+          "url": "https://edge.forgecdn.net/files/9662/707/reliable_remover-3.9.3-1.20.1-forge.jar",
+          "sha256": "bc2582a411681c9a357b186e77a8909e48638ccab5ee3e0beb0bed07ce11ce30"
         },
         {
-          "path": "mods/remi-forge-1.20.1-4.8.1.jar",
-          "fileName": "remi-forge-1.20.1-4.8.1.jar",
-          "url": "https://cdn.modrinth.com/data/N9WucjHL/versions/9b1U5yMI/remi-forge-1.20.1-4.8.1.jar",
-          "sha256": "55b8f771ed78d1d02917673c3a66150af253d638683411158f41ca8b41ca71c3"
+          "path": "mods/remi-forge-1.20.1-4.9.0.jar",
+          "fileName": "remi-forge-1.20.1-4.9.0.jar",
+          "url": "https://cdn.modrinth.com/data/N9WucjHL/versions/jW9hlLFS/remi-forge-1.20.1-4.9.0.jar",
+          "sha256": "6483c4011759b7078453ce7acb33331c41498a7bf2a8bae13c4d8cd59ca61a15"
         },
         {
           "path": "mods/resourcefulconfig-forge-1.20.1-2.1.3.jar",
@@ -2655,10 +2697,10 @@
           "sha256": "7e6dcc7c2b0db19ec2f965fac91a49e13dcc611f2d86f6bb56d7d68da901aaf8"
         },
         {
-          "path": "mods/seasonhud-forge-1.20.1-2.0.11.jar",
-          "fileName": "seasonhud-forge-1.20.1-2.0.11.jar",
-          "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/J0Bp2ckj/seasonhud-forge-1.20.1-2.0.11.jar",
-          "sha256": "acd37ba9ae52fe2fbea096180b2695e467892bd511a4057882d33e46e41bcc50"
+          "path": "mods/seasonhud-forge-1.20.1-2.0.12.jar",
+          "fileName": "seasonhud-forge-1.20.1-2.0.12.jar",
+          "url": "https://cdn.modrinth.com/data/VNjUn3NA/versions/6n2Hz48p/seasonhud-forge-1.20.1-2.0.12.jar",
+          "sha256": "23a74e8bfae02ebe943d8e1bcb3218ead9ec11f097863d1ce551f5e6f0e5ed2f"
         },
         {
           "path": "mods/showcaser-forge-1.7.4.jar",
@@ -2703,16 +2745,16 @@
           "sha256": "37ec0b6248f04e856e6e5ba2066c4ded9981ce128282a9b45cdb10b67b9c8415"
         },
         {
-          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "fileName": "sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "url": "https://edge.forgecdn.net/files/9385/316/sophisticatedbackpacks-1.20.1-3.26.19.2239.jar",
-          "sha256": "570a1aac649185e29a574b57dfaa78a631a7247477667020a8ce5266f6c48746"
+          "path": "mods/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "fileName": "sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "url": "https://edge.forgecdn.net/files/9692/535/sophisticatedbackpacks-1.20.1-3.26.21.2256.jar",
+          "sha256": "b797b5a0c3096e1a1a6182eaa3eae0edb1fd8b3797a1c3e56184b92ae7ba9d40"
         },
         {
-          "path": "mods/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "fileName": "sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "url": "https://edge.forgecdn.net/files/9477/656/sophisticatedcore-1.20.1-1.5.29.2459.jar",
-          "sha256": "d0881bf634ee03ad8c38497f09a3bc3fe2c252af88791a4e7147f2f36cff3493"
+          "path": "mods/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "fileName": "sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "url": "https://edge.forgecdn.net/files/9692/501/sophisticatedcore-1.20.1-1.5.37.2488.jar",
+          "sha256": "afb2c333a03db21c794481c3e9917f355da3f75b1098cd95f1f2ec9a0dcd2300"
         },
         {
           "path": "mods/sound-physics-remastered-forge-1.20.1-1.5.1.jar",
@@ -2853,6 +2895,12 @@
           "sha256": "ff502986f27f47409b3bd1c02cbbeeacf9d035069c47b2560fc81bafca8a2c35"
         },
         {
+          "path": "mods/valkyrienskies-120-2.4.11.jar",
+          "fileName": "valkyrienskies-120-2.4.11.jar",
+          "url": "https://cdn.modrinth.com/data/V5ujR2yw/versions/pOkdwuUh/valkyrienskies-120-2.4.11.jar",
+          "sha256": "f99f24de62015451a047f90484cf9d25970cac350105b581c22b2d5247ebfd53"
+        },
+        {
           "path": "mods/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
           "fileName": "vintage_kubejs-1.20.1-1.0.0rc-2.jar",
           "url": "https://cdn.modrinth.com/data/u2r2GYRW/versions/TUKYnKui/vintage_kubejs-1.20.1-1.0.0rc-2.jar",
@@ -2961,10 +3009,10 @@
           "sha256": "9e7b64f5c56b55aa4ab4d4d7003d78a5be11f83bb9c446284b1072eb602d2676"
         },
         {
-          "path": "shaderpacks/ComplementaryUnbound_r5.9.3.zip",
-          "fileName": "ComplementaryUnbound_r5.9.3.zip",
-          "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/B1kyfoUZ/ComplementaryUnbound_r5.9.3.zip",
-          "sha256": "98ac741dee294d2a3c82d153349148c3bb7fb688c30eb3b49c3b9ac37e968c5a"
+          "path": "shaderpacks/ComplementaryUnbound_r5.10.zip",
+          "fileName": "ComplementaryUnbound_r5.10.zip",
+          "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/QJiYQisE/ComplementaryUnbound_r5.10.zip",
+          "sha256": "f19bf3268669576485124b7a717980f46b6200cde146fa181e794a2df0f9c2da"
         },
         {
           "path": "shaderpacks/TerraFirmaGreg-Shaders-Complementary-3.1.6.zip",
