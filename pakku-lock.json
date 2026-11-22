@@ -18159,36 +18159,34 @@
             "type": "MOD",
             "side": "BOTH",
             "slug": {
-                "modrinth": "distanthorizons"
+                "github": "UpperMoon0/DistantHorizons"
             },
             "name": {
-                "modrinth": "Distant Horizons"
+                "github": "Distant Horizons"
             },
             "id": {
-                "modrinth": "uCdwusMi"
+                "github": "1467654718"
             },
             "files": [
                 {
-                    "type": "modrinth",
-                    "file_name": "DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
+                    "type": "github",
+                    "file_name": "DistantHorizons-forge-3.3.3-nstut.1-1.20.1.jar",
                     "mc_versions": [
                         "1.20.1"
                     ],
                     "loaders": [
-                        "fabric",
                         "forge"
                     ],
-                    "release_type": "release",
-                    "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/6UnEfsRQ/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar",
-                    "id": "6UnEfsRQ",
-                    "parent_id": "uCdwusMi",
+                    "release_type": "beta",
+                    "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.1/DistantHorizons-forge-3.3.3-nstut.1-1.20.1.jar",
+                    "id": "779480883",
+                    "parent_id": "1467654718",
                     "hashes": {
-                        "sha512": "2ac0a2fd34fe17bb3a3764bb53838f00595998a7e0b4bd70c5068aa9244626c6b0e622af548f97a1614dbb0b7c3df29b6d313edfc890d572dc361591c2a176c0",
-                        "sha1": "5447c4716571bfdba817c85278a9ce0d411573ec"
+                        "sha256": "f6d8339b55537baff3a2e45b89b8280373f85ab51821faba35095a8ccaa7c169"
                     },
                     "required_dependencies": [],
-                    "size": 27700542,
-                    "date_published": "2026-09-29T00:04:02.102920Z"
+                    "size": 23002990,
+                    "date_published": "2026-11-22T15:21:59Z"
                 }
             ]
         }
