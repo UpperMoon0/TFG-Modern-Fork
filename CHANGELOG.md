@@ -1,3 +1,9 @@
+## 0.13.19-nstut.6
+
+- Stage the Distant Horizons 3.3.3-nstut.6 TFC biome-neighbor and structure-reference fixes for client and server; the earlier .3 candidate is invalid.
+- Isolated Forge 1.20.1 TFC test: pre-generation 32/32 radius chunks, persisted LOD records 5 to 397, no Biome: 211 or feature-generation errors.
+- Production stays on DH .2 until client LOD transfer, native Jenkins exact-SHA checks, backup and rollback gates pass.
+
 ## 0.13.19-nstut.5
 
 - Fix server-side Distant Horizons and TFC biome feature-generation compatibility with a 3×3 biome neighborhood.
