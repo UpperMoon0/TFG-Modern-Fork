@@ -1,3 +1,10 @@
+## 0.13.19-nstut.8
+
+- Pin Distant Horizons 3.3.3-nstut.8 on client and server with a response-bound LOD buffer lifecycle fix, preserving the TFC biome-neighbor generation repair.
+- Prevent split LOD buffers from expiring before queued client decompression, and release decoded buffers correctly.
+- Preserve all upstream 0.13.19 content, unrelated managed mods, player/world state and TrueUUID data.
+- Require passing same-version reconnect, rendering and native Jenkins gates before production promotion.
+
 ## 0.13.19-nstut.7
 
 - Fix early client/server Distant Horizons LOD data arriving before client-level initialization (DH 3.3.3-nstut.7).

@@ -18170,7 +18170,7 @@
             "files": [
                 {
                     "type": "github",
-                    "file_name": "DistantHorizons-forge-3.3.3-nstut.7-1.20.1.jar",
+                    "file_name": "DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
                     "mc_versions": [
                         "1.20.1"
                     ],
@@ -18178,15 +18178,15 @@
                         "forge"
                     ],
                     "release_type": "beta",
-                    "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.7/DistantHorizons-forge-3.3.3-nstut.7-1.20.1.jar",
-                    "id": "782356935",
+                    "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.8/DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
+                    "id": "782510257",
                     "parent_id": "1467654718",
                     "hashes": {
-                        "sha256": "bd504cd412293bfc46a91fcf8c646da49d369ff8ab678afe44d1e6b216a350a4"
+                        "sha256": "bd03e4cc7691017c755c9884081f3be8cada4ac0edc5600e172d973ab56c109d"
                     },
                     "required_dependencies": [],
-                    "size": 23022882,
-                    "date_published": "2026-11-23T09:39:03Z"
+                    "size": 23023566,
+                    "date_published": "2026-11-23T10:30:44Z"
                 }
             ]
         }

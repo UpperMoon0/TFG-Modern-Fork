@@ -377,11 +377,11 @@
     {
       "id": "distant-horizons",
       "name": "Distant Horizons (NsTut Forge/Chunky compatibility fork)",
-      "version": "3.3.3-nstut.7",
+      "version": "3.3.3-nstut.8",
       "repository": "UpperMoon0/DistantHorizons",
-      "fileName": "DistantHorizons-forge-3.3.3-nstut.7-1.20.1.jar",
-      "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.7/DistantHorizons-forge-3.3.3-nstut.7-1.20.1.jar",
-      "sha256": "bd504cd412293bfc46a91fcf8c646da49d369ff8ab678afe44d1e6b216a350a4",
+      "fileName": "DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
+      "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.8/DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
+      "sha256": "bd03e4cc7691017c755c9884081f3be8cada4ac0edc5600e172d973ab56c109d",
       "installTargets": [
         "client",
         "server"
