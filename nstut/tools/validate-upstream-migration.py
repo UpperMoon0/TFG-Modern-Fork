@@ -43,9 +43,9 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert managed['base']['ref'] == BASE, 'wrong managed-mod base'
     release = load('nstut/release.json')
     assert release['baseRef'] == BASE and release['branch'] == 'nstut/'+BASE
-    assert release['overlayVersion'] == BASE+'-nstut.4' and release['sourceRef'] == 'nstut-0.13.19.4'
+    assert release['overlayVersion'] == BASE+'-nstut.8' and release['sourceRef'] == 'nstut-0.13.19.8'
     assert load('pakku.json')['version'] == release['overlayVersion'], 'Pakku pack version differs from immutable release'
-    audit = load('nstut/custom-mod-audit-0.13.19.4.json')
+    audit = load('nstut/custom-mod-audit-0.13.19.8.json')
     pin_keys = ('id','repository','version','fileName','url','sha256','installTargets')
     pins = [{k:m[k] for k in pin_keys if k in m} for m in managed['mods']]
     assert pins == audit['pins'] and audit['sourceRef'] == release['sourceRef'] and audit['baseRef'] == BASE
