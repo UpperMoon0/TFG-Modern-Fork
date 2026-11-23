@@ -663,6 +663,7 @@ def main() -> int:
     dh_ops = [o for o in generated['operations'] if o.get('destination') == 'config/DistantHorizons.toml']
     if len(dh_ops) != 1 or dh_ops[0].get('type') != 'patchToml' or dh_ops[0].get('values') != dh_policy or dh_ops[0].get('targets') != ['client', 'server']:
         fail('DH requires exactly one semantic v5 TOML patch, never installFile')
+    subprocess.run([sys.executable, str(NSTUT / "test_dh_v5_semantic.py")], check=True)
 
     economy_path = "config/economy-storage.properties"
     if (ROOT / economy_path).read_text().splitlines()[-1] != "tankCapacity=512000":
