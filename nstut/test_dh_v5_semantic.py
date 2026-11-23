@@ -12,9 +12,9 @@ from pathlib import Path
 import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = ROOT.parent / "config" / "DistantHorizons.toml"
-MANIFEST = ROOT / "modpack-manager.patch.json"
-OVERLAYS = ROOT / "runtime-overlays.json"
+CONFIG = ROOT / "config" / "DistantHorizons.toml"
+MANIFEST = ROOT / "nstut" / "modpack-manager.patch.json"
+OVERLAYS = ROOT / "nstut" / "runtime-overlays.json"
 
 
 def apply_semantic_values(doc: dict, values: dict) -> int:
