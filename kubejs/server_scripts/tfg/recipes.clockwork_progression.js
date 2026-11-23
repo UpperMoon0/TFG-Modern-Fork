@@ -131,10 +131,11 @@ function registerTFGClockworkProgressionRecipes(event) {
     // and industrial gas handling. Early free hull assembly remains.
     event.remove({ output: 'vs_clockwork:phys_bearing' });
     event.recipes.gtceu.assembler('tfg:clockwork/mv/physics_bearing')
+        // Unique turntable differentiates this input set from the Gimbal
+        // recipe; GTCEu's lookup index cannot disambiguate quantities alone.
         .itemInputs('vs_clockwork:wanderlite_matrix',
             'gtceu:mv_electric_motor', 'gtceu:steel_rotor',
-            'create:brass_casing')
-        // Avoid ambiguous assembler lookup entries from other bearing recipes.
+            'create:turntable')
         .inputFluids(Fluid.of('gtceu:lubricant', 100))
         .itemOutputs('vs_clockwork:phys_bearing')
         .duration(300).EUt(MV);
