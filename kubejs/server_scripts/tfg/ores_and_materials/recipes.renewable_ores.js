@@ -692,6 +692,51 @@ function registerTFGRenewableOreRecipes(event) {
         .duration(300)
         .EUt(HV);
 
+    // ---------------------------------------------------------------------
+    // HV Clockwork expansion: seeded, renewable Deepslate Wanderlite Ore.
+    //
+    // A Wanderlite Crystal is required as a reusable seed, so this does not
+    // bypass the initial exploration / meteorite acquisition. Vitrified Pearls
+    // require HV pyrolysis, and the rock powders come from the existing
+    // renewable stone-dust separation chain.
+    //
+    // Per ore: 16 felsic dust, 8 metamorphic dust, 4 amethyst shards,
+    // 2 vitrified pearls, 8 redstone, 8 B distilled water, 1 B oxygen;
+    // 3,000 total ticks at 480 EU/t = 1,440,000 EU.
+    // The native Create crushing recipe averages 1.75 crystals per ore.
+    // Register only when the optional Clockwork mod is present.
+    // ---------------------------------------------------------------------
+    if (Platform.isLoaded('vs_clockwork')) {
+        event.recipes.gtceu.mixer('tfg:hv_renewable_wanderlite_silicate_slurry')
+            .itemInputs(
+                '16x tfg:igneous_felsic_dust',
+                '8x tfg:metamorphic_dust',
+                '4x minecraft:amethyst_shard'
+            )
+            .inputFluids(Fluid.of('gtceu:distilled_water', 4000))
+            .outputFluids(Fluid.of('tfg:wanderlite_silicate_slurry', 8000))
+            .duration(600)
+            .EUt(HV);
+
+        event.recipes.gtceu.chemical_reactor('tfg:hv_renewable_wanderlite_precursor')
+            .itemInputs('2x tfg:vitrified_pearl', '8x minecraft:redstone')
+            .inputFluids(
+                Fluid.of('tfg:wanderlite_silicate_slurry', 8000),
+                Fluid.of('gtceu:oxygen', 1000)
+            )
+            .itemOutputs('8x tfg:charged_wanderlite_precursor_dust')
+            .duration(800)
+            .EUt(HV);
+
+        event.recipes.gtceu.autoclave('tfg:hv_renewable_wanderlite_deepslate_ore')
+            .itemInputs('8x tfg:charged_wanderlite_precursor_dust')
+            .notConsumable('vs_clockwork:wanderlite_crystal')
+            .inputFluids(Fluid.of('gtceu:distilled_water', 4000))
+            .itemOutputs('vs_clockwork:wanderlite_deepslate_ore')
+            .duration(1600)
+            .EUt(HV);
+    }
+
     // Waste valorization. These recipes intentionally convert custom waste into
     // existing TFG/GT materials instead of adding parallel substitutes. Recovery
     // is deliberately lossy, and alternate treatment paths use different recipe
