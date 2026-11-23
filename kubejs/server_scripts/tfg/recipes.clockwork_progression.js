@@ -18,19 +18,28 @@ function registerTFGClockworkProgressionRecipes(event) {
     const HV = GTValues.VA[GTValues.HV];
     const EV = GTValues.VA[GTValues.EV];
 
-    // Steam Age: straightforward THREE-ingredient one-machine recovery, but
-    // consumes 128 nonrenewable RAW ORES and 16 amethyst gems per crystal.
-    // It is an expensive first-seed/emergency route, not a cheap HV substitute.
-    // By comparison, PR #95 consumes 16 felsic + 8 metamorphic renewable
-    // rock dusts, 4 amethysts, 8 redstone, 8 B distilled water, 1 B oxygen,
-    // and 1.44 M EU to make 1 ore (~1.75 crystals) using reusable catalysts.
-    event.recipes.greate.mixing('vs_clockwork:wanderlite_crystal', [
-        '64x gtceu:raw_graphite',
-        '64x gtceu:raw_magnetite',
-        '16x #forge:gems/amethyst'
+    // Steam recovery stays deliberately expensive, but uses only actual
+    // Greate/Create ingredient formats. Greate mixing cannot represent item
+    // stack counts; each of sixteen 9-input batches consumes 4 graphite,
+    // 4 normal TFC magnetite and 1 amethyst. The final 4x4 mechanical craft
+    // spends all sixteen traces to produce ONE initial Wanderlite Crystal.
+    // Total = 64 graphite + 64 magnetite + 16 amethyst, no electricity,
+    // no pre-existing Wanderlite and no HV catalyst or chemistry.
+    event.recipes.greate.mixing('tfg:wanderlite_trace', [
+        'gtceu:raw_graphite', 'gtceu:raw_graphite',
+        'gtceu:raw_graphite', 'gtceu:raw_graphite',
+        'tfc:ore/normal_magnetite', 'tfc:ore/normal_magnetite',
+        'tfc:ore/normal_magnetite', 'tfc:ore/normal_magnetite',
+        '#forge:gems/amethyst'
     ])
         .recipeTier(1)
         .id('tfg:clockwork/steam/wanderlite_trace_recovery');
+
+    event.recipes.createMechanicalCrafting('vs_clockwork:wanderlite_crystal', [
+        'TTTT', 'TTTT', 'TTTT', 'TTTT'
+    ], {
+        T: 'tfg:wanderlite_trace'
+    }).id('tfg:clockwork/steam/consolidate_wanderlite_traces');
 
     // Steam-era precision cutting and polishing, instead of a single instant
     // sandpaper transformation. LV Lathe provides a faster direct alternative.
