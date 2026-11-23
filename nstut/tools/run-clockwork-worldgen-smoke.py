@@ -42,6 +42,9 @@ ERRORS = re.compile(
     r"Errors in registry|Failed to load.*tag|"
     r"\[[^\r\n\[\]]+/ERROR\][ \t]*\[KubeJS[^\r\n\[\]]*\]|"
     r"\[KubeJS[^\r\n\[\]]*/ERROR\]|"
+    r"Error parsing recipe tfg:clockwork/|"
+    r"failed to add recipe from staging into lookup DB: tfg:assembler/clockwork/|"
+    r"with [1-9][0-9]* failed recipes\\b|"
     r"Caused by: .*Invalid.*Recipe",
     re.IGNORECASE,
 )
