@@ -38,12 +38,21 @@ def main(root: Path) -> None:
     assert all(b["with"] == [{"block": "vs_clockwork:wanderlite_deepslate_ore", "weight": 1}] for b in c["blocks"])
     assert placed["feature"] == "tfg:earth/vein/deep_wanderlite"
 
-    # Starting minerals must be directly mineable from the TFG world and must
-    # not require electricity, the HV seeded route, or a first Wanderlite item.
-    steam = recipe.split("// Steam Age:", 1)[1].split("// Replace both", 1)[0]
-    assert "event.recipes.greate.mixing" in steam and ".recipeTier(1)" in steam
-    assert all(material in steam for material in ("64x gtceu:raw_graphite", "64x gtceu:raw_magnetite", "16x #forge:gems/amethyst"))
-    assert "vs_clockwork:wanderlite_crystal" in steam and not re.search(r"(?<!['\\w])vs_clockwork:wanderlite_(?:cube|matrix|deepslate_ore)", steam)
+    # The Steam Greate mixer accepts nine individually consumed items per
+    # operation, not quantity-prefixed stacks. Sixteen batches and a 4x4
+    # mechanical craft consume 64 graphite, 64 magnetite, 16 amethyst.
+    # No HV materials, prior Wanderlite seed or electricity may enter.
+    steam = recipe.split("// Steam recovery stays", 1)[1].split("// Steam-era precision", 1)[0]
+    assert "event.recipes.greate.mixing('tfg:wanderlite_trace'" in steam
+    assert ".recipeTier(1)" in steam
+    assert steam.count("'gtceu:raw_graphite'") == 4
+    assert steam.count("'tfc:ore/normal_magnetite'") == 4
+    assert steam.count("'#forge:gems/amethyst'") == 1
+    assert "'64x " not in steam and "'16x " not in steam
+    assert "event.recipes.createMechanicalCrafting('vs_clockwork:wanderlite_crystal'" in steam
+    assert "'TTTT', 'TTTT', 'TTTT', 'TTTT'" in steam
+    assert "T: 'tfg:wanderlite_trace'" in steam
+    assert not re.search(r"(?<!['\\w])vs_clockwork:wanderlite_(?:cube|matrix|deepslate_ore)", steam)
 
     # Neither the base recipe nor its MV-casing TFG Skies override should
     # survive the recipe removal. Steam assembly still needs a real seed.
@@ -61,6 +70,7 @@ def main(root: Path) -> None:
     assert "tfg:clockwork/steam/precision_wanderlite_matrix" in recipe
     assert "tfg:clockwork/lv/form_wanderlite_matrix" in recipe
     startup_items = (root / "kubejs/startup_scripts/tfg/items.js").read_text(encoding="utf-8")
+    assert "event.create('tfg:wanderlite_trace')" in startup_items
     assert "event.create('tfg:rough_wanderlite_cube')" in startup_items
     assert "event.create('tfg:unfinished_wanderlite_matrix', 'create:sequenced_assembly')" in startup_items
     assert "event.remove({ output: 'vs_clockwork:wanderwand' })" not in recipe
