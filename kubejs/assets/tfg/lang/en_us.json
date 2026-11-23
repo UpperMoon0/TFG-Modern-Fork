@@ -71,5 +71,7 @@
   "material.tfg.lead_leached_concentrate": "Leached Lead Concentrate",
   "material.tfg.silver_leached_calcine": "Leached Silver Calcine",
   "material.tfg.arsenic_leached_concentrate": "Leached Arsenic Concentrate",
-  "material.tfg.sulfate_pressure_lixiviant": "Sulfate Pressure Lixiviant"
+  "material.tfg.sulfate_pressure_lixiviant": "Sulfate Pressure Lixiviant",
+  "material.tfg.wanderlite_silicate_slurry": "Wanderlite Silicate Slurry",
+  "material.tfg.charged_wanderlite_precursor": "Charged Wanderlite Precursor"
 }
