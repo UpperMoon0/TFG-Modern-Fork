@@ -51,6 +51,23 @@ class SmokeRunnerTests(unittest.TestCase):
         self.assertIn("online-mode=false", value)
         self.assertNotIn("server-port=25565", value)
 
+    def test_kubejs_success_summary_is_not_a_registry_error(self):
+        # The real Forge startup prints "0 errors", which used to trip
+        # a broad /KubeJS.+ERROR/i match and abort successful launches.
+        successful = (
+            "[18:36:09] [modloading-worker-0/INFO] [KubeJS Startup/]: "
+            "Loaded 131/131 KubeJS startup scripts in 4.053 s with "
+            "0 errors and 0 warnings"
+        )
+        self.assertIsNone(runner.ERRORS.search(successful))
+        self.assertIsNotNone(runner.ERRORS.search(
+            "[18:37:02] [Server thread/ERROR] [KubeJS Server/]: "
+            "Failed to register Wanderlite recipe"
+        ))
+        self.assertIsNotNone(runner.ERRORS.search(
+            "[18:37:02] [KubeJS Server/ERROR]: Invalid recipe"
+        ))
+
     def test_done_marker_not_false_positive(self):
         self.assertTrue(runner.DONE.search("[INFO]: Done (28.4s)! For help, type 'help'"))
         self.assertFalse(runner.DONE.search("World generation started"))
