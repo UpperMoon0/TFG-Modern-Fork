@@ -49,7 +49,7 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert release['overlayVersion'].startswith(version_prefix), 'unexpected overlay version family'
     suffix = release['overlayVersion'][len(version_prefix):]
     assert suffix.isdecimal() and int(suffix) >= 8, 'overlay revision predates reviewed DH baseline'
-    assert release['sourceRef'] == 'nstut-' + release['overlayVersion'], 'source ref must match immutable overlay'
+    assert release['sourceRef'] == 'nstut-' + BASE + '.' + suffix, 'source ref must match immutable overlay'
     assert load('pakku.json')['version'] == release['overlayVersion'], 'Pakku pack version differs from immutable release'
     audit = load('nstut/custom-mod-audit-' + release['overlayVersion'] + '.json')
     pin_keys = ('id','repository','version','fileName','url','sha256','installTargets')
