@@ -143,20 +143,23 @@ function registerTFGClockworkProgressionRecipes(event) {
         .itemOutputs('vs_clockwork:gyro')
         .duration(300).EUt(MV);
 
-    event.remove({ output: 'vs_clockwork:phys_piston' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/physical_piston')
+    // Clockwork 0.5.7.1 does not register "phys_piston" or "phys_gantry".
+    // Industrialize the real moving-control bearings instead; Create pistons
+    // and gantries remain available through their own progression.
+    event.remove({ output: 'vs_clockwork:smart_flap_bearing' });
+    event.recipes.gtceu.assembler('tfg:clockwork/mv/smart_flap_bearing')
         .itemInputs('vs_clockwork:wanderlite_matrix',
             'gtceu:mv_electric_piston', 'create:brass_casing',
             'create:mechanical_piston')
-        .itemOutputs('vs_clockwork:phys_piston')
+        .itemOutputs('vs_clockwork:smart_flap_bearing')
         .duration(300).EUt(MV);
 
-    event.remove({ output: 'vs_clockwork:phys_gantry' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/physical_gantry')
+    event.remove({ output: 'vs_clockwork:copter_bearing' });
+    event.recipes.gtceu.assembler('tfg:clockwork/mv/copter_bearing')
         .itemInputs('vs_clockwork:wanderlite_matrix',
-            'gtceu:mv_electric_motor', 'create:brass_casing',
-            'create:gantry_carriage')
-        .itemOutputs('vs_clockwork:phys_gantry')
+            'gtceu:mv_electric_motor', 'gtceu:steel_rotor',
+            'vs_clockwork:brass_propeller_bearing')
+        .itemOutputs('vs_clockwork:copter_bearing')
         .duration(300).EUt(MV);
 
     // Native crafting turned one crystal + eight glass into finished
