@@ -85,6 +85,34 @@ class SmokeRunnerTests(unittest.TestCase):
             "'vs_clockwork:extruder/wanderlite_matrix'! Falling back to vanilla"
         ))
 
+    def test_real_ore_in_one_full_chunk_is_sufficient_positive_proof(self):
+        result = runner.assess_worldgen({
+            "fully_generated_chunks": 1,
+            "ore_bearing_chunks": 1,
+            "blocks_found": 67,
+            "ore_y_histogram": {"-50": 2, "-47": 65},
+        }, 64)
+        self.assertTrue(result["passed"])
+        self.assertEqual(result["positive_min_fully_generated_chunks"], 1)
+        self.assertEqual(result["negative_min_fully_generated_chunks"], 64)
+
+    def test_missing_ore_cannot_be_claimed_from_one_chunk(self):
+        result = runner.assess_worldgen({
+            "fully_generated_chunks": 1,
+            "ore_bearing_chunks": 0,
+            "blocks_found": 0,
+            "ore_y_histogram": {},
+        }, 64)
+        self.assertFalse(result["passed"])
+        invalid_depth = runner.assess_worldgen({
+            "fully_generated_chunks": 1,
+            "ore_bearing_chunks": 1,
+            "blocks_found": 1,
+            "ore_y_histogram": {"70": 1},
+        }, 64)
+        self.assertFalse(invalid_depth["passed"])
+        self.assertFalse(invalid_depth["depth_ok"])
+
     def test_done_marker_not_false_positive(self):
         self.assertTrue(runner.DONE.search("[INFO]: Done (28.4s)! For help, type 'help'"))
         self.assertFalse(runner.DONE.search("World generation started"))
