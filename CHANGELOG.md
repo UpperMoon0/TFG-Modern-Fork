@@ -1,3 +1,9 @@
+## 0.13.19-nstut.7
+
+- Fix early client/server Distant Horizons LOD data arriving before client-level initialization (DH 3.3.3-nstut.7).
+- Preserve TFC biome-neighbor worldgen repair; upgrade DH on both client and server with checksum-pinned artifacts.
+- Prior .6 client transfer was proven but exposed a startup race; .7 requires fresh end-to-end and native Jenkins acceptance.
+
 ## 0.13.19-nstut.6
 
 - Stage the Distant Horizons 3.3.3-nstut.6 TFC biome-neighbor and structure-reference fixes for client and server; the earlier .3 candidate is invalid.
