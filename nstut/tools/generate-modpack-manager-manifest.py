@@ -23,6 +23,7 @@ SEMANTIC_PATHS = {
     "config/simplyspeakers-common.toml",
     ".pakku/server-overrides/config/simplyspeakers-common.toml",
     "config/gtceu.yaml",
+    "config/DistantHorizons.toml",
     "defaultconfigs/createhorsepower-server.toml",
     ".pakku/server-overrides/defaultconfigs/ftbchunks-world.snbt",
     ".pakku/server-overrides/defaultconfigs/ftbranks/ranks.snbt",
