@@ -211,4 +211,17 @@ function registerTFGRenewableOreMaterials(event) {
     event.create('tfg:gold_refractory_tailings').dust().color(0x796d5e).flags(noDecomp);
     event.create('tfg:spent_aqua_regia').liquid(new GTFluidBuilder().temperature(313)).color(0x9b8760).flags(noDecomp);
 
+    // Clockwork integration is optional; do not register dangling intermediates
+    // if a pack installation excludes Clockwork.
+    if (Platform.isLoaded('vs_clockwork')) {
+        event.create('tfg:wanderlite_silicate_slurry')
+            .liquid(new GTFluidBuilder().temperature(343))
+            .color(0x7d7598)
+            .flags(noDecomp);
+        event.create('tfg:charged_wanderlite_precursor')
+            .dust()
+            .color(0xb6a1ec)
+            .flags(noDecomp);
+    }
+
 }
