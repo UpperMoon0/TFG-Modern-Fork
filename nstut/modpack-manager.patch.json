@@ -3110,9 +3110,9 @@
     },
     {
       "id": "distant-horizons",
-      "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.8/DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
-      "sha256": "bd03e4cc7691017c755c9884081f3be8cada4ac0edc5600e172d973ab56c109d",
-      "fileName": "DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar"
+      "url": "https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.9/DistantHorizons-forge-3.3.3-nstut.9-1.20.1.jar",
+      "sha256": "dd42f36b06af4c8c554deec6aba591705154080530c938c072703cf7d41825cd",
+      "fileName": "DistantHorizons-forge-3.3.3-nstut.9-1.20.1.jar"
     },
     {
       "id": "fork-11d6e27de2cfa11b",
@@ -7643,7 +7643,7 @@
     {
       "type": "installFile",
       "artifact": "distant-horizons",
-      "destination": "mods/DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar",
+      "destination": "mods/DistantHorizons-forge-3.3.3-nstut.9-1.20.1.jar",
       "targets": [
         "client",
         "server"
