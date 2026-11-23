@@ -714,6 +714,22 @@ def main() -> int:
     if result.returncode:
         return result.returncode
 
+    # Reuse the reviewed Jenkins policy gate for lightweight Clockwork checks.
+    # Only branches carrying the new Steam/EV progression run these; the
+    # expensive native Forge worldgen/ship test remains a separate acceptance.
+    if (ROOT / "kubejs/server_scripts/tfg/recipes.clockwork_progression.js").is_file():
+        clean_python_env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+        subprocess.run(
+            [sys.executable, str(ROOT / "nstut/tools/validate-clockwork-progression.py"), str(ROOT)],
+            check=True, env=clean_python_env
+        )
+        subprocess.run(
+            [sys.executable, "-m", "unittest", "discover",
+             "-s", str(ROOT / "nstut/tools"),
+             "-p", "test_*clockwork*.py", "-q"],
+            check=True, env=clean_python_env
+        )
+
     print("NsTut fork validation passed")
     return 0
 
