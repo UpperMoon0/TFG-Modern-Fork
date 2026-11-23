@@ -39,7 +39,9 @@ SEEDS = (2026112401, 2026112402)
 DONE = re.compile(r"\bDone \([0-9,.]+s?\)", re.IGNORECASE)
 ERRORS = re.compile(
     r"Failed to load datapacks|Failed to load.*recipes|No such item|"
-    r"Errors in registry|Failed to load.*tag|KubeJS.+ERROR|"
+    r"Errors in registry|Failed to load.*tag|"
+    r"\[[^\r\n\[\]]+/ERROR\][ \t]*\[KubeJS[^\r\n\[\]]*\]|"
+    r"\[KubeJS[^\r\n\[\]]*/ERROR\]|"
     r"Caused by: .*Invalid.*Recipe",
     re.IGNORECASE,
 )
