@@ -83,9 +83,9 @@ class VanishGuardTargets(unittest.TestCase):
         self.assertEqual(len(artifacts), 1)
         self.assertEqual(
             artifacts[0]['sha256'],
-            'ea01b3da475bcbe41d3e679c804655b846ba8fd677471f0f404c068b00f8ed70')
+            'fbefec799ede70ddebb1b16aa66760a23892469a65a833066a43c623ae88ec1e')
         self.assertTrue(artifacts[0]['url'].startswith(
-            'https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.3/'))
+            'https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.6/'))
         operations = [op for op in manifest['operations']
                       if op.get('artifact') == 'distant-horizons'
                       or op.get('pattern') in ('mods/DistantHorizons-*.jar',
@@ -98,7 +98,7 @@ class VanishGuardTargets(unittest.TestCase):
         install = [op for op in operations if op['type'] == 'installFile']
         self.assertEqual(len(install), 1)
         self.assertEqual(install[0]['destination'],
-                         'mods/DistantHorizons-forge-3.3.3-nstut.3-1.20.1.jar')
+                         'mods/DistantHorizons-forge-3.3.3-nstut.6-1.20.1.jar')
 
 
 if __name__ == '__main__':
