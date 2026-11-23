@@ -125,6 +125,44 @@ class SmokeRunnerTests(unittest.TestCase):
             runner.safely_disposable(other)
 
 
+    def test_native_fixture_only_stages_into_marked_empty_disposable(self):
+        source = runner_path.with_name("fixtures") / "clockwork-native-assembly-smoke.js"
+        self.assertTrue(source.is_file())
+        repo = Path(self.temp.name) / "candidate"
+        staged = repo / "nstut/tools/fixtures/clockwork-native-assembly-smoke.js"
+        staged.parent.mkdir(parents=True)
+        staged.write_bytes(source.read_bytes())
+        digest = runner.stage_native_assembly_fixture(repo, self.server)
+        fixture = self.server / "kubejs/server_scripts/zz_nstut_clockwork_gameplay_qa.js"
+        self.assertEqual(fixture.read_bytes(), staged.read_bytes())
+        self.assertEqual(len(digest), 64)
+        with self.assertRaises(ValueError):
+            runner.stage_native_assembly_fixture(repo, self.server)
+
+    def test_native_marker_requires_done_and_real_ship_pass(self):
+        fake = self.server / "fake_native_forge.py"
+        fake.write_text(
+            "import sys, time\n"
+            "print('Done (0.1s)!', flush=True)\n"
+            "sys.stdout.write('[CLOCKWORK_GAMEPLAY_');sys.stdout.flush()\n"
+            "time.sleep(0.2)\n"
+            "print('PASS] ship_id=15 hull_blocks=9', flush=True)\n"
+            "for line in sys.stdin:\n"
+            "    if line.strip() == 'stop': break\n"
+        )
+        log = self.server / "native.log"
+        runner.run_server(self.server, f"{sys.executable} fake_native_forge.py",
+                          log, 15, "[CLOCKWORK_GAMEPLAY_PASS]")
+        self.assertIn("ship_id=15", log.read_text())
+
+    def test_native_done_without_ship_pass_is_a_hard_failure(self):
+        fake = self.server / "fake_native_forge.py"
+        fake.write_text("print('Done (0.1s)!', flush=True)\n")
+        log = self.server / "failed-native.log"
+        with self.assertRaisesRegex(RuntimeError, "exited before acceptance"):
+            runner.run_server(self.server, f"{sys.executable} fake_native_forge.py",
+                              log, 10, "[CLOCKWORK_GAMEPLAY_PASS]")
+
     def test_full_mock_smoke_path_uses_one_spawn_world_and_writes_evidence(self):
         """Exercise the runner end-to-end with synthetic Anvil chunks, NOT Forge."""
         spec = importlib.util.spec_from_file_location(
