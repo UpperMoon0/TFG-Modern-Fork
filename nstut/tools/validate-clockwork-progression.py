@@ -36,7 +36,7 @@ def main(root: Path) -> None:
     # not require electricity, the HV seeded route, or a first Wanderlite item.
     steam = recipe.split("// Steam Age:", 1)[1].split("// Replace both", 1)[0]
     assert "event.recipes.greate.mixing" in steam and ".recipeTier(1)" in steam
-    assert all(material in steam for material in ("gtceu:raw_graphite", "gtceu:raw_magnetite", "minecraft:amethyst_shard"))
+    assert all(material in steam for material in ("gtceu:raw_graphite", "gtceu:raw_magnetite", "#forge:gems/amethyst"))
     assert "vs_clockwork:wanderlite_crystal" in steam and not re.search(r"(?<!['\\w])vs_clockwork:wanderlite_(?:cube|matrix|deepslate_ore)", steam)
 
     # Neither the base recipe nor its MV-casing TFG Skies override should

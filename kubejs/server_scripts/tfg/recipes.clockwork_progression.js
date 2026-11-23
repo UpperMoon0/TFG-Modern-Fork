@@ -23,7 +23,7 @@ function registerTFGClockworkProgressionRecipes(event) {
     event.recipes.greate.mixing('vs_clockwork:wanderlite_crystal', [
         '16x gtceu:raw_graphite',
         '8x gtceu:raw_magnetite',
-        '4x minecraft:amethyst_shard'
+        '4x #forge:gems/amethyst'
     ])
         .recipeTier(1)
         .id('tfg:clockwork/steam/wanderlite_trace_recovery');

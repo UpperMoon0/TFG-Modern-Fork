@@ -7,7 +7,7 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 ### First Wanderlite in an existing world
 
 - Prospect deep graphite veins (roughly Y -64 to -16) and magnetite veins; mine their raw ores.
-- Obtain 4 amethyst shards. With a **Steam Age Greate Mixer**, combine **16 raw graphite, 8 raw magnetite, and 4 amethyst shards** to recover **1 Wanderlite Crystal**.
+- Obtain 4 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **16 raw graphite, 8 raw magnetite, and 4 amethyst shards** to recover **1 Wanderlite Crystal**.
 - This intentionally consumes naturally mined ore and requires no Wanderlite seed. It can be costly, but it avoids dependence on new chunks or meteor spawns.
 - For new chunks, rare **Deep Wanderlite** veins generate in six TFC rock types, roughly Y -60 to -24; crush the native Clockwork ore as usual. They are rare (vein rarity 420) and no richer than the base Clockwork crushing yields.
 - Existing Clockwork Charged Nyx crushing (50% crystal byproduct) remains another potential source wherever Charged Nyx can actually be obtained.
