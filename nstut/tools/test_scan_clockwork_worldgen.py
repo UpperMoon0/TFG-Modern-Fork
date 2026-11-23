@@ -28,7 +28,7 @@ def compound(*fields):
     return b"".join(fields) + b"\0"
 
 
-def make_chunk(cx, cz, indices, palette=None):
+def make_chunk(cx, cz, indices, palette=None, status="minecraft:full"):
     palette = palette or ["minecraft:stone", scan.TARGET]
     arr = [0] * 256  # 4-bit index; 16 positions per long
     for slot, palette_index in indices.items():
@@ -43,7 +43,7 @@ def make_chunk(cx, cz, indices, palette=None):
     sections = tag(9, "sections", bytes([10]) + struct.pack(">i", 1) + section)
     root = compound(tag(3, "xPos", struct.pack(">i", cx)),
                     tag(3, "zPos", struct.pack(">i", cz)),
-                    tag(8, "Status", string("minecraft:full")),
+                    tag(8, "Status", string(status)),
                     sections)
     return bytes([10]) + string("") + root
 
@@ -82,6 +82,18 @@ class WorldgenScanTests(unittest.TestCase):
             [(x["x"], x["y"], x["z"]) for x in result["sample_positions"]],
             [(0, -48, 0), (1, -48, 0), (15, -48, 15)]
         )
+
+    def test_unfinished_chunks_cannot_claim_success(self):
+        finished = make_chunk(0, 0, {0: 1})
+        unfinished = make_chunk(1, 0, {0: 1, 1: 1},
+                                status="minecraft:features")
+        with tempfile.TemporaryDirectory() as base:
+            directory = Path(base)
+            region_file(directory / "r.0.0.mca", {0: finished, 1: unfinished})
+            result = scan.scan(directory, scan.TARGET)
+        self.assertEqual(result["chunks_scanned"], 2)
+        self.assertEqual(result["fully_generated_chunks"], 1)
+        self.assertEqual(result["blocks_found"], 1)
 
     def test_negative_chunk_coordinates(self):
         one = make_chunk(-32, -32, {0: 1})
