@@ -68,8 +68,8 @@ def main(root: Path) -> None:
     expected = {
         "vs_clockwork:air_compressor": "lv",
         "vs_clockwork:pump_duct": "lv",
-        "vs_clockwork:phys_piston": "mv",
-        "vs_clockwork:phys_gantry": "mv",
+        "vs_clockwork:smart_flap_bearing": "mv",
+        "vs_clockwork:copter_bearing": "mv",
         "vs_clockwork:gas_nozzle": "mv",
         "vs_clockwork:gas_crafter": "mv",
         "vs_clockwork:phys_bearing": "mv",
