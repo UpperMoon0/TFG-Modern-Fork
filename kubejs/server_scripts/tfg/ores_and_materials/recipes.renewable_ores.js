@@ -697,11 +697,12 @@ function registerTFGRenewableOreRecipes(event) {
     //
     // A Wanderlite Crystal is required as a reusable seed, so this does not
     // bypass the initial exploration / meteorite acquisition. Vitrified Pearls
-    // require HV pyrolysis, and the rock powders come from the existing
-    // renewable stone-dust separation chain.
+    // require HV pyrolysis; the pearls are reusable catalysts, while the
+    // rock powders come from the existing renewable stone-dust separation chain.
     //
     // Per ore: 16 felsic dust, 8 metamorphic dust, 4 amethyst shards,
-    // 2 vitrified pearls, 8 redstone, 8 B distilled water, 1 B oxygen;
+    // 8 redstone, 8 B distilled water, 1 B oxygen; 2 vitrified pearls
+    // are required as reusable catalysts and are not consumed per batch.
     // 3,000 total ticks at 480 EU/t = 1,440,000 EU.
     // The native Create crushing recipe averages 1.75 crystals per ore.
     // Register only when the optional Clockwork mod is present.
@@ -719,7 +720,8 @@ function registerTFGRenewableOreRecipes(event) {
             .EUt(HV);
 
         event.recipes.gtceu.chemical_reactor('tfg:hv_renewable_wanderlite_precursor')
-            .itemInputs('2x tfg:vitrified_pearl', '8x minecraft:redstone')
+            .itemInputs('8x minecraft:redstone')
+            .notConsumable('2x tfg:vitrified_pearl')
             .inputFluids(
                 Fluid.of('tfg:wanderlite_silicate_slurry', 8000),
                 Fluid.of('gtceu:oxygen', 1000)
