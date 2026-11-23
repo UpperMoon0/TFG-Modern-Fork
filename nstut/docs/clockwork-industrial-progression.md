@@ -7,7 +7,7 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 ### First Wanderlite in an existing world
 
 - Prospect deep graphite veins (roughly Y -64 to -16) and magnetite veins; mine their raw ores.
-- Obtain 16 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **64 raw graphite, 64 raw magnetite, and 16 amethyst gems** to recover **1 Wanderlite Crystal**.
+- Obtain 16 amethyst gems (Forge gem tag, including compatible shards). Run **16 Steam Age Greate Mixer batches**; each takes **4 raw graphite, 4 normal TFC magnetite and 1 amethyst** to yield one Wanderlite Trace. Arrange **16 traces in a 4×4 Create Mechanical Crafter** for **1 Wanderlite Crystal** (total: **64 graphite + 64 magnetite + 16 amethyst**).
 - This intentionally consumes naturally mined ore and requires no Wanderlite seed. It can be costly, but it avoids dependence on new chunks or meteor spawns.
 - For new chunks, rare **Deep Wanderlite** veins generate in all 20 TFC stone types, roughly Y -60 to -24; crush the native Clockwork ore as usual. They are rare (vein rarity 420) and no richer than the base Clockwork crushing yields.
 - Existing Clockwork Charged Nyx crushing (50% crystal byproduct) remains another potential source wherever Charged Nyx can actually be obtained.
@@ -16,7 +16,7 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 
 | Route | Consumed input per batch | Output | Requirements |
 |---|---|---|---|
-| Steam bootstrap | **64 raw graphite ores + 64 raw magnetite ores + 16 amethyst gems** | **1 crystal** | One Greate Steam-tier Mixer, **no electricity** and **no prior Wanderlite** |
+| Steam bootstrap | **64 raw graphite ores + 64 raw magnetite ores + 16 amethyst gems** | **1 crystal** | Greate Steam-tier Mixer + 4×4 Create Mechanical Crafter; **no electricity** and **no prior Wanderlite** |
 | HV renewable (PR #95) | **16 renewable felsic dust + 8 renewable metamorphic dust + 4 amethyst shards + 8 redstone + 8 buckets distilled water + 1 bucket oxygen** | **1 Wanderlite ore (~1.75 crystals after Create crushing)** | Three HV machines; 1.44 M EU; 2 reusable Vitrified Pearls and 1 reusable Wanderlite seed |
 
 The Steam fallback spends **128 finite natural ore items** for a single
