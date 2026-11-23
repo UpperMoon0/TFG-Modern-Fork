@@ -25,6 +25,10 @@ const registerTFGItems = (event) => {
 
     // Clockwork's two physical machining intermediates (only when installed).
     if (Platform.isLoaded('vs_clockwork')) {
+        // Each Steam recovery batch yields one trace; sixteen traces
+        // consolidate into one initial crystal using Create mechanical crafting.
+        event.create('tfg:wanderlite_trace')
+            .texture('vs_clockwork:item/wanderlite_crystal');
         event.create('tfg:rough_wanderlite_cube')
             .texture('vs_clockwork:item/wanderlite_crystal');
         event.create('tfg:unfinished_wanderlite_matrix', 'create:sequenced_assembly')
