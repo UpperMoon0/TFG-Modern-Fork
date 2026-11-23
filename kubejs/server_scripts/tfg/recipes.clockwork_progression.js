@@ -56,7 +56,7 @@ function registerTFGClockworkProgressionRecipes(event) {
             event.recipes.createDeploying('tfg:unfinished_wanderlite_matrix',
                 ['tfg:unfinished_wanderlite_matrix', '#forge:plates/brass']),
             event.recipes.createDeploying('tfg:unfinished_wanderlite_matrix',
-                ['tfg:unfinished_wanderlite_matrix', '#forge:small_gears/bronze']),
+                ['tfg:unfinished_wanderlite_matrix', '#forge:small_gears/brass']),
             event.recipes.createPressing('tfg:unfinished_wanderlite_matrix',
                 'tfg:unfinished_wanderlite_matrix')
         ]

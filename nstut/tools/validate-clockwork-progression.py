@@ -29,7 +29,13 @@ def main(root: Path) -> None:
     c = cfg["config"]
     assert c["min_y"] == -60 and c["max_y"] == -24 and c["rarity"] == 420, "Depth or rarity drifted"
     rocks = {next(iter(b["replace"])) for b in c["blocks"]}
-    assert len(rocks) >= 5 and all(b["with"] == [{"block": "vs_clockwork:wanderlite_deepslate_ore", "weight": 1}] for b in c["blocks"])
+    expected_rocks = {
+        "gabbro", "granite", "diorite", "rhyolite", "basalt", "andesite", "dacite",
+        "shale", "claystone", "limestone", "conglomerate", "dolomite", "chert",
+        "chalk", "quartzite", "slate", "phyllite", "schist", "gneiss", "marble",
+    }
+    assert rocks == {f"tfc:rock/raw/{rock}" for rock in expected_rocks}
+    assert all(b["with"] == [{"block": "vs_clockwork:wanderlite_deepslate_ore", "weight": 1}] for b in c["blocks"])
     assert placed["feature"] == "tfg:earth/vein/deep_wanderlite"
 
     # Starting minerals must be directly mineable from the TFG world and must
@@ -82,7 +88,16 @@ def main(root: Path) -> None:
     assert "gtceu:ev_electric_motor" in recipe
 
     ids = re.findall(r"tfg:clockwork/((?:steam|lv|mv|hv|ev)/[a-z_]+)", recipe)
-    assert len(ids) >= 9 and len(ids) == len(set(ids)), "duplicate/insufficient recipe IDs"
+    assert len(ids) >= 18 and len(ids) == len(set(ids)), "duplicate/insufficient recipe IDs"
+    assert "2x #forge:plates/brass" in recipe
+    assert "#forge:small_gears/brass" in recipe
+    assert "loops(2)" in recipe
+    # Steam spends 128 finite mined ore items for one crystal. HV uses 24
+    # renewable rock dusts for one ore (about 1.75 crystals); its energy
+    # investment is justified by much lower recurring material consumption.
+    assert 64 + 64 >= 8 * 24 / 1.75
+    assert "event.remove({ output: 'vs_clockwork:juryrigged_propeller_bearing' })" not in recipe
+    assert "event.remove({ output: 'vs_clockwork:wanderwand' })" not in recipe
     print(f"PASS: Clockwork progression static checks ({len(ids)} recipes, {len(rocks)} host rocks, Steam to EV)")
 
 
