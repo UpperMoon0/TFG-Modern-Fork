@@ -97,12 +97,15 @@ python3 nstut/tools/test_run_clockwork_worldgen_smoke.py -v
    ```
 
 3. The runner detects the Forge `Done` startup marker, issues `save-all flush`
-   and `stop`, then decodes the fully saved Overworld region. **Pass: at least
-   64 full chunks and at least one actual Wanderlite ore block with a valid
-   deep Y-coordinate.** The scanner counts actual packed block indices, never
-   unused palette entries or incomplete chunks. Only if the first seed gives
-   zero ore does the runner automatically retry one other fixed seed.
-   Insufficient full chunks are an explicit inconclusive failure, not a pass.
+   and `stop`, then decodes the fully saved Overworld region. **Positive pass:
+   at least one actually FULL, ore-bearing chunk with a Wanderlite block at
+   the correct deep Y-coordinate.** Requiring 64 full chunks in addition to
+   direct positive evidence needlessly slows CI. The scanner counts actual
+   packed block indices, never unused palette entries or unfinished chunks.
+   Only when the first seed gives zero ore does the runner retry another seed.
+   **Negative evidence requires 64 full chunks** to avoid treating partial
+   spawn generation as evidence that the ore never spawns; without adequate
+   fully generated chunks, the negative result remains inconclusive.
 4. Archive the summary JSON, individual coordinate reports, overlay manifest,
    server logs, world seed, candidate commit and modpack hashes. Do not
    archive the test-only rarity override as a release artifact. Destroy the
