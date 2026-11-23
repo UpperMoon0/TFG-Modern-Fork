@@ -130,6 +130,25 @@
         "mechanics.collapses.collapsePropagateChance": 0.55,
         "mechanics.collapses.collapseExplosionPropagateChance": 0.3
       }
+    },
+    {
+      "format": "toml",
+      "path": "config/DistantHorizons.toml",
+      "targets": [
+        "client",
+        "server"
+      ],
+      "values": {
+        "_version": 5,
+        "client.advanced.autoUpdater.enableAutoUpdater": false,
+        "client.advanced.autoUpdater.enableSilentUpdates": false,
+        "common.multiThreading.numberOfThreads": 2,
+        "common.worldGenerator.generatorPlan": "SURFACE_THEN_CHUNKS",
+        "common.worldGenerator.chunkGeneratorMode": "FEATURES",
+        "server.enableAdaptiveTransferSpeed": true,
+        "server.generationRequestRateLimit": 20,
+        "server.maxGenerationRequestDistance": 4096
+      }
     }
   ]
 }
