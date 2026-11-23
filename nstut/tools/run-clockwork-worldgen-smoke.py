@@ -213,6 +213,10 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                 except subprocess.TimeoutExpired:
                     os.killpg(proc.pid, signal.SIGKILL)
                     proc.wait(timeout=15)
+            # Always release the parent pipe, including failed mock/Forge runs.
+            # Otherwise repeated smoke tests leak file handles.
+            if proc.stdin is not None:
+                proc.stdin.close()
 
 
 def assess_worldgen(result: dict, min_negative_chunks: int) -> dict:
