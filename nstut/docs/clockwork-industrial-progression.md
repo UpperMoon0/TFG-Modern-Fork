@@ -7,7 +7,7 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 ### First Wanderlite in an existing world
 
 - Prospect deep graphite veins (roughly Y -64 to -16) and magnetite veins; mine their raw ores.
-- Obtain 4 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **64 raw graphite, 64 raw magnetite, and 16 amethyst gems** to recover **1 Wanderlite Crystal**.
+- Obtain 16 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **64 raw graphite, 64 raw magnetite, and 16 amethyst gems** to recover **1 Wanderlite Crystal**.
 - This intentionally consumes naturally mined ore and requires no Wanderlite seed. It can be costly, but it avoids dependence on new chunks or meteor spawns.
 - For new chunks, rare **Deep Wanderlite** veins generate in all 20 TFC stone types, roughly Y -60 to -24; crush the native Clockwork ore as usual. They are rare (vein rarity 420) and no richer than the base Clockwork crushing yields.
 - Existing Clockwork Charged Nyx crushing (50% crystal byproduct) remains another potential source wherever Charged Nyx can actually be obtained.
@@ -29,12 +29,12 @@ do not present this as a precise single-price efficiency ratio.
 
 The new Matrix assembly also uses two Steam Age Create loops instead of the
 native instant pressing. Once LV is reached, electric shaping reduces the
-manual processing and brass/bronze consumption.
+manual processing and brass consumption.
 
 ### Steam Age (first ship)
 
 1. Make one Wanderlite Crystal using mineral recovery, natural deep Wanderlite ore, or other existing Clockwork loot.
-2. Use a mechanical saw to cut a Rough Wanderlite Cube; sandpaper-polish it to a Cube. Then run two Create sequenced-assembly loops (Brass Plate + Small Bronze Gear + Press) to form a Matrix. From LV onward, Lathe and Forming Press recipes shortcut those Steam operations.
+2. Use a mechanical saw to cut a Rough Wanderlite Cube; sandpaper-polish it to a Cube. Then run two Create sequenced-assembly loops (Brass Plate + Small Brass Gear + Press) to form a Matrix. From LV onward, Lathe and Forming Press recipes shortcut those Steam operations.
 3. Craft a Wanderwand using its existing Brass -> Create sequenced assembly -> Matrix path. Steam Age quests already include Deployers and Mechanical Crafters.
 4. Craft the Physics Infuser from 4 Brass Plates, 2 Wrought-Iron Double Plates, 2 Brass Casings, and 1 Wanderlite Matrix (the MV casing override is explicitly removed).
 5. Build a **disconnected** hull, select two opposing corners with the Wanderwand, insert the wand in the Infuser, and empty-hand right click to assemble.
@@ -62,77 +62,72 @@ The fundamental Physics Infuser and Wanderwand **must never** be LV/MV/HV gated.
 
 ## Lean headless worldgen acceptance (no client, spectator, or Chunky)
 
-Keep the routine PR gate deliberately small: **one Forge startup at a fixed seed**, let
-the dedicated server's **ordinary spawn-chunk initialization** perform natural
-terrain generation, then inspect the saved blocks. Minecraft 1.20.1 initializes
-spawn chunks without a player, so a separate pregenerator is not normally needed.
+**Ordinary PR checks:** The static validator enforces the exact production rarity
+of 420, all twenty TFC stone hosts, matching configured/placed feature IDs,
+seed-free 64+64+16 Steam synthesis, matrix assembly, and all machine tiers.
+Run this whenever the corresponding recipe or worldgen source changes:
 
-### Test coverage
+```bash
+python3 nstut/tools/validate-clockwork-progression.py .
+python3 nstut/tools/test_scan_clockwork_worldgen.py -v
+python3 nstut/tools/test_stage_clockwork_worldgen_smoke.py -v
+python3 nstut/tools/test_run_clockwork_worldgen_smoke.py -v
+```
 
-1. **Static invariant (always run)**: run
-   `python3 nstut/tools/validate-clockwork-progression.py .` to ensure production
-   rarity is **420**, the intended rocks and heights remain unchanged, and the
-   TFC vein tag/placed/configured feature are defined.
-2. **Prepare the smoke overlay** (the script refuses to write outside a *new*
-   directory under `/tmp`, and refuses to mutate existing files):
+**One real Forge integration test**, needed before the feature merges:
 
-   ```bash
-   python3 nstut/tools/stage-clockwork-worldgen-smoke.py \
-     --repo-root . --output-dir /tmp/tfg-clockwork-smoke-overlay
-   ```
-
-   The script validates the candidate's production rarity, copies **only**
-   `kubejs/data/tfg/worldgen/configured_feature/earth/vein/deep_wanderlite.json`,
-   changes **rarity 420 → 1** in that temporary copy, preserves all six original
-   host-rock replacements and Y constraints, and writes an audit manifest.
-3. **Real natural generation in one disposable Forge world**: construct a fresh
-   candidate server pack in a separate temporary directory, apply that single
-   staged overlay **before the server starts**, select a fixed seed, and start
-   Forge normally. Verify Clockwork is loaded and worldgen registry/tag accepts
-   the configured + placed feature. Allow the initial spawn chunks to finish
-   generating; execute `save-all flush`, then `stop` using the **isolated**
-   console. No external Chunky mod, RCON to production, players, `/place
-   feature`, or manual exploration are needed.
-4. **Read-only world evidence** (after shutdown):
+1. A trusted CI job provisions a **fresh dedicated candidate TFG Forge 1.20.1
+   server pack** (correct mod versions, KubeJS, configs and startup scripts)
+   in its own directory below /tmp. It must contain an empty world, `mods/`,
+   `kubejs/`, an already accepted `eula.txt`, and the marker
+   `.tfg-clockwork-disposable`. No server/world path may point into production.
+   Use the immutable PR commit and store its pack hashes.
+2. Run the included bounded runner, using the **actual candidate server**
+   launch script. It validates the production feature JSON, applies a **rarity 1
+   test-only overlay** to the disposable server, sets localhost/ephemeral
+   server binding and a fixed seed, and performs one normal spawn generation
+   (no Chunky, pregen plugin, player or spectator):
 
    ```bash
-   python3 nstut/tools/scan-clockwork-worldgen.py \
-     /tmp/tfg-worldgen-ci/world/region \
-     --min-chunks 64 --min-blocks 1 \
-     --report /tmp/tfg-clockwork-wanderlite.json
+   python3 nstut/tools/run-clockwork-worldgen-smoke.py \
+     --repo-root . \
+     --server-dir /tmp/tfg-clockwork-ci-server \
+     --launch "./run.sh nogui" \
+     --evidence-dir /tmp/tfg-clockwork-ci-evidence
    ```
 
-   The scanner requires **64 fully generated chunks** and at least **one
-   actually placed Wanderlite block**, and reports X/Y/Z, chunk status and ore
-   count. Partially generated chunks or unused block palette entries never
-   count as successes. The scan runs offline.
-5. **Optional retry only on zero evidence**: one second fixed seed in a new
-   disposable world helps distinguish unsupported spawn geology from a broken
-   vein. A zero in both seeds is a **diagnostic failure/inconclusive generation
-   check**; inspect host-rock strata, loaded worldgen registry and logs before
-   changing production rarity. Do not silently turn a zero into a pass.
+3. The runner detects the Forge `Done` startup marker, issues `save-all flush`
+   and `stop`, then decodes the fully saved Overworld region. **Pass: at least
+   64 full chunks and at least one actual Wanderlite ore block with a valid
+   deep Y-coordinate.** The scanner counts actual packed block indices, never
+   unused palette entries or incomplete chunks. Only if the first seed gives
+   zero ore does the runner automatically retry one other fixed seed.
+   Insufficient full chunks are an explicit inconclusive failure, not a pass.
+4. Archive the summary JSON, individual coordinate reports, overlay manifest,
+   server logs, world seed, candidate commit and modpack hashes. Do not
+   archive the test-only rarity override as a release artifact. Destroy the
+   disposable server directory only after evidence is retained.
 
-### Verification guarantees and limitations
+The separate stage utility is available for inspection:
 
-- This is a **real-worldgen integration test**, not a direct `/place feature`
-  shortcut. It proves that the fully loaded pack can naturally spawn the exact
-  ore block via registered TFC worldgen in at least one generated chunk.
-- It does **not** estimate natural ore frequency with rarity 420. That is a
-  separate, explicitly requested balancing benchmark—not a required PR gate.
-- The runtime must additionally verify item/recipe registry and Steam Age
-  craftability; worldgen alone does not prove the full progression chain.
-- Store the fixed seed, server/KubeJS/mod jar hashes, overlay manifest, server
-  logs and scanner JSON as CI artifacts. Only the **production feature JSON**
-  is packaged and released, never the temporary rarity-1 override.
-- For environments where startup does not generate 64 full chunks, report
-  insufficient coverage and explicitly request a small bounded extra chunk
-  generation run. Do not default to generating thousands.
-- Synthetic scanner and override-protection fixtures can run without Forge:
+```bash
+python3 nstut/tools/stage-clockwork-worldgen-smoke.py \
+  --repo-root . --output-dir /tmp/clockwork-manual-overlay
+```
 
-  ```bash
-  python3 nstut/tools/test_scan_clockwork_worldgen.py -v
-  python3 nstut/tools/test_stage_clockwork_worldgen_smoke.py -v
-  ```
+It **refuses to modify source** or overwrite an existing output directory.
+The automated runner calls this utility itself. It does not need Chunky or
+other pre-generation mods.
 
-Never inspect, pre-generate, or mutate production Minecraft regions for
-this test. The disposable Forge instance must use its own separate world.
+This smoke test proves that natural worldgen is correctly registered and can
+place Wanderlite in real terrain. It is **not** a statistical rarity benchmark:
+the real rarity 420 is validated statically, and proving its long-run natural
+frequency would require substantially more chunks. That costly balance check
+is optional and is deliberately excluded from normal PR CI.
+
+A real modded recipe-registry check is also required before shipping to verify
+GTCEu item IDs, KubeJS Create sequenced assembly, native recipe override
+removal and Steam Age playability; passing the ore smoke alone does not prove
+those recipes load.
+
+Never inspect, regenerate, or mutate production regions to test this feature.
