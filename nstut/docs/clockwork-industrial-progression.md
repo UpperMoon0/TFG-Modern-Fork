@@ -7,15 +7,34 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 ### First Wanderlite in an existing world
 
 - Prospect deep graphite veins (roughly Y -64 to -16) and magnetite veins; mine their raw ores.
-- Obtain 4 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **16 raw graphite, 8 raw magnetite, and 4 amethyst shards** to recover **1 Wanderlite Crystal**.
+- Obtain 4 amethyst gems (Forge gem tag, including compatible shards). With a **Steam Age Greate Mixer**, combine **64 raw graphite, 64 raw magnetite, and 16 amethyst gems** to recover **1 Wanderlite Crystal**.
 - This intentionally consumes naturally mined ore and requires no Wanderlite seed. It can be costly, but it avoids dependence on new chunks or meteor spawns.
-- For new chunks, rare **Deep Wanderlite** veins generate in six TFC rock types, roughly Y -60 to -24; crush the native Clockwork ore as usual. They are rare (vein rarity 420) and no richer than the base Clockwork crushing yields.
+- For new chunks, rare **Deep Wanderlite** veins generate in all 20 TFC stone types, roughly Y -60 to -24; crush the native Clockwork ore as usual. They are rare (vein rarity 420) and no richer than the base Clockwork crushing yields.
 - Existing Clockwork Charged Nyx crushing (50% crystal byproduct) remains another potential source wherever Charged Nyx can actually be obtained.
+
+### Steam versus HV Wanderlite: balance invariant
+
+| Route | Consumed input per batch | Output | Requirements |
+|---|---|---|---|
+| Steam bootstrap | **64 raw graphite ores + 64 raw magnetite ores + 16 amethyst gems** | **1 crystal** | One Greate Steam-tier Mixer, **no electricity** and **no prior Wanderlite** |
+| HV renewable (PR #95) | **16 renewable felsic dust + 8 renewable metamorphic dust + 4 amethyst shards + 8 redstone + 8 buckets distilled water + 1 bucket oxygen** | **1 Wanderlite ore (~1.75 crystals after Create crushing)** | Three HV machines; 1.44 M EU; 2 reusable Vitrified Pearls and 1 reusable Wanderlite seed |
+
+The Steam fallback spends **128 finite natural ore items** for a single
+crystal, whereas HV uses **24 renewable rock dusts** per roughly 1.75 crystals.
+The HV route needs greater capital, power and process complexity but has a
+much lower recurring resource cost and can scale without fresh graphite or
+magnetite deposits. It is therefore a better bulk route without making the
+first ship depend on electricity. These inputs are not chemically equivalent:
+do not present this as a precise single-price efficiency ratio.
+
+The new Matrix assembly also uses two Steam Age Create loops instead of the
+native instant pressing. Once LV is reached, electric shaping reduces the
+manual processing and brass/bronze consumption.
 
 ### Steam Age (first ship)
 
 1. Make one Wanderlite Crystal using mineral recovery, natural deep Wanderlite ore, or other existing Clockwork loot.
-2. Polish the crystal to a Cube and mechanically press to a Matrix (Clockwork Create recipes remain intact).
+2. Use a mechanical saw to cut a Rough Wanderlite Cube; sandpaper-polish it to a Cube. Then run two Create sequenced-assembly loops (Brass Plate + Small Bronze Gear + Press) to form a Matrix. From LV onward, Lathe and Forming Press recipes shortcut those Steam operations.
 3. Craft a Wanderwand using its existing Brass -> Create sequenced assembly -> Matrix path. Steam Age quests already include Deployers and Mechanical Crafters.
 4. Craft the Physics Infuser from 4 Brass Plates, 2 Wrought-Iron Double Plates, 2 Brass Casings, and 1 Wanderlite Matrix (the MV casing override is explicitly removed).
 5. Build a **disconnected** hull, select two opposing corners with the Wanderwand, insert the wand in the Infuser, and empty-hand right click to assemble.
@@ -25,8 +44,8 @@ Ship **physics-body assembly starts in Steam Age**; electrical technology improv
 
 | Stage | Unlocked/industrialized technology |
 |---|---|
-| LV | Faster precision crystal shaping (Lathe); electric Air Compressor |
-| MV | Physics Bearing, Gimbal Bearing, Gyroscope and Wanderglass via electric machinery |
+| LV | Electric Cube Lathe and Matrix Forming Press; Air Compressor and Pump Duct |
+| MV | Physics Bearing, Gimbal Bearing, Gyroscope, Physical Piston/Gantry, Wanderglass, Gas Nozzle and Gas Crafter via electric machinery |
 | HV | Industrial Gas Thruster; **separate PR #95** adds renewable seeded Wanderlite ore synthesis |
 | EV | Gravitron via high-tier sensor, motor and titanium frame |
 

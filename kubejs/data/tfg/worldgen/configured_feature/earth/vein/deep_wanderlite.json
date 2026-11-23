@@ -25,7 +25,7 @@
       },
       {
         "replace": [
-          "tfc:rock/raw/gneiss"
+          "tfc:rock/raw/granite"
         ],
         "with": [
           {
@@ -36,7 +36,139 @@
       },
       {
         "replace": [
-          "tfc:rock/raw/schist"
+          "tfc:rock/raw/diorite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/rhyolite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/basalt"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/andesite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/dacite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/shale"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/claystone"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/limestone"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/conglomerate"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/dolomite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/chert"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/chalk"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/quartzite"
         ],
         "with": [
           {
@@ -58,7 +190,7 @@
       },
       {
         "replace": [
-          "tfc:rock/raw/marble"
+          "tfc:rock/raw/phyllite"
         ],
         "with": [
           {
@@ -69,7 +201,29 @@
       },
       {
         "replace": [
-          "tfc:rock/raw/granite"
+          "tfc:rock/raw/schist"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/gneiss"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/marble"
         ],
         "with": [
           {

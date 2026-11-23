@@ -23,6 +23,14 @@ const registerTFGItems = (event) => {
 	event.create('tfg:terra_firma_greg')
 		.tag('c:hidden_from_recipe_viewers')
 
+    // Clockwork's two physical machining intermediates (only when installed).
+    if (Platform.isLoaded('vs_clockwork')) {
+        event.create('tfg:rough_wanderlite_cube')
+            .texture('vs_clockwork:item/wanderlite_crystal');
+        event.create('tfg:unfinished_wanderlite_matrix', 'create:sequenced_assembly')
+            .texture('vs_clockwork:item/wanderlite_crystal');
+    }
+
 	// Electronics
 	event.create('tfg:unfinished_electron_tube', 'create:sequenced_assembly')
 	event.create('tfg:unfinished_vacuum_tube', 'create:sequenced_assembly')

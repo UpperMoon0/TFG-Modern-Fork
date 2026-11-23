@@ -36,7 +36,7 @@ def main(root: Path) -> None:
     # not require electricity, the HV seeded route, or a first Wanderlite item.
     steam = recipe.split("// Steam Age:", 1)[1].split("// Replace both", 1)[0]
     assert "event.recipes.greate.mixing" in steam and ".recipeTier(1)" in steam
-    assert all(material in steam for material in ("gtceu:raw_graphite", "gtceu:raw_magnetite", "#forge:gems/amethyst"))
+    assert all(material in steam for material in ("64x gtceu:raw_graphite", "64x gtceu:raw_magnetite", "16x #forge:gems/amethyst"))
     assert "vs_clockwork:wanderlite_crystal" in steam and not re.search(r"(?<!['\\w])vs_clockwork:wanderlite_(?:cube|matrix|deepslate_ore)", steam)
 
     # Neither the base recipe nor its MV-casing TFG Skies override should
@@ -47,12 +47,25 @@ def main(root: Path) -> None:
     assert "gtceu:mv_machine_casing" not in infuser
     assert "#forge:double_plates/wrought_iron" in infuser
     assert "create:brass_casing" in infuser
-    assert "event.remove({ output: 'vs_clockwork:wanderlite_cube' })" not in recipe
-    assert "event.remove({ output: 'vs_clockwork:wanderlite_matrix' })" not in recipe
+    assert "event.remove({ output: 'vs_clockwork:wanderlite_cube' })" in recipe
+    assert "tfg:rough_wanderlite_cube" in recipe
+    assert "tfg:clockwork/steam/polish_wanderlite_cube" in recipe
+    assert "event.remove({ output: 'vs_clockwork:wanderlite_matrix' })" in recipe
+    assert "tfg:unfinished_wanderlite_matrix" in recipe
+    assert "tfg:clockwork/steam/precision_wanderlite_matrix" in recipe
+    assert "tfg:clockwork/lv/form_wanderlite_matrix" in recipe
+    startup_items = (root / "kubejs/startup_scripts/tfg/items.js").read_text(encoding="utf-8")
+    assert "event.create('tfg:rough_wanderlite_cube')" in startup_items
+    assert "event.create('tfg:unfinished_wanderlite_matrix', 'create:sequenced_assembly')" in startup_items
     assert "event.remove({ output: 'vs_clockwork:wanderwand' })" not in recipe
 
     expected = {
         "vs_clockwork:air_compressor": "lv",
+        "vs_clockwork:pump_duct": "lv",
+        "vs_clockwork:phys_piston": "mv",
+        "vs_clockwork:phys_gantry": "mv",
+        "vs_clockwork:gas_nozzle": "mv",
+        "vs_clockwork:gas_crafter": "mv",
         "vs_clockwork:phys_bearing": "mv",
         "vs_clockwork:gimbal_bearing": "mv",
         "vs_clockwork:gyro": "mv",
