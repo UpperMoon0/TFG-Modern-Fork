@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Side-effect safety and predictable parsing tests for isolated Forge smoke."""
 import importlib.util
+import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -58,6 +61,74 @@ class SmokeRunnerTests(unittest.TestCase):
         other.mkdir()
         with self.assertRaises(ValueError):
             runner.safely_disposable(other)
+
+
+    def test_full_mock_smoke_path_uses_one_spawn_world_and_writes_evidence(self):
+        """Exercise the runner end-to-end with synthetic Anvil chunks, NOT Forge."""
+        spec = importlib.util.spec_from_file_location(
+            "clockwork_anvil_fixture", runner_path.with_name("test_scan_clockwork_worldgen.py")
+        )
+        fixtures = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(fixtures)
+
+        candidate = Path(self.temp.name) / "candidate"
+        source = candidate / runner.FEATURE
+        source.parent.mkdir(parents=True)
+        source.write_text(json.dumps({
+            "type": "tfc:disc_vein",
+            "config": {
+                "rarity": 420, "min_y": -60, "max_y": -24,
+                "blocks": [
+                    {"replace": [f"tfc:rock/raw/{rock}"],
+                     "with": [{"block": "vs_clockwork:wanderlite_deepslate_ore", "weight": 1}]}
+                    for rock in ("gabbro", "granite", "gneiss", "slate", "marble")
+                ],
+            },
+        }))
+        installed = self.server / runner.FEATURE
+        installed.parent.mkdir(parents=True)
+        installed.write_bytes(source.read_bytes())
+        # 64 chunks, one actual ore. These are synthetic test fixtures only.
+        fixtures.region_file(self.server / "fixture.mca", {
+            slot: fixtures.make_chunk(slot % 32, slot // 32, {0: 1} if slot == 0 else {})
+            for slot in range(64)
+        })
+        fake = self.server / "fake_forge.py"
+        fake.write_text(
+            "import shutil, sys\n"
+            "from pathlib import Path\n"
+            "home = Path.cwd()\n"
+            "region = home / 'clockwork-smoke' / 'region'\n"
+            "region.mkdir(parents=True)\n"
+            "shutil.copyfile(home / 'fixture.mca', region / 'r.0.0.mca')\n"
+            "print('Done (0.1s)!', flush=True)\n"
+            "for command in sys.stdin:\n"
+            "    if command.strip() == 'stop': break\n"
+        )
+        evidence = Path(self.temp.name) / "evidence"
+        proc = subprocess.run(
+            [
+                sys.executable, str(runner_path),
+                "--repo-root", str(candidate),
+                "--server-dir", str(self.server),
+                "--launch", f"{sys.executable} fake_forge.py",
+                "--evidence-dir", str(evidence),
+                "--timeout", "15",
+                "--min-chunks", "64",
+            ], text=True, capture_output=True, timeout=30,
+        )
+        self.assertEqual(proc.returncode, 0, proc.stderr + proc.stdout)
+        summary = json.loads((evidence / "summary.json").read_text())
+        self.assertTrue(summary["passed"])
+        self.assertEqual(summary["attempts"], 1)
+        self.assertEqual(summary["results"][0]["fully_generated_chunks"], 64)
+        self.assertEqual(summary["results"][0]["blocks_found"], 1)
+        self.assertTrue(summary["results"][0]["depth_ok"])
+        self.assertIn("Done (0.1s)!", (evidence / f"forge-seed-{runner.SEEDS[0]}.log").read_text())
+        # Original candidate is untouched, while only the isolated server is
+        # allowed to contain the test-only rarity override.
+        self.assertEqual(json.loads(source.read_text())["config"]["rarity"], 420)
+        self.assertEqual(json.loads(installed.read_text())["config"]["rarity"], 1)
 
 
 if __name__ == "__main__":
