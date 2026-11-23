@@ -11,7 +11,8 @@ Example:
     --repo-root . --server-dir /tmp/clockwork-ci-server \
     --launch "./run.sh nogui" --evidence-dir /tmp/clockwork-ci-evidence
 
-Only the ordinary test seed is run; a second seed is used if the first failed
+The optional --native-assembly checks real Infuser/VS ship formation in the SAME
+server startup as ore generation (never a second instance). A second seed is used if the first failed
 to place any ore in a fully generated chunk. A positive result needs only
 one full, ore-bearing chunk; 64 full chunks are reserved for interpreting
 negative results.
@@ -130,7 +131,35 @@ def stage_feature(repo: Path, server: Path, evidence: Path) -> dict:
     return result
 
 
-def run_server(server: Path, command: str, log: Path, timeout: int) -> None:
+def stage_native_assembly_fixture(repo: Path, server: Path) -> str:
+    """Copy the proven ship fixture only into a marked disposable pack.
+
+    This test script is never included in the shipped kubejs/ directory.
+    """
+    safely_disposable(server)
+    source = repo / "nstut/tools/fixtures/clockwork-native-assembly-smoke.js"
+    target = server / "kubejs/server_scripts/zz_nstut_clockwork_gameplay_qa.js"
+    if not source.is_file() or source.is_symlink():
+        raise ValueError("Clockwork native assembly fixture is missing")
+    if target.exists() or target.is_symlink() or target.parent.is_symlink():
+        raise ValueError("Refusing to overwrite/symlink native assembly test script")
+    if not target.resolve().is_relative_to(server.resolve()):
+        raise ValueError("Fixture destination escaped disposable server")
+    content = source.read_bytes()
+    if not 1000 < len(content) < 16000 or not all(
+        marker in content for marker in (
+            b"TEST-ONLY SCRIPT", b"setChunkForced", b"startAssembly",
+            b"getShipId()", b"[CLOCKWORK_GAMEPLAY_PASS]",
+        )
+    ):
+        raise ValueError("Invalid or unreviewed Clockwork native assembly fixture")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(content)
+    return hashlib.sha256(content).hexdigest()
+
+
+def run_server(server: Path, command: str, log: Path, timeout: int,
+               required_marker: str | None = None) -> None:
     argv = shlex.split(command)
     if not argv or any("\0" in arg for arg in argv):
         raise ValueError("Empty or invalid launch command")
@@ -143,22 +172,28 @@ def run_server(server: Path, command: str, log: Path, timeout: int) -> None:
         )
         try:
             ready = False
+            native_pass = required_marker is None
             last = 0
+            tail = ""
             with log.open("r", encoding="utf-8", errors="replace") as reader:
                 while time.monotonic() - begin < timeout:
                     reader.seek(last)
-                    text = reader.read()
+                    latest = reader.read()
                     last = reader.tell()
-                    if ERRORS.search(text):
-                        raise RuntimeError("Forge/KubeJS registry or recipe load error")
-                    if DONE.search(text):
-                        ready = True
+                    # Preserve the boundary across partial reads of a log line.
+                    text = tail + latest
+                    tail = text[-512:]
+                    if ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text:
+                        raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
+                    ready = ready or bool(DONE.search(text))
+                    native_pass = native_pass or bool(required_marker and required_marker in text)
+                    if ready and native_pass:
                         break
                     if proc.poll() is not None:
-                        raise RuntimeError(f"Forge exited before ready: {proc.returncode}")
+                        raise RuntimeError(f"Forge exited before acceptance: {proc.returncode}")
                     time.sleep(0.5)
-            if not ready:
-                raise TimeoutError("Spawn generation did not finish before timeout")
+            if not (ready and native_pass):
+                raise TimeoutError("Forge startup/native ship assembly did not finish before timeout")
             proc.stdin.write("save-all flush\n")
             proc.stdin.flush()
             time.sleep(2)
@@ -208,6 +243,8 @@ def main() -> int:
     parser.add_argument("--evidence-dir", type=Path, required=True)
     parser.add_argument("--timeout", type=int, default=900)
     parser.add_argument("--min-chunks", type=int, default=64)
+    parser.add_argument("--native-assembly", action="store_true",
+                        help="Run the real Infuser/VS ship fixture in this SAME Forge startup")
     args = parser.parse_args()
     server = safely_disposable(args.server_dir)
     repo = args.repo_root.resolve(strict=True)
@@ -219,7 +256,10 @@ def main() -> int:
         raise ValueError("Evidence must be under /tmp")
     if evidence == server or evidence.is_relative_to(server):
         raise ValueError("Evidence must not be inside the disposable server")
+    fixture_sha = stage_native_assembly_fixture(repo, server) if args.native_assembly else None
     staged = stage_feature(repo, server, evidence)
+    if fixture_sha:
+        staged["native_assembly_fixture_sha256"] = fixture_sha
     scan = module("scan-clockwork-worldgen.py", "clockwork_scan")
     all_results = []
     try:
@@ -232,7 +272,8 @@ def main() -> int:
                 shutil.rmtree(server / WORLD)
             set_properties(server, seed)
             log = evidence / f"forge-seed-{seed}.log"
-            run_server(server, args.launch, log, args.timeout)
+            run_server(server, args.launch, log, args.timeout,
+                       "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None)
             result = scan.scan(server / WORLD / "region", scan.TARGET)
             assess_worldgen(result, args.min_chunks)
             result.update({
