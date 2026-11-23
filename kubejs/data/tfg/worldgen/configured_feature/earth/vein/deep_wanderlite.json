@@ -1,0 +1,95 @@
+{
+  "type": "tfc:disc_vein",
+  "config": {
+    "height": 4,
+    "size": 9,
+    "rarity": 420,
+    "density": 0.17,
+    "min_y": -60,
+    "max_y": -24,
+    "random_name": "deep_wanderlite",
+    "project": false,
+    "project_offset": false,
+    "near_lava": false,
+    "blocks": [
+      {
+        "replace": [
+          "tfc:rock/raw/gabbro"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/gneiss"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/schist"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/slate"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/marble"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "replace": [
+          "tfc:rock/raw/granite"
+        ],
+        "with": [
+          {
+            "block": "vs_clockwork:wanderlite_deepslate_ore",
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "indicator": {
+      "rarity": 40,
+      "depth": 12,
+      "underground_rarity": 45,
+      "underground_count": 90,
+      "blocks": [
+        {
+          "block": "gtceu:amethyst_bud_indicator",
+          "weight": 1
+        }
+      ]
+    }
+  }
+}
