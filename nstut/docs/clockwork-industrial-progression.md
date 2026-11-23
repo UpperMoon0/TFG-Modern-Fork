@@ -43,37 +43,37 @@ The fundamental Physics Infuser and Wanderwand **must never** be LV/MV/HV gated.
 
 ## Headless worldgen acceptance (no client or spectator)
 
-The existing static assertions in \`nstut/tools/validate-clockwork-progression.py\` prove only recipe/worldgen *definitions*. They do not prove a TFC feature was registered and ran in a real seed. The following is the acceptance procedure to automate in an isolated Jenkins job:
+The existing static assertions in `nstut/tools/validate-clockwork-progression.py` prove only recipe/worldgen *definitions*. They do not prove a TFC feature was registered and ran in a real seed. The following is the acceptance procedure to automate in an isolated Jenkins job:
 
 1. Take the **actual candidate server pack** plus PR KubeJS/data files and construct a throwaway dedicated Forge 1.20.1 instance. No production world, credentials, network ports, or Minecraft-MCP connections. Record exact mod jar hashes, PR commit and world seed.
 2. Install a version-compatible **Forge Chunky pregenerator in the CI instance only** (not in the distributed modpack). Start the server and run the following through the *isolated server console/RCON*, with no player connected:
 
-   \`\`\`text
+   ```text
    chunky world minecraft:overworld
    chunky shape square
    chunky center 0 0
    chunky radius 640
    chunky start
-   \`\`\`
+   ```
 
    Chunky radius uses **blocks**, not chunks. Radius 640 and square shape should generate about 6,400 chunks. Wait for Chunky to finish and verify the count rather than assuming it completed. Flush saves and shut down Forge before scanning.
 3. Scan the saved region files from that temporary world:
 
-   \`\`\`bash
+   ```bash
    python3 nstut/tools/scan-clockwork-worldgen.py \
      /tmp/tfg-worldgen-ci/world/region \
      --min-chunks 4096 --min-blocks 1 \
      --report /tmp/tfg-clockwork-wanderlite.json
-   \`\`\`
+   ```
 
-   Exit code **0** means both sample-size and actual block-count thresholds passed; **2** means insufficient chunks or no Wanderlite; **3** means corrupt/invalid region files or unavailable world input. The JSON includes real block coordinates, counts and Y histogram. \`blocks_found\` counts decoded packed block indices; palette-name presence alone does not count.
+   Exit code **0** means both sample-size and actual block-count thresholds passed; **2** means insufficient chunks or no Wanderlite; **3** means corrupt/invalid region files or unavailable world input. The JSON includes real block coordinates, counts and Y histogram. `blocks_found` counts decoded packed block indices; palette-name presence alone does not count.
 4. Repeat across at least **three fixed, unrelated seeds**, each in a freshly initialized world. Fail if all samples are empty, or if the blocks are outside the intended deep underground distribution. For rare ores, expand sample size before treating an individual zero as proof of failure.
-5. Preserve seed, scanner JSON, console log, modpack/PR hashes and generation settings as CI artifacts. Compare sample distributions against a fixed baseline when tuning balance. Confirm \`tfc:in_biome/veins\` includes \`tfg:earth/vein/deep_wanderlite\` in the *loaded* runtime worldgen registry.
+5. Preserve seed, scanner JSON, console log, modpack/PR hashes and generation settings as CI artifacts. Compare sample distributions against a fixed baseline when tuning balance. Confirm `tfc:in_biome/veins` includes `tfg:earth/vein/deep_wanderlite` in the *loaded* runtime worldgen registry.
 
 This is the critical **in-game generation acceptance**, not a static JSON check. Run the scanner's synthetic Anvil fixtures independently:
 
-\`\`\`bash
+```bash
 python3 nstut/tools/test_scan_clockwork_worldgen.py -v
-\`\`\`
+```
 
-Never use \`/place feature\` as the sole evidence of natural generation: direct placement can bypass normal biome selection or rarity. Never add Chunky to the production server for this test. Clean up temporary worlds only after archiving evidence; keep production regions untouched.
+Never use `/place feature` as the sole evidence of natural generation: direct placement can bypass normal biome selection or rarity. Never add Chunky to the production server for this test. Clean up temporary worlds only after archiving evidence; keep production regions untouched.
