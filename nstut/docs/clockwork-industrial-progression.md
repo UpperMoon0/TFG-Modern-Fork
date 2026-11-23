@@ -41,39 +41,79 @@ The fundamental Physics Infuser and Wanderwand **must never** be LV/MV/HV gated.
 - A modded integration test must validate item IDs, both native/TFG recipe overrides, machine tier requirements, and survival acquisition before merge.
 - Existing PR #95 remains independent. When merged, preserve the seed-gated HV recipe, the nonconsumed crystal and Vitrified Pearls, and the Steam Age access route.
 
-## Headless worldgen acceptance (no client or spectator)
+## Lean headless worldgen acceptance (no client, spectator, or Chunky)
 
-The existing static assertions in `nstut/tools/validate-clockwork-progression.py` prove only recipe/worldgen *definitions*. They do not prove a TFC feature was registered and ran in a real seed. The following is the acceptance procedure to automate in an isolated Jenkins job:
+Keep the routine PR gate deliberately small: **one Forge startup at a fixed seed**, let
+the dedicated server's **ordinary spawn-chunk initialization** perform natural
+terrain generation, then inspect the saved blocks. Minecraft 1.20.1 initializes
+spawn chunks without a player, so a separate pregenerator is not normally needed.
 
-1. Take the **actual candidate server pack** plus PR KubeJS/data files and construct a throwaway dedicated Forge 1.20.1 instance. No production world, credentials, network ports, or Minecraft-MCP connections. Record exact mod jar hashes, PR commit and world seed.
-2. Install a version-compatible **Forge Chunky pregenerator in the CI instance only** (not in the distributed modpack). Start the server and run the following through the *isolated server console/RCON*, with no player connected:
+### Test coverage
 
-   ```text
-   chunky world minecraft:overworld
-   chunky shape square
-   chunky center 0 0
-   chunky radius 640
-   chunky start
+1. **Static invariant (always run)**: run
+   `python3 nstut/tools/validate-clockwork-progression.py .` to ensure production
+   rarity is **420**, the intended rocks and heights remain unchanged, and the
+   TFC vein tag/placed/configured feature are defined.
+2. **Prepare the smoke overlay** (the script refuses to write outside a *new*
+   directory under `/tmp`, and refuses to mutate existing files):
+
+   ```bash
+   python3 nstut/tools/stage-clockwork-worldgen-smoke.py \
+     --repo-root . --output-dir /tmp/tfg-clockwork-smoke-overlay
    ```
 
-   Chunky radius uses **blocks**, not chunks. Radius 640 and square shape should generate about 6,400 chunks. Wait for Chunky to finish and verify the count rather than assuming it completed. Flush saves and shut down Forge before scanning.
-3. Scan the saved region files from that temporary world:
+   The script validates the candidate's production rarity, copies **only**
+   `kubejs/data/tfg/worldgen/configured_feature/earth/vein/deep_wanderlite.json`,
+   changes **rarity 420 → 1** in that temporary copy, preserves all six original
+   host-rock replacements and Y constraints, and writes an audit manifest.
+3. **Real natural generation in one disposable Forge world**: construct a fresh
+   candidate server pack in a separate temporary directory, apply that single
+   staged overlay **before the server starts**, select a fixed seed, and start
+   Forge normally. Verify Clockwork is loaded and worldgen registry/tag accepts
+   the configured + placed feature. Allow the initial spawn chunks to finish
+   generating; execute `save-all flush`, then `stop` using the **isolated**
+   console. No external Chunky mod, RCON to production, players, `/place
+   feature`, or manual exploration are needed.
+4. **Read-only world evidence** (after shutdown):
 
    ```bash
    python3 nstut/tools/scan-clockwork-worldgen.py \
      /tmp/tfg-worldgen-ci/world/region \
-     --min-chunks 4096 --min-blocks 1 \
+     --min-chunks 64 --min-blocks 1 \
      --report /tmp/tfg-clockwork-wanderlite.json
    ```
 
-   Exit code **0** means both sample-size and actual block-count thresholds passed; **2** means insufficient chunks or no Wanderlite; **3** means corrupt/invalid region files or unavailable world input. The JSON includes real block coordinates, counts and Y histogram. `blocks_found` counts decoded packed block indices; palette-name presence alone does not count.
-4. Repeat across at least **three fixed, unrelated seeds**, each in a freshly initialized world. Fail if all samples are empty, or if the blocks are outside the intended deep underground distribution. For rare ores, expand sample size before treating an individual zero as proof of failure.
-5. Preserve seed, scanner JSON, console log, modpack/PR hashes and generation settings as CI artifacts. Compare sample distributions against a fixed baseline when tuning balance. Confirm `tfc:in_biome/veins` includes `tfg:earth/vein/deep_wanderlite` in the *loaded* runtime worldgen registry.
+   The scanner requires **64 fully generated chunks** and at least **one
+   actually placed Wanderlite block**, and reports X/Y/Z, chunk status and ore
+   count. Partially generated chunks or unused block palette entries never
+   count as successes. The scan runs offline.
+5. **Optional retry only on zero evidence**: one second fixed seed in a new
+   disposable world helps distinguish unsupported spawn geology from a broken
+   vein. A zero in both seeds is a **diagnostic failure/inconclusive generation
+   check**; inspect host-rock strata, loaded worldgen registry and logs before
+   changing production rarity. Do not silently turn a zero into a pass.
 
-This is the critical **in-game generation acceptance**, not a static JSON check. Run the scanner's synthetic Anvil fixtures independently:
+### Verification guarantees and limitations
 
-```bash
-python3 nstut/tools/test_scan_clockwork_worldgen.py -v
-```
+- This is a **real-worldgen integration test**, not a direct `/place feature`
+  shortcut. It proves that the fully loaded pack can naturally spawn the exact
+  ore block via registered TFC worldgen in at least one generated chunk.
+- It does **not** estimate natural ore frequency with rarity 420. That is a
+  separate, explicitly requested balancing benchmark—not a required PR gate.
+- The runtime must additionally verify item/recipe registry and Steam Age
+  craftability; worldgen alone does not prove the full progression chain.
+- Store the fixed seed, server/KubeJS/mod jar hashes, overlay manifest, server
+  logs and scanner JSON as CI artifacts. Only the **production feature JSON**
+  is packaged and released, never the temporary rarity-1 override.
+- For environments where startup does not generate 64 full chunks, report
+  insufficient coverage and explicitly request a small bounded extra chunk
+  generation run. Do not default to generating thousands.
+- Synthetic scanner and override-protection fixtures can run without Forge:
 
-Never use `/place feature` as the sole evidence of natural generation: direct placement can bypass normal biome selection or rarity. Never add Chunky to the production server for this test. Clean up temporary worlds only after archiving evidence; keep production regions untouched.
+  ```bash
+  python3 nstut/tools/test_scan_clockwork_worldgen.py -v
+  python3 nstut/tools/test_stage_clockwork_worldgen_smoke.py -v
+  ```
+
+Never inspect, pre-generate, or mutate production Minecraft regions for
+this test. The disposable Forge instance must use its own separate world.
