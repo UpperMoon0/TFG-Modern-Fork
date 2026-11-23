@@ -93,6 +93,12 @@ def main(root: Path) -> None:
         assert f"event.remove({{ output: '{item}' }})" in recipe, f"ungated native recipe: {item}"
         assert re.search(rf"tfg:clockwork/{tier}/[a-z_]+", recipe), f"missing {tier} recipes"
     assert "gtceu:lv_electric_motor" in recipe
+    # GTCEu's lookup trie distinguishes ingredient identities, not only
+    # stack quantities. Both MV bearings must not share the same item-key set.
+    phys = recipe.split("assembler('tfg:clockwork/mv/physics_bearing')", 1)[1].split(".itemOutputs(", 1)[0]
+    gimbal = recipe.split("assembler('tfg:clockwork/mv/gimbal_bearing')", 1)[1].split(".itemOutputs(", 1)[0]
+    assert "'create:turntable'" in phys and "'create:brass_casing'" not in phys
+    assert "'create:brass_casing'" in gimbal and "'create:turntable'" not in gimbal
     assert "gtceu:mv_electric_motor" in recipe
     assert "gtceu:hv_electric_motor" in recipe
     assert "gtceu:ev_electric_motor" in recipe
