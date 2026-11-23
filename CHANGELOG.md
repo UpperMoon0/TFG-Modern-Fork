@@ -1,3 +1,9 @@
+## 0.13.19-nstut.5
+
+- Fix server-side Distant Horizons and TFC biome feature-generation compatibility with a 3×3 biome neighborhood.
+- Pin immutable DH v3.3.3-nstut.3 for client/server; keep the previous release for rollback.
+- Preserve world/TrueUUID; require isolated acceptance and native Jenkins promotion gates before deployment.
+
 ## 0.13.19-nstut.4
 
 - Pin corrected Distant Horizons v3.3.3-nstut.2, fixing Forge SecureJar multi-release archive startup failure.
