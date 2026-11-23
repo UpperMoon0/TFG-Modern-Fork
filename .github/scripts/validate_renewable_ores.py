@@ -580,3 +580,23 @@ print(f" - max fluid stack: {max(fluid_amounts)} mB")
 print(" - LV: iron, copper, zinc, redstone, tin, lead")
 print(" - MV: nickel, silver, arsenic, cobaltite")
 print(" - HV: gold")
+
+# Extend the *source-only* renewable CI gate for the optional Clockwork
+# progression, without conflating it with immutable release promotion.  These
+# quick checks validate the new Wanderlite worldgen/Steam-to-EV recipe contract.
+if (ROOT / "kubejs/server_scripts/tfg/recipes.clockwork_progression.js").is_file():
+    import os
+    import subprocess
+    import sys
+    env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+    subprocess.run(
+        [sys.executable, str(ROOT / "nstut/tools/validate-clockwork-progression.py"), str(ROOT)],
+        env=env, check=True,
+    )
+    subprocess.run(
+        [sys.executable, "-m", "unittest", "discover", "-s",
+         str(ROOT / "nstut/tools"), "-p", "test_*clockwork*.py", "-q"],
+        env=env, check=True,
+    )
+    print("Clockwork source-only renewable acceptance passed")
+
