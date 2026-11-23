@@ -284,5 +284,5 @@
       ]
     }
   ],
-  "notes": "Retains all previous managed mods and .19.3 semantics, replacing only Distant Horizons with the final SecureJar-corrected 3.3.3-nstut.3 Forge artifact. Validated using actual Forge 47.4.13 with Chunky 1.3.146, clean save and shutdown. No intended world-format changes."
+  "notes": "All previously managed mods and upstream 0.13.19 semantics remain pinned. Replaces only Distant Horizons with the verified 3.3.3-nstut.6 Forge 1.20.1 prerelease. Isolated 234-mod TFC worldgen reached 32/32 pregen radius and persisted 397 LOD rows without biome errors; real client/server LOD transfer and production promotion remain unverified. No intentional world-format, player or TrueUUID changes."
 }
