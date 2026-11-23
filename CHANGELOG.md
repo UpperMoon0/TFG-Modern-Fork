@@ -1,3 +1,28 @@
+## 0.13.19-nstut.8
+
+- Pin Distant Horizons 3.3.3-nstut.8 on client and server with a response-bound LOD buffer lifecycle fix, preserving the TFC biome-neighbor generation repair.
+- Prevent split LOD buffers from expiring before queued client decompression, and release decoded buffers correctly.
+- Preserve all upstream 0.13.19 content, unrelated managed mods, player/world state and TrueUUID data.
+- Require passing same-version reconnect, rendering and native Jenkins gates before production promotion.
+
+## 0.13.19-nstut.7
+
+- Fix early client/server Distant Horizons LOD data arriving before client-level initialization (DH 3.3.3-nstut.7).
+- Preserve TFC biome-neighbor worldgen repair; upgrade DH on both client and server with checksum-pinned artifacts.
+- Prior .6 client transfer was proven but exposed a startup race; .7 requires fresh end-to-end and native Jenkins acceptance.
+
+## 0.13.19-nstut.6
+
+- Stage the Distant Horizons 3.3.3-nstut.6 TFC biome-neighbor and structure-reference fixes for client and server; the earlier .3 candidate is invalid.
+- Isolated Forge 1.20.1 TFC test: pre-generation 32/32 radius chunks, persisted LOD records 5 to 397, no Biome: 211 or feature-generation errors.
+- Production stays on DH .2 until client LOD transfer, native Jenkins exact-SHA checks, backup and rollback gates pass.
+
+## 0.13.19-nstut.5
+
+- Fix server-side Distant Horizons and TFC biome feature-generation compatibility with a 3×3 biome neighborhood.
+- Pin immutable DH v3.3.3-nstut.3 for client/server; keep the previous release for rollback.
+- Preserve world/TrueUUID; require isolated acceptance and native Jenkins promotion gates before deployment.
+
 ## 0.13.19-nstut.4
 
 - Pin corrected Distant Horizons v3.3.3-nstut.2, fixing Forge SecureJar multi-release archive startup failure.
