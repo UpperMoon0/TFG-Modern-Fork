@@ -96,6 +96,27 @@ python3 nstut/tools/test_run_clockwork_worldgen_smoke.py -v
      --evidence-dir /tmp/tfg-clockwork-ci-evidence
    ```
 
+**Combined native gameplay gate (release acceptance):** Add `--native-assembly`
+to the same command. The runner then stages the **test-only** fixture from
+`nstut/tools/fixtures/clockwork-native-assembly-smoke.js` into the explicitly
+marked disposable pack and waits for both Forge's `Done` marker and the native
+`[CLOCKWORK_GAMEPLAY_PASS]` marker **in the same single server startup**.
+The fixture builds a disconnected 3×3 wooden hull, rejects an Infuser with
+no wand, creates a valid Wanderwand selection, force-ticks the fixture chunks
+(playerless servers otherwise need not tick them), calls Clockwork's real
+`PhysicsInfuserBlockEntity.startAssembly`, and requires Valkyrien Skies to
+move the nine blocks into a ship with a valid ID. The fixture is never part
+of release KubeJS scripts and is not installed on production.
+
+The standalone native integration was verified on disposable Java 17 /
+Forge 1.20.1 / Clockwork 0.5.7.1: ship ID **15**, nine source blocks moved,
+**82 server ticks**, 35,212 registered recipes and zero failed recipes.
+For reproducibility, the original success log, four failed fixture attempts,
+raw Anvil region files and SHA256 are archived under
+`/var/lib/nstut-acceptance/tfg-clockwork-gameplay-20261124/` on cloud-1.
+This proves native assembly functionality, not every client interaction or
+physics edge case.
+
 3. The runner detects the Forge `Done` startup marker, issues `save-all flush`
    and `stop`, then decodes the fully saved Overworld region. **Positive pass:
    at least one actually FULL, ore-bearing chunk with a Wanderlite block at
