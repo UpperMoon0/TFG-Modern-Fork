@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "tfg-nstut-managed",
   "name": "TFG NsTut Fork Overlay",
-  "version": "0.13.19-nstut.8",
-  "description": "Generated from UpperMoon0/TFG-Modern-Fork nstut-0.13.19.8 on upstream 0.13.19.",
+  "version": "0.13.19-nstut.9",
+  "description": "Generated from UpperMoon0/TFG-Modern-Fork nstut-0.13.19.9 on upstream 0.13.19.",
   "requiredPaths": [
     "mods",
     "config",
@@ -3125,12 +3125,6 @@
       "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.8/CHANGELOG.md",
       "sha256": "8764283c9d43d4dc6d1693b8984376f92baab1f9ed6cc3a2fb62a3b01778044f",
       "fileName": "CHANGELOG.md"
-    },
-    {
-      "id": "fork-236df6564aa1c03b",
-      "url": "https://raw.githubusercontent.com/UpperMoon0/TFG-Modern-Fork/refs/tags/nstut-0.13.19.8/config/DistantHorizons.toml",
-      "sha256": "8c8fb95d56f1ffeb3413dec23c906839244c2e411612cec7c6eb7db81dbfbe70",
-      "fileName": "DistantHorizons.toml"
     },
     {
       "id": "fork-2d9a5a87b7ededb5",
@@ -7675,14 +7669,14 @@
         "mediumCreatureStressRange": 24,
         "largeCreatureStressRange": 32,
         "poorMultiplier": 0.5,
-        "normalMultiplier": 1.0,
-        "greatMultiplier": 2.0,
-        "balance.globalRpmMultiplier": 1.0,
-        "balance.globalStressMultiplier": 1.0,
+        "normalMultiplier": 1,
+        "greatMultiplier": 2,
+        "balance.globalRpmMultiplier": 1,
+        "balance.globalStressMultiplier": 1,
         "balance.enableIndividualAnimalStats": false,
         "path.evaluationMode": "LEGACY",
         "path.enableStressScaling": false,
-        "path.minimumCoverage": 1.0
+        "path.minimumCoverage": 1
       },
       "skipIfMissing": false,
       "targets": [
@@ -7797,6 +7791,26 @@
       ]
     },
     {
+      "type": "patchToml",
+      "destination": "config/DistantHorizons.toml",
+      "values": {
+        "_version": 5,
+        "client.advanced.autoUpdater.enableAutoUpdater": false,
+        "client.advanced.autoUpdater.enableSilentUpdates": false,
+        "common.multiThreading.numberOfThreads": 2,
+        "common.worldGenerator.generatorPlan": "SURFACE_THEN_CHUNKS",
+        "common.worldGenerator.chunkGeneratorMode": "FEATURES",
+        "server.enableAdaptiveTransferSpeed": true,
+        "server.generationRequestRateLimit": 20,
+        "server.maxGenerationRequestDistance": 4096
+      },
+      "skipIfMissing": false,
+      "targets": [
+        "client",
+        "server"
+      ]
+    },
+    {
       "type": "installFile",
       "artifact": "fork-11d6e27de2cfa11b",
       "destination": "README.md",
@@ -7808,15 +7822,6 @@
       "type": "installFile",
       "artifact": "fork-06572a96a58dc510",
       "destination": "CHANGELOG.md",
-      "targets": [
-        "client",
-        "server"
-      ]
-    },
-    {
-      "type": "installFile",
-      "artifact": "fork-236df6564aa1c03b",
-      "destination": "config/DistantHorizons.toml",
       "targets": [
         "client",
         "server"

@@ -637,7 +637,33 @@ def main() -> int:
             if not matches or any(v != "1000000" for v in matches):
                 fail(f"{rel} does not enforce {key}=1000000")
 
+    # DH v5 generated config must not overwrite a runtime-specific server identity.
+    dh_policy = {"_version":5,"client.advanced.autoUpdater.enableAutoUpdater":False,"client.advanced.autoUpdater.enableSilentUpdates":False,"common.multiThreading.numberOfThreads":2,"common.worldGenerator.generatorPlan":"SURFACE_THEN_CHUNKS","common.worldGenerator.chunkGeneratorMode":"FEATURES","server.enableAdaptiveTransferSpeed":True,"server.generationRequestRateLimit":20,"server.maxGenerationRequestDistance":4096}
+    dh_config = tomllib.loads((ROOT / "config/DistantHorizons.toml").read_text(encoding="utf-8"))
+    if "serverId" in dh_config.get("server", {}):
+        fail("DH serverId must remain runtime-private")
+    for dotted, expected_value in dh_policy.items():
+        node = dh_config
+        for key in dotted.split("."):
+            if not isinstance(node, dict) or key not in node:
+                fail(f"DH v5 config missing {dotted}")
+            node = node[key]
+        if node != expected_value:
+            fail(f"DH v5 {dotted}: expected {expected_value!r}, got {node!r}")
+    dh_overlays = [o for o in runtime["overlays"] if o["path"] == "config/DistantHorizons.toml"]
+    if len(dh_overlays) != 1 or dh_overlays[0] != {
+        "format": "toml", "path": "config/DistantHorizons.toml",
+        "targets": ["client", "server"], "values": dh_policy,
+    }:
+        fail("DH v5 must have a single semantic client/server overlay")
+    if "config/DistantHorizons.toml" not in generator.SEMANTIC_PATHS:
+        fail("DH config must not be installed with full-file replacement")
+
     generated = load(NSTUT / "modpack-manager.patch.json")
+    dh_ops = [o for o in generated['operations'] if o.get('destination') == 'config/DistantHorizons.toml']
+    if len(dh_ops) != 1 or dh_ops[0].get('type') != 'patchToml' or dh_ops[0].get('values') != dh_policy or dh_ops[0].get('targets') != ['client', 'server']:
+        fail('DH requires exactly one semantic v5 TOML patch, never installFile')
+
     economy_path = "config/economy-storage.properties"
     if (ROOT / economy_path).read_text().splitlines()[-1] != "tankCapacity=512000":
         fail("native Economy config must set 512 buckets (512000 mB)")

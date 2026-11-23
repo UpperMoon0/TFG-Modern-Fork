@@ -25,14 +25,14 @@
         "mediumCreatureStressRange": 24,
         "largeCreatureStressRange": 32,
         "poorMultiplier": 0.5,
-        "normalMultiplier": 1.0,
-        "greatMultiplier": 2.0,
-        "balance.globalRpmMultiplier": 1.0,
-        "balance.globalStressMultiplier": 1.0,
+        "normalMultiplier": 1,
+        "greatMultiplier": 2,
+        "balance.globalRpmMultiplier": 1,
+        "balance.globalStressMultiplier": 1,
         "balance.enableIndividualAnimalStats": false,
         "path.evaluationMode": "LEGACY",
         "path.enableStressScaling": false,
-        "path.minimumCoverage": 1.0
+        "path.minimumCoverage": 1
       }
     },
     {
@@ -129,6 +129,25 @@
         "mechanics.collapses.collapseFakeTriggerChance": 0.35,
         "mechanics.collapses.collapsePropagateChance": 0.55,
         "mechanics.collapses.collapseExplosionPropagateChance": 0.3
+      }
+    },
+    {
+      "format": "toml",
+      "path": "config/DistantHorizons.toml",
+      "targets": [
+        "client",
+        "server"
+      ],
+      "values": {
+        "_version": 5,
+        "client.advanced.autoUpdater.enableAutoUpdater": false,
+        "client.advanced.autoUpdater.enableSilentUpdates": false,
+        "common.multiThreading.numberOfThreads": 2,
+        "common.worldGenerator.generatorPlan": "SURFACE_THEN_CHUNKS",
+        "common.worldGenerator.chunkGeneratorMode": "FEATURES",
+        "server.enableAdaptiveTransferSpeed": true,
+        "server.generationRequestRateLimit": 20,
+        "server.maxGenerationRequestDistance": 4096
       }
     }
   ]
