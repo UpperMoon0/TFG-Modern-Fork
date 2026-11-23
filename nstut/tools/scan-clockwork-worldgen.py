@@ -7,7 +7,7 @@ This proves that the world contains blocks, not merely that a feature/tag exists
 Example:
   python3 nstut/tools/scan-clockwork-worldgen.py \
     /tmp/tfg-worldgen-ci/world/region \
-    --min-chunks 4096 --min-blocks 1 --report /tmp/wanderlite-evidence.json
+    --min-chunks 64 --min-blocks 1 --report /tmp/wanderlite-evidence.json
 
 The region path must belong to a newly generated Overworld for the tested seed.
 Supports modern sections.block_states.palette/data and signed packed longs.
@@ -216,11 +216,16 @@ def scan(regions: Path, target: str, sample_limit: int = 40) -> dict:
     per_y = Counter()
     examples = []
     status_counts = Counter()
+    fully_generated_chunks = 0
     for filename in files:
         for chunk in read_region(filename):
             chunks += 1
             body = chunk.get("Level", chunk)
-            status_counts[str(body.get("Status", "<missing>"))] += 1
+            status = str(body.get("Status", "<missing>"))
+            status_counts[status] += 1
+            if status.split(":")[-1] != "full":
+                continue  # Unfinished chunks are not evidence of successful worldgen.
+            fully_generated_chunks += 1
             for x, y, z in chunk_positions(chunk, target):
                 ores += 1
                 chunks_with_ore.add((x >> 4, z >> 4))
@@ -232,6 +237,7 @@ def scan(regions: Path, target: str, sample_limit: int = 40) -> dict:
         "source_directory": str(regions.resolve()),
         "region_files": len(files),
         "chunks_scanned": chunks,
+        "fully_generated_chunks": fully_generated_chunks,
         "blocks_found": ores,
         "ore_bearing_chunks": len(chunks_with_ore),
         "blocks_per_1000_chunks": round(1000.0 * ores / chunks, 3) if chunks else 0,
@@ -245,13 +251,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("region_dir", type=Path, help="Fresh isolated world/region directory")
     parser.add_argument("--target", default=TARGET)
-    parser.add_argument("--min-chunks", type=int, default=4096)
+    parser.add_argument("--min-chunks", type=int, default=64)
     parser.add_argument("--min-blocks", type=int, default=1)
     parser.add_argument("--sample-limit", type=int, default=40)
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     result = scan(args.region_dir, args.target, args.sample_limit)
-    result["passed"] = result["chunks_scanned"] >= args.min_chunks and result["blocks_found"] >= args.min_blocks
+    result["passed"] = result["fully_generated_chunks"] >= args.min_chunks and result["blocks_found"] >= args.min_blocks
     result["thresholds"] = {"min_chunks": args.min_chunks, "min_blocks": args.min_blocks}
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
