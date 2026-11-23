@@ -68,6 +68,23 @@ class SmokeRunnerTests(unittest.TestCase):
             "[18:37:02] [KubeJS Server/ERROR]: Invalid recipe"
         ))
 
+    def test_real_recipe_failures_are_fatal_but_baseline_noise_is_not(self):
+        failures = [
+            "[18:45:43] [KubeJS Server/WARN]: Error parsing recipe "
+            "tfg:clockwork/steam/wanderlite_trace_recovery[greate:mixing]",
+            "[18:45:48] [GregTechCEu/WARN]: failed to add recipe from "
+            "staging into lookup DB: tfg:assembler/clockwork/mv/physics_bearing",
+            "[18:45:55] [KubeJS Server/INFO]: Added 35000 recipes, "
+            "removed 14000 recipes, modified 1000 recipes, with 1 failed recipes",
+        ]
+        for line in failures:
+            with self.subTest(line=line):
+                self.assertIsNotNone(runner.ERRORS.search(line))
+        self.assertIsNone(runner.ERRORS.search(
+            "[18:45:16] [KubeJS Server/WARN]: Failed to parse recipe "
+            "'vs_clockwork:extruder/wanderlite_matrix'! Falling back to vanilla"
+        ))
+
     def test_done_marker_not_false_positive(self):
         self.assertTrue(runner.DONE.search("[INFO]: Done (28.4s)! For help, type 'help'"))
         self.assertFalse(runner.DONE.search("World generation started"))
