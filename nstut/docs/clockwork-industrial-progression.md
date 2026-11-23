@@ -45,7 +45,7 @@ manual processing and brass consumption.
 | Stage | Unlocked/industrialized technology |
 |---|---|
 | LV | Electric Cube Lathe and Matrix Forming Press; Air Compressor and Pump Duct |
-| MV | Physics Bearing, Gimbal Bearing, Gyroscope, Physical Piston/Gantry, Wanderglass, Gas Nozzle and Gas Crafter via electric machinery |
+| MV | Physics Bearing, Gimbal Bearing, Gyroscope, Smart Flap Bearing and Copter Bearing, Wanderglass, Gas Nozzle and Gas Crafter via electric machinery |
 | HV | Industrial Gas Thruster; **separate PR #95** adds renewable seeded Wanderlite ore synthesis |
 | EV | Gravitron via high-tier sensor, motor and titanium frame |
 
