@@ -27,7 +27,7 @@ def main(root: Path) -> None:
 
     assert cfg["type"] == "tfc:disc_vein", "Should use TFG's established TFC vein feature"
     c = cfg["config"]
-    assert c["min_y"] == -60 and c["max_y"] == -24 and c["rarity"] >= 300, "Depth or rarity drifted"
+    assert c["min_y"] == -60 and c["max_y"] == -24 and c["rarity"] == 420, "Depth or rarity drifted"
     rocks = {next(iter(b["replace"])) for b in c["blocks"]}
     assert len(rocks) >= 5 and all(b["with"] == [{"block": "vs_clockwork:wanderlite_deepslate_ore", "weight": 1}] for b in c["blocks"])
     assert placed["feature"] == "tfg:earth/vein/deep_wanderlite"
