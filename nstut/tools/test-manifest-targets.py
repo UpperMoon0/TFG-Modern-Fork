@@ -57,7 +57,20 @@ class VanishGuardTargets(unittest.TestCase):
         # upload, collapse and other semantic policies on their original sides.
         semantic = lambda manifest: [op for op in manifest['operations']
                                      if op['type'].startswith('patch')]
-        self.assertEqual(semantic(candidate), semantic(previous))
+        # A DH v5 semantic policy is deliberately new in this release. Preserve
+        # every pre-existing managed setting and allow exactly that one addition.
+        prior_patches = semantic(previous)
+        current_patches = semantic(candidate)
+        dh_patches = [op for op in current_patches
+                      if op.get('destination') == 'config/DistantHorizons.toml']
+        self.assertEqual(len(dh_patches), 1)
+        self.assertEqual(dh_patches[0]['type'], 'patchToml')
+        self.assertEqual(dh_patches[0]['targets'], ['client', 'server'])
+        self.assertEqual(dh_patches[0]['values']['_version'], 5)
+        self.assertEqual(
+            [op for op in current_patches if op.get('destination') != 'config/DistantHorizons.toml'],
+            prior_patches,
+        )
         managed = json.loads((m.ROOT / 'nstut/managed-mods.json').read_text(encoding='utf-8'))
         ids = {mod['id'] for mod in managed['mods']}
         installs = lambda manifest: {op['artifact']: op['targets']
@@ -67,7 +80,7 @@ class VanishGuardTargets(unittest.TestCase):
         candidate_installs = installs(candidate)
         # Existing mod-side policy stays immutable. Additional Placements
         # and the DH Chunky compatibility fork replace upstream binaries
-        # on both client and server without changing semantic overlays.
+        # on both client and server; only DH's new v5 policy is added.
         self.assertEqual(
             {mod_id: candidate_installs[mod_id] for mod_id in previous_installs},
             previous_installs,
@@ -83,9 +96,9 @@ class VanishGuardTargets(unittest.TestCase):
         self.assertEqual(len(artifacts), 1)
         self.assertEqual(
             artifacts[0]['sha256'],
-            'bd03e4cc7691017c755c9884081f3be8cada4ac0edc5600e172d973ab56c109d')
+            'dd42f36b06af4c8c554deec6aba591705154080530c938c072703cf7d41825cd')
         self.assertTrue(artifacts[0]['url'].startswith(
-            'https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.8/'))
+            'https://github.com/UpperMoon0/DistantHorizons/releases/download/v3.3.3-nstut.9/'))
         operations = [op for op in manifest['operations']
                       if op.get('artifact') == 'distant-horizons'
                       or op.get('pattern') in ('mods/DistantHorizons-*.jar',
@@ -98,7 +111,7 @@ class VanishGuardTargets(unittest.TestCase):
         install = [op for op in operations if op['type'] == 'installFile']
         self.assertEqual(len(install), 1)
         self.assertEqual(install[0]['destination'],
-                         'mods/DistantHorizons-forge-3.3.3-nstut.8-1.20.1.jar')
+                         'mods/DistantHorizons-forge-3.3.3-nstut.9-1.20.1.jar')
 
 
 if __name__ == '__main__':
