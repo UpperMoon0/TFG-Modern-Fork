@@ -12,7 +12,9 @@ Example:
     --launch "./run.sh nogui" --evidence-dir /tmp/clockwork-ci-evidence
 
 Only the ordinary test seed is run; a second seed is used if the first failed
-to place any ore despite generating enough full chunks.
+to place any ore in a fully generated chunk. A positive result needs only
+one full, ore-bearing chunk; 64 full chunks are reserved for interpreting
+negative results.
 """
 from __future__ import annotations
 
@@ -178,6 +180,26 @@ def run_server(server: Path, command: str, log: Path, timeout: int) -> None:
                     proc.wait(timeout=15)
 
 
+def assess_worldgen(result: dict, min_negative_chunks: int) -> dict:
+    """One fully generated ore-bearing chunk proves placement; absences need samples.
+
+    Scan counts only ore in FULL chunks. A positive result therefore does not
+    need another 63 chunks; requiring those would waste startup time while
+    providing no additional evidence that natural placement is functional.
+    """
+    depth_ok = all(-64 <= int(y) <= -20
+                   for y in result["ore_y_histogram"])
+    full = result["fully_generated_chunks"]
+    result.update({
+        "positive_min_fully_generated_chunks": 1,
+        "negative_min_fully_generated_chunks": min_negative_chunks,
+        "depth_ok": depth_ok,
+        "passed": (full >= 1 and result["ore_bearing_chunks"] >= 1
+                   and result["blocks_found"] >= 1 and depth_ok),
+    })
+    return result
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", type=Path, required=True)
@@ -212,21 +234,13 @@ def main() -> int:
             log = evidence / f"forge-seed-{seed}.log"
             run_server(server, args.launch, log, args.timeout)
             result = scan.scan(server / WORLD / "region", scan.TARGET)
-            coords = result["sample_positions"]
-            # TFC disc veins have height 4, so allow small vertical displacement.
-            depth_ok = all(-64 <= loc["y"] <= -20 for loc in coords)
+            assess_worldgen(result, args.min_chunks)
             result.update({
                 "seed": seed,
                 "feature_config_sha256": hashlib.sha256(
                     (server / FEATURE).read_bytes()
                 ).hexdigest(),
-                "min_fully_generated_chunks": args.min_chunks,
-                "depth_ok": depth_ok,
             })
-            result["passed"] = (
-                result["fully_generated_chunks"] >= args.min_chunks
-                and result["blocks_found"] > 0 and depth_ok
-            )
             (evidence / f"result-seed-{seed}.json").write_text(
                 json.dumps(result, indent=2) + "\n", encoding="utf-8"
             )
@@ -234,7 +248,7 @@ def main() -> int:
             print(json.dumps(result, indent=2), flush=True)
             if result["passed"]:
                 return 0
-            if result["fully_generated_chunks"] < args.min_chunks:
+            if index == len(SEEDS) and result["fully_generated_chunks"] < args.min_chunks:
                 raise RuntimeError("Too few full spawn chunks; cannot interpret zero ore")
         return 2
     finally:
