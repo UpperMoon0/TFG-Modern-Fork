@@ -134,6 +134,8 @@ function registerTFGClockworkProgressionRecipes(event) {
         .itemInputs('vs_clockwork:wanderlite_matrix',
             'gtceu:mv_electric_motor', 'gtceu:steel_rotor',
             'create:brass_casing')
+        // Avoid ambiguous assembler lookup entries from other bearing recipes.
+        .inputFluids(Fluid.of('gtceu:lubricant', 100))
         .itemOutputs('vs_clockwork:phys_bearing')
         .duration(300).EUt(MV);
 
