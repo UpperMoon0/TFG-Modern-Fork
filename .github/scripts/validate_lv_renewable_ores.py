@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fail-closed LV regression alongside full multi-tier renewable ore validation.
 
-0.13.18 has 49 audited LV recipes within a 90-recipe multi-tier system.
+0.13.18 has 49 audited LV recipes within a 93-recipe multi-tier system.
 The old pre-MV/HV 33-recipe validator must not reject intentionally added
 Tin/Lead/Redstone paths or silently ignore their downstream waste recovery.
 """
@@ -14,7 +14,7 @@ full = runpy.run_path(str(Path(__file__).with_name('validate_renewable_ores.py')
 blocks = full['blocks']
 lv = [(machine, ident, body) for machine, ident, body in blocks
       if ident.startswith('tfg:lv_')]
-if len(blocks) != 90 or len(lv) != 49:
+if len(blocks) != 93 or len(lv) != 49:
     raise SystemExit('LV renewable validation failed: full/LV audited recipe count drift')
 
 ids = {ident for _, ident, _ in lv}
@@ -45,4 +45,4 @@ for machine, ident, body in lv:
         if re.match(r'(?:\d+x\s+)?gtceu:(?:iron|copper|zinc|tin|lead|redstone|galena)_(?:dust|ingot)$', output):
             raise SystemExit(f'LV renewable validation failed: direct metal output in {ident}')
 
-print('LV renewable validation passed: all 90 recipes audited, 49 LV recipes, six geological seed-gated mineralizers')
+print('LV renewable validation passed: all 93 recipes audited, 49 LV recipes, six geological seed-gated mineralizers')

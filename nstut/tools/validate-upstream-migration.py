@@ -57,7 +57,16 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert pins == audit['pins'] and audit['sourceRef'] == release['sourceRef'] and audit['baseRef'] == BASE
     assert managed['mods'][:-1] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
     assert len(managed['mods']) == len(previous_managed['mods']) + 1 and managed['mods'][-1]['id'] == 'distant-horizons', 'exactly one reviewed managed DH fork required'
-    assert translations == previous_lang, 'fork translations changed from promoted 0.13.18'
+    # Preserve every migrated translation; permit only reviewed additive overlay keys.
+    expected_lang = dict(previous_lang)
+    if int(suffix) >= 12:
+        additions = {
+            'material.tfg.wanderlite_silicate_slurry': 'Wanderlite Silicate Slurry',
+            'material.tfg.charged_wanderlite_precursor': 'Charged Wanderlite Precursor',
+        }
+        assert not additions.keys() & expected_lang.keys(), 'reviewed additions overwrite prior translations'
+        expected_lang.update(additions)
+    assert translations == expected_lang, 'unreviewed fork translation drift'
     assert lock['mc_versions'] == upstream['mc_versions'] == ['1.20.1']
     assert lock['loaders'] == upstream['loaders']
     actual = {project_key(p): p for p in lock['projects']}

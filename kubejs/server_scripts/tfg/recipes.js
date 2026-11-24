@@ -8,6 +8,7 @@ const registerTFGRecipes = (event) => {
 	
 	registerTFGMaterialRecipes(event)
 	registerTFGRenewableOreRecipes(event)
+	registerTFGClockworkProgressionRecipes(event)
 	registerTFGMoldRecipes(event)
 	registerTFGMiscellaneousRecipes(event)
 	registerTFGTemporaryRecipes(event)

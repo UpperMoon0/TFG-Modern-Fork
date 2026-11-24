@@ -484,6 +484,8 @@ function registerTFGConfiguredFeatures(event) {
 
 const registerTFGPlacedFeatures = (event) => {
 	registerTFGOreVeinFeatures(event);
+	// Optional Clockwork: nonrenewable deep deposits for the first Steam Age seed.
+	if (Platform.isLoaded('vs_clockwork')) event.add('tfc:in_biome/veins', 'tfg:earth/vein/deep_wanderlite');
 
 	registerTFGOverworldPlacedFeatures(event);
 	registerTFGBeneathPlacedFeatures(event);

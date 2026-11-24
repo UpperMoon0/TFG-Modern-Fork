@@ -69,6 +69,16 @@ class MigrationRegressionTests(unittest.TestCase):
         del self.args[2][next(iter(self.args[2]))]
         self.rejected()
 
+    def test_unreviewed_translation_addition(self):
+        self.args[2]['material.tfg.unreviewed'] = 'Unreviewed'
+        self.rejected()
+
+    def test_wanderlite_translation_drift(self):
+        if 'material.tfg.wanderlite_silicate_slurry' not in self.args[2]:
+            self.skipTest('pre-Wanderlite overlay')
+        self.args[2]['material.tfg.wanderlite_silicate_slurry'] = 'Incorrect'
+        self.rejected()
+
     def base_args(self):
         return [m.load('nstut/base-installation.json'), m.load('nstut/release.json'), m.load('nstut/modpack-manager.patch.json'),
                 [m.load(f'.pakku/{side}-overrides/.nstut-tfg-base-{m.BASE}') for side in ('client', 'server')]]
