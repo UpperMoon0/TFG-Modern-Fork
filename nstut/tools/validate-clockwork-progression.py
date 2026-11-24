@@ -131,11 +131,24 @@ def validate_native_compatibility(root: Path, recipe: str) -> None:
     assert set(rows) == set(audit["compatReplacements"])
     assert "registerTFGClockworkNativeCompatibility(event)" in recipe
     removed = set()
+    removed_patterns = []
     for path in (root / "config/reliable_remover").glob("*.json"):
         data = json.loads(path.read_text(encoding="utf-8-sig"))
         for rule in data if isinstance(data, list) else [data]:
             if isinstance(rule, dict) and rule.get("action") == "remove":
                 removed.update(rule.get("items", []))
+                if "pattern" in rule:
+                    pattern = rule["pattern"]
+                    assert pattern.startswith("/") and pattern.endswith("/"), pattern
+                    removed_patterns.append(re.compile(pattern[1:-1]))
+    # TFG also removes recipes for hidden but registered vanilla items.
+    constants = (root / "kubejs/startup_scripts/minecraft/constants.js").read_text()
+    hidden = constants.split("global.MINECRAFT_HIDED_ITEMS = [", 1)[1].split("];", 1)[0]
+    removed.update(re.findall(r"""['"](minecraft:[^'"]+)['"]""", hidden))
+
+    def unavailable(items):
+        return {item for item in items if item in removed or
+                any(pattern.fullmatch(item) for pattern in removed_patterns)}
 
     def refs(value):
         if isinstance(value, dict):
@@ -151,7 +164,7 @@ def validate_native_compatibility(root: Path, recipe: str) -> None:
         if key in audit["replacedByProgression"]:
             continue
         actual = set(refs(rows[key])) if key in rows else set(original)
-        assert not actual & removed, f"{key} uses removed items: {actual & removed}"
+        assert not unavailable(actual), f"{key} uses removed items: {unavailable(actual)}"
     assert "create:steam_engine" not in removed
     assert "create:shaft" in removed, "Do not restore untiered shafts"
     assert "greate:steel_shaft" in recipe

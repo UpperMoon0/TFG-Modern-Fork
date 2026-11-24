@@ -526,6 +526,7 @@
     "crafting/logistics/lodefocus",
     "crafting/physics/flap",
     "crafting/physics/wing",
+    "crafting/pneumatics/coal_burner",
     "crafting/pneumatics/duct",
     "crafting/pneumatics/duct_vertical",
     "crafting/pneumatics/exhaust",

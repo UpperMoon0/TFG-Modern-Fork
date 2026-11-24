@@ -35,10 +35,42 @@ function cqaMass(){
     var v=CQA.network.getGasMassAt(node).get(CQA.extractor.getSteamGas());
     return v==null?0:Number(v);
 }
+// Reuse the exact production definitions to avoid a stale parallel list.
+function cqaAuditRecipes(w){
+    var manager=w.getRecipeManager(), checked=0;
+    function inspect(v,path){
+        if(v===null||typeof v!=='object')return;
+        if(Array.isArray(v)){v.forEach((x,i)=>inspect(x,path+'['+i+']'));return;}
+        if(typeof v.item==='string')cqaAssert(CQA_Regs.ITEMS.containsKey(new CQA_RL(v.item)),path+' unknown item '+v.item);
+        if(typeof v.tag==='string')cqaAssert(Ingredient.of('#'+v.tag).getItems().length>0,path+' empty item tag '+v.tag);
+        if(typeof v.fluid==='string')cqaAssert(CQA_Regs.FLUIDS.containsKey(new CQA_RL(v.fluid)),path+' unknown fluid '+v.fluid);
+        Object.keys(v).forEach(k=>inspect(v[k],path+'.'+k));
+    }
+    registerTFGClockworkNativeCompatibility({
+        remove:function(filter){
+            cqaAssert(!manager.byKey(new CQA_RL(filter.id)).isPresent(),'old recipe survived '+filter.id);
+        },
+        custom:function(definition){
+            return {id:function(id){
+                var recipe=manager.byKey(new CQA_RL(id));
+                cqaAssert(recipe.isPresent(),'missing registered recipe '+id);
+                inspect(definition,id);
+                if(id.indexOf('/gas_crafting/vitriol_')!==-1){
+                    var fluids=recipe.get().getFluidIngredients();
+                    cqaAssert(fluids.size()===1 && Number(fluids.get(0).getRequiredAmount())===definition.ingredients[0].amount,'incorrect gas recipe fluid ingredient '+id);
+                }
+                checked++;
+            }};
+        }
+    });
+    cqaAssert(checked>0,'no native compatibility recipes audited');
+    console.info('[CLOCKWORK_RECIPE_AUDIT_PASS] registered='+checked);
+}
 function cqaFail(e){CQA.done=true;console.error('[CLOCKWORK_COMPAT_FAIL] '+e+' '+(e.stack||''));}
 ServerEvents.loaded(event=>{
     try {
         var w=event.server.overworld(),s=w.getSharedSpawnPos();
+        cqaAuditRecipes(w);
         var x=(s.getX()>>4)*16+4,z=(s.getZ()>>4)*16+12,y=Math.min(w.getMaxBuildHeight()-8,Math.max(230,s.getY()+65));
         var p=new CQA_Pos(x,y,z);
         w.setChunkForced(x>>4,z>>4,true);
