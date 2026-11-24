@@ -394,6 +394,26 @@
         "mods/DistantHorizons-*.jar",
         "mods/distanthorizons-*.jar"
       ]
+    },
+    {
+      "id": "clockwork-compat",
+      "name": "Clockwork Compat",
+      "version": "0.1.0",
+      "repository": "UpperMoon0/Clockwork-Compat",
+      "fileName": "clockwork-compat-forge-1.20.1-0.1.0.jar",
+      "url": "https://github.com/UpperMoon0/Clockwork-Compat/releases/download/v0.1.0/clockwork-compat-forge-1.20.1-0.1.0.jar",
+      "sha256": "e844e219b5d5492e9779d1ff02f369c0db39945927bf43f104908f89aa63dbfe",
+      "installTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupTargets": [
+        "client",
+        "server"
+      ],
+      "cleanupPatterns": [
+        "mods/clockwork-compat-*.jar"
+      ]
     }
   ]
 }

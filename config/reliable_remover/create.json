@@ -66,8 +66,7 @@
 			"create:millstone",
 			"create:crushing_wheel",
 			"create:mechanical_press",
-			"create:mechanical_mixer",
-			"create:steam_engine"
+			"create:mechanical_mixer"
 		]
 	}
 ]

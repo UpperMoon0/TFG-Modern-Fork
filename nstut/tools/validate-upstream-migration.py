@@ -55,8 +55,20 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     pin_keys = ('id','repository','version','fileName','url','sha256','installTargets')
     pins = [{k:m[k] for k in pin_keys if k in m} for m in managed['mods']]
     assert pins == audit['pins'] and audit['sourceRef'] == release['sourceRef'] and audit['baseRef'] == BASE
-    assert managed['mods'][:-1] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
-    assert len(managed['mods']) == len(previous_managed['mods']) + 1 and managed['mods'][-1]['id'] == 'distant-horizons', 'exactly one reviewed managed DH fork required'
+    clockwork = int(suffix) >= 13
+    prior_count = len(previous_managed['mods'])
+    assert managed['mods'][:prior_count] == previous_managed['mods'], 'existing immutable NsTut custom mods drifted'
+    extras = managed['mods'][prior_count:]
+    assert [m['id'] for m in extras] == ['distant-horizons'] + (['clockwork-compat'] if clockwork else []), 'unexpected managed additions'
+    dh_pin = extras[0]
+    if clockwork:
+        compat = extras[1]
+        assert compat['repository'] == 'UpperMoon0/Clockwork-Compat'
+        assert compat['version'] == '0.1.0' and compat['fileName'] == 'clockwork-compat-forge-1.20.1-0.1.0.jar'
+        assert compat['sha256'] == 'e844e219b5d5492e9779d1ff02f369c0db39945927bf43f104908f89aa63dbfe'
+        assert compat['url'] == 'https://github.com/UpperMoon0/Clockwork-Compat/releases/download/v0.1.0/' + compat['fileName']
+        assert compat['installTargets'] == compat['cleanupTargets'] == ['client', 'server']
+        assert compat['cleanupPatterns'] == ['mods/clockwork-compat-*.jar']
     # Preserve every migrated translation; permit only reviewed additive overlay keys.
     expected_lang = dict(previous_lang)
     if int(suffix) >= 12:
@@ -71,7 +83,7 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     assert lock['loaders'] == upstream['loaders']
     actual = {project_key(p): p for p in lock['projects']}
     expected = {project_key(p): p for p in upstream['projects']}
-    assert len(actual) == len(lock['projects']) == 299, 'duplicate or missing locked projects'
+    assert len(actual) == len(lock['projects']) == 299 + int(clockwork), 'duplicate or missing locked projects'
     assert len(expected) == len(upstream['projects']), 'duplicate official project'
     custom = set()
     for m in managed['mods']:
@@ -86,14 +98,20 @@ def validate(lock, managed, translations, upstream, previous_managed, previous_l
     # transition from Modrinth to our published, checksum-verified Forge binary.
     def without_dh(projects):
         return [p for p in projects if p['slug'].get('modrinth') != 'distanthorizons'
-                and p['slug'].get('github') != 'UpperMoon0/DistantHorizons']
+                and p['slug'].get('github') not in ('UpperMoon0/DistantHorizons', 'UpperMoon0/Clockwork-Compat')]
     assert without_dh(lock['projects']) == without_dh(reviewed['projects']), 'unrelated Pakku project pin drift since review'
     dh_projects = [p for p in lock['projects'] if p['slug'].get('github') == 'UpperMoon0/DistantHorizons']
     assert len(dh_projects) == 1 and dh_projects[0]['side'] == 'BOTH', 'exactly one both-side DH fork required'
     dh_file = dh_projects[0]['files']
-    assert len(dh_file) == 1 and dh_file[0]['file_name'] == managed['mods'][-1]['fileName'], 'DH fork artifact differs from managed pin'
-    assert dh_file[0]['hashes']['sha256'] == managed['mods'][-1]['sha256'], 'DH lockfile checksum differs from published managed mod'
-    assert dh_file[0]['url'] == managed['mods'][-1]['url'], 'DH lockfile URL differs from published managed mod'
+    assert len(dh_file) == 1 and dh_file[0]['file_name'] == dh_pin['fileName'], 'DH fork artifact differs from managed pin'
+    assert dh_file[0]['hashes']['sha256'] == dh_pin['sha256'], 'DH lockfile checksum differs from published managed mod'
+    assert dh_file[0]['url'] == dh_pin['url'], 'DH lockfile URL differs from published managed mod'
+    if clockwork:
+        p = actual[(('github', 'UpperMoon0/Clockwork-Compat'),)]
+        assert p['side'] == 'BOTH' and len(p['files']) == 1
+        f = p['files'][0]
+        assert f['file_name'] == compat['fileName'] and f['hashes']['sha256'] == compat['sha256'] and f['url'] == compat['url']
+        assert f['id'] == '787007271' and f['parent_id'] == '1470021241' and f['size'] == 8866
     for slug in ('create-clockwork','minecraft-comes-alive-reborn','valkyrien-skies'):
         matches = [p for p in lock['projects'] if p['slug'].get('modrinth')==slug]
         assert len(matches) == 1 and matches[0]['side'] == 'BOTH', f'{slug} must be both-side'
@@ -128,6 +146,6 @@ def main():
     validate_base_installation(load('nstut/base-installation.json'),load('nstut/release.json'),load('nstut/modpack-manager.patch.json'),
                                [load(f'.pakku/{side}-overrides/.nstut-tfg-base-{BASE}') for side in ('client','server')])
     validate_base_downloads(load('nstut/base-migration.json'),load('nstut/managed-mods.json'))
-    print('Upstream 0.13.19: all 279 official projects, 18 preserved managed mods, 1 verified DH fork, reviewed extra projects and rollback contracts verified')
+    print('Upstream 0.13.19: all 279 official projects, 18 preserved managed mods, verified DH fork and version-gated Clockwork Compat, reviewed extra projects and rollback contracts verified')
 
 if __name__=='__main__': main()

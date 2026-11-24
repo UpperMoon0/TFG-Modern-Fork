@@ -183,6 +183,14 @@ def stage_native_production_fixture(repo: Path, server: Path) -> str:
     return hashlib.sha256(content).hexdigest()
 
 
+NATIVE_FAILURES = {
+    "[CLOCKWORK_GAMEPLAY_PASS]": "[CLOCKWORK_GAMEPLAY_FAIL]",
+    "[WANDERLITE_NATIVE_PASS]": "[WANDERLITE_NATIVE_FAIL]",
+    "[CLOCKWORK_COMPAT_PASS]": "[CLOCKWORK_COMPAT_FAIL]",
+    "[CLOCKWORK_INDUSTRIAL_PASS]": "[CLOCKWORK_INDUSTRIAL_FAIL]",
+}
+
+
 def run_server(server: Path, command: str, log: Path, timeout: int,
                required_marker: str | None = None,
                additional_markers: tuple[str, ...] = ()) -> None:
@@ -203,26 +211,33 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                 pending.add(required_marker)
             last = 0
             tail = ""
+            failures = set()
             with log.open("r", encoding="utf-8", errors="replace") as reader:
                 while time.monotonic() - begin < timeout:
                     reader.seek(last)
                     latest = reader.read()
                     last = reader.tell()
-                    # Preserve the boundary across partial reads of a log line.
-                    text = tail + latest
-                    tail = text[-512:]
-                    if (ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text
-                            or "[WANDERLITE_NATIVE_FAIL]" in text):
-                        raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
-                    ready = ready or bool(DONE.search(text))
-                    pending.difference_update(marker for marker in tuple(pending) if marker in text)
+                    # Keep incomplete lines until their full marker and error
+                    # context arrive. A known fixture failure cannot be mistaken
+                    # for an unrelated registry or script failure.
+                    lines = (tail + latest).split("\n")
+                    tail = lines.pop()
+                    for line in lines:
+                        failed = {mark for mark, failure in NATIVE_FAILURES.items()
+                                  if failure in line}
+                        failures.update(failed)
+                        pending.difference_update(failed)
+                        if not failed and ERRORS.search(line):
+                            raise RuntimeError("Forge/KubeJS registry or recipe error")
+                        ready = ready or bool(DONE.search(line))
+                        pending.difference_update(mark for mark in tuple(pending) if mark in line)
                     if ready and not pending:
                         break
                     if proc.poll() is not None:
                         raise RuntimeError(f"Forge exited before acceptance: {proc.returncode}")
                     time.sleep(0.5)
             if not ready or pending:
-                raise TimeoutError(f"Forge acceptance timed out; missing markers: {sorted(pending)}")
+                raise TimeoutError(f"Forge acceptance timed out; missing markers: {sorted(pending)}; failed: {sorted(failures)}")
             proc.stdin.write("save-all flush\n")
             proc.stdin.flush()
             time.sleep(2)
@@ -232,7 +247,10 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
             if proc.returncode != 0:
                 raise RuntimeError(f"Forge exited unsuccessfully ({proc.returncode})")
             final = log.read_text(encoding="utf-8", errors="replace")
-            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final:
+            failures.update(mark for mark, failure in NATIVE_FAILURES.items() if failure in final)
+            if failures:
+                raise RuntimeError(f"Native acceptance failed: {sorted(failures)}")
+            if ERRORS.search(final):
                 raise RuntimeError("Forge/KubeJS error found in the final server log")
         finally:
             if proc.poll() is None:
@@ -281,7 +299,12 @@ def main() -> int:
                         help="Run the real Infuser/VS ship fixture in this SAME Forge startup")
     parser.add_argument("--native-production", action="store_true",
                         help="Run native HV and Steam production acceptance in the same startup")
+    parser.add_argument("--native-compatibility", action="store_true", help="Exercise the real GT steam bridge in the same disposable server")
+    parser.add_argument("--native-industrial", action="store_true",
+                        help="Exercise actual boiler/pipe/gas kinetics and native gas chemistry")
     args = parser.parse_args()
+    if args.native_industrial and not args.native_compatibility:
+        parser.error("--native-industrial requires --native-compatibility")
     server = safely_disposable(args.server_dir)
     repo = args.repo_root.resolve(strict=True)
     evidence = args.evidence_dir.resolve()
@@ -294,7 +317,29 @@ def main() -> int:
         raise ValueError("Evidence must not be inside the disposable server")
     fixture_sha = stage_native_assembly_fixture(repo, server) if args.native_assembly else None
     production_sha = stage_native_production_fixture(repo, server) if args.native_production else None
+    compat_sha = None
+    if args.native_compatibility:
+        source = repo / "nstut/tools/fixtures/clockwork-native-compat-smoke.js"
+        target = server / "kubejs/server_scripts/zz_nstut_clockwork_compat_qa.js"
+        if target.exists() or target.is_symlink() or not target.resolve().is_relative_to(server):
+            raise ValueError("Unsafe compatibility fixture destination")
+        content = source.read_bytes()
+        target.write_bytes(content)
+        compat_sha = hashlib.sha256(content).hexdigest()
+    industrial_sha = None
+    if args.native_industrial:
+        source = repo / "nstut/tools/fixtures/clockwork-native-industrial-smoke.js"
+        target = server / "kubejs/server_scripts/zz_nstut_clockwork_industrial_qa.js"
+        if target.exists() or target.is_symlink() or not target.resolve().is_relative_to(server):
+            raise ValueError("Unsafe industrial fixture destination")
+        content = source.read_bytes()
+        target.write_bytes(content)
+        industrial_sha = hashlib.sha256(content).hexdigest()
     staged = stage_feature(repo, server, evidence)
+    if industrial_sha:
+        staged["native_industrial_fixture_sha256"] = industrial_sha
+    if compat_sha:
+        staged["native_compatibility_fixture_sha256"] = compat_sha
     if production_sha:
         staged["native_production_fixture_sha256"] = production_sha
     if fixture_sha:
@@ -313,7 +358,9 @@ def main() -> int:
             log = evidence / f"forge-seed-{seed}.log"
             run_server(server, args.launch, log, args.timeout,
                        "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None,
-                       ("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
+                       (("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
+                       + (("[CLOCKWORK_COMPAT_PASS]",) if args.native_compatibility else ())
+                       + (("[CLOCKWORK_INDUSTRIAL_PASS]",) if args.native_industrial else ()))
             result = scan.scan(server / WORLD / "region", scan.TARGET)
             assess_worldgen(result, args.min_chunks)
             result.update({

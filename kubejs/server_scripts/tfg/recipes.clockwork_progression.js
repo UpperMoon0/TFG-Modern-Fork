@@ -8,7 +8,7 @@
  * HV/EV = high-energy propulsion and physics.
  *
  * No rare material bootstrap must require a Wanderlite seed or electricity.
- * PR #95 provides efficient, renewable, seeded HV synthesis after discovery.
+ * Efficient, renewable, seeded HV synthesis follows discovery.
  */
 function registerTFGClockworkProgressionRecipes(event) {
     if (!Platform.isLoaded('vs_clockwork')) return;
@@ -109,9 +109,15 @@ function registerTFGClockworkProgressionRecipes(event) {
         C: 'vs_clockwork:coal_burner'
     }).id('tfg:clockwork/steam/steam_generator');
 
-    // LV compressed-air system: an electric pump and motor, rather than
-    // iron bars and dried kelp. Ducts remain manually craftable.
+    // Steam: full mechanical compressed-air system; LV recipes reduce hand assembly.
     event.remove({ output: 'vs_clockwork:air_compressor' });
+    event.shaped('vs_clockwork:air_compressor', [
+        'PSP', 'RDR', 'GCG'
+    ], {
+        P: '#forge:plates/steel', S: '#forge:shafts',
+        R: 'gtceu:steel_rotor', D: 'vs_clockwork:duct',
+        G: '#forge:small_gears/brass', C: 'create:brass_casing'
+    }).id('tfg:clockwork/steam/air_compressor');
     event.recipes.gtceu.assembler('tfg:clockwork/lv/air_compressor')
         .itemInputs(
             'gtceu:lv_electric_motor', 'gtceu:lv_electric_pump',
@@ -121,6 +127,10 @@ function registerTFGClockworkProgressionRecipes(event) {
         .duration(200).EUt(LV);
 
     event.remove({ output: 'vs_clockwork:pump_duct' });
+    event.shaped('vs_clockwork:pump_duct', ['PGP', ' D ', ' S '], {
+        P: '#forge:plates/steel', G: '#forge:small_gears/brass',
+        D: 'vs_clockwork:duct', S: '#forge:shafts'
+    }).id('tfg:clockwork/steam/pump_duct');
     event.recipes.gtceu.assembler('tfg:clockwork/lv/pump_duct')
         .itemInputs('vs_clockwork:duct', 'gtceu:lv_electric_pump',
             '#forge:plates/steel')
@@ -130,15 +140,15 @@ function registerTFGClockworkProgressionRecipes(event) {
     // MV - motorized moving structures, stabilized bearings, sensing
     // and industrial gas handling. Early free hull assembly remains.
     event.remove({ output: 'vs_clockwork:phys_bearing' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/physics_bearing')
+    event.recipes.gtceu.assembler('tfg:clockwork/lv/physics_bearing')
         // Unique turntable differentiates this input set from the Gimbal
         // recipe; GTCEu's lookup index cannot disambiguate quantities alone.
         .itemInputs('vs_clockwork:wanderlite_matrix',
-            'gtceu:mv_electric_motor', 'gtceu:steel_rotor',
+            'gtceu:lv_electric_motor', 'gtceu:steel_rotor',
             'create:turntable')
         .inputFluids(Fluid.of('gtceu:lubricant', 100))
         .itemOutputs('vs_clockwork:phys_bearing')
-        .duration(300).EUt(MV);
+        .duration(300).EUt(LV);
 
     event.remove({ output: 'vs_clockwork:gimbal_bearing' });
     event.recipes.gtceu.assembler('tfg:clockwork/mv/gimbal_bearing')
@@ -159,12 +169,12 @@ function registerTFGClockworkProgressionRecipes(event) {
     // Industrialize the real moving-control bearings instead; Create pistons
     // and gantries remain available through their own progression.
     event.remove({ output: 'vs_clockwork:smart_flap_bearing' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/smart_flap_bearing')
+    event.recipes.gtceu.assembler('tfg:clockwork/lv/smart_flap_bearing')
         .itemInputs('vs_clockwork:wanderlite_matrix',
-            'gtceu:mv_electric_piston', 'create:brass_casing',
-            'create:mechanical_piston')
+            'gtceu:lv_electric_piston', 'create:brass_casing',
+            'vs_clockwork:andesite_flap_bearing')
         .itemOutputs('vs_clockwork:smart_flap_bearing')
-        .duration(300).EUt(MV);
+        .duration(300).EUt(LV);
 
     event.remove({ output: 'vs_clockwork:copter_bearing' });
     event.recipes.gtceu.assembler('tfg:clockwork/mv/copter_bearing')
@@ -185,23 +195,40 @@ function registerTFGClockworkProgressionRecipes(event) {
         .duration(300).EUt(MV);
 
     event.remove({ output: 'vs_clockwork:gas_nozzle' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/pressure_gas_nozzle')
+    event.shaped('vs_clockwork:gas_nozzle', ['PRP', ' D ', ' S '], {
+        P: '#forge:plates/steel', R: 'gtceu:steel_rotor',
+        D: 'vs_clockwork:duct', S: '#forge:shafts'
+    }).id('tfg:clockwork/steam/gas_nozzle');
+    event.recipes.gtceu.assembler('tfg:clockwork/lv/pressure_gas_nozzle')
         .itemInputs('vs_clockwork:duct',
             '#forge:plates/steel', '#forge:rods/steel',
             'gtceu:steel_rotor')
         .itemOutputs('vs_clockwork:gas_nozzle')
-        .duration(260).EUt(MV);
+        .duration(260).EUt(LV);
 
     event.remove({ output: 'vs_clockwork:gas_crafter' });
-    event.recipes.gtceu.assembler('tfg:clockwork/mv/gas_crafter')
-        .itemInputs('vs_clockwork:duct', 'gtceu:mv_electric_pump',
-            'gtceu:aluminium_rotor', 'create:electron_tube')
+    event.recipes.gtceu.assembler('tfg:clockwork/lv/gas_crafter')
+        .itemInputs('vs_clockwork:duct', 'gtceu:lv_electric_pump',
+            'gtceu:steel_rotor', 'create:electron_tube')
         .itemOutputs('vs_clockwork:gas_crafter')
-        .duration(260).EUt(MV);
+        .duration(260).EUt(LV);
+
+    // The original Create engine is the only piston class Clockwork's gas
+    // engine supports. Keep its small TFG capacity; Greate already adapts
+    // its tiered steel shafts without re-enabling untiered Create shafts.
+    if (Platform.isLoaded('clockworkcompat')) {
+        event.remove({ output: 'create:steam_engine' });
+        event.shaped('create:steam_engine', ['PRP', 'GEG', ' S '], {
+            P: '#forge:plates/steel', R: '#forge:rods/steel',
+            G: '#forge:small_gears/brass', E: 'steampowered:bronze_steam_engine',
+            S: 'greate:steel_shaft'
+        }).id('tfg:clockwork/steam/gas_engine_piston');
+    }
+
+    registerTFGClockworkNativeCompatibility(event);
 
     // HV: industrial thrust requires a pressure nozzle, heat exchanger,
-    // corrosion-resistant rotor and lubricant. Native Clockwork gas
-    // chemistry (phlogiston etc.) is deliberately left intact.
+    // corrosion-resistant rotor and lubricant.
     event.remove({ output: 'vs_clockwork:gas_thruster' });
     event.recipes.gtceu.assembler('tfg:clockwork/hv/gas_thruster')
         .itemInputs('gtceu:hv_electric_motor',

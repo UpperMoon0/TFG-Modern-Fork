@@ -1,0 +1,554 @@
+{
+  "version": "0.5.7.1",
+  "originalRecipeCount": 95,
+  "replacedByProgression": [
+    "crafting/kinetics/copter_bearing",
+    "crafting/kinetics/gimbal_bearing",
+    "crafting/kinetics/phys_bearing",
+    "crafting/kinetics/smart_flap_bearing",
+    "crafting/logistics/wanderglass",
+    "crafting/physics/gyro",
+    "crafting/physics/physics_infuser",
+    "crafting/pneumatics/air_compressor",
+    "crafting/pneumatics/gas_crafter",
+    "crafting/pneumatics/gas_nozzle",
+    "crafting/pneumatics/pump_duct",
+    "crafting/pneumatics/steam_generator",
+    "crafting/wanderlite/wanderlite_cube",
+    "crafting/wanderlite/wanderlite_matrix",
+    "mechanical_crafting/gas_thruster",
+    "mechanical_crafting/gravitron"
+  ],
+  "originalItemReferences": {
+    "blade_crafting_recipe": [],
+    "blade_cutting/blade_cutting": [
+      "vs_clockwork:propeller_blade"
+    ],
+    "blade_cutting/wide_blade_cutting": [
+      "vs_clockwork:wide_propeller_blade"
+    ],
+    "crafting/clock": [
+      "minecraft:clock",
+      "minecraft:stick",
+      "vs_clockwork:clock"
+    ],
+    "crafting/incomplete_wanderwand": [
+      "create:brass_ingot",
+      "create:zinc_nugget",
+      "minecraft:iron_nugget",
+      "vs_clockwork:incomplete_wanderwand"
+    ],
+    "crafting/kinetics/andesite_flap_bearing": [
+      "create:andesite_casing",
+      "create:copper_valve_handle",
+      "create:iron_sheet",
+      "vs_clockwork:andesite_flap_bearing"
+    ],
+    "crafting/kinetics/blade_controller": [
+      "create:radial_chassis",
+      "create:zinc_nugget",
+      "vs_clockwork:blade_controller"
+    ],
+    "crafting/kinetics/brass_propeller_bearing": [
+      "create:clockwork_bearing",
+      "create:cogwheel",
+      "vs_clockwork:brass_propeller_bearing"
+    ],
+    "crafting/kinetics/command_seat": [
+      "create:brass_casing",
+      "create:brass_ingot",
+      "create:cogwheel",
+      "create:linked_controller",
+      "vs_clockwork:command_seat"
+    ],
+    "crafting/kinetics/copter_bearing": [
+      "create:andesite_alloy",
+      "minecraft:iron_ingot",
+      "minecraft:iron_nugget",
+      "vs_clockwork:brass_propeller_bearing",
+      "vs_clockwork:copter_bearing",
+      "vs_clockwork:universal_shaft"
+    ],
+    "crafting/kinetics/gimbal_bearing": [
+      "create:andesite_alloy",
+      "create:brass_ingot",
+      "create:transmitter",
+      "create:turntable",
+      "vs_clockwork:gimbal_bearing",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "crafting/kinetics/juryrigged_propeller_bearing": [
+      "create:cogwheel",
+      "create:mechanical_bearing",
+      "vs_clockwork:juryrigged_propeller_bearing"
+    ],
+    "crafting/kinetics/phys_bearing": [
+      "create:brass_casing",
+      "create:turntable",
+      "vs_clockwork:phys_bearing",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "crafting/kinetics/redstone_resistor": [
+      "create:adjustable_chain_gearshift",
+      "create:shaft",
+      "minecraft:redstone",
+      "vs_clockwork:redstone_resistor"
+    ],
+    "crafting/kinetics/smart_flap_bearing": [
+      "create:brass_sheet",
+      "create:transmitter",
+      "vs_clockwork:andesite_flap_bearing",
+      "vs_clockwork:smart_flap_bearing"
+    ],
+    "crafting/kinetics/spinoff_bearing": [
+      "create:andesite_casing",
+      "create:iron_sheet",
+      "create:turntable",
+      "create:zinc_nugget",
+      "vs_clockwork:spinoff_bearing"
+    ],
+    "crafting/kinetics/sterling_engine": [
+      "create:cogwheel",
+      "vs_clockwork:duct_tank",
+      "vs_clockwork:sterling_engine"
+    ],
+    "crafting/kinetics/universal_shaft": [
+      "create:shaft",
+      "create:zinc_nugget",
+      "vs_clockwork:universal_shaft"
+    ],
+    "crafting/logistics/alt_meter": [
+      "create:brass_casing",
+      "minecraft:redstone",
+      "minecraft:string",
+      "vs_clockwork:alt_meter"
+    ],
+    "crafting/logistics/balloon_casing": [
+      "minecraft:stripped_bamboo_block",
+      "vs_clockwork:balloon_casing"
+    ],
+    "crafting/logistics/delivery_cannon": [
+      "create:industrial_iron_block",
+      "create:transmitter",
+      "minecraft:dispenser",
+      "minecraft:smooth_stone",
+      "vs_clockwork:delivery_cannon"
+    ],
+    "crafting/logistics/delivery_chute": [
+      "create:chute",
+      "create:depot",
+      "create:transmitter",
+      "vs_clockwork:delivery_chute"
+    ],
+    "crafting/logistics/distance_sensor": [
+      "create:content_observer",
+      "create:goggles",
+      "vs_clockwork:distance_sensor"
+    ],
+    "crafting/logistics/gyroscopic_sensor": [
+      "create:content_observer",
+      "minecraft:compass",
+      "vs_clockwork:gyroscopic_sensor"
+    ],
+    "crafting/logistics/impact_sensor": [
+      "create:content_observer",
+      "minecraft:iron_ingot",
+      "minecraft:string",
+      "vs_clockwork:impact_sensor"
+    ],
+    "crafting/logistics/lodefocus": [
+      "minecraft:iron_ingot",
+      "vs_clockwork:lodefocus",
+      "vs_clockwork:wanderglass"
+    ],
+    "crafting/logistics/wanderglass": [
+      "minecraft:glass",
+      "vs_clockwork:wanderglass",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "crafting/music_disc_wanderlust": [
+      "minecraft:music_disc_11",
+      "vs_clockwork:music_disc_wanderlust",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "crafting/physics/flap": [
+      "create:iron_sheet",
+      "create:zinc_nugget",
+      "vs_clockwork:flap"
+    ],
+    "crafting/physics/goo_block": [
+      "minecraft:light_blue_dye",
+      "minecraft:slime_block",
+      "vs_clockwork:goo_block"
+    ],
+    "crafting/physics/gyro": [
+      "create:flywheel",
+      "create:turntable",
+      "vs_clockwork:gyro",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "crafting/physics/physics_infuser": [
+      "create:brass_ingot",
+      "create:sturdy_sheet",
+      "vs_clockwork:physics_infuser",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "crafting/physics/sugar_rocket": [
+      "minecraft:gunpowder",
+      "minecraft:paper",
+      "minecraft:sugar",
+      "vs_clockwork:sugar_rocket"
+    ],
+    "crafting/physics/wing": [
+      "create:brass_nugget",
+      "create:iron_sheet",
+      "vs_clockwork:wing"
+    ],
+    "crafting/pneumatics/air_compressor": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:shaft",
+      "minecraft:dried_kelp",
+      "minecraft:iron_bars",
+      "vs_clockwork:air_compressor",
+      "vs_clockwork:duct"
+    ],
+    "crafting/pneumatics/coal_burner": [
+      "create:industrial_iron_block",
+      "minecraft:furnace",
+      "vs_clockwork:coal_burner",
+      "vs_clockwork:duct"
+    ],
+    "crafting/pneumatics/duct": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "vs_clockwork:duct"
+    ],
+    "crafting/pneumatics/duct_vertical": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "vs_clockwork:duct"
+    ],
+    "crafting/pneumatics/exhaust": [
+      "minecraft:iron_bars",
+      "vs_clockwork:duct",
+      "vs_clockwork:exhaust"
+    ],
+    "crafting/pneumatics/extendon": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:shaft",
+      "create:zinc_nugget",
+      "vs_clockwork:duct",
+      "vs_clockwork:extendon"
+    ],
+    "crafting/pneumatics/gas_backtank": [
+      "minecraft:dried_kelp",
+      "vs_clockwork:duct",
+      "vs_clockwork:duct_tank",
+      "vs_clockwork:gas_backtank",
+      "vs_clockwork:valve_duct"
+    ],
+    "crafting/pneumatics/gas_crafter": [
+      "create:electron_tube",
+      "create:industrial_iron_block",
+      "create:propeller",
+      "minecraft:dried_kelp",
+      "vs_clockwork:duct",
+      "vs_clockwork:gas_crafter"
+    ],
+    "crafting/pneumatics/gas_heater": [
+      "create:empty_blaze_burner",
+      "create:industrial_iron_block",
+      "vs_clockwork:duct",
+      "vs_clockwork:gas_heater"
+    ],
+    "crafting/pneumatics/gas_nozzle": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:shaft",
+      "vs_clockwork:duct",
+      "vs_clockwork:gas_nozzle"
+    ],
+    "crafting/pneumatics/heat_exchanger": [
+      "create:iron_sheet",
+      "vs_clockwork:duct",
+      "vs_clockwork:heat_exchanger"
+    ],
+    "crafting/pneumatics/hose_port": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:zinc_nugget",
+      "minecraft:dried_kelp",
+      "vs_clockwork:duct",
+      "vs_clockwork:hose_port"
+    ],
+    "crafting/pneumatics/pump_duct": [
+      "create:cogwheel",
+      "vs_clockwork:duct",
+      "vs_clockwork:pump_duct"
+    ],
+    "crafting/pneumatics/radiator": [
+      "create:copper_sheet",
+      "vs_clockwork:duct",
+      "vs_clockwork:radiator"
+    ],
+    "crafting/pneumatics/redstone_duct": [
+      "create:content_observer",
+      "vs_clockwork:duct",
+      "vs_clockwork:redstone_duct"
+    ],
+    "crafting/pneumatics/steam_generator": [
+      "create:copper_sheet",
+      "vs_clockwork:duct",
+      "vs_clockwork:steam_generator"
+    ],
+    "crafting/pneumatics/valve_duct": [
+      "create:iron_sheet",
+      "vs_clockwork:duct",
+      "vs_clockwork:valve_duct"
+    ],
+    "crafting/propeller_blade": [
+      "minecraft:stick",
+      "vs_clockwork:propeller_blade"
+    ],
+    "crafting/screwdriver": [
+      "create:zinc_nugget",
+      "minecraft:stick",
+      "vs_clockwork:screwdriver"
+    ],
+    "crafting/wanderlite/chiseled_wanderlite": [
+      "vs_clockwork:chiseled_wanderlite",
+      "vs_clockwork:smooth_wanderlite_slab"
+    ],
+    "crafting/wanderlite/chiseled_wanderlite_stonecutting": [
+      "vs_clockwork:smooth_wanderlite"
+    ],
+    "crafting/wanderlite/smooth_wanderlite_slab": [
+      "vs_clockwork:smooth_wanderlite",
+      "vs_clockwork:smooth_wanderlite_slab"
+    ],
+    "crafting/wanderlite/smooth_wanderlite_slab_stonecutting": [
+      "vs_clockwork:smooth_wanderlite"
+    ],
+    "crafting/wanderlite/smooth_wanderlite_stairs": [
+      "vs_clockwork:smooth_wanderlite",
+      "vs_clockwork:smooth_wanderlite_stairs"
+    ],
+    "crafting/wanderlite/smooth_wanderlite_stairs_stonecutting": [
+      "vs_clockwork:smooth_wanderlite"
+    ],
+    "crafting/wanderlite/wanderlite_block": [
+      "vs_clockwork:wanderlite_block",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "crafting/wanderlite/wanderlite_bricks": [
+      "vs_clockwork:smooth_wanderlite",
+      "vs_clockwork:wanderlite_bricks"
+    ],
+    "crafting/wanderlite/wanderlite_bricks_stonecutting": [
+      "vs_clockwork:smooth_wanderlite"
+    ],
+    "crafting/wanderlite/wanderlite_crystal": [
+      "vs_clockwork:wanderlite_block",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "crafting/wanderlite/wanderlite_cube": [
+      "vs_clockwork:wanderlite_crystal",
+      "vs_clockwork:wanderlite_cube"
+    ],
+    "crafting/wanderlite/wanderlite_matrix": [
+      "vs_clockwork:wanderlite_cube",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "crafting/wanderwand": [
+      "vs_clockwork:incomplete_wanderwand",
+      "vs_clockwork:wanderlite_matrix",
+      "vs_clockwork:wanderwand"
+    ],
+    "crafting/wide_propeller_blade": [
+      "minecraft:stick",
+      "vs_clockwork:wide_propeller_blade"
+    ],
+    "crushing/charged_nyx": [
+      "vs_clockwork:charged_nyx",
+      "vs_clockwork:cobbled_nyx",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "crushing/wanderlite_deepslate_ore": [
+      "minecraft:cobbled_deepslate",
+      "vs_clockwork:wanderlite_crystal",
+      "vs_clockwork:wanderlite_deepslate_ore"
+    ],
+    "crushing/wanderlite_end_ore": [
+      "minecraft:end_stone",
+      "vs_clockwork:wanderlite_crystal",
+      "vs_clockwork:wanderlite_end_ore"
+    ],
+    "crushing/wanderlite_nyx_ore": [
+      "vs_clockwork:cobbled_nyx",
+      "vs_clockwork:wanderlite_crystal",
+      "vs_clockwork:wanderlite_nyx_ore"
+    ],
+    "cutting/propeller_blade": [
+      "vs_clockwork:propeller_blade"
+    ],
+    "cutting/wide_propeller_blade": [
+      "vs_clockwork:wide_propeller_blade"
+    ],
+    "gas_crafting/coal_gasification": [],
+    "gas_crafting/coal_pyrolysis": [],
+    "gas_crafting/methane_reforming": [
+      "minecraft:iron_nugget"
+    ],
+    "gas_crafting/ozonite": [
+      "minecraft:lapis_lazuli"
+    ],
+    "gas_crafting/phlogiston": [
+      "minecraft:blaze_powder"
+    ],
+    "gas_crafting/vitriol_awkward": [],
+    "gas_crafting/vitriol_mundane": [],
+    "gas_crafting/vitriol_purification": [
+      "minecraft:leather",
+      "minecraft:rotten_flesh"
+    ],
+    "gas_crafting/vitriol_thick": [],
+    "item_application/duct_tank": [
+      "create:fluid_tank",
+      "create:industrial_iron_block",
+      "vs_clockwork:duct_tank"
+    ],
+    "item_application/gas_engine": [
+      "create:fluid_tank",
+      "vs_clockwork:duct",
+      "vs_clockwork:gas_engine"
+    ],
+    "item_application/reactionwheel": [
+      "create:flywheel",
+      "create:railway_casing",
+      "vs_clockwork:reactionwheel"
+    ],
+    "mechanical_crafting/aeronaut_boots": [
+      "minecraft:diamond_boots",
+      "minecraft:leather",
+      "vs_clockwork:aeronaut_boots",
+      "vs_clockwork:nyx",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "mechanical_crafting/aeronaut_goggles": [
+      "create:goggles",
+      "minecraft:diamond_helmet",
+      "minecraft:leather",
+      "vs_clockwork:aeronaut_goggles",
+      "vs_clockwork:nyx",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "mechanical_crafting/aeronaut_jacket": [
+      "minecraft:diamond_chestplate",
+      "minecraft:leather",
+      "vs_clockwork:aeronaut_jacket",
+      "vs_clockwork:nyx",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "mechanical_crafting/aeronaut_jumpers": [
+      "minecraft:diamond_leggings",
+      "minecraft:leather",
+      "vs_clockwork:aeronaut_jumpers",
+      "vs_clockwork:nyx",
+      "vs_clockwork:wanderlite_crystal"
+    ],
+    "mechanical_crafting/gas_thruster": [
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:propeller",
+      "minecraft:iron_bars",
+      "vs_clockwork:duct",
+      "vs_clockwork:gas_thruster"
+    ],
+    "mechanical_crafting/gravitron": [
+      "create:brass_hand",
+      "create:brass_ingot",
+      "create:fluid_pipe",
+      "create:iron_sheet",
+      "create:mechanical_pump",
+      "minecraft:copper_ingot",
+      "vs_clockwork:gravitron",
+      "vs_clockwork:wanderlite_matrix"
+    ],
+    "sequenced_assembly/extendon_hose": [
+      "create:chute",
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "minecraft:dried_kelp",
+      "minecraft:dried_kelp_block",
+      "minecraft:iron_block",
+      "minecraft:iron_ingot",
+      "vs_clockwork:duct",
+      "vs_clockwork:extendon_hose",
+      "vs_clockwork:incomplete_hose_spool"
+    ],
+    "sequenced_assembly/universal_shaft_item": [
+      "create:chute",
+      "create:industrial_iron_block",
+      "create:iron_sheet",
+      "create:shaft",
+      "minecraft:dried_kelp",
+      "minecraft:dried_kelp_block",
+      "minecraft:iron_block",
+      "minecraft:iron_ingot",
+      "vs_clockwork:duct",
+      "vs_clockwork:incomplete_telescoping_mechanism",
+      "vs_clockwork:universal_shaft_item"
+    ],
+    "smelting/nyx_from_cobbled": [
+      "vs_clockwork:cobbled_nyx"
+    ],
+    "smelting/smooth_wanderlite": [
+      "vs_clockwork:wanderlite_block"
+    ]
+  },
+  "compatReplacements": [
+    "crafting/incomplete_wanderwand",
+    "crafting/kinetics/andesite_flap_bearing",
+    "crafting/kinetics/blade_controller",
+    "crafting/kinetics/brass_propeller_bearing",
+    "crafting/kinetics/command_seat",
+    "crafting/kinetics/juryrigged_propeller_bearing",
+    "crafting/kinetics/redstone_resistor",
+    "crafting/kinetics/spinoff_bearing",
+    "crafting/kinetics/sterling_engine",
+    "crafting/kinetics/universal_shaft",
+    "crafting/logistics/alt_meter",
+    "crafting/logistics/balloon_casing",
+    "crafting/logistics/gyroscopic_sensor",
+    "crafting/logistics/impact_sensor",
+    "crafting/logistics/lodefocus",
+    "crafting/physics/flap",
+    "crafting/physics/wing",
+    "crafting/pneumatics/coal_burner",
+    "crafting/pneumatics/duct",
+    "crafting/pneumatics/duct_vertical",
+    "crafting/pneumatics/exhaust",
+    "crafting/pneumatics/extendon",
+    "crafting/pneumatics/gas_backtank",
+    "crafting/pneumatics/gas_heater",
+    "crafting/pneumatics/heat_exchanger",
+    "crafting/pneumatics/hose_port",
+    "crafting/pneumatics/radiator",
+    "crafting/pneumatics/valve_duct",
+    "crafting/screwdriver",
+    "crushing/wanderlite_end_ore",
+    "gas_crafting/methane_reforming",
+    "gas_crafting/phlogiston",
+    "gas_crafting/vitriol_awkward",
+    "gas_crafting/vitriol_mundane",
+    "gas_crafting/vitriol_thick",
+    "mechanical_crafting/aeronaut_boots",
+    "mechanical_crafting/aeronaut_goggles",
+    "mechanical_crafting/aeronaut_jacket",
+    "mechanical_crafting/aeronaut_jumpers",
+    "sequenced_assembly/extendon_hose",
+    "sequenced_assembly/universal_shaft_item"
+  ]
+}
