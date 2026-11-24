@@ -23,7 +23,7 @@ function cqaPlace(w,pos,id,props){
 function cqaFill(id,amount){
     // KubeJS wraps Forge FluidStack constructors; use its native conversion.
     var s=Fluid.of(id,amount);
-    cqaAssert(Number(CQA.handler.fill(s,CQA_Action.EXECUTE))===amount,'source fill rejected '+id);
+    cqaAssert(Number(CQA.input.fill(s,CQA_Action.EXECUTE))===amount,'source fill rejected '+id);
 }
 function cqaAmount(){
     var n=0;for(var i=0;i<CQA.handler.getTanks();i++) n+=Number(CQA.handler.getFluidInTank(i).getAmount());
@@ -76,14 +76,16 @@ ServerEvents.loaded(event=>{
         var p=new CQA_Pos(x,y,z);
         w.setChunkForced(x>>4,z>>4,true);
         var drum=cqaPlace(w,p,'gtceu:steel_drum',{});
-        var extractor=cqaPlace(w,p.east(),'vs_clockwork:steam_generator',{face:'wall',facing:'east'});
+        var extractor=cqaPlace(w,p.below(),'vs_clockwork:steam_generator',{face:'ceiling',facing:'north'});
         cqaAssert(extractor!=null,'extractor missing');
-        cqaAssert(CQA_Extractor.getFacing(extractor.getBlockState())===CQA_Dir.EAST,'extractor facing');
-        cqaAssert(extractor.getBlockState().canSurvive(w,p.east()),'extractor cannot survive on GT drum');
-        CQA.handler=drum.getCapability(CQA_Cap.FLUID_HANDLER,CQA_Dir.EAST).orElse(null);
-        cqaAssert(CQA.handler!=null,'GT drum sided fluid capability missing');
+        cqaAssert(CQA_Extractor.getFacing(extractor.getBlockState())===CQA_Dir.DOWN,'extractor facing');
+        cqaAssert(extractor.getBlockState().canSurvive(w,p.below()),'extractor cannot survive on GT drum');
+        CQA.input=drum.getCapability(CQA_Cap.FLUID_HANDLER,CQA_Dir.EAST).orElse(null);
+        CQA.handler=drum.getCapability(CQA_Cap.FLUID_HANDLER,CQA_Dir.DOWN).orElse(null);
+        cqaAssert(CQA.input!=null&&CQA.handler!=null,'GT drum sided fluid capability missing');
         CQA.extractor=extractor; CQA.network=CQA_Mod.INSTANCE.getKelvin(w); CQA.world=w; CQA.pos=p;
         cqaFill('minecraft:water',1000);
+        cqaAssert(Number(CQA.handler.drain(1000,CQA_Action.SIMULATE).getAmount())===1000,'drum output does not allow water extraction');
         CQA.started=true;
         console.info('[CLOCKWORK_COMPAT_STARTED] GT steel drum + extractor');
     }catch(e){cqaFail(e);}
@@ -96,7 +98,7 @@ ServerEvents.tick(event=>{
             cqaAssert(cqaAmount()===1000,'water was consumed');
             cqaAssert(cqaMass()===0,'water converted to steam');
             var drained=CQA.handler.drain(1000,CQA_Action.EXECUTE);
-            cqaAssert(String(CQA_Regs.FLUIDS.getKey(drained.getFluid()))==='minecraft:water','drained wrong fluid');
+            cqaAssert(String(CQA_Regs.FLUIDS.getKey(drained.getFluid()))==='minecraft:water','drained wrong fluid: '+CQA_Regs.FLUIDS.getKey(drained.getFluid())+' amount='+drained.getAmount());
             cqaAssert(Number(drained.getAmount())===1000,'water drain failed');
             cqaFill('gtceu:steam',10000);
             console.info('[CLOCKWORK_COMPAT_WATER_PASS] water=1000 unchanged');
