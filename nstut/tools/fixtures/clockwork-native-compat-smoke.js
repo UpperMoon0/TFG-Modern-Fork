@@ -25,6 +25,11 @@ function cqaFill(id,amount){
     var s=Fluid.of(id,amount);
     cqaAssert(Number(CQA.input.fill(s,CQA_Action.EXECUTE))===amount,'source fill rejected '+id);
 }
+// Rhino can coerce a number into a FluidStack; use an explicit native typed
+// request, exactly like the addon, and report both simulation paths.
+function cqaDrain(id,amount,action){
+    return CQA.handler['drain(net.minecraftforge.fluids.FluidStack,net.minecraftforge.fluids.capability.IFluidHandler$FluidAction)'](Fluid.of(id,amount),action);
+}
 function cqaAmount(){
     var n=0;for(var i=0;i<CQA.handler.getTanks();i++) n+=Number(CQA.handler.getFluidInTank(i).getAmount());
     return n;
@@ -85,7 +90,7 @@ ServerEvents.loaded(event=>{
         cqaAssert(CQA.input!=null&&CQA.handler!=null,'GT drum sided fluid capability missing');
         CQA.extractor=extractor; CQA.network=CQA_Mod.INSTANCE.getKelvin(w); CQA.world=w; CQA.pos=p;
         cqaFill('minecraft:water',1000);
-        cqaAssert(Number(CQA.handler.drain(1000,CQA_Action.SIMULATE).getAmount())===1000,'drum output does not allow water extraction');
+        console.info('[CLOCKWORK_DRUM_INITIAL] amount='+cqaAmount()+' type='+CQA.handler.getClass().getName());
         CQA.started=true;
         console.info('[CLOCKWORK_COMPAT_STARTED] GT steel drum + extractor');
     }catch(e){cqaFail(e);}
@@ -97,7 +102,10 @@ ServerEvents.tick(event=>{
         if(CQA.ticks===30){
             cqaAssert(cqaAmount()===1000,'water was consumed');
             cqaAssert(cqaMass()===0,'water converted to steam');
-            var drained=CQA.handler.drain(1000,CQA_Action.EXECUTE);
+            var simulated=cqaDrain('minecraft:water',1000,CQA_Action.SIMULATE);
+            console.info('[CLOCKWORK_DRUM_SIMULATION] typed='+simulated.getAmount()+' tank='+cqaAmount());
+            cqaAssert(Number(simulated.getAmount())===1000,'drum typed output does not allow water extraction');
+            var drained=cqaDrain('minecraft:water',1000,CQA_Action.EXECUTE);
             cqaAssert(String(CQA_Regs.FLUIDS.getKey(drained.getFluid()))==='minecraft:water','drained wrong fluid: '+CQA_Regs.FLUIDS.getKey(drained.getFluid())+' amount='+drained.getAmount());
             cqaAssert(Number(drained.getAmount())===1000,'water drain failed');
             cqaFill('gtceu:steam',10000);
