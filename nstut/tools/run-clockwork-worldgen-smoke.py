@@ -158,8 +158,34 @@ def stage_native_assembly_fixture(repo: Path, server: Path) -> str:
     return hashlib.sha256(content).hexdigest()
 
 
+def stage_native_production_fixture(repo: Path, server: Path) -> str:
+    """Stage native HV and Steam recipe acceptance only in a fresh disposable pack."""
+    safely_disposable(server)
+    source = repo / "nstut/tools/fixtures/wanderlite-native-production-smoke.js"
+    target = server / "kubejs/server_scripts/zz_nstut_wanderlite_native_qa.js"
+    if not source.is_file() or source.is_symlink():
+        raise ValueError("Wanderlite native production fixture missing")
+    if target.exists() or target.is_symlink() or target.parent.is_symlink():
+        raise ValueError("Refusing to overwrite/symlink production test fixture")
+    if not target.resolve().is_relative_to(server.resolve()):
+        raise ValueError("Fixture destination escaped disposable server")
+    content = source.read_bytes()
+    if not 1000 < len(content) < 24000 or not all(
+        marker in content for marker in (
+            b"TEST ONLY", b"setChunkForced", b"getRecipeLogic",
+            b"[WANDERLITE_HV_PASS]", b"[WANDERLITE_STEAM_PASS]",
+            b"[WANDERLITE_NATIVE_PASS]",
+        )
+    ):
+        raise ValueError("Invalid native production fixture")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(content)
+    return hashlib.sha256(content).hexdigest()
+
+
 def run_server(server: Path, command: str, log: Path, timeout: int,
-               required_marker: str | None = None) -> None:
+               required_marker: str | None = None,
+               additional_markers: tuple[str, ...] = ()) -> None:
     argv = shlex.split(command)
     if not argv or any("\0" in arg for arg in argv):
         raise ValueError("Empty or invalid launch command")
@@ -172,7 +198,9 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
         )
         try:
             ready = False
-            native_pass = required_marker is None
+            pending = set(additional_markers)
+            if required_marker is not None:
+                pending.add(required_marker)
             last = 0
             tail = ""
             with log.open("r", encoding="utf-8", errors="replace") as reader:
@@ -183,17 +211,18 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                     # Preserve the boundary across partial reads of a log line.
                     text = tail + latest
                     tail = text[-512:]
-                    if ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text:
+                    if (ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text
+                            or "[WANDERLITE_NATIVE_FAIL]" in text):
                         raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
                     ready = ready or bool(DONE.search(text))
-                    native_pass = native_pass or bool(required_marker and required_marker in text)
-                    if ready and native_pass:
+                    pending.difference_update(marker for marker in tuple(pending) if marker in text)
+                    if ready and not pending:
                         break
                     if proc.poll() is not None:
                         raise RuntimeError(f"Forge exited before acceptance: {proc.returncode}")
                     time.sleep(0.5)
-            if not (ready and native_pass):
-                raise TimeoutError("Forge startup/native ship assembly did not finish before timeout")
+            if not ready or pending:
+                raise TimeoutError(f"Forge acceptance timed out; missing markers: {sorted(pending)}")
             proc.stdin.write("save-all flush\n")
             proc.stdin.flush()
             time.sleep(2)
@@ -202,7 +231,8 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
             proc.wait(timeout=120)
             if proc.returncode != 0:
                 raise RuntimeError(f"Forge exited unsuccessfully ({proc.returncode})")
-            if ERRORS.search(log.read_text(encoding="utf-8", errors="replace")):
+            final = log.read_text(encoding="utf-8", errors="replace")
+            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final:
                 raise RuntimeError("Forge/KubeJS error found in the final server log")
         finally:
             if proc.poll() is None:
@@ -249,6 +279,8 @@ def main() -> int:
     parser.add_argument("--min-chunks", type=int, default=64)
     parser.add_argument("--native-assembly", action="store_true",
                         help="Run the real Infuser/VS ship fixture in this SAME Forge startup")
+    parser.add_argument("--native-production", action="store_true",
+                        help="Run native HV and Steam production acceptance in the same startup")
     args = parser.parse_args()
     server = safely_disposable(args.server_dir)
     repo = args.repo_root.resolve(strict=True)
@@ -261,7 +293,10 @@ def main() -> int:
     if evidence == server or evidence.is_relative_to(server):
         raise ValueError("Evidence must not be inside the disposable server")
     fixture_sha = stage_native_assembly_fixture(repo, server) if args.native_assembly else None
+    production_sha = stage_native_production_fixture(repo, server) if args.native_production else None
     staged = stage_feature(repo, server, evidence)
+    if production_sha:
+        staged["native_production_fixture_sha256"] = production_sha
     if fixture_sha:
         staged["native_assembly_fixture_sha256"] = fixture_sha
     scan = module("scan-clockwork-worldgen.py", "clockwork_scan")
@@ -277,7 +312,8 @@ def main() -> int:
             set_properties(server, seed)
             log = evidence / f"forge-seed-{seed}.log"
             run_server(server, args.launch, log, args.timeout,
-                       "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None)
+                       "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None,
+                       ("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
             result = scan.scan(server / WORLD / "region", scan.TARGET)
             assess_worldgen(result, args.min_chunks)
             result.update({

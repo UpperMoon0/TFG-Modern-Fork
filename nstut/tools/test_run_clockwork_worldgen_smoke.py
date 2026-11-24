@@ -163,6 +163,40 @@ class SmokeRunnerTests(unittest.TestCase):
             runner.run_server(self.server, f"{sys.executable} fake_native_forge.py",
                               log, 10, "[CLOCKWORK_GAMEPLAY_PASS]")
 
+    def test_production_fixture_staging_is_disposable_only(self):
+        source = runner_path.with_name("fixtures") / "wanderlite-native-production-smoke.js"
+        repo = Path(self.temp.name) / "candidate"
+        staged = repo / "nstut/tools/fixtures/wanderlite-native-production-smoke.js"
+        staged.parent.mkdir(parents=True)
+        staged.write_bytes(source.read_bytes())
+        digest = runner.stage_native_production_fixture(repo, self.server)
+        target = self.server / "kubejs/server_scripts/zz_nstut_wanderlite_native_qa.js"
+        self.assertEqual(target.read_bytes(), source.read_bytes())
+        self.assertEqual(len(digest), 64)
+        with self.assertRaises(ValueError):
+            runner.stage_native_production_fixture(repo, self.server)
+
+    def test_ship_marker_does_not_satisfy_production_gate(self):
+        fake = self.server / "fake_native_forge.py"
+        fake.write_text("print('Done (0.1s)! [CLOCKWORK_GAMEPLAY_PASS]', flush=True)\n")
+        with self.assertRaisesRegex(RuntimeError, "exited before acceptance"):
+            runner.run_server(self.server, f"{sys.executable} fake_native_forge.py",
+                              self.server / "missing-production.log", 10,
+                              "[CLOCKWORK_GAMEPLAY_PASS]", ("[WANDERLITE_NATIVE_PASS]",))
+
+    def test_both_native_gates_complete_in_one_startup(self):
+        fake = self.server / "fake_native_forge.py"
+        fake.write_text(
+            "import sys\n"
+            "print('Done (0.1s)! [CLOCKWORK_GAMEPLAY_PASS]', flush=True)\n"
+            "print('[WANDERLITE_NATIVE_PASS]', flush=True)\n"
+            "for line in sys.stdin:\n"
+            "    if line.strip() == 'stop': break\n"
+        )
+        runner.run_server(self.server, f"{sys.executable} fake_native_forge.py",
+                          self.server / "both.log", 10,
+                          "[CLOCKWORK_GAMEPLAY_PASS]", ("[WANDERLITE_NATIVE_PASS]",))
+
     def test_full_mock_smoke_path_uses_one_spawn_world_and_writes_evidence(self):
         """Exercise the runner end-to-end with synthetic Anvil chunks, NOT Forge."""
         spec = importlib.util.spec_from_file_location(

@@ -46,7 +46,7 @@ manual processing and brass consumption.
 |---|---|
 | LV | Electric Cube Lathe and Matrix Forming Press; Air Compressor and Pump Duct |
 | MV | Physics Bearing, Gimbal Bearing, Gyroscope, Smart Flap Bearing and Copter Bearing, Wanderglass, Gas Nozzle and Gas Crafter via electric machinery |
-| HV | Industrial Gas Thruster; **separate PR #95** adds renewable seeded Wanderlite ore synthesis |
+| HV | Industrial Gas Thruster; Renewable seeded Wanderlite ore synthesis |
 | EV | Gravitron via high-tier sensor, motor and titanium frame |
 
 The fundamental Physics Infuser and Wanderwand **must never** be LV/MV/HV gated. Do not remove their Steam Age path when refining other Clockwork recipes.
@@ -58,7 +58,7 @@ The fundamental Physics Infuser and Wanderwand **must never** be LV/MV/HV gated.
 - KubeJS entrypoint: `registerTFGClockworkProgressionRecipes` from TFG's standard recipe registration.
 - Clockwork mod guard: recipes and vein-tag registration only run when `vs_clockwork` is loaded.
 - A modded integration test must validate item IDs, both native/TFG recipe overrides, machine tier requirements, and survival acquisition before merge.
-- Existing PR #95 remains independent. When merged, preserve the seed-gated HV recipe, the nonconsumed crystal and Vitrified Pearls, and the Steam Age access route.
+- The integrated renewable chain must retain the seed-gated HV recipe, the nonconsumed crystal and Vitrified Pearls, and the Steam Age access route.
 
 ## Lean headless worldgen acceptance (no client, spectator, or Chunky)
 
@@ -107,6 +107,18 @@ no wand, creates a valid Wanderwand selection, force-ticks the fixture chunks
 `PhysicsInfuserBlockEntity.startAssembly`, and requires Valkyrien Skies to
 move the nine blocks into a ship with a valid ID. The fixture is never part
 of release KubeJS scripts and is not installed on production.
+
+For full release acceptance add both `--native-assembly --native-production`.
+The production fixture places three real HV machines in force-ticking chunks,
+supplies metered EU through their native energy containers, transfers actual
+stage outputs, rejects a missing pearl catalyst and missing seed, checks
+consumption and retained catalysts, and requires the exact 1,440,000 EU total.
+It then exercises the registered Greate basin match/apply and Create mechanical
+crafting recipe methods with the sixteen-batch Steam bootstrap inputs. This
+checks actual native recipe application, not the full kinetic infrastructure
+or manual interaction animations. The runner waits for both native pass markers
+before saving and inspecting the world. Both fixtures stay outside the
+production KubeJS tree.
 
 The standalone native integration was verified on disposable Java 17 /
 Forge 1.20.1 / Clockwork 0.5.7.1: ship ID **15**, nine source blocks moved,
