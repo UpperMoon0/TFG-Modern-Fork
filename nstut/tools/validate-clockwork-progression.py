@@ -76,13 +76,13 @@ def main(root: Path) -> None:
     assert "event.remove({ output: 'vs_clockwork:wanderwand' })" not in recipe
 
     expected = {
-        "vs_clockwork:air_compressor": "lv",
-        "vs_clockwork:pump_duct": "lv",
-        "vs_clockwork:smart_flap_bearing": "mv",
+        "vs_clockwork:air_compressor": "steam",
+        "vs_clockwork:pump_duct": "steam",
+        "vs_clockwork:smart_flap_bearing": "lv",
         "vs_clockwork:copter_bearing": "mv",
-        "vs_clockwork:gas_nozzle": "mv",
-        "vs_clockwork:gas_crafter": "mv",
-        "vs_clockwork:phys_bearing": "mv",
+        "vs_clockwork:gas_nozzle": "steam",
+        "vs_clockwork:gas_crafter": "lv",
+        "vs_clockwork:phys_bearing": "lv",
         "vs_clockwork:gimbal_bearing": "mv",
         "vs_clockwork:gyro": "mv",
         "vs_clockwork:wanderglass": "mv",
@@ -95,7 +95,7 @@ def main(root: Path) -> None:
     assert "gtceu:lv_electric_motor" in recipe
     # GTCEu's lookup trie distinguishes ingredient identities, not only
     # stack quantities. Both MV bearings must not share the same item-key set.
-    phys = recipe.split("assembler('tfg:clockwork/mv/physics_bearing')", 1)[1].split(".itemOutputs(", 1)[0]
+    phys = recipe.split("assembler('tfg:clockwork/lv/physics_bearing')", 1)[1].split(".itemOutputs(", 1)[0]
     gimbal = recipe.split("assembler('tfg:clockwork/mv/gimbal_bearing')", 1)[1].split(".itemOutputs(", 1)[0]
     assert "'create:turntable'" in phys and "'create:brass_casing'" not in phys
     assert "'create:brass_casing'" in gimbal and "'create:turntable'" not in gimbal
@@ -114,7 +114,63 @@ def main(root: Path) -> None:
     assert 64 + 64 >= 8 * 24 / 1.75
     assert "event.remove({ output: 'vs_clockwork:juryrigged_propeller_bearing' })" not in recipe
     assert "event.remove({ output: 'vs_clockwork:wanderwand' })" not in recipe
+    validate_native_compatibility(root, recipe)
     print(f"PASS: Clockwork progression static checks ({len(ids)} recipes, {len(rocks)} host rocks, Steam to EV)")
+
+
+def validate_native_compatibility(root: Path, recipe: str) -> None:
+    native = (root / "kubejs/server_scripts/tfg/recipes.clockwork_native_compatibility.js").read_text()
+    audit = json.loads((root / "nstut/tools/fixtures/clockwork-native-recipe-audit.json").read_text())
+    rows = {}
+    for line in native.splitlines():
+        if line.strip().startswith('["'):
+            key, data = json.loads(line.strip().rstrip(","))
+            assert key not in rows, f"duplicate override: {key}"
+            rows[key] = data
+    assert audit["version"] == "0.5.7.1" and audit["originalRecipeCount"] == 95
+    assert set(rows) == set(audit["compatReplacements"])
+    assert "registerTFGClockworkNativeCompatibility(event)" in recipe
+    removed = set()
+    for path in (root / "config/reliable_remover").glob("*.json"):
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
+        for rule in data if isinstance(data, list) else [data]:
+            if isinstance(rule, dict) and rule.get("action") == "remove":
+                removed.update(rule.get("items", []))
+
+    def refs(value):
+        if isinstance(value, dict):
+            if isinstance(value.get("item"), str):
+                yield value["item"]
+            for v in value.values():
+                yield from refs(v)
+        elif isinstance(value, list):
+            for v in value:
+                yield from refs(v)
+
+    for key, original in audit["originalItemReferences"].items():
+        if key in audit["replacedByProgression"]:
+            continue
+        actual = set(refs(rows[key])) if key in rows else set(original)
+        assert not actual & removed, f"{key} uses removed items: {actual & removed}"
+    assert "create:steam_engine" not in removed
+    assert "create:shaft" in removed, "Do not restore untiered shafts"
+    assert "greate:steel_shaft" in recipe
+    assert "tfg:clockwork/steam/gas_engine_piston" in recipe
+    assert "Platform.isLoaded('clockworkcompat')" in recipe
+    for name in ("air_compressor", "pump_duct", "gas_nozzle"):
+        block = recipe.split(f"event.shaped('vs_clockwork:{name}'", 1)[1].split("}).id(", 1)[0]
+        assert "gtceu:lv_" not in block and "gtceu:mv_" not in block, name
+        assert "vs_clockwork:duct" in block
+    for name in ("physics_bearing", "smart_flap_bearing", "gas_crafter"):
+        block = recipe.split(f"assembler('tfg:clockwork/lv/{name}')", 1)[1].split(".EUt(", 1)
+        assert "gtceu:mv_" not in block[0] and block[1].startswith("LV)")
+    assert rows["crafting/pneumatics/gas_heater"]["key"]["B"]["item"] == "create:blaze_burner"
+    assert rows["gas_crafting/phlogiston"]["requirements"]["kelvin:min_temperature"] <= 800
+    assert rows["gas_crafting/methane_reforming"]["requirements"]["kelvin:min_temperature"] <= 800
+    assert rows["gas_crafting/vitriol_awkward"]["ingredients"][0]["fluid"] == "gtceu:sulfuric_acid"
+    assert rows["gas_crafting/vitriol_thick"] is None
+    assert rows["sequenced_assembly/universal_shaft_item"]["ingredient"]["item"] == "greate:steel_shaft"
+    print(f"PASS: {len(audit['originalItemReferences'])} native Clockwork recipe references audited, {len(rows)} compatibility overrides")
 
 
 if __name__ == "__main__":

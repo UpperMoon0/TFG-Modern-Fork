@@ -212,7 +212,7 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                     text = tail + latest
                     tail = text[-512:]
                     if (ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text
-                            or "[WANDERLITE_NATIVE_FAIL]" in text):
+                            or "[WANDERLITE_NATIVE_FAIL]" in text or "[CLOCKWORK_COMPAT_FAIL]" in text):
                         raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
                     ready = ready or bool(DONE.search(text))
                     pending.difference_update(marker for marker in tuple(pending) if marker in text)
@@ -232,7 +232,7 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
             if proc.returncode != 0:
                 raise RuntimeError(f"Forge exited unsuccessfully ({proc.returncode})")
             final = log.read_text(encoding="utf-8", errors="replace")
-            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final:
+            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final or "[CLOCKWORK_COMPAT_FAIL]" in final:
                 raise RuntimeError("Forge/KubeJS error found in the final server log")
         finally:
             if proc.poll() is None:
@@ -281,6 +281,7 @@ def main() -> int:
                         help="Run the real Infuser/VS ship fixture in this SAME Forge startup")
     parser.add_argument("--native-production", action="store_true",
                         help="Run native HV and Steam production acceptance in the same startup")
+    parser.add_argument("--native-compatibility", action="store_true", help="Exercise the real GT steam bridge in the same disposable server")
     args = parser.parse_args()
     server = safely_disposable(args.server_dir)
     repo = args.repo_root.resolve(strict=True)
@@ -294,7 +295,18 @@ def main() -> int:
         raise ValueError("Evidence must not be inside the disposable server")
     fixture_sha = stage_native_assembly_fixture(repo, server) if args.native_assembly else None
     production_sha = stage_native_production_fixture(repo, server) if args.native_production else None
+    compat_sha = None
+    if args.native_compatibility:
+        source = repo / "nstut/tools/fixtures/clockwork-native-compat-smoke.js"
+        target = server / "kubejs/server_scripts/zz_nstut_clockwork_compat_qa.js"
+        if target.exists() or target.is_symlink() or not target.resolve().is_relative_to(server):
+            raise ValueError("Unsafe compatibility fixture destination")
+        content = source.read_bytes()
+        target.write_bytes(content)
+        compat_sha = hashlib.sha256(content).hexdigest()
     staged = stage_feature(repo, server, evidence)
+    if compat_sha:
+        staged["native_compatibility_fixture_sha256"] = compat_sha
     if production_sha:
         staged["native_production_fixture_sha256"] = production_sha
     if fixture_sha:
@@ -313,7 +325,8 @@ def main() -> int:
             log = evidence / f"forge-seed-{seed}.log"
             run_server(server, args.launch, log, args.timeout,
                        "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None,
-                       ("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
+                       (("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
+                       + (("[CLOCKWORK_COMPAT_PASS]",) if args.native_compatibility else ()))
             result = scan.scan(server / WORLD / "region", scan.TARGET)
             assess_worldgen(result, args.min_chunks)
             result.update({
