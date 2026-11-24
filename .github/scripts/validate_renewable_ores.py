@@ -43,7 +43,7 @@ blocks = re.findall(
     recipe_text,
     re.DOTALL,
 )
-require(len(blocks) == 90, f"expected exactly 90 audited renewable recipes, found {len(blocks)}")
+require(len(blocks) == 93, f"expected exactly 93 audited renewable recipes, found {len(blocks)}")
 recipe_ids = [recipe_id for _, recipe_id, _ in blocks]
 require(len(recipe_ids) == len(set(recipe_ids)), "duplicate renewable recipe ID")
 recipe_bodies = {recipe_id: body for _, recipe_id, body in blocks}
@@ -523,6 +523,45 @@ require("tfg:iron_silicate_tailings_dust" in redstone_body,
 require("quartzite" not in redstone_body,
         "renewable Redstone must not depend on mined Quartzite")
 
+# Renewable Wanderlite requires a seed, reusable pearls, and three actual
+# HV recipe stages. Pin each stage's exact map and material/electrical economics,
+# so recipe-count updates cannot quietly introduce a cheap non-seeded bypass.
+wanderlite_stages = (
+    ("tfg:hv_renewable_wanderlite_silicate_slurry", "mixer", 600),
+    ("tfg:hv_renewable_wanderlite_precursor", "chemical_reactor", 800),
+    ("tfg:hv_renewable_wanderlite_deepslate_ore", "autoclave", 1600),
+)
+for recipe_id, machine, ticks in wanderlite_stages:
+    body = recipe_bodies.get(recipe_id, "")
+    require(recipe_machines.get(recipe_id) == machine,
+            f"{recipe_id}: expected machine {machine}")
+    require(_method_payloads(body, "duration") == [str(ticks)],
+            f"{recipe_id}: incorrect stage duration")
+    require(_method_payloads(body, "EUt") == ["HV"],
+            f"{recipe_id}: must consume HV voltage")
+slurry = recipe_bodies.get(wanderlite_stages[0][0], "")
+precursor = recipe_bodies.get(wanderlite_stages[1][0], "")
+autoclave = recipe_bodies.get(wanderlite_stages[2][0], "")
+require("16x tfg:igneous_felsic_dust" in slurry
+        and "8x tfg:metamorphic_dust" in slurry
+        and "4x minecraft:amethyst_shard" in slurry,
+        "Wanderlite slurry must use 24 renewable rock dusts plus amethyst")
+require("Fluid.of('gtceu:distilled_water', 4000)" in slurry
+        and "Fluid.of('tfg:wanderlite_silicate_slurry', 8000)" in slurry,
+        "Wanderlite slurry water/volume contract drifted")
+require("8x minecraft:redstone" in precursor
+        and ".notConsumable('2x tfg:vitrified_pearl')" in precursor
+        and "Fluid.of('gtceu:oxygen', 1000)" in precursor
+        and "Fluid.of('tfg:wanderlite_silicate_slurry', 8000)" in precursor,
+        "Wanderlite precursor catalyst or oxygen requirement changed")
+require("8x tfg:charged_wanderlite_precursor_dust" in autoclave
+        and ".notConsumable('vs_clockwork:wanderlite_crystal')" in autoclave
+        and "Fluid.of('gtceu:distilled_water', 4000)" in autoclave
+        and ".itemOutputs('vs_clockwork:wanderlite_deepslate_ore')" in autoclave,
+        "Wanderlite autoclave must be seed-catalyzed and produce native ore")
+require((600 + 800 + 1600) * 480 == 1_440_000,
+        "Wanderlite EU budget assertion invalid")
+
 # All renewable custom materials are non-decomposable and have both a producer
 # and a downstream consumer/recovery reference in this centralized recipe file.
 material_blocks = {
@@ -533,8 +572,8 @@ material_blocks = {
         re.DOTALL,
     )
 }
-require(len(material_blocks) == 73,
-        f"expected exactly 73 audited renewable custom materials, found {len(material_blocks)}")
+require(len(material_blocks) == 75,
+        f"expected exactly 75 audited renewable custom materials, found {len(material_blocks)}")
 method_calls = re.findall(
     r"\.(itemInputs|inputFluids|notConsumable|itemOutputs|outputFluids)\((.*?)\)\s*(?=\.|;)",
     recipe_text,

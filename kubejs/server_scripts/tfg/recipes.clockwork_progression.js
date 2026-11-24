@@ -56,7 +56,7 @@ function registerTFGClockworkProgressionRecipes(event) {
     ).id('tfg:clockwork/steam/polish_wanderlite_cube');
 
     // Precision Matrix: each of two Create assembly loops deploys brass
-    // plates and a small bronze gear before pressing. This retains a real,
+    // plates and a small brass gear before pressing. This retains a real,
     // pre-electric route with meaningful machinery/material cost.
     event.remove({ output: 'vs_clockwork:wanderlite_matrix' });
     event.recipes.createSequencedAssembly(
