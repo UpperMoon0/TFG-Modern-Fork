@@ -7,7 +7,7 @@ var CQA_Cap=Java.loadClass('net.minecraftforge.common.capabilities.ForgeCapabili
 var CQA_Action=Java.loadClass('net.minecraftforge.fluids.capability.IFluidHandler$FluidAction');
 var CQA_Mod=Java.loadClass('org.valkyrienskies.clockwork.ClockworkMod');
 var CQA_Extractor=Java.loadClass('org.valkyrienskies.clockwork.content.logistics.gas.generation.steam_generator.SteamGeneratorBlock');
-var CQA={ticks:0,done:false,started:false};
+var CQA={ticks:0,done:false,started:false,auditErrors:[]};
 function cqaAssert(v,msg){if(!v)throw new Error(msg);}
 function cqaPlace(w,pos,id,props){
     var block=CQA_Regs.BLOCKS.getValue(new CQA_RL(id));
@@ -37,39 +37,41 @@ function cqaMass(){
 // Reuse the exact production definitions to avoid a stale parallel list.
 function cqaAuditRecipes(w){
     var manager=w.getRecipeManager(), checked=0;
+    var tags=CQA_Regs.ITEMS.tags();
+    function audit(v,msg){if(!v){CQA.auditErrors.push(msg);console.warn('[CLOCKWORK_RECIPE_AUDIT_ISSUE] '+msg);}}
     function inspect(v,path){
         if(v===null||typeof v!=='object')return;
         if(Array.isArray(v)){v.forEach((x,i)=>inspect(x,path+'['+i+']'));return;}
-        if(typeof v.item==='string')cqaAssert(CQA_Regs.ITEMS.containsKey(new CQA_RL(v.item)),path+' unknown item '+v.item);
-        if(typeof v.tag==='string')cqaAssert(Ingredient.of('#'+v.tag).getItems().length>0,path+' empty item tag '+v.tag);
-        if(typeof v.fluid==='string')cqaAssert(CQA_Regs.FLUIDS.containsKey(new CQA_RL(v.fluid)),path+' unknown fluid '+v.fluid);
+        if(typeof v.item==='string')audit(CQA_Regs.ITEMS.containsKey(new CQA_RL(v.item)),path+' unknown item '+v.item);
+        if(typeof v.tag==='string')audit(!tags.getTag(tags.createTagKey(new CQA_RL(v.tag))).isEmpty(),path+' empty item tag '+v.tag);
+        if(typeof v.fluid==='string')audit(CQA_Regs.FLUIDS.containsKey(new CQA_RL(v.fluid)),path+' unknown fluid '+v.fluid);
         Object.keys(v).forEach(k=>inspect(v[k],path+'.'+k));
     }
     registerTFGClockworkNativeCompatibility({
         remove:function(filter){
-            cqaAssert(!manager.byKey(new CQA_RL(filter.id)).isPresent(),'old recipe survived '+filter.id);
+            audit(!manager.byKey(new CQA_RL(filter.id)).isPresent(),'old recipe survived '+filter.id);
         },
         custom:function(definition){
             return {id:function(id){
                 var recipe=manager.byKey(new CQA_RL(id));
-                cqaAssert(recipe.isPresent(),'missing registered recipe '+id);
+                audit(recipe.isPresent(),'missing registered recipe '+id);
                 inspect(definition,id);
-                if(id.indexOf('/gas_crafting/vitriol_')!==-1){
+                if(recipe.isPresent()&&id.indexOf('/gas_crafting/vitriol_')!==-1){
                     var fluids=recipe.get().getFluidIngredients();
-                    cqaAssert(fluids.size()===1 && Number(fluids.get(0).getRequiredAmount())===definition.ingredients[0].amount,'incorrect gas recipe fluid ingredient '+id);
+                    audit(fluids.size()===1 && Number(fluids.get(0).getRequiredAmount())===definition.ingredients[0].amount,'incorrect gas recipe fluid ingredient '+id);
                 }
                 checked++;
             }};
         }
     });
     cqaAssert(checked>0,'no native compatibility recipes audited');
-    console.info('[CLOCKWORK_RECIPE_AUDIT_PASS] registered='+checked);
+    if(CQA.auditErrors.length===0)console.info('[CLOCKWORK_RECIPE_AUDIT_PASS] registered='+checked);
 }
 function cqaFail(e){CQA.done=true;console.error('[CLOCKWORK_COMPAT_FAIL] '+e+' '+(e.stack||''));}
 ServerEvents.loaded(event=>{
     try {
         var w=event.server.overworld(),s=w.getSharedSpawnPos();
-        cqaAuditRecipes(w);
+        try{cqaAuditRecipes(w);}catch(auditError){CQA.auditErrors.push(String(auditError));console.warn('[CLOCKWORK_RECIPE_AUDIT_ISSUE] '+auditError);}
         var x=(s.getX()>>4)*16+4,z=(s.getZ()>>4)*16+12,y=Math.min(w.getMaxBuildHeight()-8,Math.max(230,s.getY()+65));
         var p=new CQA_Pos(x,y,z);
         w.setChunkForced(x>>4,z>>4,true);
@@ -107,6 +109,7 @@ ServerEvents.tick(event=>{
             cqaAssert(Math.abs(mass-(10000-amount)*0.001)<0.00001,'mass mismatch: '+mass+' vs '+(10000-amount)*0.001);
             cqaAssert(pressure<=2125000+1,'pressure cap exceeded '+pressure);
             console.info('[CLOCKWORK_COMPAT_STEAM_PASS] drained_mb='+(10000-amount)+' steam_kg='+mass+' pressure_pa='+pressure);
+            cqaAssert(CQA.auditErrors.length===0,'recipe audit failed: '+CQA.auditErrors.join('; '));
             CQA.done=true;
             console.info('[CLOCKWORK_COMPAT_PASS]');
         }
