@@ -638,4 +638,3 @@ if (ROOT / "kubejs/server_scripts/tfg/recipes.clockwork_progression.js").is_file
         env=env, check=True,
     )
     print("Clockwork source-only renewable acceptance passed")
-
