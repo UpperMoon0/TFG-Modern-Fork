@@ -6,7 +6,6 @@ var WQA_Meta = Java.loadClass('com.gregtechceu.gtceu.api.machine.MetaMachine');
 var WQA_Basin = Java.loadClass('electrolyte.greate.content.processing.basin.TieredBasinRecipe');
 var WQA_Grid = Java.loadClass('net.minecraft.world.inventory.TransientCraftingContainer');
 var WQA_List = Java.loadClass('net.minecraft.core.NonNullList');
-var WQA_FluidAction = Java.loadClass('net.minecraftforge.fluids.capability.IFluidHandler$FluidAction');
 var WQA = {done:false, stage:0, ticks:0, totalEU:0, machines:[], inputs:0, initial:0};
 function wqAssert(v,msg) { if (!v) throw new Error(msg); }
 function wqFail(e) { WQA.done=true; console.error('[WANDERLITE_NATIVE_FAIL] '+e+' '+(e.stack||'')); }
@@ -87,15 +86,24 @@ ServerEvents.tick(event=>{
     wqCost(m,288000);
     wqAssert(wqCount(m.importItems,'tfg:igneous_felsic_dust')===0 && wqCount(m.importItems,'tfg:metamorphic_dust')===0 && wqCount(m.importItems,'minecraft:amethyst_shard')===0,'mixer inputs remain');
     wqAssert(m.importFluids.getFluidInTank(0).getAmount()===0,'mixer water remains');
+    // Snapshot the actual output's identity and quantity before touching either tank.
+    // KubeJS wraps FluidStacks; do not pass an aliased or wrapped tank-owned
+    // FluidStack to the other machine. Check both sides of the conserved transfer.
     var product=m.exportFluids.getFluidInTank(0);
-    wqAssert(String(WQA_Regs.FLUIDS.getKey(product.getFluid()))==='tfg:wanderlite_silicate_slurry','wrong mixer output fluid');
-    var slurry=m.exportFluids.drainInternal(8000,WQA_FluidAction.EXECUTE);
-    wqAssert(String(WQA_Regs.FLUIDS.getKey(slurry.getFluid()))==='tfg:wanderlite_silicate_slurry' && slurry.getAmount()===8000 && m.exportFluids.getFluidInTank(0).getAmount()===0,'mixer drain failed');
+    var fluidId=String(WQA_Regs.FLUIDS.getKey(product.getFluid()));
+    var amount=Number(product.getAmount());
+    wqAssert(fluidId==='tfg:wanderlite_silicate_slurry' && amount===8000,'wrong mixer product');
     logic.setWorkingEnabled(false);
     var next=WQA.machines[1];
+    wqAssert(next.importFluids.getFluidInTank(0).getAmount()===0,'reactor tank not empty');
+    wqFluid(next.importFluids,0,fluidId,amount);
+    wqAssert(String(WQA_Regs.FLUIDS.getKey(next.importFluids.getFluidInTank(0).getFluid()))===fluidId,'reactor transfer type mismatch');
+    wqAssert(m.exportFluids.getFluidInTank(0).getAmount()===amount,'source changed during copy');
+    m.exportFluids.setFluidInTank(0,Fluid.of('minecraft:empty',0));
+    wqAssert(m.exportFluids.getFluidInTank(0).getAmount()===0 &&
+      next.importFluids.getFluidInTank(0).getAmount()===amount,'fluid conservation failed');
+    console.info('[WANDERLITE_TRANSFER_PASS] fluid='+fluidId+' amount='+amount+' source=0 destination='+amount);
     wqInsert(next.importItems,0,'minecraft:redstone',8);
-    wqAssert(next.importFluids.fillInternal(Fluid.of('tfg:wanderlite_silicate_slurry',8000),WQA_FluidAction.EXECUTE)===8000,'reactor slurry transfer failed');
-    wqAssert(next.importFluids.getFluidInTank(0).getAmount()===8000,'reactor slurry missing');
     wqFluid(next.importFluids,1,'gtceu:oxygen',1000);
     wqStart(1); next.getRecipeLogic().setWorkingEnabled(true);
   } else if(WQA.stage===1){
@@ -109,9 +117,17 @@ ServerEvents.tick(event=>{
       wqAssert(wqCount(m.importItems,'tfg:vitrified_pearl')===2,'pearls consumed');
       wqAssert(wqCount(m.importItems,'minecraft:redstone')===0,'redstone not consumed');
       wqAssert(m.importFluids.getFluidInTank(0).getAmount()===0 && m.importFluids.getFluidInTank(1).getAmount()===0,'reactor fluid remains');
-      var dust=m.exportItems.extractItemInternal(0,8,false); logic.setWorkingEnabled(false);
-      var next=WQA.machines[2]; var rem=next.importItems.insertItem(0,dust,false);
-      wqAssert(rem.isEmpty(),'precursor transfer failed'); wqFluid(next.importFluids,0,'gtceu:distilled_water',4000);
+      var dust=m.exportItems.getStackInSlot(0);
+      var dustId=String(dust.id), dustCount=Number(dust.count);
+      wqAssert(dustId==='tfg:charged_wanderlite_precursor_dust' && dustCount===8,'wrong precursor output');
+      logic.setWorkingEnabled(false);
+      var next=WQA.machines[2];
+      wqAssert(wqCount(next.importItems,dustId)===0,'autoclave already contains precursor');
+      wqInsert(next.importItems,0,dustId,dustCount);
+      var removed=m.exportItems.extractItemInternal(0,dustCount,false);
+      wqAssert(wqCount(m.exportItems,dustId)===0 && wqCount(next.importItems,dustId)===dustCount,'precursor conservation failed');
+      console.info('[WANDERLITE_TRANSFER_PASS] item='+dustId+' amount='+dustCount+' source=0 destination='+dustCount);
+      wqFluid(next.importFluids,0,'gtceu:distilled_water',4000);
       wqStart(2); next.getRecipeLogic().setWorkingEnabled(true);
     }
   } else if(WQA.stage===2){
