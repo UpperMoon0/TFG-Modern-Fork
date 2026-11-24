@@ -86,9 +86,22 @@ class VanishGuardTargets(unittest.TestCase):
             previous_installs,
         )
         self.assertEqual(set(candidate_installs) - set(previous_installs),
-                         {"additional-placements", "distant-horizons"})
+                         {"additional-placements", "distant-horizons"} | ({"clockwork-compat"} if "clockwork-compat" in ids else set()))
         self.assertEqual(candidate_installs["additional-placements"], ["client", "server"])
         self.assertEqual(candidate_installs["distant-horizons"], ["client", "server"])
+
+    def test_clockwork_compat_both_sides(self):
+        manifest = m.build_manifest()
+        release = json.loads((m.ROOT / 'nstut/release.json').read_text())
+        if int(release['overlayVersion'].split('.')[-1]) < 13:
+            self.skipTest('pre-compat overlay')
+        artifacts = [a for a in manifest['artifacts'] if a['id'] == 'clockwork-compat']
+        self.assertEqual(len(artifacts), 1)
+        self.assertEqual(artifacts[0]['sha256'], 'e844e219b5d5492e9779d1ff02f369c0db39945927bf43f104908f89aa63dbfe')
+        ops = [op for op in manifest['operations'] if op.get('artifact') == 'clockwork-compat' or op.get('pattern') == 'mods/clockwork-compat-*.jar']
+        self.assertEqual(len(ops), 2)
+        self.assertEqual({op['type'] for op in ops}, {'installFile', 'removeMatching'})
+        self.assertTrue(all(op['targets'] == ['client', 'server'] for op in ops))
 
     def test_distant_horizons_replaces_upstream_client_and_server_jar(self):
         manifest = m.build_manifest()

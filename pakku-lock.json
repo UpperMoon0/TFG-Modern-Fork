@@ -18189,6 +18189,42 @@
                     "date_published": "2026-11-23T17:39:12Z"
                 }
             ]
+        },
+        {
+            "pakku_id": "NsTutClockwork001",
+            "type": "MOD",
+            "side": "BOTH",
+            "slug": {
+                "github": "UpperMoon0/Clockwork-Compat"
+            },
+            "name": {
+                "github": "Clockwork Compat"
+            },
+            "id": {
+                "github": "1470021241"
+            },
+            "files": [
+                {
+                    "type": "github",
+                    "file_name": "clockwork-compat-forge-1.20.1-0.1.0.jar",
+                    "mc_versions": [
+                        "1.20.1"
+                    ],
+                    "loaders": [
+                        "forge"
+                    ],
+                    "release_type": "release",
+                    "url": "https://github.com/UpperMoon0/Clockwork-Compat/releases/download/v0.1.0/clockwork-compat-forge-1.20.1-0.1.0.jar",
+                    "id": "787007271",
+                    "parent_id": "1470021241",
+                    "hashes": {
+                        "sha256": "e844e219b5d5492e9779d1ff02f369c0db39945927bf43f104908f89aa63dbfe"
+                    },
+                    "required_dependencies": [],
+                    "size": 8866,
+                    "date_published": "2026-11-24T11:57:16Z"
+                }
+            ]
         }
     ],
     "lockfile_version": 2

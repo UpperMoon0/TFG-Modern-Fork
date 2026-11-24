@@ -21,6 +21,13 @@ class MigrationRegressionTests(unittest.TestCase):
     def test_reviewed_migration(self):
         m.validate(*self.args)
 
+    def test_clockwork_compat_lock_hash_drift(self):
+        project = next((p for p in self.args[0]['projects'] if p['slug'].get('github') == 'UpperMoon0/Clockwork-Compat'), None)
+        if project is None:
+            self.skipTest('pre-compat overlay')
+        project['files'][0]['hashes']['sha256'] = '0' * 64
+        self.rejected()
+
     def test_upstream_hash_drift(self):
         self.args[0]['projects'][0]['files'][0]['hashes']['sha1'] = '0' * 40
         self.rejected()
