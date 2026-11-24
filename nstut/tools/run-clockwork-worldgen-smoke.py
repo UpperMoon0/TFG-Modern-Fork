@@ -212,7 +212,8 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                     text = tail + latest
                     tail = text[-512:]
                     if (ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text
-                            or "[WANDERLITE_NATIVE_FAIL]" in text or "[CLOCKWORK_COMPAT_FAIL]" in text):
+                            or "[WANDERLITE_NATIVE_FAIL]" in text or "[CLOCKWORK_COMPAT_FAIL]" in text
+                            or "[CLOCKWORK_INDUSTRIAL_FAIL]" in text):
                         raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
                     ready = ready or bool(DONE.search(text))
                     pending.difference_update(marker for marker in tuple(pending) if marker in text)
@@ -232,7 +233,7 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
             if proc.returncode != 0:
                 raise RuntimeError(f"Forge exited unsuccessfully ({proc.returncode})")
             final = log.read_text(encoding="utf-8", errors="replace")
-            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final or "[CLOCKWORK_COMPAT_FAIL]" in final:
+            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final or "[CLOCKWORK_COMPAT_FAIL]" in final or "[CLOCKWORK_INDUSTRIAL_FAIL]" in final:
                 raise RuntimeError("Forge/KubeJS error found in the final server log")
         finally:
             if proc.poll() is None:
@@ -282,7 +283,11 @@ def main() -> int:
     parser.add_argument("--native-production", action="store_true",
                         help="Run native HV and Steam production acceptance in the same startup")
     parser.add_argument("--native-compatibility", action="store_true", help="Exercise the real GT steam bridge in the same disposable server")
+    parser.add_argument("--native-industrial", action="store_true",
+                        help="Exercise actual boiler/pipe/gas kinetics and native gas chemistry")
     args = parser.parse_args()
+    if args.native_industrial and not args.native_compatibility:
+        parser.error("--native-industrial requires --native-compatibility")
     server = safely_disposable(args.server_dir)
     repo = args.repo_root.resolve(strict=True)
     evidence = args.evidence_dir.resolve()
@@ -304,7 +309,18 @@ def main() -> int:
         content = source.read_bytes()
         target.write_bytes(content)
         compat_sha = hashlib.sha256(content).hexdigest()
+    industrial_sha = None
+    if args.native_industrial:
+        source = repo / "nstut/tools/fixtures/clockwork-native-industrial-smoke.js"
+        target = server / "kubejs/server_scripts/zz_nstut_clockwork_industrial_qa.js"
+        if target.exists() or target.is_symlink() or not target.resolve().is_relative_to(server):
+            raise ValueError("Unsafe industrial fixture destination")
+        content = source.read_bytes()
+        target.write_bytes(content)
+        industrial_sha = hashlib.sha256(content).hexdigest()
     staged = stage_feature(repo, server, evidence)
+    if industrial_sha:
+        staged["native_industrial_fixture_sha256"] = industrial_sha
     if compat_sha:
         staged["native_compatibility_fixture_sha256"] = compat_sha
     if production_sha:
@@ -326,7 +342,8 @@ def main() -> int:
             run_server(server, args.launch, log, args.timeout,
                        "[CLOCKWORK_GAMEPLAY_PASS]" if args.native_assembly else None,
                        (("[WANDERLITE_NATIVE_PASS]",) if args.native_production else ())
-                       + (("[CLOCKWORK_COMPAT_PASS]",) if args.native_compatibility else ()))
+                       + (("[CLOCKWORK_COMPAT_PASS]",) if args.native_compatibility else ())
+                       + (("[CLOCKWORK_INDUSTRIAL_PASS]",) if args.native_industrial else ()))
             result = scan.scan(server / WORLD / "region", scan.TARGET)
             assess_worldgen(result, args.min_chunks)
             result.update({
