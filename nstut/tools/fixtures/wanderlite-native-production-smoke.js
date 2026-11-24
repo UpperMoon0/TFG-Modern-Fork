@@ -4,8 +4,11 @@ var WQA_RL = Java.loadClass('net.minecraft.resources.ResourceLocation');
 var WQA_Regs = Java.loadClass('net.minecraftforge.registries.ForgeRegistries');
 var WQA_Meta = Java.loadClass('com.gregtechceu.gtceu.api.machine.MetaMachine');
 var WQA_Basin = Java.loadClass('electrolyte.greate.content.processing.basin.TieredBasinRecipe');
-var WQA_Grid = Java.loadClass('net.minecraft.world.inventory.TransientCraftingContainer');
-var WQA_List = Java.loadClass('net.minecraft.core.NonNullList');
+var WQA_Grid = Java.loadClass('com.simibubi.create.content.kinetics.crafter.MechanicalCraftingInventory');
+var WQA_Grouped = Java.loadClass('com.simibubi.create.content.kinetics.crafter.RecipeGridHandler$GroupedItems');
+var WQA_RecipeGrid = Java.loadClass('com.simibubi.create.content.kinetics.crafter.RecipeGridHandler');
+var WQA_Tag = Java.loadClass('net.minecraft.nbt.CompoundTag');
+var WQA_ListTag = Java.loadClass('net.minecraft.nbt.ListTag');
 var WQA = {done:false, stage:0, ticks:0, totalEU:0, machines:[], inputs:0, initial:0};
 function wqAssert(v,msg) { if (!v) throw new Error(msg); }
 function wqFail(e) { WQA.done=true; console.error('[WANDERLITE_NATIVE_FAIL] '+e+' '+(e.stack||'')); }
@@ -147,6 +150,7 @@ ServerEvents.tick(event=>{
       var recipe=manager.byKey(new WQA_RL('tfg:clockwork/steam/wanderlite_trace_recovery')).get();
       wqAssert(recipe.getRecipeTier()===1,'steam tier mismatch');
       var input=basin.getInputInventory(), output=basin.getOutputInventory(), traces=0;
+      var traceTags=new WQA_ListTag();
       for(var i=0;i<16;i++){
         input.setStackInSlot(0,Item.of('gtceu:raw_graphite',4));
         input.setStackInSlot(1,Item.of('tfc:ore/normal_magnetite',4));
@@ -156,14 +160,28 @@ ServerEvents.tick(event=>{
         wqAssert(WQA_Basin.apply(basin,recipe),'steam basin apply failed '+i);
         wqAssert(input.getStackInSlot(0).isEmpty() && input.getStackInSlot(1).isEmpty() && input.getStackInSlot(2).isEmpty(),'steam input remains');
         wqAssert(wqCount(output,'tfg:wanderlite_trace')===1,'trace output missing');
-        for(var j=0;j<output.getSlots();j++){var st=output.extractItem(j,64,false);if(!st.isEmpty()){wqAssert(String(st.id)==='tfg:wanderlite_trace','wrong trace');traces+=st.count;}}
+        for(var j=0;j<output.getSlots();j++){
+          var st=output.extractItem(j,64,false);
+          if(!st.isEmpty()){
+            wqAssert(String(st.id)==='tfg:wanderlite_trace' && st.count===1,'wrong trace');
+            var entry=new WQA_Tag();
+            entry.putInt('x',traces%4); entry.putInt('y',Math.floor(traces/4));
+            entry.put('item',st.serializeNBT()); traceTags.add(entry); traces++;
+          }
+        }
       }
       wqAssert(traces===16,'wrong trace count');
-      var list=WQA_List.withSize(16,Item.of('tfg:wanderlite_trace'));
-      var grid=new WQA_Grid(null,4,4,list);
+      console.info('[WANDERLITE_STEAM_MIX_PASS] traces='+traces+' consumed_graphite=64 consumed_magnetite=64 consumed_amethyst=16');
+      // Use Create's actual serialized grouped items, not a vanilla crafting table
+      // inventory (which MechanicalCraftingRecipe deliberately rejects).
+      var groupTag=new WQA_Tag(); groupTag.put('Grid',traceTags);
+      var grouped=WQA_Grouped.read(groupTag); grouped.calcStats();
+      var grid=new WQA_Grid(grouped);
+      wqAssert(grid.getWidth()===4 && grid.getHeight()===4 && grid.getContainerSize()===16,'wrong native mechanical grid size');
       var craft=manager.byKey(new WQA_RL('tfg:clockwork/steam/consolidate_wanderlite_traces')).get();
       wqAssert(craft.matches(grid,w),'mechanical grid mismatch');
-      var crystal=craft.assemble(grid,w.registryAccess());
+      // Exercise the same native lookup used by the crafter's real grouped-grid path.
+      var crystal=WQA_RecipeGrid.tryToApplyRecipe(w,grouped);
       wqAssert(String(crystal.id)==='vs_clockwork:wanderlite_crystal' && crystal.count===1,'wrong crafted crystal');
       console.info('[WANDERLITE_STEAM_PASS] graphite=64 magnetite=64 amethyst=16 traces=16 crystal=1');
       WQA.done=true;
