@@ -197,6 +197,23 @@ class SmokeRunnerTests(unittest.TestCase):
                           self.server / "both.log", 10,
                           "[CLOCKWORK_GAMEPLAY_PASS]", ("[WANDERLITE_NATIVE_PASS]",))
 
+    def test_failed_native_gate_still_collects_independent_result(self):
+        fake = self.server / "fake_independent_forge.py"
+        fake.write_text(
+            "import sys, time\n"
+            "print('Done (0.1s)!', flush=True)\n"
+            "print('[Server thread/ERROR] [KubeJS Server/]: [CLOCKWORK_COMPAT_FAIL] bad fluid', flush=True)\n"
+            "time.sleep(0.4)\n"
+            "print('[CLOCKWORK_INDUSTRIAL_PASS]', flush=True)\n"
+            "for line in sys.stdin:\n"
+            "    if line.strip() == 'stop': break\n"
+        )
+        log = self.server / "independent.log"
+        with self.assertRaisesRegex(RuntimeError, "Native acceptance failed"):
+            runner.run_server(self.server, f"{sys.executable} fake_independent_forge.py",
+                              log, 15, "[CLOCKWORK_COMPAT_PASS]", ("[CLOCKWORK_INDUSTRIAL_PASS]",))
+        self.assertIn("[CLOCKWORK_INDUSTRIAL_PASS]", log.read_text())
+
     def test_full_mock_smoke_path_uses_one_spawn_world_and_writes_evidence(self):
         """Exercise the runner end-to-end with synthetic Anvil chunks, NOT Forge."""
         spec = importlib.util.spec_from_file_location(

@@ -183,6 +183,14 @@ def stage_native_production_fixture(repo: Path, server: Path) -> str:
     return hashlib.sha256(content).hexdigest()
 
 
+NATIVE_FAILURES = {
+    "[CLOCKWORK_GAMEPLAY_PASS]": "[CLOCKWORK_GAMEPLAY_FAIL]",
+    "[WANDERLITE_NATIVE_PASS]": "[WANDERLITE_NATIVE_FAIL]",
+    "[CLOCKWORK_COMPAT_PASS]": "[CLOCKWORK_COMPAT_FAIL]",
+    "[CLOCKWORK_INDUSTRIAL_PASS]": "[CLOCKWORK_INDUSTRIAL_FAIL]",
+}
+
+
 def run_server(server: Path, command: str, log: Path, timeout: int,
                required_marker: str | None = None,
                additional_markers: tuple[str, ...] = ()) -> None:
@@ -203,27 +211,33 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
                 pending.add(required_marker)
             last = 0
             tail = ""
+            failures = set()
             with log.open("r", encoding="utf-8", errors="replace") as reader:
                 while time.monotonic() - begin < timeout:
                     reader.seek(last)
                     latest = reader.read()
                     last = reader.tell()
-                    # Preserve the boundary across partial reads of a log line.
-                    text = tail + latest
-                    tail = text[-512:]
-                    if (ERRORS.search(text) or "[CLOCKWORK_GAMEPLAY_FAIL]" in text
-                            or "[WANDERLITE_NATIVE_FAIL]" in text or "[CLOCKWORK_COMPAT_FAIL]" in text
-                            or "[CLOCKWORK_INDUSTRIAL_FAIL]" in text):
-                        raise RuntimeError("Forge/KubeJS registry, recipe or native gameplay error")
-                    ready = ready or bool(DONE.search(text))
-                    pending.difference_update(marker for marker in tuple(pending) if marker in text)
+                    # Keep incomplete lines until their full marker and error
+                    # context arrive. A known fixture failure cannot be mistaken
+                    # for an unrelated registry or script failure.
+                    lines = (tail + latest).split("\n")
+                    tail = lines.pop()
+                    for line in lines:
+                        failed = {mark for mark, failure in NATIVE_FAILURES.items()
+                                  if failure in line}
+                        failures.update(failed)
+                        pending.difference_update(failed)
+                        if not failed and ERRORS.search(line):
+                            raise RuntimeError("Forge/KubeJS registry or recipe error")
+                        ready = ready or bool(DONE.search(line))
+                        pending.difference_update(mark for mark in tuple(pending) if mark in line)
                     if ready and not pending:
                         break
                     if proc.poll() is not None:
                         raise RuntimeError(f"Forge exited before acceptance: {proc.returncode}")
                     time.sleep(0.5)
             if not ready or pending:
-                raise TimeoutError(f"Forge acceptance timed out; missing markers: {sorted(pending)}")
+                raise TimeoutError(f"Forge acceptance timed out; missing markers: {sorted(pending)}; failed: {sorted(failures)}")
             proc.stdin.write("save-all flush\n")
             proc.stdin.flush()
             time.sleep(2)
@@ -233,7 +247,10 @@ def run_server(server: Path, command: str, log: Path, timeout: int,
             if proc.returncode != 0:
                 raise RuntimeError(f"Forge exited unsuccessfully ({proc.returncode})")
             final = log.read_text(encoding="utf-8", errors="replace")
-            if ERRORS.search(final) or "[CLOCKWORK_GAMEPLAY_FAIL]" in final or "[WANDERLITE_NATIVE_FAIL]" in final or "[CLOCKWORK_COMPAT_FAIL]" in final or "[CLOCKWORK_INDUSTRIAL_FAIL]" in final:
+            failures.update(mark for mark, failure in NATIVE_FAILURES.items() if failure in final)
+            if failures:
+                raise RuntimeError(f"Native acceptance failed: {sorted(failures)}")
+            if ERRORS.search(final):
                 raise RuntimeError("Forge/KubeJS error found in the final server log")
         finally:
             if proc.poll() is None:
