@@ -98,6 +98,8 @@ ServerEvents.loaded(event=>{
         var ex=cqaPlace(w,p.east(2),'vs_clockwork:steam_generator',{face:'wall',facing:'east'});
         cqaAssert(ex.getBlockState().canSurvive(w,p.east(2)),'extractor cannot attach to connected GT pipe');
         var duct=cqaPlace(w,p.east(3),'vs_clockwork:duct',{});
+        var burner=cqaPlace(w,p.east(3).south(),'vs_clockwork:coal_burner',{facing:'south'});
+        burner.setStoredFuelStack(Item.of('minecraft:charcoal',16));
         var engine=cqaPlace(w,p.east(4),'vs_clockwork:gas_engine',{axis:'x'});
         cqaPlace(w,p.east(5),'vs_clockwork:exhaust',{facing:'east'});
         var pistonPos=p.east(4).north(), shaftPos=p.east(4).north(3);
@@ -105,9 +107,9 @@ ServerEvents.loaded(event=>{
         var piston=cqaPlace(w,pistonPos,'create:steam_engine',{face:'wall',facing:'north'});
         cqaAssert(CIQA_Piston.getShaftPos(piston.getBlockState(),pistonPos).equals(shaftPos),'wrong piston geometry');
         var consumerPos=shaftPos.east();
-        cqaPlace(w,consumerPos,'greate:steel_cogwheel',{axis:'x'});
+        cqaPlace(w,consumerPos,'greate:steel_encased_fan',{facing:'east'});
         CIQA.boiler=b; CIQA.water=capacity; CIQA.pipe=pipe; CIQA.extractor=ex; CIQA.engine=engine; CIQA.duct=duct;
-        CIQA.pistonPos=pistonPos; CIQA.shaftPos=shaftPos; CIQA.consumerPos=consumerPos;
+        CIQA.boilerPos=p; CIQA.pistonPos=pistonPos; CIQA.shaftPos=shaftPos; CIQA.consumerPos=consumerPos;
         CIQA.started=true;
         console.info('[CLOCKWORK_KINETICS_STARTED] actual boiler + connected steel pipe + extractor + exhaust');
     }catch(e){ciqaReport('kinetics setup',e);CIQA.done=true;}
@@ -131,25 +133,42 @@ ServerEvents.tick(event=>{
         var w=CIQA.world, b=CIQA.boiler, e=CIQA.engine;
         var shaft=w.getBlockEntity(CIQA.shaftPos), consumer=w.getBlockEntity(CIQA.consumerPos);
         if(CIQA.stage===0){
+            var mass=ciqaGasMass(CIQA.extractor.getDuctNodePosition(),CIQA.extractor.getSteamGas());
+            if(Number(b.getCurrentTemperature())>=100&&Number(b.waterTank.getFluidInTank(0).getAmount())<CIQA.water&&mass>0){
+                console.info('[CLOCKWORK_BOILER_PIPE_PASS] steam_kg='+mass);
+                var p=CIQA.boilerPos.east().above();
+                var drum=cqaPlace(w,p,'gtceu:steel_drum',{});
+                CIQA_Meta.getMachine(w,p).setAutoOutputFluids(true);
+                CIQA.pipe.setConnection(CQA_Dir.UP,true,false);
+                var inlet=drum.getCapability(CQA_Cap.FLUID_HANDLER,CQA_Dir.EAST).orElse(null);
+                var cap=Number(inlet.getTankCapacity(0));
+                cqaAssert(Number(inlet.fill(Fluid.of('gtceu:steam',cap),CQA_Action.EXECUTE))===cap,'buffer fill failed');
+                CIQA.buffer=inlet; CIQA.bufferStart=cap; CIQA.stage=1; CIQA.driveTick=CIQA.ticks;
+                console.info('[CLOCKWORK_BUFFER_STARTED] stored_mb='+cap);
+            }else if(CIQA.ticks>2200)throw new Error('boiler pipe supply inactive: temperature='+b.getCurrentTemperature()+' steam_kg='+mass);
+        }else if(CIQA.stage===1){
             var rpm=shaft?Math.abs(Number(shaft.getSpeed())):0;
             var flow=Number(e.getRawFlowRate()), eff=Number(e.getEngineEfficiency());
             if(rpm>0&&flow>0&&eff>0&&consumer&&Math.abs(Number(consumer.getSpeed()))>0){
                 cqaAssert(Number(b.getCurrentTemperature())>0&&Number(b.waterTank.getFluidInTank(0).getAmount())<CIQA.water,'boiler did not consume water');
                 cqaAssert(Number(shaft.calculateAddedStressCapacity())>0&&!shaft.isOverStressed(),'no usable stress');
+                cqaAssert(Number(consumer.calculateStressApplied())>0&&!consumer.isOverStressed(),'fan is not powered under load');
+                cqaAssert(Number(CIQA.buffer.getFluidInTank(0).getAmount())<CIQA.bufferStart,'buffer not used');
                 cqaAssert(Math.abs(Number(consumer.getSpeed()))===rpm,'consumer speed mismatch');
                 console.info('[CLOCKWORK_KINETICS_DRIVE_PASS] rpm='+rpm+' flow='+flow+' efficiency='+eff+' stress='+shaft.calculateAddedStressCapacity());
                 b.getRecipeLogic().setWorkingEnabled(false);
                 CIQA.pipe.setConnection(CQA_Dir.WEST,false,false);
-                CIQA.stage=1; CIQA.shutdownTick=CIQA.ticks;
-            }else if(CIQA.ticks>1800)throw new Error('no real rotation: temperature='+b.getCurrentTemperature()+' gas='+ciqaGasMass(CIQA.extractor.getDuctNodePosition(),CIQA.extractor.getSteamGas())+' flow='+flow+' efficiency='+eff+' rpm='+rpm);
-        }else if(CIQA.stage===1){
+                CIQA.pipe.setConnection(CQA_Dir.UP,false,false);
+                CIQA.stage=2; CIQA.shutdownTick=CIQA.ticks;
+            }else if(CIQA.ticks-CIQA.driveTick>1800)throw new Error('no real rotation: temperature='+b.getCurrentTemperature()+' gas='+ciqaGasMass(CIQA.extractor.getDuctNodePosition(),CIQA.extractor.getSteamGas())+' flow='+flow+' efficiency='+eff+' rpm='+rpm);
+        }else if(CIQA.stage===2){
             if(shaft&&Math.abs(Number(shaft.getSpeed()))===0&&Number(e.getEngineEfficiency())===0){
                 cqaAssert(!consumer||Number(consumer.getSpeed())===0,'consumer still driven after steam shutdown');
                 console.info('[CLOCKWORK_KINETICS_SHUTDOWN_PASS]');
                 w.removeBlock(CIQA.pistonPos,false);
-                CIQA.stage=2;CIQA.removedTick=CIQA.ticks;
+                CIQA.stage=3;CIQA.removedTick=CIQA.ticks;
             }else if(CIQA.ticks-CIQA.shutdownTick>600)throw new Error('steam shutdown failed');
-        }else if(CIQA.stage===2&&CIQA.ticks-CIQA.removedTick>=40){
+        }else if(CIQA.stage===3&&CIQA.ticks-CIQA.removedTick>=40){
             cqaAssert(String(CQA_Regs.BLOCKS.getKey(w.getBlockState(CIQA.shaftPos).getBlock()))==='greate:steel_shaft','shaft tier not restored');
             console.info('[CLOCKWORK_KINETICS_PASS] steel shaft restored');
             CIQA.done=true;ciqaComplete();
