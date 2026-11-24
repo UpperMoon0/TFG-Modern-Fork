@@ -5,7 +5,6 @@ var CQA_Regs=Java.loadClass('net.minecraftforge.registries.ForgeRegistries');
 var CQA_Dir=Java.loadClass('net.minecraft.core.Direction');
 var CQA_Cap=Java.loadClass('net.minecraftforge.common.capabilities.ForgeCapabilities');
 var CQA_Action=Java.loadClass('net.minecraftforge.fluids.capability.IFluidHandler$FluidAction');
-var CQA_FluidStack=Java.loadClass('net.minecraftforge.fluids.FluidStack');
 var CQA_Mod=Java.loadClass('org.valkyrienskies.clockwork.ClockworkMod');
 var CQA_Extractor=Java.loadClass('org.valkyrienskies.clockwork.content.logistics.gas.generation.steam_generator.SteamGeneratorBlock');
 var CQA={ticks:0,done:false,started:false};
@@ -22,8 +21,8 @@ function cqaPlace(w,pos,id,props){
     return w.getBlockEntity(pos);
 }
 function cqaFill(id,amount){
-    var f=CQA_Regs.FLUIDS.getValue(new CQA_RL(id));
-    var s=new CQA_FluidStack(f,amount);
+    // KubeJS wraps Forge FluidStack constructors; use its native conversion.
+    var s=Fluid.of(id,amount);
     cqaAssert(Number(CQA.handler.fill(s,CQA_Action.EXECUTE))===amount,'source fill rejected '+id);
 }
 function cqaAmount(){
@@ -94,8 +93,8 @@ ServerEvents.tick(event=>{
         if(CQA.ticks===30){
             cqaAssert(cqaAmount()===1000,'water was consumed');
             cqaAssert(cqaMass()===0,'water converted to steam');
-            var water=CQA_Regs.FLUIDS.getValue(new CQA_RL('minecraft:water'));
-            var drained=CQA.handler.drain(new CQA_FluidStack(water,1000),CQA_Action.EXECUTE);
+            var drained=CQA.handler.drain(1000,CQA_Action.EXECUTE);
+            cqaAssert(String(CQA_Regs.FLUIDS.getKey(drained.getFluid()))==='minecraft:water','drained wrong fluid');
             cqaAssert(Number(drained.getAmount())===1000,'water drain failed');
             cqaFill('gtceu:steam',10000);
             console.info('[CLOCKWORK_COMPAT_WATER_PASS] water=1000 unchanged');
